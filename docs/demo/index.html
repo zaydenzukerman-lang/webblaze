@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Mobile Detailing — Miami's Premium Mobile Car Detailing</title>
+<meta name="description" content="Showroom shine, delivered to your driveway. Premium mobile car detailing across Miami-Dade. Interior, exterior, full detail & ceramic coating.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&%23128312;</text></svg>">
+<style>
+  /* ============ TOKENS ============ */
+  :root {
+    --bg: #08090b;
+    --bg-2: #0d0f12;
+    --bg-3: #12151a;
+    --ink: #f4f6f8;
+    --ink-dim: #9aa3ad;
+    --ink-faint: #5c646e;
+    --accent: #35e0ff;
+    --accent-deep: #0aa8c9;
+    --gold: #f5c56b;
+    --line: rgba(255,255,255,0.08);
+    --glass: rgba(255,255,255,0.04);
+    --glass-strong: rgba(255,255,255,0.07);
+    --radius: 18px;
+    --font-display: 'Sora', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--accent); color: #04131a; }
+
+  .wrap { width: min(1120px, 92%); margin-inline: auto; }
+
+  /* ============ REVEAL ANIMATION ============ */
+  /* Hidden state only applies when JS is running (html.js set inline below),
+     so the page never renders blank for no-JS clients or link-preview bots. */
+  html.js .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  }
+  html.js .reveal.in { opacity: 1; transform: none; }
+  .reveal[data-delay="1"] { transition-delay: 0.1s; }
+  .reveal[data-delay="2"] { transition-delay: 0.2s; }
+  .reveal[data-delay="3"] { transition-delay: 0.3s; }
+  .reveal[data-delay="4"] { transition-delay: 0.4s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  /* ============ NAV ============ */
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.scrolled {
+    background: rgba(8, 9, 11, 0.72);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border-bottom-color: var(--line);
+  }
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+  }
+  .brand {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand__mark {
+    width: 26px; height: 26px; flex: none;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+    clip-path: polygon(50% 0%, 100% 100%, 50% 78%, 0% 100%);
+  }
+  .brand span em { color: var(--accent); font-style: normal; }
+  .nav__links {
+    display: none;
+    gap: 32px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .nav__links a { transition: color 0.25s ease; }
+  .nav__links a:hover { color: var(--accent); }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 13px 26px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background 0.3s ease;
+    min-height: 44px;
+  }
+  .btn--accent {
+    background: linear-gradient(120deg, var(--accent), var(--accent-deep));
+    color: #031318;
+    box-shadow: 0 0 0 rgba(53, 224, 255, 0);
+  }
+  .btn--accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 34px rgba(53, 224, 255, 0.35);
+  }
+  .btn--ghost {
+    background: var(--glass);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    backdrop-filter: blur(8px);
+  }
+  .btn--ghost:hover { background: var(--glass-strong); transform: translateY(-2px); }
+  .nav .btn { padding: 10px 20px; font-size: 0.78rem; }
+
+  @media (min-width: 800px) {
+    .nav__links { display: flex; }
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    isolation: isolate;
+  }
+  .hero__bg {
+    position: absolute; inset: 0; z-index: -2;
+    background-image: url('images/hero.jpg');
+    background-size: cover;
+    background-position: 62% center;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; inset: 0; z-index: -1;
+    background:
+      linear-gradient(180deg, rgba(8,9,11,0.55) 0%, rgba(8,9,11,0.15) 35%, rgba(8,9,11,0.55) 70%, var(--bg) 100%),
+      radial-gradient(ellipse 90% 60% at 20% 90%, rgba(8,9,11,0.65), transparent);
+  }
+  .hero__content {
+    width: min(1120px, 92%);
+    margin-inline: auto;
+    padding: 130px 0 72px;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(53, 224, 255, 0.08);
+    border: 1px solid rgba(53, 224, 255, 0.25);
+    padding: 8px 16px;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    margin-bottom: 22px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.6rem, 9vw, 4.8rem);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    max-width: 13ch;
+    margin-bottom: 20px;
+  }
+  .hero h1 .shine {
+    background: linear-gradient(100deg, var(--accent) 20%, #b6f3ff 50%, var(--accent) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero p {
+    color: var(--ink-dim);
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    max-width: 44ch;
+    margin-bottom: 32px;
+  }
+  .hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 52px; }
+  .hero__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    backdrop-filter: blur(14px);
+    max-width: 560px;
+  }
+  .stat {
+    background: rgba(10, 12, 15, 0.55);
+    padding: 16px 12px;
+    text-align: center;
+  }
+  .stat b {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 4vw, 1.5rem);
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .stat span {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ============ SECTION SHARED ============ */
+  section { padding: clamp(72px, 12vw, 120px) 0; }
+  .sec-head { margin-bottom: clamp(36px, 6vw, 56px); }
+  .sec-head .kicker {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .sec-head h2 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.9rem, 5.5vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    max-width: 20ch;
+  }
+  .sec-head p { color: var(--ink-dim); max-width: 52ch; margin-top: 14px; }
+
+  /* ============ SERVICES ============ */
+  .services { background: linear-gradient(180deg, var(--bg), var(--bg-2) 40%, var(--bg)); }
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .card {
+    position: relative;
+    background: var(--glass);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 30px 26px;
+    backdrop-filter: blur(12px);
+    transition: transform 0.4s var(--ease), border-color 0.4s ease, background 0.4s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(53, 224, 255, 0.35);
+    background: var(--glass-strong);
+  }
+  .card--featured {
+    border-color: rgba(53, 224, 255, 0.45);
+    background: linear-gradient(160deg, rgba(53, 224, 255, 0.08), rgba(255,255,255,0.03) 55%);
+    box-shadow: 0 20px 60px rgba(53, 224, 255, 0.08);
+  }
+  .card__tag {
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: linear-gradient(120deg, var(--accent), var(--accent-deep));
+    color: #031318;
+    font-family: var(--font-display);
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 999px;
+  }
+  .card h3 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .card .price {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 10px 0 4px;
+  }
+  .card .price small {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
+  .card .duration { font-size: 0.8rem; color: var(--ink-faint); margin-bottom: 18px; }
+  .card ul { list-style: none; display: grid; gap: 9px; margin-bottom: 26px; }
+  .card li {
+    font-size: 0.92rem;
+    color: var(--ink-dim);
+    padding-left: 26px;
+    position: relative;
+  }
+  .card li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 7px;
+    width: 14px; height: 8px;
+    border-left: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+    transform: rotate(-48deg);
+  }
+  .card .btn { margin-top: auto; width: 100%; }
+  .card--upgrade {
+    background: linear-gradient(160deg, rgba(245, 197, 107, 0.07), rgba(255,255,255,0.02) 60%);
+    border-color: rgba(245, 197, 107, 0.28);
+  }
+  .card--upgrade:hover { border-color: rgba(245, 197, 107, 0.5); }
+  .card--upgrade .price, .card--upgrade h3 em { color: var(--gold); font-style: normal; }
+  .card--upgrade li::before { border-color: var(--gold); }
+
+  @media (min-width: 680px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1020px) { .cards { grid-template-columns: repeat(4, 1fr); } .card { padding: 32px 24px; } }
+
+  /* ============ GALLERY ============ */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .shot {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(135deg, #101319, #0a0c10);
+  }
+  .shot img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease);
+  }
+  .shot:hover img { transform: scale(1.05); }
+  .shot figcaption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 40px 18px 16px;
+    background: linear-gradient(180deg, transparent, rgba(5, 6, 8, 0.85));
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .shot figcaption span { color: var(--accent); margin-right: 8px; }
+  @media (min-width: 680px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .shot--wide { grid-column: span 2; aspect-ratio: 21 / 9; }
+  }
+
+  /* ============ REVIEWS ============ */
+  .reviews { background: linear-gradient(180deg, var(--bg), var(--bg-2) 50%, var(--bg)); }
+  .review-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .review {
+    background: var(--glass);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 26px 24px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.4s var(--ease), border-color 0.4s ease;
+  }
+  .review:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.16); }
+  .stars { display: flex; gap: 3px; margin-bottom: 14px; }
+  .stars svg { width: 16px; height: 16px; fill: var(--gold); }
+  .review p { font-size: 0.95rem; color: var(--ink-dim); margin-bottom: 18px; }
+  .review .who { display: flex; align-items: center; gap: 12px; }
+  .review .avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: #031318;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+    flex: none;
+  }
+  .review .who b { display: block; font-size: 0.9rem; }
+  .review .who span { font-size: 0.75rem; color: var(--ink-faint); letter-spacing: 0.04em; }
+  @media (min-width: 680px) { .review-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1020px) {
+    .review-grid { grid-template-columns: repeat(3, 1fr); }
+    .review:nth-child(4), .review:nth-child(5) { display: block; }
+  }
+
+  /* ============ SERVICE AREA ============ */
+  .area__inner {
+    display: grid;
+    gap: 36px;
+  }
+  .area-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .chip {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--ink-dim);
+    border: 1px solid var(--line);
+    background: var(--glass);
+    padding: 9px 18px;
+    border-radius: 999px;
+    transition: color 0.25s ease, border-color 0.25s ease;
+  }
+  .chip:hover { color: var(--accent); border-color: rgba(53, 224, 255, 0.4); }
+  .area-card {
+    background: linear-gradient(150deg, rgba(53, 224, 255, 0.07), rgba(255,255,255,0.02) 60%);
+    border: 1px solid rgba(53, 224, 255, 0.25);
+    border-radius: var(--radius);
+    padding: 30px 26px;
+  }
+  .area-card h3 { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 10px; }
+  .area-card p { color: var(--ink-dim); font-size: 0.95rem; margin-bottom: 20px; }
+  .area-card .big {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 5vw, 2rem);
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+  }
+  @media (min-width: 880px) { .area__inner { grid-template-columns: 1.2fr 1fr; align-items: center; } }
+
+  /* ============ BOOKING ============ */
+  .booking { background: linear-gradient(180deg, var(--bg), var(--bg-2) 50%, var(--bg)); }
+  .booking__panel {
+    background: var(--glass);
+    border: 1px solid var(--line);
+    border-radius: calc(var(--radius) + 6px);
+    backdrop-filter: blur(14px);
+    padding: clamp(28px, 5vw, 48px);
+    max-width: 640px;
+    margin-inline: auto;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  }
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+  }
+  .field input, .field select {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 14px 16px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    appearance: none;
+    min-height: 48px;
+  }
+  .field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239aa3ad' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+  }
+  .field input:focus, .field select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(53, 224, 255, 0.15);
+  }
+  .field input::placeholder { color: var(--ink-faint); }
+  .field-row { display: grid; gap: 18px; }
+  @media (min-width: 560px) { .field-row { grid-template-columns: 1fr 1fr; } }
+  .booking__panel .btn--accent { width: 100%; margin-top: 8px; }
+  .or-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 22px 0;
+    color: var(--ink-faint);
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .or-divider::before, .or-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  .booking__panel .btn--ghost { width: 100%; }
+  .booking-note {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    margin-top: 18px;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 56px 0 36px;
+    background: var(--bg-2);
+  }
+  .foot-grid {
+    display: grid;
+    gap: 32px;
+    margin-bottom: 44px;
+  }
+  .foot-grid h4 {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  .foot-grid p, .foot-grid a { color: var(--ink-dim); font-size: 0.92rem; }
+  .foot-grid a { display: block; padding: 3px 0; transition: color 0.25s ease; }
+  .foot-grid a:hover { color: var(--accent); }
+  .foot-brand p { max-width: 30ch; margin-top: 12px; }
+  .foot-bottom {
+    border-top: 1px solid var(--line);
+    padding-top: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+  }
+  .foot-bottom .credit a { color: var(--ink-dim); font-weight: 600; }
+  .foot-bottom .credit a:hover { color: var(--accent); }
+  @media (min-width: 720px) {
+    .foot-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+    .foot-bottom { flex-direction: row; justify-content: space-between; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="#top" aria-label="Apex Mobile Detailing home">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span>Apex<em>&nbsp;Detailing</em></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#work">The Work</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Service Area</a>
+    </nav>
+    <a class="btn btn--accent" href="#book">Book Now</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero__bg" role="img" aria-label="Detailer polishing a glossy black sports car at dusk in a Miami driveway"></div>
+  <div class="hero__content">
+    <div class="eyebrow reveal">Mobile Detailing &middot; Miami-Dade</div>
+    <h1 class="reveal" data-delay="1">Showroom shine.<br><span class="shine">We come to you.</span></h1>
+    <p class="reveal" data-delay="2">Five-star mobile detailing at your home or office. We bring the water, the power, and the obsession — you just hand us the keys.</p>
+    <div class="hero__ctas reveal" data-delay="3">
+      <a class="btn btn--accent" href="#book">Book Your Detail</a>
+      <a class="btn btn--ghost" href="#services">See Pricing</a>
+    </div>
+    <div class="hero__stats reveal" data-delay="4">
+      <div class="stat"><b>500+</b><span>Cars Detailed</span></div>
+      <div class="stat"><b>5.0&#9733;</b><span>Google Rating</span></div>
+      <div class="stat"><b>7 Days</b><span>We Roll Weekly</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Services &amp; Pricing</div>
+      <h2>Pick your finish. We handle the rest.</h2>
+      <p>Flat, honest pricing. No upsell games at your driveway — the price you book is the price you pay.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <h3>Exterior Detail</h3>
+        <div class="price">$99</div>
+        <div class="duration">~90 minutes</div>
+        <ul>
+          <li>Foam bath &amp; hand wash</li>
+          <li>Wheel &amp; tire deep clean</li>
+          <li>Bug &amp; tar removal</li>
+          <li>Spray sealant + tire shine</li>
+        </ul>
+        <a class="btn btn--ghost" href="#book" data-service="Exterior Detail">Book Exterior</a>
+      </article>
+
+      <article class="card reveal" data-delay="1">
+        <h3>Interior Detail</h3>
+        <div class="price">$129</div>
+        <div class="duration">~2 hours</div>
+        <ul>
+          <li>Full vacuum &amp; steam clean</li>
+          <li>Seat &amp; carpet shampoo</li>
+          <li>Leather conditioning</li>
+          <li>Glass, trim &amp; odor treatment</li>
+        </ul>
+        <a class="btn btn--ghost" href="#book" data-service="Interior Detail">Book Interior</a>
+      </article>
+
+      <article class="card card--featured reveal" data-delay="2">
+        <div class="card__tag">Most Popular</div>
+        <h3>Full Detail</h3>
+        <div class="price">$199 <small>save $29</small></div>
+        <div class="duration">~3.5 hours</div>
+        <ul>
+          <li>Everything in Exterior</li>
+          <li>Everything in Interior</li>
+          <li>Engine bay wipe-down</li>
+          <li>6-month spray sealant</li>
+        </ul>
+        <a class="btn btn--accent" href="#book" data-service="Full Detail">Book Full Detail</a>
+      </article>
+
+      <article class="card card--upgrade reveal" data-delay="3">
+        <h3><em>Upgrade:</em> Ceramic Coating</h3>
+        <div class="price">+$349</div>
+        <div class="duration">Add to any Full Detail</div>
+        <ul>
+          <li>1-step machine polish</li>
+          <li>2-year ceramic protection</li>
+          <li>Hydrophobic, self-cleaning gloss</li>
+          <li>UV &amp; salt-air defense</li>
+        </ul>
+        <a class="btn btn--ghost" href="#book" data-service="Full Detail + Ceramic">Add Ceramic</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">The Work</div>
+      <h2>Gloss you can see from across the street.</h2>
+    </div>
+    <div class="gallery-grid">
+      <figure class="shot shot--wide reveal">
+        <img src="images/gallery-night.jpg" alt="Freshly detailed white SUV at night with glossy paint reflecting Miami city lights" loading="lazy">
+        <figcaption><span>01</span>Full Detail &middot; Brickell</figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <img src="images/gallery-foam.jpg" alt="Sports car covered in thick white snow foam during a premium wash" loading="lazy">
+        <figcaption><span>02</span>Foam Bath &middot; Exterior</figcaption>
+      </figure>
+      <figure class="shot reveal" data-delay="1">
+        <img src="images/gallery-interior.jpg" alt="Detailer deep-cleaning tan leather car interior with steam extraction" loading="lazy">
+        <figcaption><span>03</span>Interior Shampoo</figcaption>
+      </figure>
+      <figure class="shot shot--wide reveal">
+        <img src="images/gallery-ceramic.jpg" alt="Close-up of ceramic coating being applied to deep black paint" loading="lazy">
+        <figcaption><span>04</span>Ceramic Coating &middot; 2-Year Gloss</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Reviews</div>
+      <h2>Miami drivers keep coming back.</h2>
+    </div>
+    <div class="review-grid">
+      <article class="review reveal">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </div>
+        <p>&ldquo;They detailed my 4Runner in my office parking garage while I was in meetings. Came out looking better than the day I bought it. Booking took 30 seconds.&rdquo;</p>
+        <div class="who">
+          <div class="avatar">CM</div>
+          <div><b>Carlos M.</b><span>Coral Gables &middot; Full Detail</span></div>
+        </div>
+      </article>
+
+      <article class="review reveal" data-delay="1">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </div>
+        <p>&ldquo;Two kids, one dog, three years of beach trips. I honestly thought the seats were ruined. The interior shampoo brought them back to new. Worth every penny.&rdquo;</p>
+        <div class="who">
+          <div class="avatar">JR</div>
+          <div><b>Jessica R.</b><span>Kendall &middot; Interior Detail</span></div>
+        </div>
+      </article>
+
+      <article class="review reveal" data-delay="2">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </div>
+        <p>&ldquo;Got the ceramic coating on my C8 before summer. Rain literally slides off and the gloss is unreal at night. These guys treat your car like it&rsquo;s theirs.&rdquo;</p>
+        <div class="who">
+          <div class="avatar">DT</div>
+          <div><b>Dwayne T.</b><span>Doral &middot; Full Detail + Ceramic</span></div>
+        </div>
+      </article>
+
+      <article class="review reveal" data-delay="1">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </div>
+        <p>&ldquo;Texted them at 9am, car was done in my driveway by 2. Zero hassle, super professional, and they even cleaned spots the dealership always misses.&rdquo;</p>
+        <div class="who">
+          <div class="avatar">MV</div>
+          <div><b>Marisol V.</b><span>Wynwood &middot; Exterior Detail</span></div>
+        </div>
+      </article>
+
+      <article class="review reveal" data-delay="2">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </div>
+        <p>&ldquo;I manage a small fleet of six vans. Apex handles all of them monthly, on schedule, without me chasing anyone. Most reliable vendor we work with.&rdquo;</p>
+        <div class="who">
+          <div class="avatar">AP</div>
+          <div><b>Andre P.</b><span>Miami Lakes &middot; Fleet Client</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE AREA ============ -->
+<section id="area">
+  <div class="wrap area__inner">
+    <div class="reveal">
+      <div class="sec-head" style="margin-bottom:0;">
+        <div class="kicker">Service Area</div>
+        <h2>All of Miami-Dade. Your driveway is our shop.</h2>
+        <p>We're fully mobile — water and power on board. If you're inside Miami-Dade, we come to you at no extra charge.</p>
+      </div>
+      <div class="area-chips" aria-label="Neighborhoods we serve">
+        <span class="chip">Brickell</span>
+        <span class="chip">Coral Gables</span>
+        <span class="chip">Coconut Grove</span>
+        <span class="chip">Kendall</span>
+        <span class="chip">Doral</span>
+        <span class="chip">Wynwood</span>
+        <span class="chip">Miami Beach</span>
+        <span class="chip">Pinecrest</span>
+        <span class="chip">Miami Lakes</span>
+        <span class="chip">Aventura</span>
+        <span class="chip">Homestead</span>
+        <span class="chip">+ Everywhere between</span>
+      </div>
+    </div>
+    <div class="area-card reveal" data-delay="1">
+      <h3>Same-week appointments</h3>
+      <p>Most bookings are scheduled within 48 hours. Early morning and weekend slots available — we work around your day, not the other way around.</p>
+      <div class="big">Miami-Dade County</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section class="booking" id="book">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center; margin-inline:auto;">
+      <div class="kicker">Book Now</div>
+      <h2 style="margin-inline:auto;">Lock in your spot.</h2>
+      <p style="margin-inline:auto;">Takes under a minute. We'll confirm your slot by text within the hour.</p>
+    </div>
+    <form class="booking__panel reveal" data-delay="1" onsubmit="return false;" aria-label="Booking request form">
+      <div class="field-row">
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input id="f-name" type="text" name="name" placeholder="Your name" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone</label>
+          <input id="f-phone" type="tel" name="phone" placeholder="(305) 555-0147" autocomplete="tel">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="f-service">Service</label>
+          <select id="f-service" name="service">
+            <option>Full Detail — $199</option>
+            <option>Interior Detail — $129</option>
+            <option>Exterior Detail — $99</option>
+            <option>Full Detail + Ceramic — $548</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-date">Preferred Date</label>
+          <input id="f-date" type="date" name="date">
+        </div>
+      </div>
+      <button type="submit" class="btn btn--accent">Request My Booking</button>
+      <div class="or-divider">or</div>
+      <a class="btn btn--ghost" href="sms:+13055550147">&#128172;&nbsp; Text Us — (305) 555-0147</a>
+      <p class="booking-note">No payment due now. Cancel or reschedule free up to 24h before.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span>Apex<em>&nbsp;Detailing</em></span>
+        </a>
+        <p>Premium mobile car detailing, delivered anywhere in Miami-Dade. Fully insured. Water &amp; power on board.</p>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p>Mon–Sat: 8am – 7pm<br>Sunday: 9am – 4pm</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="tel:+13055550147">(305) 555-0147</a>
+        <a href="mailto:book@apexdetailing.com">book@apexdetailing.com</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#" rel="noopener">Instagram @apexmobiledetailing</a>
+        <a href="#reviews">Google Reviews</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Apex Mobile Detailing. All rights reserved.</span>
+      <span class="credit">Site by <a href="../">Booked Solid</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav state
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Scroll reveal
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const targets = document.querySelectorAll('.reveal');
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    targets.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    targets.forEach(el => io.observe(el));
+  }
+
+  // Service card CTA -> preselect service in booking form
+  const serviceSelect = document.getElementById('f-service');
+  document.querySelectorAll('[data-service]').forEach(a => {
+    a.addEventListener('click', () => {
+      const want = a.dataset.service;
+      [...serviceSelect.options].forEach(o => {
+        if (o.text.startsWith(want)) serviceSelect.value = o.value || o.text;
+      });
+    });
+  });
+</script>
+</body>
+</html>
