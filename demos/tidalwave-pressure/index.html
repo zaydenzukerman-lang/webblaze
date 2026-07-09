@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TidalWave Pressure Washing — Franklin, TN | Driveways, Siding, Roofs</title>
+<meta name="description" content="Franklin's pressure washing pros. Driveways, house soft wash, roofs, decks. Licensed & insured, 5.0★ on Google. Free instant quote — text us a photo.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&%23128167;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6FAFC;
+    --white:#FFFFFF;
+    --ink:#12293B;
+    --ink-soft:#4A6274;
+    --blue:#1483D6;
+    --blue-deep:#0E5E9C;
+    --sky:#E3F1FA;
+    --orange:#F5852C;
+    --orange-deep:#D96A12;
+    --line:#DCE8F0;
+    --radius:16px;
+    --display:'Sora',sans-serif;
+    --body:'Manrope',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{width:min(1100px,92%);margin-inline:auto;}
+  h1,h2,h3{font-family:var(--display);letter-spacing:-0.02em;line-height:1.1;}
+
+  /* reveal — hidden state gated behind html.js so no-JS never renders blank */
+  html.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);}
+  html.js .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.reveal{opacity:1!important;transform:none!important;transition:none!important;}}
+
+  /* NAV */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s;}
+  .nav.scrolled{background:rgba(255,255,255,.94);backdrop-filter:blur(12px);box-shadow:0 2px 18px rgba(18,41,59,.08);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
+  .brand{font-family:var(--display);font-weight:800;font-size:1.1rem;display:flex;align-items:center;gap:9px;color:var(--white);transition:color .3s;}
+  .nav.scrolled .brand{color:var(--ink);}
+  .brand .mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--blue-deep));display:grid;place-items:center;color:#fff;font-size:15px;flex:none;}
+  .nav .cta{background:var(--orange);color:#fff;font-family:var(--display);font-weight:700;font-size:.85rem;padding:11px 20px;border-radius:999px;box-shadow:0 4px 14px rgba(245,133,44,.35);}
+
+  /* HERO */
+  .hero{position:relative;min-height:92svh;display:flex;align-items:flex-end;isolation:isolate;color:#fff;}
+  .hero-bg{position:absolute;inset:0;z-index:-2;background:url('images/hero-driveway.jpg') center 40%/cover no-repeat;}
+  .hero::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,30,46,.45),rgba(10,30,46,.12) 40%,rgba(10,30,46,.72) 88%);}
+  .hero-content{width:min(1100px,92%);margin-inline:auto;padding:120px 0 56px;}
+  .hero h1{font-size:clamp(2.4rem,7.5vw,4.2rem);font-weight:800;max-width:15ch;margin-bottom:16px;text-shadow:0 2px 24px rgba(10,30,46,.4);}
+  .hero p{font-size:clamp(1rem,2.4vw,1.2rem);max-width:44ch;margin-bottom:26px;color:rgba(255,255,255,.92);}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:38px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--display);font-weight:700;font-size:.95rem;padding:15px 28px;border-radius:999px;min-height:48px;transition:transform .25s,box-shadow .25s;}
+  .btn:active{transform:scale(.98);}
+  .btn-orange{background:var(--orange);color:#fff;box-shadow:0 6px 20px rgba(245,133,44,.4);}
+  .btn-orange:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(245,133,44,.5);}
+  .btn-glass{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;backdrop-filter:blur(6px);}
+  .trust-strip{display:flex;flex-wrap:wrap;gap:10px 26px;font-weight:600;font-size:.9rem;color:rgba(255,255,255,.94);}
+  .trust-strip span{display:flex;align-items:center;gap:7px;}
+  .trust-strip b{color:#FFD166;}
+
+  /* SECTIONS */
+  section{padding:64px 0;}
+  .sec-label{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+  .sec-title{font-size:clamp(1.7rem,4.5vw,2.4rem);font-weight:800;margin-bottom:14px;}
+  .sec-sub{color:var(--ink-soft);max-width:52ch;margin-bottom:36px;}
+
+  /* SERVICES */
+  .services{background:var(--white);}
+  .svc-grid{display:grid;gap:16px;grid-template-columns:1fr;}
+  @media(min-width:760px){.svc-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:1020px){.svc-grid{grid-template-columns:repeat(4,1fr);}}
+  .svc{border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px;background:var(--paper);display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;}
+  .svc:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(18,41,59,.1);}
+  .svc.popular{border-color:var(--blue);background:linear-gradient(170deg,var(--sky),var(--paper) 60%);position:relative;}
+  .svc .pop-flag{position:absolute;top:-11px;left:18px;background:var(--blue);color:#fff;font-family:var(--display);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;}
+  .svc h3{font-size:1.15rem;margin-bottom:4px;}
+  .svc .price{font-family:var(--display);font-weight:800;font-size:1.7rem;color:var(--blue-deep);margin:4px 0 12px;}
+  .svc .price small{font-size:.8rem;color:var(--ink-soft);font-weight:600;}
+  .svc ul{list-style:none;flex-grow:1;margin-bottom:16px;}
+  .svc li{font-size:.92rem;color:var(--ink-soft);padding:5px 0;display:flex;gap:8px;}
+  .svc li::before{content:'✓';color:var(--blue);font-weight:800;}
+  .svc a{font-family:var(--display);font-weight:700;font-size:.88rem;color:var(--blue-deep);}
+
+  /* BEFORE / AFTER */
+  .ba{background:var(--ink);color:#fff;}
+  .ba .sec-label{color:#6EC9FF;}
+  .ba .sec-sub{color:rgba(255,255,255,.72);}
+  .ba-grid{display:grid;gap:22px;grid-template-columns:1fr;}
+  @media(min-width:820px){.ba-grid{grid-template-columns:1fr 1fr;}}
+  .ba-pair{border-radius:var(--radius);overflow:hidden;background:#0D2032;border:1px solid rgba(255,255,255,.1);}
+  .ba-imgs{display:grid;grid-template-columns:1fr 1fr;}
+  .ba-imgs figure{position:relative;margin:0;}
+  .ba-imgs img{height:100%;width:100%;object-fit:cover;aspect-ratio:4/5;}
+  .ba-imgs figcaption{position:absolute;bottom:10px;left:10px;font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:999px;background:rgba(10,30,46,.78);backdrop-filter:blur(4px);}
+  .ba-imgs .aft figcaption{background:var(--blue);}
+  .ba-pair .ba-cap{padding:16px 18px;font-weight:600;font-size:.95rem;display:flex;justify-content:space-between;align-items:center;color:rgba(255,255,255,.9);}
+  .ba-pair .ba-cap span{color:#6EC9FF;font-family:var(--display);font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
+
+  /* REVIEWS */
+  .rev-grid{display:grid;gap:16px;grid-template-columns:1fr;}
+  @media(min-width:760px){.rev-grid{grid-template-columns:repeat(2,1fr);}}
+  .rev{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;}
+  .rev .stars{color:#F5A623;letter-spacing:2px;margin-bottom:10px;font-size:.95rem;}
+  .rev p{font-size:.95rem;color:var(--ink-soft);margin-bottom:14px;}
+  .rev .who{font-weight:700;font-size:.9rem;}
+  .rev .who small{display:block;font-weight:500;color:var(--ink-soft);}
+
+  /* QUOTE */
+  .quote{background:linear-gradient(170deg,var(--sky),var(--paper) 70%);}
+  .quote-box{display:grid;gap:34px;grid-template-columns:1fr;}
+  @media(min-width:880px){.quote-box{grid-template-columns:1.1fr .9fr;align-items:start;}}
+  .qform{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;box-shadow:0 14px 38px rgba(18,41,59,.09);}
+  .qform label{display:block;font-weight:700;font-size:.82rem;margin:14px 0 6px;}
+  .qform input,.qform select{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;font-family:var(--body);font-size:.95rem;background:var(--paper);color:var(--ink);}
+  .qform input:focus,.qform select:focus{outline:none;border-color:var(--blue);}
+  .qform button{width:100%;margin-top:20px;border:none;cursor:pointer;}
+  .or-text{text-align:center;margin-top:14px;font-size:.9rem;color:var(--ink-soft);}
+  .or-text a{color:var(--blue-deep);font-weight:700;}
+  .quote-side h2{font-size:clamp(1.6rem,4vw,2.2rem);margin-bottom:14px;}
+  .quote-side p{color:var(--ink-soft);margin-bottom:20px;max-width:44ch;}
+  .area-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+  .chip{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:.85rem;font-weight:600;color:var(--ink-soft);}
+
+  footer{background:var(--ink);color:rgba(255,255,255,.85);padding:44px 0 36px;}
+  .foot-grid{display:grid;gap:26px;grid-template-columns:1fr;margin-bottom:28px;}
+  @media(min-width:720px){.foot-grid{grid-template-columns:repeat(3,1fr);}}
+  footer h4{font-family:var(--display);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:#6EC9FF;margin-bottom:10px;}
+  footer p,footer a{font-size:.92rem;line-height:1.8;}
+  .credit{border-top:1px solid rgba(255,255,255,.14);padding-top:20px;font-size:.85rem;color:rgba(255,255,255,.6);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;}
+  .credit a{color:#6EC9FF;font-weight:600;}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="mark">〜</span>TidalWave</a>
+    <a class="cta" href="#quote">Free Quote</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg" role="img" aria-label="Pressure washing a suburban driveway, clean line cutting through the grime"></div>
+  <div class="hero-content">
+    <h1 class="reveal">Your driveway. Like the day it was poured.</h1>
+    <p class="reveal">Driveways, siding, roofs and decks — washed by Franklin's highest-rated crew. Free quotes, honest prices, done this week.</p>
+    <div class="hero-ctas reveal">
+      <a class="btn btn-orange" href="#quote">Get a free quote</a>
+      <a class="btn btn-glass" href="sms:+16155550142?&body=Hi%20TidalWave%20—%20here's%20a%20photo%20of%20my%20driveway,%20what%20would%20it%20cost?">📱 Text us a photo</a>
+    </div>
+    <div class="trust-strip reveal">
+      <span><b>★ 5.0</b> on Google</span>
+      <span>Licensed &amp; Insured</span>
+      <span>Franklin, TN &amp; nearby</span>
+    </div>
+  </div>
+</header>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <p class="sec-label reveal">Services &amp; Pricing</p>
+    <h2 class="sec-title reveal">Straight prices. No "call for a mystery quote."</h2>
+    <p class="sec-sub reveal">Most homes fit the prices below. Bigger jobs get a fast custom quote — text us a photo and we'll price it within the hour.</p>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <h3>Driveway &amp; Sidewalks</h3>
+        <div class="price">$149</div>
+        <ul>
+          <li>Surface-cleaned, edge to edge</li>
+          <li>Oil &amp; tire-mark treatment</li>
+          <li>Walkways included</li>
+        </ul>
+        <a href="#quote">Book this →</a>
+      </div>
+      <div class="svc popular reveal">
+        <span class="pop-flag">Most booked</span>
+        <h3>House Soft Wash</h3>
+        <div class="price">$249</div>
+        <ul>
+          <li>Full siding, safe low pressure</li>
+          <li>Algae &amp; mildew gone</li>
+          <li>Gutters brightened</li>
+        </ul>
+        <a href="#quote">Book this →</a>
+      </div>
+      <div class="svc reveal">
+        <h3>Roof Wash</h3>
+        <div class="price">$349<small> from</small></div>
+        <ul>
+          <li>Soft wash — shingle safe</li>
+          <li>Black streaks removed</li>
+          <li>Extends roof life</li>
+        </ul>
+        <a href="#quote">Book this →</a>
+      </div>
+      <div class="svc reveal">
+        <h3>Deck &amp; Fence</h3>
+        <div class="price">$199<small> from</small></div>
+        <ul>
+          <li>Wood-safe pressure</li>
+          <li>Grey wash-out reversed</li>
+          <li>Ready for staining</li>
+        </ul>
+        <a href="#quote">Book this →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ba" id="results">
+  <div class="wrap">
+    <p class="sec-label reveal">Before &amp; After</p>
+    <h2 class="sec-title reveal">We'll let the concrete do the talking.</h2>
+    <p class="sec-sub reveal">Real Franklin homes. No filters — just water, the right pressure, and someone who cares about the edges.</p>
+    <div class="ba-grid">
+      <div class="ba-pair reveal">
+        <div class="ba-imgs">
+          <figure><img src="images/driveway-before.jpg" alt="Driveway before cleaning — dark with grime and tire marks" loading="lazy"><figcaption>Before</figcaption></figure>
+          <figure class="aft"><img src="images/driveway-after.jpg" alt="Same driveway after pressure washing — bright, uniform concrete" loading="lazy"><figcaption>After</figcaption></figure>
+        </div>
+        <div class="ba-cap">Driveway, Fieldstone Farms <span>2.5 hrs</span></div>
+      </div>
+      <div class="ba-pair reveal">
+        <div class="ba-imgs">
+          <figure><img src="images/siding-before.jpg" alt="House siding before soft wash — green algae staining" loading="lazy"><figcaption>Before</figcaption></figure>
+          <figure class="aft"><img src="images/siding-after.jpg" alt="Same siding after soft wash — clean and bright" loading="lazy"><figcaption>After</figcaption></figure>
+        </div>
+        <div class="ba-cap">Soft wash, Westhaven <span>3 hrs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <p class="sec-label reveal">Reviews</p>
+    <h2 class="sec-title reveal">Neighbors don't lie.</h2>
+    <div class="rev-grid">
+      <div class="rev reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Driveway looks brand new. They showed up when they said, done in two hours, and the price was exactly the quote. Rare these days."</p>
+        <div class="who">Karen M. <small>Fieldstone Farms, Franklin</small></div>
+      </div>
+      <div class="rev reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Texted a photo of my siding at 8am, had a price by 8:40, washed by Thursday. The green stuff on the north side is completely gone."</p>
+        <div class="who">Dave R. <small>Westhaven</small></div>
+      </div>
+      <div class="rev reveal">
+        <div class="stars">★★★★★</div>
+        <p>"They did our roof without blasting the shingles off like the last guy. Explained the soft wash thing, showed me as they went. Trustworthy crew."</p>
+        <div class="who">Sandra &amp; Phil T. <small>Spring Hill</small></div>
+      </div>
+      <div class="rev reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Booked the deck before our daughter's graduation party. Looks ready to stain. Already scheduled them for the driveway next month."</p>
+        <div class="who">Marcus B. <small>Brentwood</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote" id="quote">
+  <div class="wrap quote-box">
+    <div class="quote-side">
+      <p class="sec-label reveal">Free Quote</p>
+      <h2 class="reveal">Priced within the hour. Usually washed this week.</h2>
+      <p class="reveal">Fill this out or just text us a photo of the job — either way you'll get a real price, not a sales call.</p>
+      <p class="sec-label reveal" style="margin-top:18px">Service Area</p>
+      <div class="area-chips reveal">
+        <span class="chip">Franklin</span><span class="chip">Brentwood</span><span class="chip">Spring Hill</span><span class="chip">Thompson's Station</span><span class="chip">Nolensville</span><span class="chip">Leiper's Fork</span>
+      </div>
+    </div>
+    <form class="qform reveal" onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ Sent — we\'ll text you within the hour';">
+      <label for="f-name">Name</label>
+      <input id="f-name" type="text" placeholder="Your name" required>
+      <label for="f-phone">Phone</label>
+      <input id="f-phone" type="tel" placeholder="(615) 555-0000" required>
+      <label for="f-addr">Address or neighborhood</label>
+      <input id="f-addr" type="text" placeholder="Street or subdivision">
+      <label for="f-svc">Service</label>
+      <select id="f-svc">
+        <option>Driveway &amp; Sidewalks — $149</option>
+        <option>House Soft Wash — $249</option>
+        <option>Roof Wash — from $349</option>
+        <option>Deck &amp; Fence — from $199</option>
+        <option>Something else / multiple</option>
+      </select>
+      <button class="btn btn-orange" type="submit">Get my free quote</button>
+      <p class="or-text">or <a href="sms:+16155550142">text us a photo</a> — fastest way to a price</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>TidalWave Pressure Washing</h4>
+        <p>Franklin, TN<br>Licensed &amp; Insured</p>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p>Mon–Sat: 7am – 6pm<br>Sunday: closed</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="tel:+16155550142">(615) 555-0142</a><br><a href="sms:+16155550142">Text us anytime</a></p>
+      </div>
+    </div>
+    <div class="credit">
+      <span>© TidalWave Pressure Washing · Franklin, TN</span>
+      <span>Site by <a href="../">Curb</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>30);
+  onScroll();addEventListener('scroll',onScroll,{passive:true});
+  const targets=document.querySelectorAll('.reveal');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver'in window)){
+    targets.forEach(el=>el.classList.add('in'));
+  }else{
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+    targets.forEach(el=>io.observe(el));
+  }
+</script>
+</body>
+</html>
