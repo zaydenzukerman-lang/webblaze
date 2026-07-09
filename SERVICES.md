@@ -1,62 +1,38 @@
-# Curb — Service Menu
+# Curb — Service Menu (v2, matches live pricing page)
 
-Positioning: we sell **booked jobs**, not deliverables. Websites are the foot in the door;
-monthly growth retainers are the business. Niche: pressure washing / exterior cleaning (US).
+Niche: pressure washing / exterior cleaning, US-wide. We sell **booked jobs**, not deliverables.
+Canonical pricing lives on the site: /pricing/. This file = internal reference.
 
----
+## Ways in
+| Offer | Price | Notes |
+|---|---|---|
+| Just the Website | $1,200 one-time | No contract, they own it |
+| Site + Lead Gen Bundle | $500 setup + launch | Best value flag |
+| Lead Gen Only (existing site) | $250 setup + launch | Starts with free audit |
 
-## TIER 1 — One-Time (the tripwire)
-
-| Service | What it is | Price | Effort |
+## Lead gen tiers — ALL start with 3-month launch, prepaid, 20% off
+| Tier | Launch (prepaid) | Then | Includes |
 |---|---|---|---|
-| **Website build** | Custom booking-focused site, mobile-perfect, working quote form, call/text buttons, maps, reviews. 48h. | **$400** | Low (template + clone) |
-| **Google Business Profile setup** | Claim/optimize their GBP: categories, photos, services, hours, description. | Bundled in build | Low |
-| **Logo touch-up** | Clean wordmark/logo if theirs is bad. | +$100 | Low (AI) |
-| **Copywriting** | Professional service descriptions, headlines. | Bundled | Low |
-| **Domain + email setup** | Register domain, set up pro email (hello@theirco.com). | +$50 setup | Low |
+| Starter | $1,080 (reg $1,350) | $450/mo | GBP optimization, weekly GBP posts + photos, review system, basic local SEO, monthly report |
+| Growth | $1,920 (reg $2,400) | $800/mo | + LSA setup/mgmt (where eligible), CallRail call tracking + source reporting, citations (Distribb), call recap |
+| Full Funnel | $3,240 (reg $4,050) | $1,350/mo | + Meta ads (before/after creative, lead forms), campaign landing pages, monthly strategy call |
 
----
+## Explicitly NOT offered (decided 2026-07-09)
+- **Organic social media management/growth** — cut entirely. Nobody hires a pressure washer from
+  their Facebook feed; Google is where the money is. If asked: "We focus where your customers
+  actually search. Meta ADS (Full Funnel) is different — that's tracked lead generation."
+- Guaranteed rankings — never promised, ever.
+- Backlink packages — not sold standalone.
 
-## TIER 2 — Monthly Retainer (the real money — MRR)
-
-Target $300–$500/mo per client. Pick a bundle or à la carte.
-
-| Service | What it is | Why they pay | Effort |
-|---|---|---|---|
-| **Local SEO** | On-page SEO, citations (Yelp/Angi/BBB listings), GBP posts, keyword targeting so they rank in their town. | Show up when someone Googles "pressure washing [town]". | Med |
-| **Review generation** | Automated review-request texts/emails after each job + monitoring + responses. | More 5-star reviews = more calls. Compounds. | Low |
-| **Call tracking + reporting** | Tracked phone number on their site; monthly report: "X calls, Y from the site." | PROVES ROI. This is the anti-cancel feature. | Low-Med |
-| **Social media posting** | 8–12 FB/IG posts/mo: before/afters, tips, seasonal. AI-generated + scheduled. | Stay top-of-mind, look active/legit. | Low (AI) |
-| **Site hosting + care** | Hosting, SSL, uptime, unlimited small edits (new photos, price changes, seasonal banners). | Peace of mind, always current. | Low |
-| **Content / blog** | 2–4 SEO articles/mo ("how often to pressure wash a driveway"). | Ranks for more searches, feeds SEO. | Low (AI) |
-
-**Suggested bundles:**
-- **Starter — $300/mo:** hosting/care + reviews + GBP posts + 8 social posts
-- **Growth — $500/mo:** everything in Starter + local SEO + call tracking + reporting
-- **Pro — $800+/mo:** Growth + blog content + ad management (ad spend separate)
-
----
-
-## TIER 3 — Add-Ons (à la carte)
-
-| Service | Price |
+## Add-ons
+| Add-on | Price |
 |---|---|
-| **Paid ads management** (Google/Meta) | $250/mo mgmt + their ad spend |
-| **Extra landing pages** (per service or per town — great for SEO) | $150 each |
-| **Booking/scheduling system** (Calendly or custom) | $150 setup |
-| **Email/SMS follow-up automation** (past-customer reactivation) | $200 setup + retainer |
-| **Before/after gallery refresh** | in care plan |
-| **Backlink building** | $200/mo |
-| **Rush delivery (24h site)** | +$150 |
+| Logo cleanup | $100 |
+| Domain + pro email setup | $50 |
+| Extra town/service landing pages | $150 each |
+| Rush site (48h) | +$150 |
 
----
-
-## What's cheap for us (AI does it) vs. needs real work
-- **Cheap/AI:** website, clones, copy, logos, social posts, blogs, GBP setup, review request templates.
-- **Real ongoing effort:** SEO strategy, call tracking setup, ad management, client comms/reporting.
-- **Margin logic:** land on website ($400), upsell retainer at delivery. 20 clients @ $400/mo avg = $8k/mo recurring.
-
-## Hard rules
-- NEVER promise "#1 on Google" or guaranteed rankings — that's what scammers say.
-- Only promise what we control: reviews up, profile optimized, calls tracked, site converting.
-- Sell the outcome (booked jobs), price the value, not the hours.
+## Rules
+- Ad spend always paid direct by client to Google/Meta. Never marked up, never held.
+- Sell Growth first — call tracking is the proof that retains.
+- No public mention of AI anywhere, ever.
