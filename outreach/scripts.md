@@ -1,9 +1,9 @@
-# Booked Solid — Outreach Scripts
+# Curb — Outreach Scripts
 
 Rule: short messages win. Owners read DMs between jobs. Never send a wall of text.
 
 ## DM #1 — the spec-work opener (send with THEIR live demo link)
-> Hey [name] — was looking at Miami detailers and your work is clean, but your site/link doesn't do it justice. So I went ahead and built you one: [link]
+> Hey [name] — was looking at pressure washing companies in your area and your work is clean, but your site/link doesn't do it justice. So I went ahead and built you one: [link]
 > It's yours for $400 flat if you want it — includes online booking + Google Business setup. If not, no stress, was fun to build.
 
 Why it works: you gave before asking, the price is stated up front (filters tire-kickers), and "no stress" kills the sales pressure.
@@ -20,7 +20,7 @@ The "I'll repurpose it" line adds real scarcity. Never follow up more than once.
 > That's exactly why you need this — IG gets you seen, the site gets you BOOKED. People ready to pay want prices + a book button, not a scroll through your feed.
 
 ## Objection: "Who even are you?"
-> Small Miami studio, we only do detailers and pressure washing. Here's our showcase build: [Apex demo link]. The demo I sent you is live proof of the work.
+> Small studio — we only build for pressure washing & exterior cleaning companies. Here's our showcase build: [Apex demo link]. The demo I sent you is live proof of the work.
 
 ## Close + payment
 > Awesome. It's $400 by Zelle to [number]. The second it lands I connect your real info (phone, prices, photos, booking) and you're live within 48h. What's your booking situation now — texts, calls, or an app?
