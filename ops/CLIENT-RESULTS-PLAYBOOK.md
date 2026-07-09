@@ -27,7 +27,9 @@ position AND doubles click-through. Reviews are compounding assets.
   > "Thanks for choosing [Company], [Name]! If we did a good job it'd mean a lot if you left a
   > quick review — takes 30 seconds: [link]. Either way, thanks for the business!"
 - Rules: ask EVERYONE (no gating — against Google policy), never pay/discount for reviews, owner
-  sends same-day while the wow is fresh.
+  sends same-day while the wow is fresh. This SMS is transactional (about a job just done, no
+  discount/promo), lower TCPA risk than marketing texts — but safest practice is still: only text
+  numbers the customer gave for service communication, and honor "stop" instantly if asked.
 - We reply to every review within 48h (we draft, owner approves or we get profile access).
 - Target: +8-15 new reviews/month for an active operator.
 
@@ -41,16 +43,28 @@ position AND doubles click-through. Reviews are compounding assets.
 - Speed-to-lead: quote form submissions should get a reply <1 hour. We monitor.
 
 ## LEVER 4 — Reactivation (Full Funnel; fastest revenue in the whole stack)
-Their past-customer list is free money. Concrete campaigns (we write, owner sends, or via tool):
-- **6-month rebook SMS:** "Hi [Name], it's [Owner] from [Company] — we washed your driveway back in
-  [month]. It's about the time grime starts creeping back. Want me to swing by and quote a refresh?
-  10% off for repeat customers this month."
+Their past-customer list is free money — but **SMS marketing requires prior EXPRESS WRITTEN
+CONSENT under TCPA** (fines $500-1,500 PER TEXT, no small-business exemption). A promotional
+"10% off" text to someone who never opted in is a real legal risk to the client. Fix: **lead
+with email for reactivation** (CAN-SPAM only needs an opt-out, much lower bar), and only use SMS
+for customers who've explicitly opted in (checked a box, texted the business first, or replied
+to a transactional service text). Never send unsolicited promotional texts to a customer's raw
+phone list, even for the client.
+- **6-month rebook EMAIL (default, safe):** "Hi [Name], it's [Owner] from [Company] — we washed
+  your driveway back in [month]. It's about the time grime starts creeping back. Want me to swing
+  by and quote a refresh? 10% off for repeat customers this month."
+- **SMS version — ONLY to customers who've opted in to texts.** Set up consent capture going
+  forward: add a checkbox on the quote form ("Yes, text me appointment reminders and offers") so
+  future customers build a compliant SMS list over time.
 - **Seasonal pushes:** March (spring driveways), May (pre-summer decks), Sept (pre-holiday siding),
-  Nov (gutters/roof before winter).
+  Nov (gutters/roof before winter) — same consent rule applies.
 - **Neighbor play:** after any job — "We're doing [Street] on Thursday — neighbor rate if you book
-  the same visit." (Owner knocks 2 doors or drops 2 cards. Old school. Works.)
-- Math: 200 past customers × 10% rebook × $200 avg = $4,000 from one text batch. Show this to
-  every Full Funnel prospect.
+  the same visit." (Owner knocks 2 doors or drops 2 cards. Old school, no consent issue — it's
+  in-person, not a marketing text.)
+- Math: 200 past customers × 10% rebook × $225 avg job = ~$4,500 from one campaign. Show this to
+  every Full Funnel prospect — average pressure-washing customer is worth ~$5,250 over 5 years
+  (2 jobs/yr × $225 × 5 yrs), so reactivation is pulling forward real lifetime value, not just a
+  one-off job.
 
 ## LEVER 5 — Paid (Growth: LSA · Full Funnel: + Meta)
 - **LSA** (start week 2 — verification takes weeks): owner uploads license/insurance day 1.

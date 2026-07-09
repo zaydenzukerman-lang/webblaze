@@ -32,6 +32,10 @@ losing, in their own numbers. Claude fills sections 1–5 from research; Zayden 
 > "If just [N=10] of those monthly searches would've called you with a proper presence, at your
 > average job of $[250], that's ~$[2,500]/month walking past you. We can't get you all of them.
 > We can get you measurably more than zero — and we track every call so you SEE the number."
+>
+> "And that's just the first job — the average pressure washing customer books ~2x/year for 5
+> years, worth roughly $5,000+ over time. Every lead we hand you isn't just one job, it's a shot
+> at a repeat customer worth 20x that first ticket."
 
 ## 5. The 3 fastest fixes (give real value free — this builds trust)
 1. [Specific: "Your GBP has 4 services listed; add the other 8 — free, 20 minutes"]

@@ -136,6 +136,45 @@
   .credit{border-top:1px solid rgba(255,255,255,.14);padding-top:20px;font-size:.85rem;color:rgba(255,255,255,.6);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;}
   .credit a{color:#6EC9FF;font-weight:600;}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "TidalWave Pressure Washing",
+  "image": "images/hero-driveway.jpg",
+  "telephone": "+16155550142",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Franklin",
+    "addressRegion": "TN",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Franklin","Brentwood","Spring Hill","Thompson's Station","Nolensville","Leiper's Fork"],
+  "openingHoursSpecification": [
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"18:00"}
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "4"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Pressure Washing Services",
+    "itemListElement": [
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Driveway & Sidewalk Cleaning"},"price":"149","priceCurrency":"USD"},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"House Soft Wash"},"price":"249","priceCurrency":"USD"},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Roof Wash"},"price":"349","priceCurrency":"USD"},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Deck & Fence Cleaning"},"price":"199","priceCurrency":"USD"}
+    ]
+  }
+}
+</script>
+<!-- TEMPLATE NOTE: swap name/phone/address/areas/prices/reviewCount per client. Keep the
+     @type as the most specific match (HomeAndConstructionBusiness fits pressure washing;
+     schema.org has no dedicated PressureWashing type). Never fabricate reviewCount/ratingValue
+     for a real client — pull their actual GBP numbers. -->
 </head>
 <body>
 
