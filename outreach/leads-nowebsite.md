@@ -17,11 +17,11 @@
 
 ---
 
-## ⚠️ The campaign math problem (Claude, 7/10)
-Only **1 of 6** leads has an email address — and our campaign is email-only. This isn't bad luck,
-it's structural: businesses with no website usually have no business email either; they live on
-Facebook + phone. Email-only + no-website-only = very small pool. Decision needed from Zayden —
-see options in chat. Meanwhile: Local Beauty is the one send-ready lead.
+## Channel update (Zayden, 7/10): Facebook Messenger APPROVED as outreach channel
+All 6 leads are now usable — 1 by email (Local Beauty), 5 by Messenger. Targeting confirmed:
+online presence is fine, ZERO website is the requirement. See ops/FACEBOOK-OUTREACH.md for the
+complete how-to (account setup, warmup, scripts, volume limits). Messenger outreach can start
+~2-3 days after the FB account is created — does NOT wait on domain/mailbox.
 
 ## Lead Summary
 
