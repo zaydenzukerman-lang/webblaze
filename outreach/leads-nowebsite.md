@@ -1,5 +1,6 @@
 # No-Website Small Business Lead List
 **Date Generated:** 2026-07-10  
+**RULE (7/10): Zayden does the final check on their FB page (Intro → Website field) before every send — ground truth beats search.**
 **Verification Method:** WebSearch + WebFetch + URL pattern verification (checked businessname.com, investigated Facebook "Website" field, confirmed no standalone website presence)  
 **Total Verified Leads:** 6  
 **States Covered:** TN, OH, NY, WV, MI (5 states)
@@ -9,9 +10,9 @@
 | Company | City, ST | Type | Facebook/Google Listing | Email | Status |
 |---------|----------|------|----------------------|-------|--------|
 | Dune Buggy | Grand Rapids, MI | Food Truck | [Facebook](https://www.facebook.com/dunebuggyfoodtruckmi/) | Contact via Facebook Messenger | new |
-| Small Town Beauty Studio | Sneedville, TN | Hair Salon | [Facebook](https://www.facebook.com/SmallTownBeautyStudio/) | (423) 300-3853 | new |
+| Small Town Beauty Studio | Sneedville, TN | Hair Salon | [Facebook](https://www.facebook.com/SmallTownBeautyStudio/) | (423) 300-3853 | **skip — has Square booking site (small-town-beauty-studio.square.site), fails zero-website rule** |
 | Jims HandyMan Service | Akron, OH | Handyman | [Facebook](https://www.facebook.com/handymanjimgriggy/) | (330) 431-2597 | new |
-| Home Town Lawn Care | Medina, NY | Lawn Care | [Facebook](https://www.facebook.com/HomeTownLawnCareORCO/) | (585) 332-6649 | new |
+| Home Town Lawn Care | Medina, NY | Lawn Care | [Facebook](https://www.facebook.com/HomeTownLawnCareORCO/) | (585) 332-6649 | **dead — HAS website (Zayden spotted it on their FB page 7/10; Claude search missed it)** |
 | Small Town Lawn Service | Davin, WV | Lawn Care | [Facebook](https://www.facebook.com/people/Small-Town-Lawn-Service-LLC/61556121660089/) | (681) 254-9057 | new |
 | Local Beauty | Hendersonville, TN | Hair Salon | [Facebook](https://www.facebook.com/localbeautytn) | localbeautytn@gmail.com, (615) 626-9676 | **verified 7/10 — SEND-READY.** Owner: Austyn Mitchell. Nuance: she has a profile page on Phenix Salon Suites' corporate site but no site of her own — pitch should say "no site of your own," not "nothing online." |
 
