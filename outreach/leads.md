@@ -1,13 +1,11 @@
 # Lead List
-**Generated:** 2026-07-09 · **Verified pass:** 2026-07-10 (overnight) · **Strategy updated 2026-07-10:**
-goal is now 10 websites sold at $300 flat, ANY small business — pressure washing is no longer a
-hard requirement, just the pool we already had verified. Use these 11 as-is (great hooks, still
-work great at $300). Add non-pressure-washing leads freely going forward — any local business with
-a weak site is fair game now. Niching resumes later once we're bigger.
-**Rule:** "verified" below means Claude independently confirmed the business is real and re-checked
-the hook against actual facts found. It does NOT mean the email inbox was pinged — the first send
-to each is still the real-world test. Two leads are flagged UNCONFIRMED (name collisions with other
-companies) — don't send to those until re-checked.
+**Generated:** 2026-07-09 · **Verified pass:** 2026-07-10 · **Strategy updated 2026-07-10 (v2):**
+targeting now requires **genuinely NO website** (Facebook/Google-listing only) — the pitch is
+"you don't have one yet." **⚠️ The 11 pressure-washing leads below do NOT fit this criteria — every
+one of them already has a site (just a mediocre one).** Sending "you don't have a website" to a
+company that visibly has one kills credibility instantly. PARKING these 11 for a future
+"weak site" or niche-specific campaign — do not use them for the no-website push. See
+`outreach/leads-nowebsite.md` for the fresh batch that actually fits.
 
 | Company | City, ST | Real situation (verified) | Email | Hook to use | Status |
 |---------|----------|---------------------------|-------|-------------|--------|
