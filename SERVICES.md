@@ -1,13 +1,18 @@
-# Curb — Service Menu (v2, matches live pricing page)
+# Curb — Service Menu (v3 — $300 flat website push)
 
-Niche: pressure washing / exterior cleaning, US-wide. We sell **booked jobs**, not deliverables.
-Canonical pricing lives on the site: /pricing/. This file = internal reference.
+**Current front offer (2026-07-10): $300 flat website, ANY small business, no niche requirement.**
+Goal: sell 10 of these. Websites are cheap for us; $300 is an easy yes. Marketing/lead-gen tiers
+below still exist and get pitched AFTER a client has paid and received their site — a separate,
+low-pressure follow-up conversation, not part of the first pitch. Niche focus (pressure washing)
+resumes once we're bigger; for now it's just one pool of leads among many.
+Canonical pricing lives on the site: /pricing/ (deeper lead-gen tiers — secondary funnel now).
+This file = internal reference.
 
 ## Ways in
 | Offer | Price | Notes |
 |---|---|---|
-| Just the Website | $1,200 one-time | No contract, they own it |
-| Site + Lead Gen Bundle | $500 setup + launch | Best value flag |
+| **Website — primary offer** | **$300 flat** | Any small business. No contract, they own it outright. |
+| Site + Lead Gen Bundle (upsell, post-sale) | $500 setup + launch | Pitch after site delivered |
 | Lead Gen Only (existing site) | $250 setup + launch | Starts with free audit |
 
 ## Lead gen tiers — ALL start with 3-month launch, prepaid, 20% off

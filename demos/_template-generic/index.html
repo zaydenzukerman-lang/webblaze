@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[BUSINESS NAME] — [Town, ST]</title>
+<meta name="description" content="[One-line description of the business and what makes it worth calling].">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&%23127970;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     GENERIC SMALL-BUSINESS TEMPLATE — Curb
+     No industry theming. Clone this for any spec-build lead:
+     swap [BRACKETED] copy, --accent color, service cards, reviews.
+     Hero uses a CSS gradient (no stock photo needed) so this
+     clones instantly for any vertical without waiting on images.
+     ============================================================ */
+  :root{
+    --paper:#F7F8FA;
+    --white:#FFFFFF;
+    --ink:#15181D;
+    --ink-soft:#5B6472;
+    --accent:#3454D1;       /* swap per client brand */
+    --accent-deep:#26399C;
+    --accent-tint:#EAEEFC;
+    --line:#E3E6EC;
+    --radius:16px;
+    --display:'Sora',sans-serif;
+    --body:'Manrope',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{width:min(1100px,92%);margin-inline:auto;}
+  h1,h2,h3{font-family:var(--display);letter-spacing:-0.02em;line-height:1.1;}
+
+  html.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);}
+  html.js .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.reveal{opacity:1!important;transform:none!important;transition:none!important;}}
+
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(255,255,255,0);transition:background .3s,box-shadow .3s;}
+  .nav.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(12px);box-shadow:0 2px 18px rgba(21,24,29,.08);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
+  .brand{font-family:var(--display);font-weight:800;font-size:1.1rem;display:flex;align-items:center;gap:9px;color:#fff;transition:color .3s;}
+  .nav.scrolled .brand{color:var(--ink);}
+  .brand .mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));flex:none;}
+  .nav .cta{background:var(--accent);color:#fff;font-family:var(--display);font-weight:700;font-size:.85rem;padding:11px 20px;border-radius:999px;box-shadow:0 4px 14px rgba(52,84,209,.35);}
+
+  .hero{position:relative;min-height:88svh;display:flex;align-items:flex-end;isolation:isolate;color:#fff;}
+  .hero-bg{position:absolute;inset:0;z-index:-2;background:
+      radial-gradient(120% 90% at 15% 0%, rgba(255,255,255,.14), transparent 55%),
+      linear-gradient(155deg,var(--accent-deep) 0%,var(--accent) 55%,#1C2A73 100%);}
+  .hero-bg::after{content:'';position:absolute;inset:0;background:
+      repeating-linear-gradient(115deg, rgba(255,255,255,.04) 0 2px, transparent 2px 34px);}
+  .hero-content{width:min(1100px,92%);margin-inline:auto;padding:130px 0 60px;}
+  .hero h1{font-size:clamp(2.3rem,7vw,4rem);font-weight:800;max-width:16ch;margin-bottom:16px;}
+  .hero p{font-size:clamp(1rem,2.3vw,1.15rem);max-width:46ch;margin-bottom:26px;color:rgba(255,255,255,.9);}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--display);font-weight:700;font-size:.95rem;padding:15px 28px;border-radius:999px;min-height:48px;transition:transform .25s,box-shadow .25s;}
+  .btn:active{transform:scale(.98);}
+  .btn-solid{background:#fff;color:var(--accent-deep);box-shadow:0 6px 20px rgba(0,0,0,.18);}
+  .btn-solid:hover{transform:translateY(-2px);}
+  .btn-glass{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;backdrop-filter:blur(6px);}
+  .trust-strip{display:flex;flex-wrap:wrap;gap:10px 26px;font-weight:600;font-size:.9rem;color:rgba(255,255,255,.95);}
+
+  section{padding:64px 0;}
+  .sec-label{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .sec-title{font-size:clamp(1.7rem,4.5vw,2.4rem);font-weight:800;margin-bottom:14px;}
+  .sec-sub{color:var(--ink-soft);max-width:52ch;margin-bottom:36px;}
+
+  .services{background:var(--white);}
+  .svc-grid{display:grid;gap:16px;grid-template-columns:1fr;}
+  @media(min-width:760px){.svc-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:1020px){.svc-grid{grid-template-columns:repeat(3,1fr);}}
+  .svc{border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;background:var(--paper);transition:transform .25s,box-shadow .25s;}
+  .svc:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(21,24,29,.08);}
+  .svc .icon{width:46px;height:46px;border-radius:12px;background:var(--accent-tint);display:grid;place-items:center;font-size:1.3rem;margin-bottom:14px;}
+  .svc h3{font-size:1.1rem;margin-bottom:8px;}
+  .svc p{font-size:.92rem;color:var(--ink-soft);}
+
+  .about{}
+  .about-grid{display:grid;gap:34px;grid-template-columns:1fr;align-items:center;}
+  @media(min-width:860px){.about-grid{grid-template-columns:1fr 1fr;}}
+  .about-card{background:linear-gradient(165deg,var(--accent-tint),var(--white) 70%);border:1px solid var(--line);border-radius:var(--radius);padding:32px;}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+  .stat{text-align:center;}
+  .stat b{font-family:var(--display);font-size:1.6rem;display:block;color:var(--accent-deep);}
+  .stat span{font-size:.78rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;}
+
+  .rev-grid{display:grid;gap:16px;grid-template-columns:1fr;}
+  @media(min-width:760px){.rev-grid{grid-template-columns:repeat(3,1fr);}}
+  .rev{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;}
+  .rev .stars{color:#F5A623;letter-spacing:2px;margin-bottom:10px;font-size:.95rem;}
+  .rev p{font-size:.92rem;color:var(--ink-soft);margin-bottom:14px;}
+  .rev .who{font-weight:700;font-size:.88rem;}
+  .rev .who small{display:block;font-weight:500;color:var(--ink-soft);}
+
+  .quote{background:linear-gradient(170deg,var(--accent-tint),var(--paper) 70%);}
+  .quote-box{display:grid;gap:34px;grid-template-columns:1fr;}
+  @media(min-width:880px){.quote-box{grid-template-columns:1.1fr .9fr;align-items:start;}}
+  .qform{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;box-shadow:0 14px 38px rgba(21,24,29,.09);}
+  .qform label{display:block;font-weight:700;font-size:.82rem;margin:14px 0 6px;}
+  .qform input,.qform textarea{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;font-family:var(--body);font-size:.95rem;background:var(--paper);color:var(--ink);}
+  .qform textarea{resize:vertical;min-height:80px;}
+  .qform input:focus,.qform textarea:focus{outline:none;border-color:var(--accent);}
+  .qform button{width:100%;margin-top:20px;border:none;cursor:pointer;background:var(--accent);color:#fff;}
+  .or-text{text-align:center;margin-top:14px;font-size:.9rem;color:var(--ink-soft);}
+  .or-text a{color:var(--accent-deep);font-weight:700;}
+  .quote-side h2{font-size:clamp(1.6rem,4vw,2.2rem);margin-bottom:14px;}
+  .quote-side p{color:var(--ink-soft);margin-bottom:20px;max-width:44ch;}
+  .area-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+  .chip{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:.85rem;font-weight:600;color:var(--ink-soft);}
+
+  footer{background:var(--ink);color:rgba(255,255,255,.85);padding:44px 0 36px;}
+  .foot-grid{display:grid;gap:26px;grid-template-columns:1fr;margin-bottom:28px;}
+  @media(min-width:720px){.foot-grid{grid-template-columns:repeat(3,1fr);}}
+  footer h4{font-family:var(--display);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:#8FA6FF;margin-bottom:10px;}
+  footer p,footer a{font-size:.92rem;line-height:1.8;}
+  .credit{border-top:1px solid rgba(255,255,255,.14);padding-top:20px;font-size:.85rem;color:rgba(255,255,255,.6);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;}
+  .credit a{color:#8FA6FF;font-weight:600;}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="mark"></span>[Business Name]</a>
+    <a class="cta" href="#quote">Get a Quote</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="reveal">[Headline that names the outcome customers want]</h1>
+    <p class="reveal">[One or two sentences: what you do, where you do it, why it's easy to book.]</p>
+    <div class="hero-ctas reveal">
+      <a class="btn btn-solid" href="#quote">Get a free quote</a>
+      <a class="btn btn-glass" href="tel:+10000000000">📞 Call now</a>
+    </div>
+    <div class="trust-strip reveal">
+      <span>★ [5.0] on Google</span>
+      <span>[Licensed / Certified / Est. Year]</span>
+      <span>[Town, ST] &amp; nearby</span>
+    </div>
+  </div>
+</header>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <p class="sec-label reveal">What We Do</p>
+    <h2 class="sec-title reveal">[Section headline]</h2>
+    <p class="sec-sub reveal">[One line framing the services below.]</p>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="icon">1</div>
+        <h3>[Service One]</h3>
+        <p>[Short description — what it includes, why it matters.]</p>
+      </div>
+      <div class="svc reveal">
+        <div class="icon">2</div>
+        <h3>[Service Two]</h3>
+        <p>[Short description.]</p>
+      </div>
+      <div class="svc reveal">
+        <div class="icon">3</div>
+        <h3>[Service Three]</h3>
+        <p>[Short description.]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <p class="sec-label">About</p>
+      <h2 class="sec-title">[Why customers should trust this business]</h2>
+      <p class="sec-sub">[2-3 sentences: history, values, what makes them different from competitors.]</p>
+    </div>
+    <div class="about-card reveal">
+      <p style="color:var(--ink-soft);font-size:.95rem">[Optional short quote or mission line from the owner.]</p>
+      <div class="stat-row">
+        <div class="stat"><b>[N]+</b><span>Years</span></div>
+        <div class="stat"><b>[N]+</b><span>Jobs Done</span></div>
+        <div class="stat"><b>5.0★</b><span>Rating</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <p class="sec-label reveal">Reviews</p>
+    <h2 class="sec-title reveal">What people say.</h2>
+    <div class="rev-grid">
+      <div class="rev reveal">
+        <div class="stars">★★★★★</div>
+        <p>"[Real or placeholder review — specific detail, not generic praise.]"</p>
+        <div class="who">[Name] <small>[Neighborhood/Town]</small></div>
+      </div>
+      <div class="rev reveal">
+        <div class="stars">★★★★★</div>
+        <p>"[Review two.]"</p>
+        <div class="who">[Name] <small>[Neighborhood/Town]</small></div>
+      </div>
+      <div class="rev reveal">
+        <div class="stars">★★★★★</div>
+        <p>"[Review three.]"</p>
+        <div class="who">[Name] <small>[Neighborhood/Town]</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote" id="quote">
+  <div class="wrap quote-box">
+    <div class="quote-side">
+      <p class="sec-label reveal">Get Started</p>
+      <h2 class="reveal">[Reassuring CTA headline — fast reply, no pressure]</h2>
+      <p class="reveal">[One line: what happens after they submit — a call back, a quote, etc.]</p>
+      <p class="sec-label reveal" style="margin-top:18px">Service Area</p>
+      <div class="area-chips reveal">
+        <span class="chip">[Town 1]</span><span class="chip">[Town 2]</span><span class="chip">[Town 3]</span>
+      </div>
+    </div>
+    <form class="qform reveal" onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ Sent — we\'ll reach out shortly';">
+      <label for="f-name">Name</label>
+      <input id="f-name" type="text" placeholder="Your name" required>
+      <label for="f-phone">Phone</label>
+      <input id="f-phone" type="tel" placeholder="(000) 000-0000" required>
+      <label for="f-msg">What do you need?</label>
+      <textarea id="f-msg" placeholder="Tell us a bit about the job"></textarea>
+      <button class="btn" type="submit">Send it</button>
+      <p class="or-text">or <a href="tel:+10000000000">call us directly</a></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>[Business Name]</h4>
+        <p>[Town, ST]<br>[Licensed/Certified line if applicable]</p>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p>[Mon–Fri: 8am – 6pm]<br>[Weekend hours or "Closed"]</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="tel:+10000000000">[Phone]</a><br><a href="mailto:hello@example.com">[Email]</a></p>
+      </div>
+    </div>
+    <div class="credit">
+      <span>© [Business Name] · [Town, ST]</span>
+      <span>Site by <a href="https://zaydenzukerman-lang.github.io/curb/">Curb</a></span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "[Business Name]",
+  "telephone": "[+1XXXXXXXXXX]",
+  "priceRange": "$$",
+  "address": {"@type":"PostalAddress","addressLocality":"[Town]","addressRegion":"[ST]","addressCountry":"US"},
+  "areaServed": ["[Town 1]","[Town 2]","[Town 3]"]
+}
+</script>
+<!-- CLONING NOTES:
+  1. Find/replace every [BRACKETED] placeholder with the real client's info.
+  2. Swap --accent / --accent-deep / --accent-tint to a color that fits their brand
+     (avoid literally reusing another client's exact color if in the same metro).
+  3. Pick @type on schema to the closest match if a more specific LocalBusiness
+     subtype exists (Restaurant, Dentist, HairSalon, etc.) — else leave LocalBusiness.
+  4. Real reviews only once they're a client — never fabricate for a live client site.
+  5. This hero uses NO photo (pure gradient) so it clones instantly for ANY vertical.
+     Add real photos once onboarded if the business has good ones.
+-->
+<script>
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>30);
+  onScroll();addEventListener('scroll',onScroll,{passive:true});
+  const targets=document.querySelectorAll('.reveal');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver'in window)){
+    targets.forEach(el=>el.classList.add('in'));
+  }else{
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+    targets.forEach(el=>io.observe(el));
+  }
+</script>
+</body>
+</html>
