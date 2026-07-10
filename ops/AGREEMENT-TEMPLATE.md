@@ -31,7 +31,7 @@ above reflects a 20% discount for upfront payment). After the launch period, ser
 month-to-month at the regular rate. Either party may cancel after the launch period with 30 days'
 written notice. The launch prepayment is non-refundable once work has begun.
 
-**3. Payment.** Setup fees and launch prepayment are due before work begins. Monthly fees are due
+**3. Payment.** Payment is by PayPal invoice (card accepted). Setup fees and launch prepayment are due before work begins. Monthly fees are due
 on the 1st of each month after the launch period. Late payments pause work.
 
 **4. Ad spend.** Any advertising budget (Google, Meta, or similar) is paid by Client directly to

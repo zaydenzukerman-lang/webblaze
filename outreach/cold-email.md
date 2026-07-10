@@ -82,7 +82,7 @@ text email, and make sure SPF/DKIM/warmup (ops/EMAIL-SETUP.md) are done before t
 
 ## CLOSING → payment
 > Awesome. Two things and we're rolling:
-> 1. Invoice — [Stripe payment link] ($300)
+> 1. Invoice — I'll send a PayPal invoice ($300) — you can pay by card, no PayPal account needed
 > 2. A quick agreement (protects both of us) — reply "agreed" to accept.
 > The second that clears, the site's live and it's all yours.
 
@@ -96,8 +96,8 @@ If they bite: send the /pricing/ page and walk them through Growth tier. If not:
 friendly, they may come back once the site's been up a while.
 
 ## COMPLIANCE FOOTER — goes at the bottom of EVERY cold email (CAN-SPAM, mandatory)
-> Curb · [P.O. Box ___, City, ST ZIP] · Don't want to hear from me? Reply "no" and that's the end of it.
-(Physical mailbox required BEFORE first send — see ops/EMAIL-SETUP.md. Keep a permanent do-not-email list; honor every "no" within 10 days, forever.)
+> Curb · [mailing address — home or P.O. box, dad's pick] · Don't want to hear from me? Reply "no" and that's the end of it.
+(A valid mailing address is required before first send — home address is legally fine. Keep a permanent do-not-email list; honor every "no" within 10 days, forever.)
 
 ## RULES
 - Every send logged in leads.md: date, email #, status (sent/replied/pitched/closed/dead)

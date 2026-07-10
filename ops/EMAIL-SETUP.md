@@ -20,9 +20,9 @@ Then send a test email to your personal Gmail → check it arrives NOT in spam �
 "show original" → confirm SPF: PASS, DKIM: PASS. Tell Claude the domain is live → I wire the
 website contact button + quote form the same day.
 
-## Step 4 — Physical address (CAN-SPAM, required in every email footer)
-Registered P.O. box (USPS, ~$10-15/mo small box) or UPS Store mailbox. Dad errand. Until it
-exists, we don't send.
+## Step 4 — Mailing address (CAN-SPAM, required in every email footer)
+Home address is legally sufficient and free — use it unless dad wants privacy, in which case a
+P.O. box (~$12/mo) works too. 2-minute decision, not a purchase blocker.
 
 ## Step 5 — Warmup schedule (don't skip — new domains that blast get burned permanently)
 - Days 1–2: email friends/family from the new address, get replies. 5-10 sends.
