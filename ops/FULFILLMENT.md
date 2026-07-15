@@ -3,9 +3,22 @@
 What we actually DO after they pay. Claude executes the build/content steps; Zayden executes
 anything requiring account logins, phone calls, or client contact.
 
+## BUILD STANDARD (mandatory, added 2026-07-15) — run ui-ux-pro-max on EVERY site
+Before writing/cloning any client site, invoke the `ui-ux-pro-max` skill and run its
+`--design-system` search for the client's industry to lock: pattern, color palette, font pairing,
+and the anti-patterns to avoid. Websites ARE our product — never ship a raw-template build again.
+Non-negotiables it enforces that we kept skipping: (a) contact info PROMINENT (phone in nav+hero;
+"hidden contact info" is a flagged anti-pattern), (b) SVG icons, never emoji, (c) social proof
+before the CTA, (d) one primary CTA per screen, (e) AA contrast + focus states + reduced-motion +
+44px targets + real form labels. Our own rule still overrides: NO fabricated reviews on a live
+client site — use real facts (years in business, family-owned) as social proof until we have their
+real Google/FB reviews. Skill lives at ~/.claude/skills/ui-ux-pro-max/. First use: Orange Beach
+Fish Charter rebuild (clients/orangebeachfish/).
+
 ## Website (any package) — target: live in 3–5 days
 1. Onboarding checklist complete (see CLIENT-ONBOARDING.md) — don't start without photos + phone + service list
-2. Clone TidalWave template → swap brand, colors, towns, services, prices, photos
+2. Run ui-ux-pro-max --design-system for the industry (see BUILD STANDARD above)
+3. Clone TidalWave template → swap brand, colors, towns, services, prices, photos
 3. Wire quote form → client email (Web3Forms access key)
 4. tel:/sms: buttons → client number (Growth+: CallRail tracked number instead)
 5. Reviews section ← their real Google reviews
