@@ -291,10 +291,10 @@ export default function Home() {
               free, no obligation. You only pay if you love it.
             </p>
             <a
-              href="mailto:hello@webblaze.io?subject=Let%27s%20build%20my%20site&body=Business%20name%3A%0AWhat%20we%20do%3A%0ACity%2C%20State%3A%0APhone%20(optional)%3A"
+              href="mailto:webblazeio@gmail.com?subject=Let%27s%20build%20my%20site&body=Business%20name%3A%0AWhat%20we%20do%3A%0ACity%2C%20State%3A%0APhone%20(optional)%3A"
               className="mt-8 inline-block rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-[var(--burnt)] shadow-lg transition-transform hover:-translate-y-0.5"
             >
-              Email us — hello@webblaze.io
+              Email us — webblazeio@gmail.com
             </a>
           </div>
         </section>
