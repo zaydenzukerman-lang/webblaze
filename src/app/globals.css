@@ -2,25 +2,50 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --surface: #ffffff;
+  --surface-muted: #FBF6F3;
+  --foreground: #1C2126;
+  --foreground-soft: #5A6470;
+  --border: #ECE2DC;
+
+  /* Brand: WebBlaze flame system (locked from dad's brief — don't change direction) */
+  --flame-red: #D32F2F;
+  --flame-orange: #F4511E;
+  --ember: #FF7A18;
+  --burnt: #C1440E;
+  --slate: #3E4A54;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-jakarta);
+  --font-display: var(--font-space-grotesk);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #14100F;
+    --surface: #1C1614;
+    --surface-muted: #221A17;
+    --foreground: #F5EFEC;
+    --foreground-soft: #B9ADA6;
+    --border: #34281F;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flame-gradient {
+  background: linear-gradient(180deg, var(--flame-red) 0%, var(--flame-orange) 55%, var(--ember) 100%);
+}
+
+.flame-text-gradient {
+  background: linear-gradient(180deg, var(--flame-red) 0%, var(--ember) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
