@@ -50,11 +50,16 @@ Zayden considered lowering, decided to TEST $300 first — still far under stand
 revenue. Websites are the ONLY product being sold right now; SEO/marketing/retainer services
 launch later and get pitched to PREVIOUS (happy, paying) clients first.
 
-## STILL BLOCKED ON ZAYDEN (unchanged for days)
-1. webblaze.io — bought? which registrar? (needed for rebrand + pro URL + email)
-2. FreshBooks account (dad) — needed before first "yes"
-3. Send the Dune Buggy Messenger message (msg 1 in cold-email.md / FACEBOOK-OUTREACH.md), do FB
-   Intro check first. Their site is DONE. dunebuggyfoodtruck@gmail.com is their email.
+## FACEBOOK ACCOUNT: ZAYDEN ALREADY HAS ONE, ~1 YEAR OLD (corrected 2026-07-15)
+No creation, no warmup week needed — outreach can start IMMEDIATELY. (I wrongly kept listing
+"create FB account" as a blocker; the FACEBOOK-OUTREACH.md setup/warmup section is N/A for him.)
+Volume rules still apply: it's aged but has zero outreach history → start ~5 new businesses/day,
+no links in message 1.
+
+## STILL BLOCKED ON ZAYDEN
+1. SEND the two ready messages (Dune Buggy + Orange Beach Fish Charter) — nothing blocks this now.
+2. webblaze.io — bought? which registrar? (needed for rebrand + pro URL + email)
+3. FreshBooks account (dad) — needed before first "yes"
 4. Optional: install NotFair plugin (/plugin marketplace add nowork-studio/notfair ; /plugin install notfair@nowork-studio)
 
 ## TOOLS NOW AVAILABLE TO CLAUDE
