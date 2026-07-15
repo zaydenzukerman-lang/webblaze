@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orange Beach Fish Charter Services — Family Fishing Since 1980</title>
+<meta name="description" content="Family-fun fishing charters out of Orange Beach, AL since 1980. Inshore, deep sea &amp; offshore trips — red snapper, tuna, amberjack, shark and more.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&%23127907;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F8FA;
+    --white:#FFFFFF;
+    --ink:#0E1B26;
+    --ink-soft:#4E6274;
+    --accent:#0C7BA1;        /* gulf teal */
+    --accent-deep:#0A4B75;   /* deep water */
+    --accent-tint:#E2F1F7;
+    --sun:#F6A03B;           /* sunset orange */
+    --line:#DCE6EC;
+    --radius:16px;
+    --display:'Sora',sans-serif;
+    --body:'Manrope',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{width:min(1100px,92%);margin-inline:auto;}
+  h1,h2,h3{font-family:var(--display);letter-spacing:-0.02em;line-height:1.1;}
+
+  html.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);}
+  html.js .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.reveal{opacity:1!important;transform:none!important;transition:none!important;}}
+
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(255,255,255,0);transition:background .3s,box-shadow .3s;}
+  .nav.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(12px);box-shadow:0 2px 18px rgba(14,27,38,.08);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
+  .brand{font-family:var(--display);font-weight:800;font-size:1.05rem;display:flex;align-items:center;gap:9px;color:#fff;transition:color .3s;}
+  .nav.scrolled .brand{color:var(--ink);}
+  .brand .mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--sun),var(--accent));flex:none;display:grid;place-items:center;font-size:.95rem;}
+  .nav .cta{background:var(--accent);color:#fff;font-family:var(--display);font-weight:700;font-size:.85rem;padding:11px 20px;border-radius:999px;box-shadow:0 4px 14px rgba(12,123,161,.4);}
+
+  .hero{position:relative;min-height:92svh;display:flex;align-items:flex-end;isolation:isolate;color:#fff;}
+  .hero-bg{position:absolute;inset:0;z-index:-2;background:
+      radial-gradient(90% 55% at 78% 4%, rgba(246,160,59,.5), transparent 60%),
+      radial-gradient(120% 90% at 15% 0%, rgba(255,255,255,.12), transparent 55%),
+      linear-gradient(168deg,#0A4B75 0%,#0C7BA1 48%,#083D5C 100%);}
+  .hero-bg::before{content:'';position:absolute;inset:0;background:
+      repeating-linear-gradient(180deg, transparent 0 90px, rgba(255,255,255,.035) 90px 92px);}
+  .hero-bg::after{content:'';position:absolute;left:0;right:0;bottom:0;height:120px;background:
+      radial-gradient(60% 100% at 50% 100%, rgba(8,61,92,.9), transparent 75%);}
+  .hero-content{width:min(1100px,92%);margin-inline:auto;padding:130px 0 70px;position:relative;}
+  .hero-kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px);border-radius:999px;padding:7px 16px;font-weight:700;font-size:.85rem;margin-bottom:20px;}
+  .hero h1{font-size:clamp(2.3rem,7vw,4rem);font-weight:800;max-width:15ch;margin-bottom:16px;}
+  .hero p{font-size:clamp(1rem,2.3vw,1.15rem);max-width:48ch;margin-bottom:26px;color:rgba(255,255,255,.92);}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--display);font-weight:700;font-size:.95rem;padding:15px 28px;border-radius:999px;min-height:48px;transition:transform .25s,box-shadow .25s;}
+  .btn:active{transform:scale(.98);}
+  .btn-solid{background:#fff;color:var(--accent-deep);box-shadow:0 6px 20px rgba(0,0,0,.22);}
+  .btn-solid:hover{transform:translateY(-2px);}
+  .btn-glass{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;backdrop-filter:blur(6px);}
+  .trust-strip{display:flex;flex-wrap:wrap;gap:10px 26px;font-weight:600;font-size:.9rem;color:rgba(255,255,255,.95);}
+
+  section{padding:64px 0;}
+  .sec-label{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .sec-title{font-size:clamp(1.7rem,4.5vw,2.4rem);font-weight:800;margin-bottom:14px;}
+  .sec-sub{color:var(--ink-soft);max-width:54ch;margin-bottom:36px;}
+
+  .trips{background:var(--white);}
+  .svc-grid{display:grid;gap:16px;grid-template-columns:1fr;}
+  @media(min-width:760px){.svc-grid{grid-template-columns:repeat(3,1fr);}}
+  .svc{border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;background:var(--paper);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;}
+  .svc:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(14,27,38,.09);}
+  .svc .icon{width:46px;height:46px;border-radius:12px;background:var(--accent-tint);display:grid;place-items:center;font-size:1.3rem;margin-bottom:14px;}
+  .svc h3{font-size:1.1rem;margin-bottom:8px;}
+  .svc p{font-size:.92rem;color:var(--ink-soft);margin-bottom:14px;}
+  .svc .tag{margin-top:auto;font-size:.8rem;font-weight:700;color:var(--accent-deep);}
+
+  .catch{background:linear-gradient(170deg,var(--accent-tint),var(--paper) 75%);}
+  .fish-chips{display:flex;flex-wrap:wrap;gap:10px;}
+  .fish{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-weight:700;font-size:.92rem;display:inline-flex;align-items:center;gap:8px;transition:transform .2s;}
+  .fish:hover{transform:translateY(-2px);}
+
+  .about-grid{display:grid;gap:34px;grid-template-columns:1fr;align-items:center;}
+  @media(min-width:860px){.about-grid{grid-template-columns:1fr 1fr;}}
+  .about-card{background:linear-gradient(165deg,var(--accent-tint),var(--white) 70%);border:1px solid var(--line);border-radius:var(--radius);padding:32px;}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+  .stat{text-align:center;}
+  .stat b{font-family:var(--display);font-size:1.6rem;display:block;color:var(--accent-deep);}
+  .stat span{font-size:.78rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;}
+
+  .quote{background:linear-gradient(170deg,#0A4B75,#083D5C);color:#fff;}
+  .quote .sec-label{color:var(--sun);}
+  .quote-box{display:grid;gap:34px;grid-template-columns:1fr;}
+  @media(min-width:880px){.quote-box{grid-template-columns:1.05fr .95fr;align-items:start;}}
+  .qform{background:var(--white);color:var(--ink);border-radius:var(--radius);padding:26px 22px;box-shadow:0 18px 44px rgba(0,0,0,.28);}
+  .qform label{display:block;font-weight:700;font-size:.82rem;margin:14px 0 6px;}
+  .qform input,.qform select,.qform textarea{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;font-family:var(--body);font-size:.95rem;background:var(--paper);color:var(--ink);}
+  .qform textarea{resize:vertical;min-height:70px;}
+  .qform input:focus,.qform select:focus,.qform textarea:focus{outline:none;border-color:var(--accent);}
+  .qform button{width:100%;margin-top:20px;border:none;cursor:pointer;background:var(--accent);color:#fff;}
+  .or-text{text-align:center;margin-top:14px;font-size:.9rem;color:var(--ink-soft);}
+  .or-text a{color:var(--accent-deep);font-weight:700;}
+  .quote-side h2{font-size:clamp(1.6rem,4vw,2.2rem);margin-bottom:14px;}
+  .quote-side p{color:rgba(255,255,255,.85);margin-bottom:20px;max-width:46ch;}
+  .quote-side .pill-list{display:flex;flex-direction:column;gap:12px;margin-top:10px;}
+  .pill{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:14px 16px;font-size:.93rem;}
+  .pill b{display:block;font-family:var(--display);}
+
+  footer{background:var(--ink);color:rgba(255,255,255,.85);padding:44px 0 36px;}
+  .foot-grid{display:grid;gap:26px;grid-template-columns:1fr;margin-bottom:28px;}
+  @media(min-width:720px){.foot-grid{grid-template-columns:repeat(3,1fr);}}
+  footer h4{font-family:var(--display);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:#7FC8E3;margin-bottom:10px;}
+  footer p,footer a{font-size:.92rem;line-height:1.8;}
+  .credit{border-top:1px solid rgba(255,255,255,.14);padding-top:20px;font-size:.85rem;color:rgba(255,255,255,.6);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="mark">🎣</span>Orange Beach Fish Charter Services</a>
+    <a class="cta" href="#book">Book a Trip</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-kicker reveal">⚓ Family fun fishing since 1980</span>
+    <h1 class="reveal">Fish the Gulf with a crew that's done it for 45 years.</h1>
+    <p class="reveal">Inshore, offshore and deep sea charters out of Orange Beach, Alabama. First-timers, kids and serious anglers all welcome — we put you on the fish.</p>
+    <div class="hero-ctas reveal">
+      <a class="btn btn-solid" href="#book">Book your trip</a>
+      <a class="btn btn-glass" href="https://m.me/orangebeachfishcharterservices" target="_blank" rel="noopener">💬 Message us</a>
+    </div>
+    <div class="trust-strip reveal">
+      <span>⚓ Est. 1980</span>
+      <span>👨‍👩‍👧 Family owned &amp; operated</span>
+      <span>📍 Orange Beach, AL</span>
+    </div>
+  </div>
+</header>
+
+<section class="trips" id="trips">
+  <div class="wrap">
+    <p class="sec-label reveal">Our Trips</p>
+    <h2 class="sec-title reveal">Pick your water.</h2>
+    <p class="sec-sub reveal">From calm-bay family mornings to serious blue-water runs — every trip includes an experienced captain who knows these waters like the back of his hand.</p>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="icon">🐟</div>
+        <h3>Inshore Fishing</h3>
+        <p>Calm, protected waters close to shore. Perfect for kids, first-timers and anyone who wants steady action without the long ride out.</p>
+        <span class="tag">Great for families ›</span>
+      </div>
+      <div class="svc reveal">
+        <div class="icon">🌊</div>
+        <h3>Offshore &amp; Deep Sea</h3>
+        <p>Head out to the reefs and rigs for the big ones — red snapper, amberjack, tuna, shark and more. This is the trip the Gulf is famous for.</p>
+        <span class="tag">The full experience ›</span>
+      </div>
+      <div class="svc reveal">
+        <div class="icon">🌅</div>
+        <h3>Family Fun Cruises</h3>
+        <p>Not everything needs a hook. Easy evening cruises on the Gulf — dolphins, sunsets, and the best views in Orange Beach.</p>
+        <span class="tag">Everyone on board ›</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="catch" id="catch">
+  <div class="wrap">
+    <p class="sec-label reveal">The Catch</p>
+    <h2 class="sec-title reveal">What's biting out there.</h2>
+    <p class="sec-sub reveal">The Alabama Gulf Coast is one of the best fisheries in America. Depending on season and trip, you'll be going after:</p>
+    <div class="fish-chips reveal">
+      <span class="fish">🐠 Red Snapper</span>
+      <span class="fish">🐟 Amberjack</span>
+      <span class="fish">🐡 Tuna</span>
+      <span class="fish">🦈 Shark</span>
+      <span class="fish">⚔️ King Mackerel</span>
+      <span class="fish">🎣 Triggerfish</span>
+      <span class="fish">🐟 Speckled Trout</span>
+      <span class="fish">🐠 Redfish</span>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <p class="sec-label">About Us</p>
+      <h2 class="sec-title">Four decades on the same water.</h2>
+      <p class="sec-sub">We've been running family fishing charters out of Orange Beach since 1980. Two generations of guests have caught their first fish on our decks — and plenty come back every single summer. No gimmicks, no rush: just a real day on the Gulf with people who love this.</p>
+    </div>
+    <div class="about-card reveal">
+      <p style="color:var(--ink-soft);font-size:.95rem">"Family fun fishing — inshore to offshore. That's been the whole idea since day one."</p>
+      <div class="stat-row">
+        <div class="stat"><b>45+</b><span>Years</span></div>
+        <div class="stat"><b>1000s</b><span>Of trips</span></div>
+        <div class="stat"><b>1980</b><span>Established</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote" id="book">
+  <div class="wrap quote-box">
+    <div class="quote-side">
+      <p class="sec-label reveal">Book Your Trip</p>
+      <h2 class="reveal">Tell us when — we'll handle the rest.</h2>
+      <p class="reveal">Send the form or message us on Facebook, and we'll get right back to you with availability and pricing for your dates.</p>
+      <div class="pill-list reveal">
+        <div class="pill">🗓️ <span><b>Pick a date</b>Summer books fast — earlier is better.</span></div>
+        <div class="pill">👥 <span><b>Bring the crew</b>Kids, grandparents, first-timers — all welcome.</span></div>
+        <div class="pill">🎣 <span><b>We supply the rest</b>Gear, bait and know-how are on us.</span></div>
+      </div>
+    </div>
+    <form class="qform reveal" onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ Sent — we\'ll get back to you shortly';">
+      <label for="f-name">Name</label>
+      <input id="f-name" type="text" placeholder="Your name" required>
+      <label for="f-phone">Phone</label>
+      <input id="f-phone" type="tel" placeholder="(000) 000-0000" required>
+      <label for="f-trip">Trip type</label>
+      <select id="f-trip">
+        <option>Inshore fishing</option>
+        <option>Offshore / deep sea</option>
+        <option>Family fun cruise</option>
+        <option>Not sure yet</option>
+      </select>
+      <label for="f-msg">Dates &amp; party size</label>
+      <textarea id="f-msg" placeholder="e.g. Week of July 20th, 4 adults + 2 kids"></textarea>
+      <button class="btn" type="submit">Request availability</button>
+      <p class="or-text">or <a href="https://m.me/orangebeachfishcharterservices" target="_blank" rel="noopener">message us on Facebook</a></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Orange Beach Fish Charter Services</h4>
+        <p>Orange Beach, AL<br>Family fun fishing since 1980</p>
+      </div>
+      <div>
+        <h4>Trips</h4>
+        <p>Inshore fishing<br>Offshore &amp; deep sea<br>Family fun cruises</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="https://www.facebook.com/orangebeachfishcharterservices/" target="_blank" rel="noopener">Facebook page</a><br><a href="https://m.me/orangebeachfishcharterservices" target="_blank" rel="noopener">Send us a message</a></p>
+      </div>
+    </div>
+    <div class="credit">
+      <span>© Orange Beach Fish Charter Services · Orange Beach, AL</span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Orange Beach Fish Charter Services",
+  "description": "Family fun fishing charters — inshore, offshore and deep sea — out of Orange Beach, Alabama since 1980.",
+  "foundingDate": "1980",
+  "priceRange": "$$",
+  "address": {"@type":"PostalAddress","addressLocality":"Orange Beach","addressRegion":"AL","addressCountry":"US"},
+  "areaServed": ["Orange Beach","Gulf Shores","Perdido Key"],
+  "sameAs": ["https://www.facebook.com/orangebeachfishcharterservices/"]
+}
+</script>
+<script>
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>30);
+  onScroll();addEventListener('scroll',onScroll,{passive:true});
+  const targets=document.querySelectorAll('.reveal');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver'in window)){
+    targets.forEach(el=>el.classList.add('in'));
+  }else{
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+    targets.forEach(el=>io.observe(el));
+  }
+</script>
+</body>
+</html>
