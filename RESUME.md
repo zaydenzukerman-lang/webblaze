@@ -27,9 +27,22 @@ retainers after they're paying customers. Goal: sell 10 websites at $300. Dad ha
 - **BUDGET RULE (violated twice, do not violate again): NO parallel research subagents. Do lead
   research directly in main thread via WebSearch/WebFetch. See feedback_token_budget.md.**
 
+## CAPABILITY UNLOCKED 2026-07-15: Claude can READ Facebook business pages directly
+Via the Playwright MCP (Claude's OWN browser, NOT Zayden's account, NO login needed): navigate to a
+business's FB page and read innerText through the login-popup overlay. Yields tagline, category,
+location, email, review count, recent posts — and the Intro's Website field (or absence of it =
+confirms "no website"). Can also extract fbcdn image URLs (incl. full-res, e.g. 2048x1536) and curl
+them down for building the client's site. This replaces (a) manual photo-saving and (b) most of the
+"can't see their page" bottleneck. It does NOT need Zayden to control his laptop or hand over FB
+login — and carries no account risk (reading public pages in Claude's own browser).
+- How: mcp__playwright__browser_navigate → browser_evaluate (innerText + img srcs) → curl images.
+- Limit: deep Photos-tab scrolling can hit harder login walls; the main page usually gives enough.
+- Sending is STILL manual (Zayden pastes/sends) — automating sends risks the account; reading doesn't.
+
 ## VERIFICATION RULE (learned hard — cheap agents fabricated "no website" ~60% of the time)
-Every lead: Claude probes domain patterns + checks directory/FB, THEN Zayden does final 10-sec check
-on the business's FB page (Intro → Website field) before sending. Zayden is the last gate.
+Every lead: Claude probes domain patterns + NOW reads the FB page directly (Intro→Website field) via
+Playwright, THEN Zayden does final 10-sec check on the business's FB page before sending. Zayden is
+still the last gate, but Claude's direct read makes fabrication impossible (Claude sees the real page).
 
 ## IN-FLIGHT LEADS — VERIFIED 2026-07-12, batch mostly BURNED
 8 of 9 had websites (charters/party rentals need booking sites — wrong niche for zero-website
