@@ -6,13 +6,13 @@ const PORTFOLIO = [
     name: "Dune Buggy",
     tag: "Food Truck · Grand Rapids, MI",
     img: "/portfolio/dunebuggy.jpg",
-    href: "https://zaydenzukerman-lang.github.io/webblaze/dunebuggy/",
+    href: "/dunebuggy/",
   },
   {
     name: "Orange Beach Fish Charter Services",
     tag: "Fishing Charter · Orange Beach, AL",
     img: "/portfolio/orangebeachfish.jpg",
-    href: "https://zaydenzukerman-lang.github.io/webblaze/orangebeachfish/",
+    href: "/orangebeachfish/",
   },
 ];
 

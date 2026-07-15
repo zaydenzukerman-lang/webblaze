@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orange Beach Fish Charter Services — Gulf Coast Fishing Since 1980</title>
+<meta name="description" content="Family-owned fishing charters out of Orange Beach, AL since 1980. Inshore, offshore &amp; deep sea trips — red snapper, tuna, amberjack and more. Call or message to book.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23EA580C'/><path d='M8 16c3-5 9-7 16-5-2 3-2 7 0 10-7 2-13 0-16-5z' fill='%23fff'/><circle cx='12' cy='15' r='1.4' fill='%23EA580C'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     Orange Beach Fish Charter Services
+     Design system via ui-ux-pro-max:
+       Pattern  : Hero + Social-proof + CTA (trust-first local service)
+       Palette  : Adventure orange + map teal on warm sand
+       Type     : Lexend (headings) / Source Sans 3 (body)
+       Icons    : inline SVG (Lucide-style), never emoji
+     ============================================================ */
+  :root{
+    --sand:#FFF7ED;          /* warm background */
+    --white:#FFFFFF;
+    --ink:#0F172A;           /* foreground */
+    --ink-soft:#475569;
+    --primary:#EA580C;       /* sunset orange (brand/accents) */
+    --primary-btn:#C2410C;   /* deeper orange — AA contrast for button labels */
+    --primary-tint:#FFEAD9;
+    --teal:#0891B2;          /* gulf water */
+    --deep:#0C4A6E;          /* deep sea (text depth / dark sections) */
+    --gold:#F59E0B;          /* review stars */
+    --line:#F3D9C6;
+    --line-cool:#E2E8F0;
+    --radius:16px;
+    --display:'Lexend',sans-serif;
+    --body:'Source Sans 3',sans-serif;
+    --shadow:0 12px 30px rgba(15,23,42,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--sand);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  svg{display:block;}
+  .wrap{width:min(1120px,92%);margin-inline:auto;}
+  h1,h2,h3{font-family:var(--display);letter-spacing:-0.02em;line-height:1.08;}
+  .ico{width:1.4em;height:1.4em;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+
+  html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
+  html.js .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.reveal{opacity:1!important;transform:none!important;transition:none!important;}*{animation:none!important;}}
+
+  /* ---------- nav ---------- */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s;}
+  .nav.scrolled{background:rgba(255,247,237,.94);backdrop-filter:blur(12px);box-shadow:0 2px 18px rgba(15,23,42,.08);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:14px;}
+  .brand{font-family:var(--display);font-weight:800;font-size:1.02rem;display:flex;align-items:center;gap:10px;color:#fff;transition:color .3s;line-height:1.1;}
+  .nav.scrolled .brand{color:var(--ink);}
+  .brand .mark{width:34px;height:34px;border-radius:9px;background:var(--primary);flex:none;display:grid;place-items:center;color:#fff;}
+  .brand .mark .ico{width:20px;height:20px;stroke-width:2.2;}
+  .brand small{display:block;font-family:var(--body);font-weight:600;font-size:.68rem;letter-spacing:.04em;opacity:.8;text-transform:uppercase;}
+  .nav-actions{display:flex;align-items:center;gap:10px;}
+  .nav-call{display:none;align-items:center;gap:7px;font-family:var(--display);font-weight:700;font-size:.9rem;color:#fff;transition:color .3s;}
+  .nav.scrolled .nav-call{color:var(--deep);}
+  @media(min-width:620px){.nav-call{display:inline-flex;}}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--display);font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:999px;min-height:48px;cursor:pointer;border:none;transition:transform .2s,box-shadow .2s,background .2s;}
+  .btn:active{transform:scale(.98);}
+  .btn:focus-visible{outline:3px solid var(--teal);outline-offset:2px;}
+  .btn-primary{background:var(--primary-btn);color:#fff;box-shadow:0 6px 18px rgba(194,65,12,.34);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(194,65,12,.42);}
+  .btn-ghost{background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.55);color:#fff;backdrop-filter:blur(6px);}
+  .btn-ghost:hover{background:rgba(255,255,255,.24);}
+  .btn-teal{background:var(--white);color:var(--deep);border:1.5px solid var(--line-cool);}
+  .btn-teal:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+  .nav .btn-primary{padding:11px 20px;min-height:44px;font-size:.9rem;}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:94svh;display:flex;align-items:flex-end;isolation:isolate;color:#fff;}
+  .hero-photo{position:absolute;inset:0;z-index:-3;width:100%;height:100%;object-fit:cover;object-position:center 42%;}
+  .hero-bg{position:absolute;inset:0;z-index:-2;background:
+      radial-gradient(85% 55% at 82% 6%, rgba(245,158,11,.34), transparent 58%),
+      linear-gradient(168deg,rgba(12,74,110,.80) 0%,rgba(7,89,133,.62) 44%,rgba(6,66,100,.92) 100%);}
+  .hero-bg::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 96px,rgba(255,255,255,.03) 96px 98px);}
+  .hero-waves{position:absolute;left:0;right:0;bottom:-1px;z-index:-1;color:var(--sand);}
+  .hero-content{width:min(1120px,92%);margin-inline:auto;padding:128px 0 88px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.34);backdrop-filter:blur(6px);border-radius:999px;padding:7px 15px;font-weight:700;font-size:.82rem;letter-spacing:.02em;margin-bottom:20px;}
+  .eyebrow .ico{width:16px;height:16px;color:var(--gold);}
+  .hero h1{font-size:clamp(2.4rem,7.2vw,4.3rem);font-weight:800;max-width:16ch;margin-bottom:18px;}
+  .hero p{font-size:clamp(1.05rem,2.3vw,1.25rem);max-width:50ch;margin-bottom:30px;color:rgba(255,255,255,.94);}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px;}
+  .trust-strip{display:flex;flex-wrap:wrap;gap:12px 26px;font-weight:600;font-size:.95rem;color:#fff;}
+  .trust-strip span{display:inline-flex;align-items:center;gap:8px;}
+  .trust-strip .ico{width:19px;height:19px;color:var(--gold);}
+
+  /* ---------- section frame ---------- */
+  section{padding:70px 0;}
+  .sec-label{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);margin-bottom:10px;}
+  .sec-title{font-size:clamp(1.8rem,4.6vw,2.5rem);font-weight:800;margin-bottom:14px;}
+  .sec-sub{color:var(--ink-soft);max-width:56ch;margin-bottom:40px;font-size:1.05rem;}
+
+  /* ---------- trust band ---------- */
+  .band{background:var(--deep);color:#fff;padding:34px 0;}
+  .band-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 16px;text-align:center;}
+  @media(min-width:720px){.band-grid{grid-template-columns:repeat(4,1fr);}}
+  .band .stat b{font-family:var(--display);font-weight:800;font-size:2rem;display:block;color:var(--gold);}
+  .band .stat span{font-size:.85rem;color:rgba(255,255,255,.82);letter-spacing:.03em;}
+
+  /* ---------- trips ---------- */
+  .trips{background:var(--white);}
+  .svc-grid{display:grid;gap:18px;grid-template-columns:1fr;}
+  @media(min-width:760px){.svc-grid{grid-template-columns:repeat(3,1fr);}}
+  .svc{border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;background:var(--sand);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
+  .svc:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .svc .icon{width:52px;height:52px;border-radius:13px;background:var(--primary-tint);color:var(--primary);display:grid;place-items:center;margin-bottom:16px;}
+  .svc .icon .ico{width:26px;height:26px;}
+  .svc h3{font-size:1.2rem;margin-bottom:8px;}
+  .svc p{font-size:.98rem;color:var(--ink-soft);margin-bottom:16px;}
+  .svc .tag{margin-top:auto;font-weight:700;font-size:.9rem;color:var(--primary-btn);display:inline-flex;align-items:center;gap:6px;}
+  .svc .tag .ico{width:16px;height:16px;}
+
+  /* ---------- catch ---------- */
+  .catch{background:linear-gradient(170deg,var(--primary-tint),var(--sand) 78%);}
+  .catch-grid{display:grid;gap:34px;grid-template-columns:1fr;align-items:center;}
+  @media(min-width:880px){.catch-grid{grid-template-columns:1.05fr .95fr;}}
+  .catch-photo{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;}
+  .catch-photo img{width:100%;height:100%;object-fit:cover;}
+  .fish-chips{display:flex;flex-wrap:wrap;gap:11px;}
+  .fish{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:11px 20px;font-weight:700;font-size:.96rem;display:inline-flex;align-items:center;gap:9px;transition:transform .18s;color:var(--deep);}
+  .fish:hover{transform:translateY(-2px);}
+  .fish .ico{width:18px;height:18px;color:var(--teal);}
+
+  /* ---------- gallery ---------- */
+  .gallery{background:var(--white);}
+  .gallery-grid{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);grid-auto-rows:200px;}
+  @media(min-width:760px){.gallery-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:230px;}}
+  .g-item{border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 20px rgba(15,23,42,.08);margin:0;}
+  .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+  .g-item:hover img{transform:scale(1.05);}
+  .g-tall{grid-row:span 2;}
+  @media(max-width:759px){.g-tall{grid-row:span 2;}}
+
+  /* ---------- about / why ---------- */
+  .about-grid{display:grid;gap:36px;grid-template-columns:1fr;align-items:center;}
+  @media(min-width:880px){.about-grid{grid-template-columns:1.05fr .95fr;}}
+  .why-list{display:flex;flex-direction:column;gap:16px;}
+  .why{display:flex;gap:14px;align-items:flex-start;}
+  .why .icon{width:44px;height:44px;border-radius:12px;background:var(--white);border:1px solid var(--line);color:var(--primary);display:grid;place-items:center;flex:none;box-shadow:0 4px 12px rgba(15,23,42,.05);}
+  .why .icon .ico{width:22px;height:22px;}
+  .why b{font-family:var(--display);font-size:1.05rem;display:block;margin-bottom:2px;}
+  .why p{color:var(--ink-soft);font-size:.98rem;}
+  .about-card{background:var(--deep);color:#fff;border-radius:var(--radius);padding:34px;box-shadow:var(--shadow);}
+  .about-card .quote-ico{width:38px;height:38px;color:var(--gold);margin-bottom:12px;}
+  .about-card blockquote{font-family:var(--display);font-weight:500;font-size:1.35rem;line-height:1.3;margin-bottom:18px;}
+  .about-card cite{font-style:normal;font-weight:600;color:rgba(255,255,255,.8);font-size:.95rem;}
+
+  /* ---------- booking CTA ---------- */
+  .book{background:var(--white);}
+  .book-box{display:grid;gap:38px;grid-template-columns:1fr;}
+  @media(min-width:900px){.book-box{grid-template-columns:1.02fr .98fr;align-items:start;}}
+  .book-side h2{font-size:clamp(1.8rem,4.4vw,2.5rem);margin-bottom:14px;}
+  .book-side>p{color:var(--ink-soft);margin-bottom:26px;max-width:44ch;font-size:1.05rem;}
+  .contact-row{display:flex;flex-direction:column;gap:12px;margin-bottom:6px;}
+  .contact-line{display:flex;align-items:center;gap:14px;background:var(--sand);border:1px solid var(--line);border-radius:14px;padding:15px 18px;transition:transform .18s,box-shadow .18s;}
+  .contact-line:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+  .contact-line .icon{width:44px;height:44px;border-radius:11px;background:var(--primary-tint);color:var(--primary);display:grid;place-items:center;flex:none;}
+  .contact-line .icon .ico{width:22px;height:22px;}
+  .contact-line b{font-family:var(--display);font-size:1.05rem;display:block;}
+  .contact-line span{font-size:.9rem;color:var(--ink-soft);}
+  .qform{background:var(--sand);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;box-shadow:var(--shadow);}
+  .qform h3{font-size:1.25rem;margin-bottom:4px;}
+  .qform .form-sub{color:var(--ink-soft);font-size:.92rem;margin-bottom:14px;}
+  .qform label{display:block;font-family:var(--display);font-weight:600;font-size:.85rem;margin:14px 0 6px;}
+  .qform input,.qform select,.qform textarea{width:100%;padding:14px;border:1.5px solid var(--line-cool);border-radius:11px;font-family:var(--body);font-size:1rem;background:var(--white);color:var(--ink);min-height:48px;}
+  .qform textarea{resize:vertical;min-height:76px;}
+  .qform input:focus,.qform select:focus,.qform textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-tint);}
+  .qform .btn{width:100%;margin-top:20px;}
+  .form-note{text-align:center;margin-top:13px;font-size:.9rem;color:var(--ink-soft);}
+  .form-note a{color:var(--primary-btn);font-weight:700;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:rgba(255,255,255,.82);padding:48px 0 36px;}
+  .foot-grid{display:grid;gap:28px;grid-template-columns:1fr;margin-bottom:30px;}
+  @media(min-width:720px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr;}}
+  footer .brand{color:#fff;margin-bottom:12px;}
+  footer h4{font-family:var(--display);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+  footer p,footer a{font-size:.96rem;line-height:1.9;}
+  footer a:hover{color:#fff;}
+  .credit{border-top:1px solid rgba(255,255,255,.14);padding-top:20px;font-size:.86rem;color:rgba(255,255,255,.55);}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <span class="mark"><svg class="ico" viewBox="0 0 24 24"><path d="M2 12c3-5 9-7 18-5-2 3-2 7 0 10C11 19 5 17 2 12z"/><path d="M20 7c1 2 1 8 0 10"/><circle cx="7" cy="11" r=".5"/></svg></span>
+      <span>Orange Beach Fish Charter Services<small>Family fishing · Est. 1980</small></span>
+    </a>
+    <div class="nav-actions">
+      <a class="nav-call" href="tel:+12519792682">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        (251) 979-2682
+      </a>
+      <a class="btn btn-primary" href="#book">Book a trip</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <img class="hero-photo" src="img/hero-boat.jpg" alt="Orange Beach Fish Charter Services boat running offshore on the Gulf" fetchpriority="high">
+  <div class="hero-bg"></div>
+  <svg class="hero-waves" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 48c180-40 360-40 540-8s360 40 540 8 180-40 360-8v50H0z"/></svg>
+  <div class="hero-content">
+    <span class="eyebrow reveal">
+      <svg class="ico" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21l2.3-7.2-6-4.4h7.6z"/></svg>
+      Gulf Coast family fishing since 1980
+    </span>
+    <h1 class="reveal">Get on the fish with a crew that's run these waters for 45 years.</h1>
+    <p class="reveal">Inshore, offshore and deep sea charters out of Orange Beach, Alabama. First-timers, kids and serious anglers all welcome — we handle the gear, the know-how, and putting you on the bite.</p>
+    <div class="hero-ctas reveal">
+      <a class="btn btn-primary" href="#book">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        Check availability
+      </a>
+      <a class="btn btn-ghost" href="https://m.me/orangebeachfishcharterservices" target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20l1.1-3.3A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/></svg>
+        Message us on Facebook
+      </a>
+    </div>
+    <div class="trust-strip reveal">
+      <span><svg class="ico" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21l2.3-7.2-6-4.4h7.6z"/></svg>Est. 1980</span>
+      <span><svg class="ico" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>Family owned</span>
+      <span><svg class="ico" viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Orange Beach, AL</span>
+    </div>
+  </div>
+</header>
+
+<div class="band">
+  <div class="wrap band-grid reveal">
+    <div class="stat"><b>1980</b><span>Fishing since</span></div>
+    <div class="stat"><b>45+</b><span>Years on the Gulf</span></div>
+    <div class="stat"><b>Family</b><span>Owned &amp; operated</span></div>
+    <div class="stat"><b>All ages</b><span>Kids &amp; first-timers</span></div>
+  </div>
+</div>
+
+<section class="trips" id="trips">
+  <div class="wrap">
+    <p class="sec-label reveal">Our Trips</p>
+    <h2 class="sec-title reveal">Pick your water.</h2>
+    <p class="sec-sub reveal">From calm-bay family mornings to serious blue-water runs — every trip comes with an experienced captain who knows exactly where they're biting.</p>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="icon"><svg class="ico" viewBox="0 0 24 24"><path d="M2 12c3-5 9-7 18-5-2 3-2 7 0 10C11 19 5 17 2 12z"/><path d="M20 7c1 2 1 8 0 10"/></svg></div>
+        <h3>Inshore Fishing</h3>
+        <p>Calm, protected waters close to shore. Perfect for kids, first-timers and anyone who wants steady action without the long ride out.</p>
+        <span class="tag">Great for families <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="svc reveal">
+        <div class="icon"><svg class="ico" viewBox="0 0 24 24"><path d="M2 6c2 2 4 2 6 0s4-2 6 0 4 2 6 0"/><path d="M2 12c2 2 4 2 6 0s4-2 6 0 4 2 6 0"/><path d="M2 18c2 2 4 2 6 0s4-2 6 0 4 2 6 0"/></svg></div>
+        <h3>Offshore &amp; Deep Sea</h3>
+        <p>Head out to the reefs and rigs for the big ones — red snapper, amberjack, tuna and more. This is the trip the Gulf is famous for.</p>
+        <span class="tag">The full experience <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="svc reveal">
+        <div class="icon"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
+        <h3>Family Fun Cruises</h3>
+        <p>Not everything needs a hook. Easy cruises on the Gulf — dolphins, sunsets and the best views in Orange Beach for the whole crew.</p>
+        <span class="tag">Everyone aboard <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="catch" id="catch">
+  <div class="wrap catch-grid">
+    <div class="reveal">
+      <p class="sec-label">The Catch</p>
+      <h2 class="sec-title">What's biting out there.</h2>
+      <p class="sec-sub">The Alabama Gulf Coast is one of the best fisheries in America. Depending on the season and your trip, you'll be going after:</p>
+      <div class="fish-chips">
+        <span class="fish"><svg class="ico" viewBox="0 0 24 24"><path d="M2 12c3-5 9-7 18-5-2 3-2 7 0 10C11 19 5 17 2 12z"/></svg>Red Snapper</span>
+        <span class="fish"><svg class="ico" viewBox="0 0 24 24"><path d="M2 12c3-5 9-7 18-5-2 3-2 7 0 10C11 19 5 17 2 12z"/></svg>Amberjack</span>
+        <span class="fish"><svg class="ico" viewBox="0 0 24 24"><path d="M2 12c3-5 9-7 18-5-2 3-2 7 0 10C11 19 5 17 2 12z"/></svg>Tuna</span>
+        <span class="fish"><svg class="ico" viewBox="0 0 24 24"><path d="M2 12c3-5 9-7 18-5-2 3-2 7 0 10C11 19 5 17 2 12z"/></svg>King Mackerel</span>
+        <span class="fish"><svg class="ico" viewBox="0 0 24 24"><path d="M2 12c3-5 9-7 18-5-2 3-2 7 0 10C11 19 5 17 2 12z"/></svg>Triggerfish</span>
+        <span class="fish"><svg class="ico" viewBox="0 0 24 24"><path d="M2 12c3-5 9-7 18-5-2 3-2 7 0 10C11 19 5 17 2 12z"/></svg>Speckled Trout</span>
+        <span class="fish"><svg class="ico" viewBox="0 0 24 24"><path d="M2 12c3-5 9-7 18-5-2 3-2 7 0 10C11 19 5 17 2 12z"/></svg>Redfish</span>
+        <span class="fish"><svg class="ico" viewBox="0 0 24 24"><path d="M2 12c3-5 9-7 18-5-2 3-2 7 0 10C11 19 5 17 2 12z"/></svg>Shark</span>
+      </div>
+    </div>
+    <div class="catch-photo reveal">
+      <img src="img/catch-snapper.jpg" alt="A full box of red snapper caught aboard an Orange Beach Fish Charter Services trip" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <p class="sec-label reveal">On The Water</p>
+    <h2 class="sec-title reveal">Real trips, real catches.</h2>
+    <p class="sec-sub reveal">A few days out on the Gulf with our crews and their guests.</p>
+    <div class="gallery-grid reveal">
+      <figure class="g-item g-tall"><img src="img/gallery-customers.jpg" alt="Guests on the docks showing off their catches after Orange Beach charter trips" loading="lazy"></figure>
+      <figure class="g-item"><img src="img/gallery-trophy.jpg" alt="A couple holding a large triggerfish caught offshore" loading="lazy"></figure>
+      <figure class="g-item"><img src="img/gallery-action.jpg" alt="An angler fighting a fish with a bent rod out on the Gulf" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <p class="sec-label">Why Book With Us</p>
+      <h2 class="sec-title">Four decades on the same water.</h2>
+      <p class="sec-sub">We've run family fishing charters out of Orange Beach since 1980. Two generations of guests have caught their first fish on our decks — and plenty come back every single summer.</p>
+      <div class="why-list">
+        <div class="why">
+          <div class="icon"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21l2.3-7.2-6-4.4h7.6z"/></svg></div>
+          <div><b>45 years of local know-how</b><p>We know where they're biting in every season — you spend the day catching, not searching.</p></div>
+        </div>
+        <div class="why">
+          <div class="icon"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <div><b>Everything's included</b><p>Rods, reels, bait, tackle and license are all on us. Just bring sunscreen and a cooler.</p></div>
+        </div>
+        <div class="why">
+          <div class="icon"><svg class="ico" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
+          <div><b>Built for families &amp; first-timers</b><p>Patient with kids, happy to teach, and just as ready to put serious anglers on a trophy.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="about-card reveal">
+      <svg class="quote-ico ico" viewBox="0 0 24 24"><path d="M10 11H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v8a4 4 0 0 1-4 4M20 11h-4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v8a4 4 0 0 1-4 4"/></svg>
+      <blockquote>Family fun fishing, inshore to offshore. That's been the whole idea since day one — and it still is.</blockquote>
+      <cite>— Orange Beach Fish Charter Services</cite>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap book-box">
+    <div class="book-side reveal">
+      <p class="sec-label">Book Your Trip</p>
+      <h2>Tell us your dates — we'll handle the rest.</h2>
+      <p>Call, message us on Facebook, or send the form and we'll get right back to you with availability and pricing. Summer books up fast, so earlier is better.</p>
+      <div class="contact-row">
+        <a class="contact-line" href="tel:+12519792682">
+          <span class="icon"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <span><b>(251) 979-2682</b><span>Call to book — fastest way to lock a date</span></span>
+        </a>
+        <a class="contact-line" href="mailto:tom@orangebeachfish.com">
+          <span class="icon"><svg class="ico" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
+          <span><b>tom@orangebeachfish.com</b><span>Email us your dates &amp; party size</span></span>
+        </a>
+        <a class="contact-line" href="https://m.me/orangebeachfishcharterservices" target="_blank" rel="noopener">
+          <span class="icon"><svg class="ico" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20l1.1-3.3A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/></svg></span>
+          <span><b>Message on Facebook</b><span>Quick questions &amp; availability</span></span>
+        </a>
+      </div>
+    </div>
+    <form class="qform reveal" onsubmit="event.preventDefault();var b=this.querySelector('button');b.textContent='✓ Sent — we\'ll get right back to you';b.disabled=true;">
+      <h3>Request availability</h3>
+      <p class="form-sub">No deposit to ask — we'll confirm your dates first.</p>
+      <label for="f-name">Name</label>
+      <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+      <label for="f-phone">Phone</label>
+      <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(251) 000-0000" required>
+      <label for="f-trip">Trip type</label>
+      <select id="f-trip" name="trip">
+        <option>Inshore fishing</option>
+        <option>Offshore / deep sea</option>
+        <option>Family fun cruise</option>
+        <option>Not sure yet — help me pick</option>
+      </select>
+      <label for="f-msg">Dates &amp; party size</label>
+      <textarea id="f-msg" name="details" placeholder="e.g. Week of July 20th, 4 adults + 2 kids"></textarea>
+      <button class="btn btn-primary" type="submit">Request availability</button>
+      <p class="form-note">Prefer to talk? <a href="https://m.me/orangebeachfishcharterservices" target="_blank" rel="noopener">Message us on Facebook</a></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">
+          <span class="mark"><svg class="ico" viewBox="0 0 24 24"><path d="M2 12c3-5 9-7 18-5-2 3-2 7 0 10C11 19 5 17 2 12z"/><path d="M20 7c1 2 1 8 0 10"/></svg></span>
+          <span>Orange Beach Fish Charter Services<small>Family fishing · Est. 1980</small></span>
+        </div>
+        <p>Family-owned inshore, offshore &amp; deep sea fishing charters serving Orange Beach, Gulf Shores &amp; Perdido Key.</p>
+      </div>
+      <div>
+        <h4>Trips</h4>
+        <p><a href="#trips">Inshore fishing</a><br><a href="#trips">Offshore &amp; deep sea</a><br><a href="#trips">Family fun cruises</a></p>
+      </div>
+      <div>
+        <h4>Contact &amp; Book</h4>
+        <p><a href="tel:+12519792682">(251) 979-2682</a><br><a href="mailto:tom@orangebeachfish.com">tom@orangebeachfish.com</a><br>26619 Perdido Beach Blvd<br>Orange Beach, AL 36561<br><a href="https://www.facebook.com/orangebeachfishcharterservices/" target="_blank" rel="noopener">Facebook page</a></p>
+      </div>
+    </div>
+    <div class="credit">© Orange Beach Fish Charter Services · 26619 Perdido Beach Blvd, Orange Beach, AL 36561 · Family fun fishing since 1980</div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Orange Beach Fish Charter Services",
+  "description": "Family fun fishing charters — inshore, offshore and deep sea — out of Orange Beach, Alabama since 1980.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Orange Beach Fish Charter Services",
+    "foundingDate": "1980",
+    "priceRange": "$$",
+    "telephone": "+1-251-979-2682",
+    "email": "tom@orangebeachfish.com",
+    "address": {"@type":"PostalAddress","streetAddress":"26619 Perdido Beach Blvd","addressLocality":"Orange Beach","addressRegion":"AL","postalCode":"36561","addressCountry":"US"},
+    "areaServed": ["Orange Beach","Gulf Shores","Perdido Key"],
+    "sameAs": ["https://www.facebook.com/orangebeachfishcharterservices/"]
+  }
+}
+</script>
+<script>
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>30);
+  onScroll();addEventListener('scroll',onScroll,{passive:true});
+  const targets=document.querySelectorAll('.reveal');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver'in window)){
+    targets.forEach(el=>el.classList.add('in'));
+  }else{
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+    targets.forEach(el=>io.observe(el));
+  }
+</script>
+</body>
+</html>
