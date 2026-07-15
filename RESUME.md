@@ -34,7 +34,9 @@ the webblaze.io ROOT domain** (the agency's own marketing homepage). Resolution 
 Next.js + Tailwind site built in `~/webblaze/` (separate repo from bookedsolid, its own git history).
 Sections: hero ($300 flat pitch), portfolio (real screenshots of Dune Buggy + Orange Beach Fish
 Charter linking to their live GitHub Pages demos), how-it-works (3 steps), pricing card, FAQ,
-contact (mailto:hello@webblaze.io — not live until dad sets up email forwarding). Design ran
+contact (mailto:webblazeio@gmail.com — a fresh Gmail Zayden made 7/15, works immediately, no
+domain/DNS needed; hello@webblaze.io dropped since it required dad's Namecheap access with no
+"another way" that avoids DNS entirely — domain email can wait). Design ran
 through ui-ux-pro-max per our standard. Uses dad's placeholder logos (flame wordmark header,
 W-monogram favicon) — logo winner not yet confirmed by dad, flagged as placeholder.
 - **LIVE NOW**: https://webblaze-two.vercel.app (deployed under dad's `hbz-holdings` Vercel team
