@@ -1,4 +1,10 @@
-# RESUME — read this first after /clear (state as of 2026-07-15)
+# RESUME — read this first after /clear (state as of 2026-07-17)
+
+## THE GOAL (Zayden, 2026-07-17): MAKE $1.
+Not $1000/week, not 10 sites, not apps. ONE real dollar from ONE real customer. Every session,
+every task gets judged against "does this get us closer to the first dollar?" Infrastructure work
+(branding, domains, tooling) is DONE — stop polishing, start selling. Fastest known path: send
+the two ready Messenger pitches (Dune Buggy + Orange Beach Fish Charter).
 
 ## What this business is
 **Webblaze** — rebrand from "Curb" EXECUTED 2026-07-15 (repo renamed, domain live, brand text
