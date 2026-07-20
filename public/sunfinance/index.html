@@ -5,346 +5,330 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sun Finance — Louisiana Lending Since 1958 | Mortgages &amp; Personal Loans</title>
-<meta name="description" content="Locally owned Louisiana lender since 1958. Mortgages from $5,000 to $10 million, personal loans, refinancing, construction &amp; renovation. More loan programs than a traditional bank.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231E3A8A'/><circle cx='16' cy='16' r='6' fill='%23D97706'/><g stroke='%23D97706' stroke-width='2' stroke-linecap='round'><path d='M16 3v3M16 26v3M3 16h3M26 16h3M6.5 6.5l2 2M23.5 23.5l2 2M25.5 6.5l-2 2M8.5 23.5l-2 2'/></g></svg>">
+<meta name="description" content="Louisiana's locally owned lender since 1958. Mortgages from $5,000 to $10 million, personal loans, refinancing, construction — more loan programs than a traditional bank.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230C1E33'/><circle cx='16' cy='16' r='6' fill='%23C99A4C'/><g stroke='%23C99A4C' stroke-width='2' stroke-linecap='round'><path d='M16 3v3M16 26v3M3 16h3M26 16h3M6.5 6.5l2 2M23.5 23.5l2 2M25.5 6.5l-2 2M8.5 23.5l-2 2'/></g></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   /* ============================================================
-     Sun Finance — redesign demo by WebBlaze
-     Design system (ui-ux-pro-max): "Trust & Authority"
-       Palette : authority navy + trust gold on cool white
-       Type    : IBM Plex Serif (headings) / IBM Plex Sans (body)
-       Icons   : inline SVG, never emoji
-     COMPLIANCE — BEFORE PUBLISHING (not needed for the preview/intro):
-       - NMLS #71517 (Sun Mortgage Funding, Inc.) sourced by Concierge from 2 industry
-         sources. A HUMAN must confirm it at nmlsconsumeraccess.org (search 71517) — the
-         portal blocks bots. 30-second check, verifies name + active status.
-       - LA OFI license #s for Premium Financing + personal-loan arm are [placeholder] —
-         client fills. Exact hours also to confirm with client.
-       - Final legal disclosure text confirmed with client during engagement.
+     Sun Finance — premium redesign by WebBlaze
+     Aesthetic: private-bank / heritage-lender
+       Type    : Fraunces (editorial serif display) / Inter (body)
+       Palette : deep navy + bronze-gold on warm ivory
+       Motion  : IntersectionObserver scroll reveals (reduced-motion safe)
+     COMPLIANCE (before publish, not for preview): human-verify NMLS #71517
+       at nmlsconsumeraccess.org; client fills LA OFI license #s + final
+       disclosure text. Placeholders marked below.
      ============================================================ */
   :root{
-    --navy:#1E3A8A;
-    --navy-deep:#172554;
-    --navy-mid:#1E40AF;
-    --gold:#B45309;
-    --gold-bright:#D97706;
-    --gold-tint:#FEF3E2;
-    --bg:#F8FAFC;
-    --white:#FFFFFF;
-    --ink:#0F172A;
-    --ink-soft:#475569;
-    --line:#CBD5E1;
-    --line-soft:#E2E8F0;
-    --radius:14px;
-    --display:'IBM Plex Serif',Georgia,serif;
-    --body:'IBM Plex Sans',system-ui,sans-serif;
-    --shadow:0 14px 34px rgba(15,23,42,.12);
+    --navy:#0C1E33; --navy-2:#122A47; --navy-3:#0A1728;
+    --ink:#16202B; --soft:#5A6b7a;
+    --gold:#B0803A; --gold-2:#C99A4C; --gold-soft:#F3E9D6;
+    --ivory:#FAF7F1; --paper:#FFFFFF; --line:#E7DFD1; --line-navy:rgba(255,255,255,.12);
+    --on-navy:#F4EFE7; --on-navy-soft:#A9B4C0;
+    --r:14px;
+    --ease:cubic-bezier(.22,1,.36,1);
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+    --fs-display:clamp(2.6rem,1.5rem+4.6vw,5rem);
+    --fs-h2:clamp(1.9rem,1.3rem+2.4vw,3rem);
+    --fs-h3:clamp(1.25rem,1.05rem+.8vw,1.55rem);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  body{background:var(--ivory);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
   img{max-width:100%;display:block;}
   a{color:inherit;text-decoration:none;}
   svg{display:block;}
-  .wrap{width:min(1160px,92%);margin-inline:auto;}
-  h1,h2,h3{font-family:var(--display);letter-spacing:-0.01em;line-height:1.12;}
-  .ico{width:1.4em;height:1.4em;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+  .wrap{width:min(1180px,92%);margin-inline:auto;}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-0.01em;line-height:1.05;}
+  .serif{font-family:var(--serif);}
+  .ico{width:1.4em;height:1.4em;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+  .eyebrow{font-family:var(--sans);font-weight:600;font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);}
 
-  html.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
-  html.js .reveal.in{opacity:1;transform:none;}
-  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.reveal{opacity:1!important;transform:none!important;transition:none!important;}}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+  .reveal.in{opacity:1;transform:none;}
+  html:not(.js) .reveal{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important;}html{scroll-behavior:auto;}}
 
-  /* ---------- utility top bar ---------- */
-  .topbar{background:var(--navy-deep);color:#fff;font-size:.85rem;}
-  .topbar-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 20px;padding:9px 0;}
-  .topbar a{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.9);font-weight:500;}
-  .topbar a:hover{color:#fff;}
-  .topbar .ico{width:15px;height:15px;color:var(--gold-bright);}
-  .topbar .tp-left{display:flex;flex-wrap:wrap;gap:8px 22px;}
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:.94rem;padding:14px 26px;border-radius:8px;cursor:pointer;border:none;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s;}
+  .btn:active{transform:scale(.98);}
+  .btn:focus-visible{outline:3px solid var(--gold-2);outline-offset:3px;}
+  .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#22160a;box-shadow:0 10px 26px -10px rgba(176,128,58,.6);}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 34px -12px rgba(176,128,58,.75);}
+  .btn-ghost{background:transparent;border:1px solid var(--line);color:var(--navy);}
+  .btn-ghost:hover{transform:translateY(-2px);background:#fff;}
+  .btn-ghost-navy{background:rgba(255,255,255,.06);border:1px solid var(--line-navy);color:var(--on-navy);backdrop-filter:blur(6px);}
+  .btn-ghost-navy:hover{background:rgba(255,255,255,.13);transform:translateY(-2px);}
 
-  /* ---------- nav ---------- */
-  .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft);}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px;}
+  /* utility bar */
+  .util{background:var(--navy-3);color:var(--on-navy-soft);font-size:.82rem;}
+  .util-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 22px;padding:9px 0;}
+  .util a{display:inline-flex;align-items:center;gap:7px;color:var(--on-navy-soft);}
+  .util a:hover{color:#fff;}.util .ico{width:14px;height:14px;color:var(--gold-2);}
+  .util-l{display:flex;flex-wrap:wrap;gap:6px 22px;}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(250,247,241,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;}
   .brand{display:flex;align-items:center;gap:13px;}
-  .brand .sun-logo{height:30px;width:auto;flex:none;}
-  .brand .brand-tag{font-family:var(--body);font-weight:600;font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);padding-left:13px;border-left:1px solid var(--line);line-height:1.35;}
-  .nav-links{display:none;align-items:center;gap:28px;font-weight:500;font-size:.95rem;color:var(--ink-soft);}
+  .brand img{height:30px;width:auto;}
+  .brand .tag{padding-left:13px;border-left:1px solid var(--line);font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);line-height:1.35;}
+  .nav-links{display:none;gap:30px;font-weight:500;font-size:.94rem;color:var(--soft);}
   @media(min-width:940px){.nav-links{display:flex;}}
   .nav-links a:hover{color:var(--navy);}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:.95rem;padding:12px 22px;border-radius:8px;cursor:pointer;border:none;transition:transform .18s,box-shadow .18s,background .18s;}
-  .btn:active{transform:scale(.98);}
-  .btn:focus-visible{outline:3px solid var(--gold-bright);outline-offset:2px;}
-  .btn-gold{background:var(--gold);color:#fff;box-shadow:0 6px 16px rgba(180,83,9,.28);}
-  .btn-gold:hover{background:var(--gold-bright);transform:translateY(-1px);}
-  .btn-navy{background:var(--navy);color:#fff;}
-  .btn-navy:hover{background:var(--navy-mid);transform:translateY(-1px);}
-  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--navy);}
-  .btn-ghost:hover{border-color:var(--navy);background:var(--white);}
-  .btn-white{background:#fff;color:var(--navy);}
-  .btn-white:hover{transform:translateY(-1px);box-shadow:var(--shadow);}
 
-  /* ---------- hero ---------- */
-  .hero{position:relative;color:#fff;isolation:isolate;overflow:hidden;}
-  .hero-bg{position:absolute;inset:0;z-index:-2;background:
-      radial-gradient(70% 60% at 85% 10%, rgba(217,119,6,.28), transparent 60%),
-      linear-gradient(160deg,#172554 0%,#1E3A8A 55%,#1E40AF 100%);}
-  .hero-bg::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 1px,transparent 1px 40px);}
-  .hero-inner{display:grid;gap:40px;grid-template-columns:1fr;padding:70px 0 84px;}
-  @media(min-width:960px){.hero-inner{grid-template-columns:1.15fr .85fr;align-items:center;}}
-  .heritage{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:7px 16px;font-size:.82rem;font-weight:600;letter-spacing:.03em;margin-bottom:22px;}
-  .heritage .ico{width:16px;height:16px;color:var(--gold-bright);}
-  .hero h1{font-size:clamp(2.3rem,5.4vw,3.7rem);font-weight:700;max-width:15ch;margin-bottom:18px;}
-  .hero h1 em{font-style:normal;color:var(--gold-bright);}
-  .hero p{font-size:clamp(1.05rem,2vw,1.2rem);color:rgba(255,255,255,.9);max-width:48ch;margin-bottom:28px;}
-  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px;}
-  .hero-trust{display:flex;flex-wrap:wrap;gap:12px 24px;font-size:.9rem;font-weight:500;color:rgba(255,255,255,.92);}
-  .hero-trust span{display:inline-flex;align-items:center;gap:8px;}
-  .hero-trust .ico{width:18px;height:18px;color:var(--gold-bright);}
+  /* hero */
+  .hero{position:relative;background:linear-gradient(150deg,var(--navy-3),var(--navy) 55%,var(--navy-2));color:var(--on-navy);isolation:isolate;overflow:hidden;}
+  .hero::before{content:"";position:absolute;top:-20%;right:-10%;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(201,154,76,.22),transparent 65%);z-index:0;}
+  .hero::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(115deg,rgba(255,255,255,.025) 0 1px,transparent 1px 46px);z-index:0;}
+  .hero-in{position:relative;z-index:1;display:grid;gap:44px;grid-template-columns:1fr;padding:78px 0 90px;}
+  @media(min-width:980px){.hero-in{grid-template-columns:1.12fr .88fr;align-items:center;}}
+  .seal{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line-navy);border-radius:999px;padding:7px 16px;font-size:.8rem;font-weight:600;letter-spacing:.02em;margin-bottom:26px;color:var(--on-navy);}
+  .seal .ico{width:16px;height:16px;color:var(--gold-2);}
+  .hero h1{font-size:var(--fs-display);font-weight:600;max-width:15ch;margin-bottom:22px;}
+  .hero h1 em{font-style:italic;color:var(--gold-2);}
+  .hero p{font-size:clamp(1.05rem,1rem+.5vw,1.28rem);color:var(--on-navy-soft);max-width:46ch;margin-bottom:30px;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:13px;}
   /* rate card */
-  .rate-card{background:#fff;color:var(--ink);border-radius:18px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.3);}
-  .rate-card h3{font-family:var(--body);font-weight:600;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
-  .rate-row{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line-soft);}
-  .rate-row:last-of-type{border-bottom:none;}
-  .rate-row span{color:var(--ink-soft);font-size:.95rem;}
-  .rate-row b{font-family:var(--display);font-size:1.15rem;color:var(--navy);}
-  .rate-card .btn{width:100%;margin-top:18px;}
-  .rate-card .disclaimer{font-size:.72rem;color:var(--ink-soft);margin-top:12px;text-align:center;}
+  .card{background:rgba(255,255,255,.04);border:1px solid var(--line-navy);border-radius:18px;padding:30px;backdrop-filter:blur(8px);}
+  .card h3{font-family:var(--sans);font-weight:600;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-2);margin-bottom:18px;}
+  .card-row{display:flex;justify-content:space-between;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--line-navy);}
+  .card-row:last-of-type{border-bottom:none;}
+  .card-row span{color:var(--on-navy-soft);font-size:.95rem;}
+  .card-row b{font-family:var(--serif);font-size:1.35rem;font-weight:600;color:#fff;}
+  .card .btn{width:100%;margin-top:20px;}
+  .card .fine{font-size:.72rem;color:var(--on-navy-soft);text-align:center;margin-top:12px;}
 
-  /* ---------- trust bar ---------- */
-  .trustbar{background:var(--white);border-bottom:1px solid var(--line-soft);}
-  .trustbar-inner{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 12px;padding:30px 0;text-align:center;}
-  @media(min-width:780px){.trustbar-inner{grid-template-columns:repeat(4,1fr);}}
-  .tb b{font-family:var(--display);font-weight:700;font-size:1.9rem;color:var(--navy);display:block;}
-  .tb span{font-size:.85rem;color:var(--ink-soft);}
+  section{padding:88px 0;}
+  .sec-head{max-width:56ch;margin-bottom:52px;}
+  .sec-head.center{margin-inline:auto;text-align:center;}
+  .sec-title{font-size:var(--fs-h2);margin:14px 0 0;}
+  .lead{color:var(--soft);font-size:1.08rem;margin-top:16px;}
 
-  /* ---------- sections ---------- */
-  section{padding:74px 0;}
-  .eyebrow{font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
-  .sec-title{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;margin-bottom:14px;}
-  .sec-sub{color:var(--ink-soft);max-width:58ch;margin-bottom:44px;font-size:1.05rem;}
-  .center{text-align:center;}
-  .center .sec-sub{margin-inline:auto;}
+  /* trust strip */
+  .trust{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .trust-in{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 12px;padding:44px 0;}
+  @media(min-width:820px){.trust-in{grid-template-columns:repeat(4,1fr);}}
+  .trust-in .t{text-align:center;position:relative;}
+  @media(min-width:820px){.trust-in .t:not(:last-child)::after{content:"";position:absolute;right:-6px;top:10%;height:80%;width:1px;background:var(--line);}}
+  .trust-in b{font-family:var(--serif);font-weight:600;font-size:2.3rem;color:var(--navy);display:block;line-height:1;}
+  .trust-in span{font-size:.86rem;color:var(--soft);display:block;margin-top:8px;}
 
-  /* ---------- three arms ---------- */
-  .arms{background:var(--white);}
-  .arm-grid{display:grid;gap:20px;grid-template-columns:1fr;}
+  /* arms */
+  .arms{background:var(--paper);}
+  .arm-grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;grid-template-columns:1fr;}
   @media(min-width:820px){.arm-grid{grid-template-columns:repeat(3,1fr);}}
-  .arm{border:1px solid var(--line-soft);border-radius:var(--radius);padding:30px 26px;background:var(--bg);transition:transform .2s,box-shadow .2s,border-color .2s;display:flex;flex-direction:column;}
-  .arm:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--navy);}
-  .arm .badge{width:52px;height:52px;border-radius:12px;background:var(--navy);color:#fff;display:grid;place-items:center;margin-bottom:18px;}
-  .arm .badge .ico{width:26px;height:26px;color:var(--gold-bright);}
-  .arm h3{font-size:1.3rem;color:var(--navy);margin-bottom:8px;}
-  .arm .range{font-weight:600;color:var(--gold);font-size:.92rem;margin-bottom:10px;}
-  .arm p{color:var(--ink-soft);font-size:.96rem;margin-bottom:18px;}
-  .arm .go{margin-top:auto;font-weight:600;font-size:.92rem;color:var(--navy);display:inline-flex;align-items:center;gap:6px;}
-  .arm .go .ico{width:16px;height:16px;}
+  .arm{background:var(--paper);padding:38px 32px;display:flex;flex-direction:column;transition:background .35s var(--ease);}
+  .arm:hover{background:var(--ivory);}
+  .arm .ic{width:50px;height:50px;border-radius:12px;background:var(--navy);color:var(--gold-2);display:grid;place-items:center;margin-bottom:22px;}
+  .arm .ic .ico{width:25px;height:25px;}
+  .arm h3{font-size:var(--fs-h3);color:var(--navy);margin-bottom:6px;}
+  .arm .rng{font-family:var(--sans);font-weight:600;color:var(--gold);font-size:.88rem;letter-spacing:.02em;margin-bottom:14px;}
+  .arm p{color:var(--soft);font-size:.97rem;margin-bottom:20px;}
+  .arm .go{margin-top:auto;font-family:var(--sans);font-weight:600;font-size:.9rem;color:var(--navy);display:inline-flex;align-items:center;gap:7px;}
+  .arm:hover .go .ar{transform:translateX(4px);}
+  .arm .ar{transition:transform .3s var(--ease);}
 
-  /* ---------- loan programs ---------- */
-  .progs-grid{display:grid;gap:16px;grid-template-columns:1fr;}
-  @media(min-width:640px){.progs-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(min-width:1000px){.progs-grid{grid-template-columns:repeat(3,1fr);}}
-  .prog{background:var(--white);border:1px solid var(--line-soft);border-radius:var(--radius);padding:24px 22px;display:flex;gap:15px;align-items:flex-start;transition:box-shadow .2s;}
-  .prog:hover{box-shadow:var(--shadow);}
-  .prog .picon{width:44px;height:44px;border-radius:10px;background:var(--gold-tint);color:var(--gold);display:grid;place-items:center;flex:none;}
-  .prog .picon .ico{width:22px;height:22px;}
-  .prog h4{font-family:var(--body);font-weight:700;font-size:1.02rem;margin-bottom:4px;}
-  .prog p{font-size:.9rem;color:var(--ink-soft);}
+  /* programs */
+  .progs{display:grid;gap:22px 40px;grid-template-columns:1fr;}
+  @media(min-width:720px){.progs{grid-template-columns:repeat(2,1fr);}}
+  .prog{display:flex;gap:18px;align-items:flex-start;padding:22px 0;border-top:1px solid var(--line);}
+  .prog .n{font-family:var(--serif);font-size:1.1rem;color:var(--gold);font-weight:600;flex:none;width:2.2rem;}
+  .prog h4{font-family:var(--serif);font-weight:600;font-size:1.15rem;color:var(--navy);margin-bottom:4px;}
+  .prog p{color:var(--soft);font-size:.94rem;}
 
-  /* ---------- why / heritage ---------- */
-  .why{background:linear-gradient(165deg,var(--navy-deep),var(--navy) 90%);color:#fff;}
-  .why-grid{display:grid;gap:40px;grid-template-columns:1fr;align-items:center;}
-  @media(min-width:900px){.why-grid{grid-template-columns:1fr 1fr;}}
-  .why .eyebrow{color:var(--gold-bright);}
-  .why h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:16px;}
-  .why>.why-grid p.lead{color:rgba(255,255,255,.88);font-size:1.08rem;margin-bottom:8px;}
-  .why-list{display:flex;flex-direction:column;gap:16px;}
-  .why-item{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:18px 20px;}
-  .why-item .ico{width:24px;height:24px;color:var(--gold-bright);flex:none;margin-top:2px;}
-  .why-item b{font-family:var(--display);font-size:1.08rem;display:block;margin-bottom:3px;}
-  .why-item p{color:rgba(255,255,255,.82);font-size:.94rem;}
+  /* heritage */
+  .heritage{background:var(--navy);color:var(--on-navy);position:relative;isolation:isolate;overflow:hidden;}
+  .heritage::before{content:"";position:absolute;bottom:-25%;left:-8%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(201,154,76,.16),transparent 65%);z-index:0;}
+  .heritage-in{position:relative;z-index:1;display:grid;gap:48px;grid-template-columns:1fr;align-items:center;}
+  @media(min-width:900px){.heritage-in{grid-template-columns:.85fr 1.15fr;}}
+  .quote-mark{font-family:var(--serif);font-size:5rem;line-height:.6;color:var(--gold-2);}
+  .heritage blockquote{font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,1.1rem+1.8vw,2.3rem);line-height:1.25;margin:14px 0 20px;}
+  .heritage cite{font-style:normal;color:var(--on-navy-soft);font-size:.95rem;}
+  .h-points{display:flex;flex-direction:column;gap:18px;}
+  .h-point{display:flex;gap:15px;align-items:flex-start;}
+  .h-point .ico{width:22px;height:22px;color:var(--gold-2);flex:none;margin-top:3px;}
+  .h-point b{font-family:var(--serif);font-weight:600;font-size:1.1rem;display:block;margin-bottom:3px;}
+  .h-point p{color:var(--on-navy-soft);font-size:.95rem;}
 
-  /* ---------- CTA band ---------- */
-  .cta-band{background:var(--gold-tint);}
-  .cta-box{display:grid;gap:26px;grid-template-columns:1fr;align-items:center;text-align:center;}
-  @media(min-width:820px){.cta-box{grid-template-columns:1.4fr auto;text-align:left;}}
-  .cta-box h2{font-size:clamp(1.7rem,3.6vw,2.3rem);color:var(--navy);margin-bottom:8px;}
-  .cta-box p{color:var(--ink-soft);}
+  /* cta band */
+  .cta{background:var(--gold-soft);}
+  .cta-in{display:grid;gap:24px;grid-template-columns:1fr;align-items:center;text-align:center;}
+  @media(min-width:820px){.cta-in{grid-template-columns:1.5fr auto;text-align:left;}}
+  .cta h2{font-size:var(--fs-h2);color:var(--navy);}
+  .cta p{color:var(--soft);margin-top:6px;}
   .cta-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
 
-  /* ---------- contact ---------- */
-  .contact{background:var(--white);}
-  .contact-grid{display:grid;gap:40px;grid-template-columns:1fr;}
-  @media(min-width:900px){.contact-grid{grid-template-columns:.9fr 1.1fr;}}
-  .loc{display:flex;gap:13px;align-items:flex-start;margin-bottom:22px;}
-  .loc .ico{width:22px;height:22px;color:var(--gold);flex:none;margin-top:3px;}
-  .loc b{font-family:var(--body);font-weight:700;display:block;}
-  .loc span, .loc a{color:var(--ink-soft);font-size:.95rem;}
-  .loc a:hover{color:var(--navy);}
-  .cform{background:var(--bg);border:1px solid var(--line-soft);border-radius:var(--radius);padding:28px 24px;box-shadow:var(--shadow);}
-  .cform .row{display:grid;gap:14px;grid-template-columns:1fr 1fr;}
+  /* contact */
+  .contact{background:var(--paper);}
+  .contact-grid{display:grid;gap:48px;grid-template-columns:1fr;}
+  @media(min-width:900px){.contact-grid{grid-template-columns:.85fr 1.15fr;}}
+  .loc{display:flex;gap:14px;align-items:flex-start;margin-bottom:26px;}
+  .loc .ico{width:20px;height:20px;color:var(--gold);flex:none;margin-top:4px;}
+  .loc b{font-family:var(--serif);font-weight:600;display:block;color:var(--navy);}
+  .loc span,.loc a{color:var(--soft);font-size:.95rem;}.loc a:hover{color:var(--navy);}
+  .cform{background:var(--ivory);border:1px solid var(--line);border-radius:var(--r);padding:32px;}
+  .cform .row{display:grid;gap:15px;grid-template-columns:1fr 1fr;}
   @media(max-width:520px){.cform .row{grid-template-columns:1fr;}}
-  .cform label{display:block;font-weight:600;font-size:.82rem;margin:14px 0 6px;}
-  .cform input,.cform select,.cform textarea{width:100%;padding:12px 13px;border:1.5px solid var(--line);border-radius:8px;font-family:var(--body);font-size:.96rem;background:#fff;color:var(--ink);min-height:46px;}
-  .cform textarea{resize:vertical;min-height:70px;}
-  .cform input:focus,.cform select:focus,.cform textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(30,58,138,.12);}
-  .cform .btn{width:100%;margin-top:20px;}
+  .cform label{display:block;font-weight:600;font-size:.8rem;letter-spacing:.02em;margin:15px 0 6px;color:var(--navy);}
+  .cform input,.cform select,.cform textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:8px;font-family:var(--sans);font-size:.96rem;background:#fff;color:var(--ink);min-height:48px;}
+  .cform textarea{resize:vertical;min-height:76px;}
+  .cform :focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,154,76,.18);}
+  .cform .btn{width:100%;margin-top:22px;}
 
-  /* ---------- footer ---------- */
-  footer{background:var(--navy-deep);color:rgba(255,255,255,.72);padding:52px 0 28px;font-size:.92rem;}
-  .foot-grid{display:grid;gap:30px;grid-template-columns:1fr;margin-bottom:34px;}
+  /* footer */
+  footer{background:var(--navy-3);color:var(--on-navy-soft);padding:60px 0 30px;font-size:.92rem;}
+  .foot-grid{display:grid;gap:34px;grid-template-columns:1fr;margin-bottom:38px;}
   @media(min-width:760px){.foot-grid{grid-template-columns:1.6fr 1fr 1fr;}}
-  footer h4{font-family:var(--body);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:14px;}
-  footer a{color:rgba(255,255,255,.72);line-height:1.9;}
-  footer a:hover{color:#fff;}
-  .foot-brand b{font-family:var(--display);color:#fff;font-size:1.2rem;}
-  .compliance{border-top:1px solid rgba(255,255,255,.14);padding-top:22px;display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;}
-  .ehl{display:flex;align-items:center;gap:11px;}
-  .ehl svg{width:40px;height:40px;flex:none;}
-  .ehl span{font-size:.8rem;color:rgba(255,255,255,.7);max-width:44ch;}
-  .placeholder{color:var(--gold-bright);font-weight:600;}
+  footer h4{font-family:var(--sans);font-weight:600;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-2);margin-bottom:14px;}
+  footer a{color:var(--on-navy-soft);line-height:1.95;}footer a:hover{color:#fff;}
+  .foot-brand .serif{color:#fff;font-size:1.3rem;}
+  .compliance{border-top:1px solid var(--line-navy);padding-top:24px;display:flex;flex-wrap:wrap;gap:18px 26px;align-items:center;justify-content:space-between;}
+  .ehl{display:flex;align-items:center;gap:12px;max-width:60ch;}
+  .ehl svg{width:38px;height:38px;flex:none;}
+  .ehl span{font-size:.78rem;color:var(--on-navy-soft);line-height:1.6;}
+  .ph{color:var(--gold-2);}
 
-  .demo-ribbon{position:fixed;bottom:0;left:0;right:0;z-index:80;background:var(--navy);color:#fff;text-align:center;font-size:.82rem;padding:9px 14px;border-top:2px solid var(--gold-bright);}
-  .demo-ribbon b{color:var(--gold-bright);}
+  .ribbon{position:fixed;bottom:0;left:0;right:0;z-index:80;background:var(--navy);color:var(--on-navy);text-align:center;font-size:.8rem;padding:9px 14px;border-top:2px solid var(--gold-2);}
+  .ribbon b{color:var(--gold-2);}
 </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div class="wrap topbar-inner">
-    <div class="tp-left">
-      <a href="tel:+15048373939"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Mortgage: (504) 837-3939</a>
-      <a href="tel:+15048379400"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Personal Loans: (504) 837-9400</a>
+<div class="util">
+  <div class="wrap util-in">
+    <div class="util-l">
+      <a href="tel:+15048373939"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Mortgage (504) 837-3939</a>
+      <a href="tel:+15048379400"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Personal Loans (504) 837-9400</a>
     </div>
-    <a href="#contact"><svg class="ico" viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Metairie, LA · 3 locations</a>
+    <a href="#contact"><svg class="ico" viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Metairie, Louisiana</a>
   </div>
 </div>
 
 <nav class="nav">
-  <div class="wrap nav-inner">
-    <a class="brand" href="#top" aria-label="Sun Finance home">
-      <img class="sun-logo" src="img/sun-logo.svg" alt="Sun" width="297" height="61">
-      <span class="brand-tag">Est. 1958<br>Louisiana</span>
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Sun Finance">
+      <img src="img/sun-logo.svg" alt="Sun" width="297" height="61">
+      <span class="tag">Est. 1958<br>Louisiana</span>
     </a>
     <div class="nav-links">
-      <a href="#services">What We Offer</a>
+      <a href="#lending">Lending</a>
       <a href="#programs">Loan Programs</a>
-      <a href="#why">Why Sun</a>
+      <a href="#heritage">Our Story</a>
       <a href="#contact">Contact</a>
     </div>
-    <a class="btn btn-gold" href="#apply">Apply Now</a>
+    <a class="btn btn-gold" href="#apply" style="padding:11px 22px">Apply Now</a>
   </div>
 </nav>
 
 <header class="hero" id="top">
-  <div class="hero-bg"></div>
-  <div class="wrap hero-inner">
+  <div class="wrap hero-in">
     <div>
-      <span class="heritage reveal"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21l2.3-7.2-6-4.4h7.6z"/></svg>Lending in Louisiana since 1958</span>
-      <h1 class="reveal">From your first home to your next chapter — <em>we say yes more often.</em></h1>
-      <p class="reveal">Locally owned and operated for over 65 years. Mortgages from $5,000 to $10 million, personal loans, refinancing, construction and renovation — with more loan programs than a traditional bank and real people making the decisions.</p>
+      <span class="seal reveal"><svg class="ico" viewBox="0 0 24 24"><path d="M12 15a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM8.2 13.3 7 22l5-3 5 3-1.2-8.7"/></svg>Serving Louisiana since 1958</span>
+      <h1 class="reveal">From your first home to your <em>next chapter.</em></h1>
+      <p class="reveal">Louisiana&apos;s locally owned lender for more than sixty-five years. Mortgages from $5,000 to $10 million, personal loans, refinancing and construction — with more loan programs than a traditional bank, and real people making the decisions.</p>
       <div class="hero-ctas reveal">
         <a class="btn btn-gold" href="#apply">Apply now</a>
-        <a class="btn btn-white" href="#programs">See loan programs</a>
-      </div>
-      <div class="hero-trust reveal">
-        <span><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Since 1958</span>
-        <span><svg class="ico" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M15 9h.01M9 13h.01M15 13h.01"/></svg>Locally owned</span>
-        <span><svg class="ico" viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Up to $10M</span>
+        <a class="btn btn-ghost-navy" href="#programs">Explore loan programs</a>
       </div>
     </div>
-    <div class="rate-card reveal">
+    <div class="card reveal">
       <h3>Ways We Lend</h3>
-      <div class="rate-row"><span>Home mortgages</span><b>$5K–$10M</b></div>
-      <div class="rate-row"><span>Personal loans</span><b>$500–$3K</b></div>
-      <div class="rate-row"><span>Loan programs offered</span><b>15+</b></div>
-      <div class="rate-row"><span>In-house servicing</span><b>Yes</b></div>
-      <a class="btn btn-navy" href="#apply">Start your application</a>
-      <p class="disclaimer">Subject to credit approval. Equal Housing Lender.</p>
+      <div class="card-row"><span>Home mortgages</span><b>$5K – $10M</b></div>
+      <div class="card-row"><span>Personal loans</span><b>$500 – $3K</b></div>
+      <div class="card-row"><span>Loan programs offered</span><b>15+</b></div>
+      <div class="card-row"><span>Serviced in-house</span><b>Always</b></div>
+      <a class="btn btn-gold" href="#apply">Start your application</a>
+      <p class="fine">Subject to credit approval. Equal Housing Lender.</p>
     </div>
   </div>
 </header>
 
-<div class="trustbar">
-  <div class="wrap trustbar-inner reveal">
-    <div class="tb"><b>1958</b><span>Serving Louisiana since</span></div>
-    <div class="tb"><b>65+ yrs</b><span>Locally owned &amp; operated</span></div>
-    <div class="tb"><b>$10M</b><span>Maximum loan amount</span></div>
-    <div class="tb"><b>3</b><span>Louisiana locations</span></div>
+<div class="trust">
+  <div class="wrap trust-in">
+    <div class="t reveal"><b>1958</b><span>Serving Louisiana since</span></div>
+    <div class="t reveal"><b>65+</b><span>Years locally owned</span></div>
+    <div class="t reveal"><b>$10M</b><span>Maximum loan amount</span></div>
+    <div class="t reveal"><b>15+</b><span>Loan programs offered</span></div>
   </div>
 </div>
 
-<section class="arms" id="services">
-  <div class="wrap center">
-    <p class="eyebrow reveal">One Family of Lenders</p>
-    <h2 class="sec-title reveal">Whatever you need financed, we have a door for it.</h2>
-    <p class="sec-sub reveal">Three lending arms, one trusted local name. From a $500 personal loan to a $10 million mortgage, you deal with the same family-owned company that has served Louisiana since 1958.</p>
-  </div>
-  <div class="wrap arm-grid">
-    <div class="arm reveal">
-      <div class="badge"><svg class="ico" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 9.5V21h14V9.5M9 21v-6h6v6"/></svg></div>
-      <h3>Sun Mortgage Funding</h3>
-      <div class="range">$5,000 – $10 million</div>
-      <p>Home purchases, refinancing, renovation and new construction. More loan programs than a traditional bank, and we fund deals other lenders turn away.</p>
-      <span class="go">Explore mortgages <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+<section class="arms" id="lending">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <p class="eyebrow">One Family of Lenders</p>
+      <h2 class="sec-title">Whatever you need financed, we have a door for it.</h2>
+      <p class="lead">Three lending arms, one trusted local name. From a $500 personal loan to a $10 million mortgage, you deal with the same family-owned company that has served Louisiana since 1958.</p>
     </div>
-    <div class="arm reveal">
-      <div class="badge"><svg class="ico" viewBox="0 0 24 24"><path d="M2 7h20v10H2zM2 11h20M6 15h4"/></svg></div>
-      <h3>Sun Premium Financing</h3>
-      <div class="range">Flexible terms</div>
-      <p>Spread the cost of large insurance premiums into manageable payments — keep your coverage in force without tying up your cash.</p>
-      <span class="go">Learn more <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-    </div>
-    <div class="arm reveal">
-      <div class="badge"><svg class="ico" viewBox="0 0 24 24"><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6M12 3v18"/></svg></div>
-      <h3>Sun Finance Personal Loans</h3>
-      <div class="range">$500 – $3,000</div>
-      <p>Fast, friendly personal loans for life's unexpected turns — serviced in-house by people you can actually reach, right here in Louisiana.</p>
-      <span class="go">Get a personal loan <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    <div class="arm-grid">
+      <div class="arm reveal">
+        <div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 9.5V21h14V9.5M9 21v-6h6v6"/></svg></div>
+        <h3>Sun Mortgage Funding</h3>
+        <div class="rng">$5,000 – $10 million</div>
+        <p>Purchases, refinancing, renovation and new construction — with more loan programs than a traditional bank, and the willingness to fund deals other lenders turn away.</p>
+        <span class="go">Explore mortgages <span class="ar">→</span></span>
+      </div>
+      <div class="arm reveal">
+        <div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M2 7h20v10H2zM2 11h20M6 15h4"/></svg></div>
+        <h3>Sun Premium Financing</h3>
+        <div class="rng">Flexible terms</div>
+        <p>Spread the cost of large insurance premiums into manageable payments — keep your coverage in force without tying up your working capital.</p>
+        <span class="go">Learn more <span class="ar">→</span></span>
+      </div>
+      <div class="arm reveal">
+        <div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6M12 3v18"/></svg></div>
+        <h3>Sun Finance Personal Loans</h3>
+        <div class="rng">$500 – $3,000</div>
+        <p>Fast, friendly personal loans for life&apos;s unexpected turns — reviewed and serviced in-house by people you can actually reach, right here in Louisiana.</p>
+        <span class="go">Get a personal loan <span class="ar">→</span></span>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="programs">
-  <div class="wrap center">
-    <p class="eyebrow reveal">Loan Programs</p>
-    <h2 class="sec-title reveal">More ways to get to yes.</h2>
-    <p class="sec-sub reveal">Over 15 loan types — including options for buyers other lenders can't help. Here are the ones people ask about most.</p>
-  </div>
-  <div class="wrap progs-grid">
-    <div class="prog reveal"><div class="picon"><svg class="ico" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 9.5V21h14V9.5"/></svg></div><div><h4>New Home Purchase</h4><p>Financing for first-time and experienced buyers, whether you're working with an agent or just getting started.</p></div></div>
-    <div class="prog reveal"><div class="picon"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg></div><div><h4>Refinancing</h4><p>Lower your rate or pull equity from your primary or investment property for debt consolidation or big goals.</p></div></div>
-    <div class="prog reveal"><div class="picon"><svg class="ico" viewBox="0 0 24 24"><path d="M14 2l6 6-9 9H5v-6zM12 4l6 6"/></svg></div><div><h4>Renovation Loans</h4><p>Remodel, repair or improve your home with interim and permanent financing rolled into one.</p></div></div>
-    <div class="prog reveal"><div class="picon"><svg class="ico" viewBox="0 0 24 24"><path d="M3 21h18M6 21V10l6-4 6 4v11M10 21v-5h4v5"/></svg></div><div><h4>New Construction</h4><p>Build from the ground up with funding and guidance through planning, draws and timelines.</p></div></div>
-    <div class="prog reveal"><div class="picon"><svg class="ico" viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><h4>Cash-Out &amp; Cash Financing</h4><p>Access the equity you've built, or flexible cash financing options tailored to your situation.</p></div></div>
-    <div class="prog reveal"><div class="picon"><svg class="ico" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7z"/></svg></div><div><h4>Credit &amp; Foreclosure Solutions</h4><p>Had credit trouble or a foreclosure? We specialize in paths forward that big banks won't consider.</p></div></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Loan Programs</p>
+      <h2 class="sec-title">More ways to get to yes.</h2>
+      <p class="lead">Over fifteen loan types — including options for buyers other lenders can&apos;t help. A few of the ones people ask about most.</p>
+    </div>
+    <div class="progs">
+      <div class="prog reveal"><span class="n">01</span><div><h4>New Home Purchase</h4><p>Financing for first-time and experienced buyers, whether you&apos;re with an agent or just getting started.</p></div></div>
+      <div class="prog reveal"><span class="n">02</span><div><h4>Refinancing</h4><p>Lower your rate or draw equity from your primary or investment property for debt consolidation or bigger goals.</p></div></div>
+      <div class="prog reveal"><span class="n">03</span><div><h4>Renovation Loans</h4><p>Remodel, repair or improve your home with interim and permanent financing rolled into one.</p></div></div>
+      <div class="prog reveal"><span class="n">04</span><div><h4>New Construction</h4><p>Build from the ground up with funding and guidance through planning, draws and timelines.</p></div></div>
+      <div class="prog reveal"><span class="n">05</span><div><h4>Cash-Out &amp; Cash Financing</h4><p>Access the equity you&apos;ve built, or flexible cash financing tailored to your situation.</p></div></div>
+      <div class="prog reveal"><span class="n">06</span><div><h4>Credit &amp; Foreclosure Solutions</h4><p>Had credit trouble or a foreclosure? We specialize in paths forward that big banks won&apos;t consider.</p></div></div>
+    </div>
   </div>
 </section>
 
-<section class="why" id="why">
-  <div class="wrap why-grid">
+<section class="heritage" id="heritage">
+  <div class="wrap heritage-in">
     <div class="reveal">
-      <p class="eyebrow">Why Sun Finance</p>
-      <h2>Big-bank capacity. Small-town answers.</h2>
-      <p class="lead">New day, new challenges, new solutions — that's been our promise since 1958. We're large enough to fund a $10 million project and local enough to know your name.</p>
+      <p class="eyebrow">Our Story</p>
+      <div class="quote-mark">&ldquo;</div>
+      <blockquote>New day, new challenges, new solutions — that&apos;s been our promise since 1958.</blockquote>
+      <cite>— Sun Finance, Metairie, Louisiana</cite>
     </div>
-    <div class="why-list reveal">
-      <div class="why-item"><svg class="ico" viewBox="0 0 24 24"><path d="M12 8v4l3 3M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg><div><b>65+ years, same community</b><p>Family-owned and operated in Louisiana since 1958 — not a national call center.</p></div></div>
-      <div class="why-item"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><div><b>More programs than a bank</b><p>15+ loan types and in-house servicing means we can say yes when others say no.</p></div></div>
-      <div class="why-item"><svg class="ico" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg><div><b>Real people, local decisions</b><p>Your loan is reviewed and serviced by people you can call — right here at home.</p></div></div>
+    <div class="h-points reveal">
+      <div class="h-point"><svg class="ico" viewBox="0 0 24 24"><path d="M12 8v4l3 3M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg><div><b>Sixty-five years, one community</b><p>Family-owned and operated in Louisiana since 1958 — not a national call center.</p></div></div>
+      <div class="h-point"><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><div><b>More programs than a bank</b><p>Fifteen-plus loan types and in-house servicing mean we can say yes when others say no.</p></div></div>
+      <div class="h-point"><svg class="ico" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg><div><b>Real people, local decisions</b><p>Your loan is reviewed and serviced by people you can call — right here at home.</p></div></div>
     </div>
   </div>
 </section>
 
-<section class="cta-band" id="apply">
-  <div class="wrap cta-box">
-    <div>
+<section class="cta" id="apply">
+  <div class="wrap cta-in">
+    <div class="reveal">
       <h2>Ready to get started?</h2>
-      <p>Apply in minutes or call to talk it through with a local lender. No pressure, no obligation.</p>
+      <p>Apply in minutes, or call to talk it through with a local lender. No pressure, no obligation.</p>
     </div>
-    <div class="cta-actions">
+    <div class="cta-actions reveal">
       <a class="btn btn-gold" href="#contact">Apply now</a>
       <a class="btn btn-ghost" href="tel:+15048373939">Call (504) 837-3939</a>
     </div>
@@ -355,36 +339,20 @@
   <div class="wrap contact-grid">
     <div class="reveal">
       <p class="eyebrow">Contact Us</p>
-      <h2 class="sec-title">Let's talk about your goals.</h2>
-      <div class="loc" style="margin-top:26px">
-        <svg class="ico" viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <div><b>Main Office</b><span>3525 N. Causeway Blvd, Suite 900<br>Metairie, LA 70002</span></div>
-      </div>
-      <div class="loc">
-        <svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-        <div><b>Call Us</b><a href="tel:+15048373939">(504) 837-3939</a> — Mortgages<br><a href="tel:+15048379400">(504) 837-9400</a> — Personal Loans</div>
-      </div>
-      <div class="loc">
-        <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        <div><b>Hours</b><span>Mon–Fri: 9:00am – 5:00pm<br>Sat–Sun: Closed</span></div>
-      </div>
+      <h2 class="sec-title" style="margin-bottom:28px">Let&apos;s talk about your goals.</h2>
+      <div class="loc"><svg class="ico" viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Main Office</b><span>3525 N. Causeway Blvd, Suite 900<br>Metairie, LA 70002</span></div></div>
+      <div class="loc"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><div><b>Call Us</b><a href="tel:+15048373939">(504) 837-3939</a> — Mortgages<br><a href="tel:+15048379400">(504) 837-9400</a> — Personal Loans</div></div>
+      <div class="loc"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div><b>Hours</b><span>Monday–Friday · 9:00am – 5:00pm</span></div></div>
     </div>
-    <form class="cform reveal" onsubmit="event.preventDefault();var b=this.querySelector('button');b.textContent='✓ Received — we\'ll reach out shortly';b.disabled=true;">
+    <form class="cform reveal" onsubmit="event.preventDefault();var b=this.querySelector('button');b.textContent='✓ Received — we\'ll be in touch shortly';b.disabled=true;">
       <div class="row">
-        <div><label for="c-name">Full name</label><input id="c-name" name="name" type="text" autocomplete="name" placeholder="Your name" required></div>
-        <div><label for="c-phone">Phone</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(504) 000-0000" required></div>
+        <div><label for="n">Full name</label><input id="n" name="name" type="text" autocomplete="name" placeholder="Your name" required></div>
+        <div><label for="p">Phone</label><input id="p" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(504) 000-0000" required></div>
       </div>
-      <label for="c-type">What are you looking for?</label>
-      <select id="c-type" name="loan_type">
-        <option>Home mortgage</option>
-        <option>Refinance</option>
-        <option>Renovation / construction</option>
-        <option>Personal loan</option>
-        <option>Premium financing</option>
-        <option>Not sure — help me decide</option>
-      </select>
-      <label for="c-msg">Tell us a little about your situation</label>
-      <textarea id="c-msg" name="message" placeholder="e.g. Looking to refinance my home in Metairie"></textarea>
+      <label for="t">What are you looking for?</label>
+      <select id="t" name="loan_type"><option>Home mortgage</option><option>Refinance</option><option>Renovation / construction</option><option>Personal loan</option><option>Premium financing</option><option>Not sure — help me decide</option></select>
+      <label for="m">Tell us a little about your situation</label>
+      <textarea id="m" name="message" placeholder="e.g. Looking to refinance my home in Metairie"></textarea>
       <button class="btn btn-gold" type="submit">Request a call back</button>
     </form>
   </div>
@@ -394,52 +362,37 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <b>Sun Finance</b>
-        <p style="margin-top:10px">Louisiana's locally owned lender since 1958. Mortgages, personal loans, refinancing, construction and premium financing — all under one trusted roof.</p>
+        <span class="serif">Sun Finance</span>
+        <p style="margin-top:12px;max-width:42ch">Louisiana&apos;s locally owned lender since 1958 — mortgages, personal loans, refinancing, construction and premium financing, all under one trusted roof.</p>
       </div>
       <div>
         <h4>Lending</h4>
-        <a href="#services">Sun Mortgage Funding</a><br>
-        <a href="#services">Sun Premium Financing</a><br>
-        <a href="#services">Personal Loans</a><br>
-        <a href="#programs">All Loan Programs</a>
+        <a href="#lending">Sun Mortgage Funding</a><br><a href="#lending">Sun Premium Financing</a><br><a href="#lending">Personal Loans</a><br><a href="#programs">All Loan Programs</a>
       </div>
       <div>
         <h4>Company</h4>
-        <a href="#why">Why Sun Finance</a><br>
-        <a href="#contact">Contact &amp; Locations</a><br>
-        <a href="#apply">Apply Now</a><br>
-        <a href="tel:+15048373939">(504) 837-3939</a>
+        <a href="#heritage">Our Story</a><br><a href="#contact">Contact &amp; Locations</a><br><a href="#apply">Apply Now</a><br><a href="tel:+15048373939">(504) 837-3939</a>
       </div>
     </div>
     <div class="compliance">
       <div class="ehl">
-        <svg viewBox="0 0 48 48" aria-label="Equal Housing Lender"><rect width="48" height="48" rx="6" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/><path d="M24 11l13 9v2h-3v14H14V22h-3v-2z" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 41v-8h10v8" fill="none" stroke="#fff" stroke-width="1.6"/><path d="M17 27h5M26 27h5M17 31h5M26 31h5" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg>
-        <span>Equal Housing Lender. All loans subject to credit approval. Sun Mortgage Funding, Inc. — NMLS #71517. Sun Premium Financing &amp; Sun Finance Co. LLC licensed by the Louisiana Office of Financial Institutions, lic. #<span class="placeholder">[to confirm w/ client]</span>. <span class="placeholder">[Final state disclosures confirmed during engagement.]</span></span>
+        <svg viewBox="0 0 48 48" aria-label="Equal Housing Lender"><rect width="48" height="48" rx="6" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.4"/><path d="M24 11l13 9v2h-3v14H14V22h-3v-2z" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/><path d="M19 41v-8h10v8" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M17 27h5M26 27h5M17 31h5M26 31h5" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <span>Equal Housing Lender. All loans subject to credit approval. Sun Mortgage Funding, Inc. — NMLS #71517. Sun Premium Financing &amp; Sun Finance Co. LLC licensed by the Louisiana Office of Financial Institutions, lic. #<span class="ph">[to confirm]</span>. <span class="ph">[Final state disclosures confirmed during engagement.]</span></span>
       </div>
       <span>© Sun Finance Co. LLC · Metairie, Louisiana</span>
     </div>
   </div>
 </footer>
 
-<div class="demo-ribbon"><b>PREVIEW</b> — redesign concept built by WebBlaze for Sun Finance · not the live site</div>
+<div class="ribbon"><b>PREVIEW</b> — redesign concept built by WebBlaze for Sun Finance · not the live site</div>
 
 <script type="application/ld+json">
-{
-  "@context":"https://schema.org","@type":"FinancialService",
-  "name":"Sun Finance Co. LLC","foundingDate":"1958","priceRange":"$$",
-  "telephone":"+1-504-837-3939","areaServed":"Louisiana",
-  "address":{"@type":"PostalAddress","streetAddress":"3525 N. Causeway Blvd, Suite 900","addressLocality":"Metairie","addressRegion":"LA","postalCode":"70002","addressCountry":"US"}
-}
+{"@context":"https://schema.org","@type":"FinancialService","name":"Sun Finance Co. LLC","foundingDate":"1958","priceRange":"$$","telephone":"+1-504-837-3939","areaServed":"Louisiana","address":{"@type":"PostalAddress","streetAddress":"3525 N. Causeway Blvd, Suite 900","addressLocality":"Metairie","addressRegion":"LA","postalCode":"70002","addressCountry":"US"}}
 </script>
 <script>
-  const targets=document.querySelectorAll('.reveal');
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver'in window)){
-    targets.forEach(el=>el.classList.add('in'));
-  }else{
-    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
-    targets.forEach(el=>io.observe(el));
-  }
+  const els=document.querySelectorAll('.reveal');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver'in window)){els.forEach(e=>e.classList.add('in'));}
+  else{const io=new IntersectionObserver(en=>en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});els.forEach(e=>io.observe(e));}
 </script>
 </body>
 </html>
