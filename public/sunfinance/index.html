@@ -120,7 +120,7 @@
   .arms{background:var(--paper);}
   .arm-grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;grid-template-columns:1fr;}
   @media(min-width:820px){.arm-grid{grid-template-columns:repeat(3,1fr);}}
-  .arm{background:var(--paper);padding:38px 32px;display:flex;flex-direction:column;transition:background .35s var(--ease);}
+  .arm{background:var(--paper);padding:38px 32px;display:flex;flex-direction:column;transition:background .35s var(--ease);scroll-margin-top:110px;}
   .arm:hover{background:var(--ivory);}
   .arm .ic{width:50px;height:50px;border-radius:12px;background:var(--navy);color:var(--gold-2);display:grid;place-items:center;margin-bottom:22px;}
   .arm .ic .ico{width:25px;height:25px;}
@@ -179,7 +179,7 @@
   .cform .btn{width:100%;margin-top:22px;}
 
   /* footer */
-  footer{background:var(--navy-3);color:var(--on-navy-soft);padding:60px 0 30px;font-size:.92rem;}
+  footer{background:var(--navy-3);color:var(--on-navy-soft);padding:60px 0 76px;font-size:.92rem;}
   .foot-grid{display:grid;gap:34px;grid-template-columns:1fr;margin-bottom:38px;}
   @media(min-width:760px){.foot-grid{grid-template-columns:1.6fr 1fr 1fr;}}
   footer h4{font-family:var(--sans);font-weight:600;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-2);margin-bottom:14px;}
@@ -191,7 +191,7 @@
   .ehl span{font-size:.78rem;color:var(--on-navy-soft);line-height:1.6;}
   .ph{color:var(--gold-2);}
 
-  .ribbon{position:fixed;bottom:0;left:0;right:0;z-index:80;background:var(--navy);color:var(--on-navy);text-align:center;font-size:.8rem;padding:9px 14px;border-top:2px solid var(--gold-2);}
+  .ribbon{position:fixed;bottom:0;left:0;right:0;z-index:80;background:var(--navy);color:var(--on-navy);text-align:center;font-size:.8rem;padding:9px 14px;border-top:2px solid var(--gold-2);pointer-events:none;}
   .ribbon b{color:var(--gold-2);}
 </style>
 </head>
@@ -263,21 +263,21 @@
       <p class="lead">Three lending arms, one trusted local name. From a $500 personal loan to a $10 million mortgage, you deal with the same family-owned company that has served Louisiana since 1958.</p>
     </div>
     <div class="arm-grid">
-      <div class="arm reveal">
+      <div class="arm reveal" id="mortgage">
         <div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 9.5V21h14V9.5M9 21v-6h6v6"/></svg></div>
         <h3>Sun Mortgage Funding</h3>
         <div class="rng">$5,000 – $10 million</div>
         <p>Purchases, refinancing, renovation and new construction — with more loan programs than a traditional bank, and the willingness to fund deals other lenders turn away.</p>
         <span class="go">Explore mortgages <span class="ar">→</span></span>
       </div>
-      <div class="arm reveal">
+      <div class="arm reveal" id="premium">
         <div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M2 7h20v10H2zM2 11h20M6 15h4"/></svg></div>
         <h3>Sun Premium Financing</h3>
         <div class="rng">Flexible terms</div>
         <p>Spread the cost of large insurance premiums into manageable payments — keep your coverage in force without tying up your working capital.</p>
         <span class="go">Learn more <span class="ar">→</span></span>
       </div>
-      <div class="arm reveal">
+      <div class="arm reveal" id="personal">
         <div class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6M12 3v18"/></svg></div>
         <h3>Sun Finance Personal Loans</h3>
         <div class="rng">$500 – $3,000</div>
@@ -367,7 +367,7 @@
       </div>
       <div>
         <h4>Lending</h4>
-        <a href="#lending">Sun Mortgage Funding</a><br><a href="#lending">Sun Premium Financing</a><br><a href="#lending">Personal Loans</a><br><a href="#programs">All Loan Programs</a>
+        <a href="#mortgage">Sun Mortgage Funding</a><br><a href="#premium">Sun Premium Financing</a><br><a href="#personal">Personal Loans</a><br><a href="#programs">All Loan Programs</a>
       </div>
       <div>
         <h4>Company</h4>
