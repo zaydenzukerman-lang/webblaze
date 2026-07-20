@@ -168,8 +168,17 @@ No creation, no warmup week needed — outreach can start IMMEDIATELY. (I wrongl
 Volume rules still apply: it's aged but has zero outreach history → start ~5 new businesses/day,
 no links in message 1.
 
+## PAYMENTS — effectively solved (2026-07-20)
+Zayden already has a FreshBooks account. Payout/processing rail = **dad's (Forest's) Stripe
+account**, which Zayden will connect inside FreshBooks. This clears the age/KYC problem cleanly:
+Zayden's name on the work, dad's verified Stripe receiving the money → the $ lands and STAYS.
+DO NOT set up any financial/payout account under Zayden's real-or-faked age — payment processors
+run KYC at payout and will freeze funds + ban a minor account. Dad's Stripe is the whole fix.
+Only remaining action: dad connects his Stripe to the FreshBooks account (their action, not Claude's).
+
 ## STILL BLOCKED ON ZAYDEN
 1. SEND the two ready messages (Dune Buggy + Orange Beach Fish Charter) — nothing blocks this now.
+   The two demos are live on clean URLs: orangebeachfish.webblaze.io + dunebuggy.webblaze.io.
 2. Add DNS records for webblaze.io in Namecheap (exact records in ops/SETUP.md) — domain is bought,
    just not pointed at the site yet. Claude re-enables the custom domain the moment DNS resolves.
 3. FreshBooks account (dad) — needed before first "yes"
