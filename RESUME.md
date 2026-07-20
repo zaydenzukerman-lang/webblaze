@@ -208,6 +208,30 @@ sunmortgagefunding.com + sunfinance.com (dated).
 - NEXT (my job, NOT Concierge's): build inner pages (Loan Programs, About, Apply, Contact) if we
   want depth before the intro; decide price.
 
+## CLOUDFLARE — moving webblaze.io here (Zayden's call, 2026-07-20)
+Decision: webblaze.io DNS + email moves Vercel → Cloudflare (Zayden standardizing on CF). Immediate
+driver: free Cloudflare Email Routing for zayden@webblaze.io. Cloudflare Free tier covers all of it
+(DNS + Email Routing), no card. Keep domain REGISTERED at Namecheap (don't transfer registrar).
+- INSTALLED 2026-07-20: official Cloudflare Claude Code plugin — `claude plugin marketplace add
+  cloudflare/skills` + `claude plugin install cloudflare@cloudflare`. Gives skills
+  (cloudflare-email-service, cloudflare, wrangler, etc.) + MCP servers (cloudflare-api =
+  mcp.cloudflare.com, cloudflare-docs, bindings, builds, observability). Config at
+  ~/.claude/plugins/marketplaces/cloudflare/.mcp.json.
+- AUTH IS VIA OAUTH, not a raw token — cleaner, no credential handling. cloudflare-api MCP
+  authenticates to whatever account Zayden logs into.
+- PENDING (needs Zayden's interactive session — I can't OAuth from non-interactive):
+  1) Zayden makes his OWN free Cloudflare account + adds webblaze.io (his account = his control,
+     per the token blast-radius reasoning; Concierge will delete the zone it made in Forest's acct).
+  2) Restart Claude Code so the CF MCP servers load; run /mcp → authenticate cloudflare-api via OAuth.
+  3) THEN (next session) Claude stages full zone via MCP: webblaze.io + www + 3 demo subdomains →
+     Vercel, DNS-ONLY (grey cloud); Email Routing zayden@webblaze.io → Zayden's Gmail; verify green.
+  4) Hand Concierge the 2 Cloudflare nameservers → Concierge flips Namecheap NS (records-first,
+     flip-last, zero downtime). Concierge already made a zone in Forest's acct (NS jimmy+melody) —
+     that gets deleted in favor of Zayden's own account.
+- Note: to SEND as zayden@webblaze.io later, set up Gmail "Send mail as" (separate free step).
+- Bonus (Concierge): client's REAL domains (sunfinance.com etc.) already in Inspree's Cloudflare →
+  Sun Finance production cutover is in-family/trivial once we win the work.
+
 ## CONCIERGE SCOPE (Zayden, 2026-07-20) — STRUCTURAL/ACCOUNT things ONLY, rarely
 Concierge is NOT a work collaborator. Don't route research/building/content/logos through him
 (I over-did this on Sun Finance — he pulled NMLS/logos that were MY job). Default to ZERO messages.
