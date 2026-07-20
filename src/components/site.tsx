@@ -145,6 +145,32 @@ export function Nav({ onDark = true }: { onDark?: boolean }) {
     addEventListener("scroll", on, { passive: true });
     return () => removeEventListener("scroll", on);
   }, []);
+
+  // In-page anchor scrolling. Native hash nav lands wrong here (overflow-x +
+  // reveal transforms), so intercept same-page "#id" / "/#id" links and
+  // scroll manually — reliable everywhere.
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      const a = (e.target as HTMLElement).closest?.("a[href*='#']") as HTMLAnchorElement | null;
+      if (!a) return;
+      const href = a.getAttribute("href") || "";
+      const hashOnly = href.startsWith("#");
+      const rootHash = href.startsWith("/#") && location.pathname === "/";
+      if (!hashOnly && !rootHash) return;
+      const id = href.slice(href.indexOf("#") + 1);
+      const el = id && document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      const y = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({
+        top: y,
+        behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      });
+      history.replaceState(null, "", href);
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
   const light = scrolled || !onDark;
   return (
     <header
