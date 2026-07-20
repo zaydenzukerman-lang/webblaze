@@ -6,6 +6,10 @@ import type { NextConfig } from "next";
 const DEMOS = ["orangebeachfish", "dunebuggy", "sunfinance"] as const;
 
 const nextConfig: NextConfig = {
+  // Keep trailing slashes so demos served at /<slug>/ resolve their relative
+  // asset paths (img/…) correctly. Without this Next strips the slash and
+  // relative paths break to the root.
+  trailingSlash: true,
   async rewrites() {
     return {
       beforeFiles: [
