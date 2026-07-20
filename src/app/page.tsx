@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ContactForm from "./ContactForm";
 
 const PORTFOLIO = [
   {
@@ -59,15 +60,18 @@ export default function Home() {
       {/* ---------- Nav ---------- */}
       <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <Link href="#top" className="flex items-center gap-2">
+          <Link href="#top" className="flex items-center gap-2.5">
             <Image
-              src="/logo-wordmark.png"
-              alt="WebBlaze"
-              width={715}
-              height={213}
-              className="h-7 w-auto md:h-8"
+              src="/logo-mark.png"
+              alt=""
+              width={536}
+              height={384}
+              className="h-8 w-auto md:h-9"
               priority
             />
+            <span className="font-[family-name:var(--font-display)] text-lg font-bold tracking-tight">
+              WebBlaze
+            </span>
           </Link>
           <nav className="hidden items-center gap-8 text-sm font-medium text-[var(--foreground-soft)] md:flex">
             <a href="#work" className="hover:text-[var(--foreground)] transition-colors">
@@ -290,12 +294,9 @@ export default function Home() {
               Tell us a bit about your business and we&apos;ll start building —
               free, no obligation. You only pay if you love it.
             </p>
-            <a
-              href="mailto:webblazeio@gmail.com?subject=Let%27s%20build%20my%20site&body=Business%20name%3A%0AWhat%20we%20do%3A%0ACity%2C%20State%3A%0APhone%20(optional)%3A"
-              className="mt-8 inline-block rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-[var(--burnt)] shadow-lg transition-transform hover:-translate-y-0.5"
-            >
-              Email us — webblazeio@gmail.com
-            </a>
+            <div className="mx-auto mt-8 max-w-lg">
+              <ContactForm />
+            </div>
           </div>
         </section>
       </main>
@@ -304,10 +305,12 @@ export default function Home() {
       <footer className="border-t border-[var(--border)] py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-[var(--foreground-soft)] md:flex-row">
           <div className="flex items-center gap-2">
-            <Image src="/logo-mark.png" alt="" width={20} height={20} className="h-5 w-5" />
+            <Image src="/logo-mark.png" alt="" width={536} height={384} className="h-5 w-auto" />
             <span>© {new Date().getFullYear()} WebBlaze</span>
           </div>
-          <p>Websites &amp; growth for small businesses.</p>
+          <a href="mailto:zayden@webblaze.io" className="hover:text-[var(--foreground)] transition-colors">
+            zayden@webblaze.io
+          </a>
         </div>
       </footer>
     </>
