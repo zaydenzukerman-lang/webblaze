@@ -36,6 +36,18 @@ the webblaze.io ROOT domain** (the agency's own marketing homepage). Resolution 
   SUPERSEDED by the new Vercel build — kept in the repo as reference/backup only, not the canonical
   marketing site going forward.
 
+## CLAUDE <> CONCIERGE RELAY — set up 2026-07-20
+No live agent-to-agent link exists between Claude (this machine) and Concierge (dad's own Claude
+Code, on HIS laptop) — confirmed via SendMessage ("no agent named Concierge reachable"), no MCP
+bridge, no local network service. The domain/DNS handoffs that worked before were human-relayed
+(dad ran his own Concierge, told Zayden, Zayden told Claude) — NOT agent-to-agent.
+**Fix: async relay via GitHub Issues** on the shared repo (already public, gh already authenticated
+here): https://github.com/zaydenzukerman-lang/webblaze/issues/1 — "Claude <> Concierge relay".
+Either agent posts a comment when it needs something from the other; Zayden/dad tell their agent
+to check/reply there. Requires Concierge to ALSO have git/GitHub access to be fully two-way —
+unconfirmed, worth checking. If Concierge can't reach GitHub, this degrades back to human relay,
+which still works fine.
+
 ## hello@webblaze.io EMAIL — 2026-07-20, DNS side DONE, one free signup left
 FACT CHECK (corrected a wrong assumption): Namecheap is registrar ONLY. DNS is on Vercel
 nameservers (ns1/ns2.vercel-dns.com) — confirmed via Google DNS, Cloudflare DNS, and WHOIS
