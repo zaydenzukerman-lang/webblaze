@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 // Client demo sites served from public/<slug>/.
 //   Path access:      webblaze.io/<slug>/   (works on *.vercel.app immediately)
 //   Subdomain access: <slug>.webblaze.io    (handled in src/proxy.ts)
-const DEMOS = ["orangebeachfish", "dunebuggy"] as const;
+const DEMOS = ["orangebeachfish", "dunebuggy", "sunfinance"] as const;
 
 const nextConfig: NextConfig = {
   async rewrites() {
