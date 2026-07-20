@@ -208,7 +208,16 @@ sunmortgagefunding.com + sunfinance.com (dated).
 - NEXT (my job, NOT Concierge's): build inner pages (Loan Programs, About, Apply, Contact) if we
   want depth before the intro; decide price.
 
-## CLOUDFLARE — moving webblaze.io here (Zayden's call, 2026-07-20)
+## CLOUDFLARE CUTOVER COMPLETE 2026-07-20 ✅
+webblaze.io is now fully on Cloudflare (Zayden's own account, NS lee+leah.ns.cloudflare.com, zone
+ACTIVE). All 4 sites (webblaze.io + orangebeachfish/dunebuggy/sunfinance subdomains) verified 200
+on the new DNS. DNS records: A webblaze.io→76.76.21.21 + CNAMEs www/3-demos→cname.vercel-dns.com,
+all DNS-only; 3 CAA kept. Token at ~/.cf_webblaze_token (Zone DNS Edit only — NOT authorized for
+activation_check or email routing endpoints). REMAINING: Email Routing for zayden@webblaze.io is
+Zayden's dashboard job (Email→Email Routing→enable, add+verify destination Gmail [which one TBD],
+create zayden@webblaze.io rule). Then Gmail "Send mail as" to reply as the address.
+
+## CLOUDFLARE — moving webblaze.io here (Zayden's call, 2026-07-20) [historical, now done]
 Decision: webblaze.io DNS + email moves Vercel → Cloudflare (Zayden standardizing on CF). Immediate
 driver: free Cloudflare Email Routing for zayden@webblaze.io. Cloudflare Free tier covers all of it
 (DNS + Email Routing), no card. Keep domain REGISTERED at Namecheap (don't transfer registrar).
