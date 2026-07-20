@@ -83,7 +83,28 @@ instantly, with zero Namecheap or Cloudflare involvement.
   email providers, verification codes, etc.) — Claude adds it directly via `vercel dns add
   webblaze.io <name> <type> <value>` from `~/webblaze`, no dad/Namecheap/Cloudflare step needed.
 
-## WEBBLAZE.IO MARKETING SITE — BUILT & DEPLOYED 2026-07-15
+## PREMIUM REDESIGN 2026-07-20 (Zayden: "sites are boring/basic, want high-end unique feel")
+Big design elevation of webblaze.io + Sun Finance, plus legal pages. All LIVE + verified 200.
+- **webblaze.io homepage** rebuilt premium: dark editorial hero (Space Grotesk display + Inter),
+  animated flame glow, framer-motion scroll reveals + spring micro-interactions + magnetic buttons,
+  scrolling marquee, animated stat counters, big editorial portfolio cards (Sun Finance / Orange
+  Beach / Dune Buggy → their live subdomains), distinctive numbered process, glowing pricing card,
+  elegant FAQ accordion, contact form on flame-glow dark section, rich noir footer.
+  Installed framer-motion. Shared components in src/components/site.tsx (Nav/Footer/Reveal/Stat/
+  Marquee/Magnetic). page.tsx is "use client" (metadata lives in layout.tsx).
+- **/privacy + /terms** pages (src/app/privacy, /terms) — real, honest agency policy/terms in the
+  new design language, linked in footer. Server components.
+- **Sun Finance** (public/sunfinance/index.html) rebuilt to high-end private-bank feel: Fraunces
+  serif display + Inter, deep navy + bronze-gold + ivory, glass rate card, editorial loan programs,
+  navy heritage pull-quote section, IntersectionObserver scroll reveals (reduced-motion safe),
+  refined compliance footer (NMLS #71517 + EHL + LA OFI placeholder). Fresh portfolio screenshot.
+- NOTE ON VERIFY: framer-motion whileInView + fullPage screenshots show below-fold sections blank
+  until scrolled — that's a capture artifact, NOT a bug (verified each section renders on real
+  scroll). Real users see smooth reveals.
+- Client demos NOT redesigned (Dune Buggy/Orange Beach) — task was webblaze + Sun Finance only.
+- Contact form still posts to Web3Forms with placeholder key (unchanged pending item).
+
+## WEBBLAZE.IO MARKETING SITE — BUILT & DEPLOYED 2026-07-15 [superseded by 07-20 redesign above]
 Next.js + Tailwind site built in `~/webblaze/` (separate repo from bookedsolid, its own git history).
 Sections: hero ($300 flat pitch), portfolio (real screenshots of Dune Buggy + Orange Beach Fish
 Charter linking to their live GitHub Pages demos), how-it-works (3 steps), pricing card, FAQ,
