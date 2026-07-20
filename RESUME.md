@@ -36,7 +36,23 @@ the webblaze.io ROOT domain** (the agency's own marketing homepage). Resolution 
   SUPERSEDED by the new Vercel build — kept in the repo as reference/backup only, not the canonical
   marketing site going forward.
 
-## CLAUDE <> CONCIERGE RELAY — set up 2026-07-20
+## CLAUDE <> CONCIERGE — REAL CHANNEL FOUND 2026-07-20: SSH to Forest's Mac mini
+The actual "over WiFi" mechanism (Zayden was right it exists): Forest's Mac mini
+(`Forests-Mac-mini.local` = 192.168.68.75, on the same LAN) runs an SSH-backed message relay.
+Concierge lives there / reads+writes messages there.
+- Setup done: generated `~/.ssh/id_ed25519_concierge` (private stays here, only pubkey shared).
+  Helper `~/message-concierge.sh`: `--check` reads messages (`ssh mini read`), any arg sends
+  (`echo arg | ssh mini send`). Uses `-o IdentitiesOnly=yes` (critical — without it ssh offers
+  all my keys and hits "Too many authentication failures" before trying the right one).
+- Verified: Mac mini reachable, port 22 open, SSH transport works — only blocker is Concierge
+  adding my pubkey to the mini's authorized_keys. Pubkey (send to Concierge):
+  `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHWIeXbWfdMhPGsJOdy2CB2hy52s5vOWAhdFginIZ3qk zayden-claude`
+- To send Concierge a message: `~/message-concierge.sh "your message"`. To read: `~/message-concierge.sh --check`.
+- IMPORTANT PRIOR ERROR: my earlier "no open ports on the network" scan was BROKEN — it used
+  `timeout` which doesn't exist on macOS, so every probe silently failed. Don't trust that scan.
+  Use `python3` socket checks or `nc` for port checks on this machine, never `timeout`.
+
+## (superseded) GitHub-issue relay — set up 2026-07-20, now backup only
 No live agent-to-agent link exists between Claude (this machine) and Concierge (dad's own Claude
 Code, on HIS laptop) — confirmed via SendMessage ("no agent named Concierge reachable"), no MCP
 bridge, no local network service. The domain/DNS handoffs that worked before were human-relayed
