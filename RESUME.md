@@ -212,11 +212,19 @@ Volume rules still apply: it's aged but has zero outreach history → start ~5 n
 no links in message 1.
 
 ## SUN FINANCE — WARM LEAD (Forest's past client, 2026-07-20) — best lead we have
-Forest still has contact with Sun Finance Co. LLC (Metairie LA, lender since 1958) and can
-introduce us — they WANT a new website. NOT a $300 job: real financial-services work, price TBD
-with Forest. Scope (Zayden): ONE unified multi-page site covering their 3 arms (Sun Mortgage
-Funding $5k-$10M, Sun Premium Financing, Sun Finance personal loans $500-$3k). Old sites:
-sunmortgagefunding.com + sunfinance.com (dated).
+Forest still has contact with the Sun companies (Metairie LA, lender since 1958) and can
+introduce us — they WANT new websites.
+**SCOPE CORRECTED 2026-07-20 (Zayden): these are THREE SEPARATE businesses = THREE SEPARATE
+WEBSITES, sold at $300 EACH = $900 total** (NOT one unified site — Zayden's earlier "same website"
+comment was a mix-up he corrected). The three:
+  1. Sun Mortgage Funding — sunmortgagefunding.com — mortgages $5k-$10M (NMLS #71517)
+  2. Sun Premium Financing — sunpremium.com — insurance premium financing
+  3. Sun Finance Company — sunfinance.com — personal loans $500-$3k
+All three currently dated, all built by Inspree (Forest's agency) years ago; all real domains
+already in Inspree's Cloudflare (easy production cutover).
+**Current demo state:** built ONE unified sunfinance.webblaze.io covering all 3 arms (based on the
+earlier wrong scope). Needs revisiting: either split into 3 separate tailored demos (one per
+business) or keep as the flagship and build the other two. Pending Zayden's call on build scope.
 - **DEMO BUILT + LIVE: https://sunfinance.webblaze.io** (also /sunfinance/ path). Static site in
   webblaze/public/sunfinance/, navy+gold "Trust & Authority" via ui-ux-pro-max, real content,
   PREVIEW ribbon. Registered in DEMOS arrays (proxy.ts + next.config.ts) + vercel domain added.
