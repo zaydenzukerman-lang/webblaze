@@ -222,9 +222,18 @@ comment was a mix-up he corrected). The three:
   3. Sun Finance Company — sunfinance.com — personal loans $500-$3k
 All three currently dated, all built by Inspree (Forest's agency) years ago; all real domains
 already in Inspree's Cloudflare (easy production cutover).
-**Current demo state:** built ONE unified sunfinance.webblaze.io covering all 3 arms (based on the
-earlier wrong scope). Needs revisiting: either split into 3 separate tailored demos (one per
-business) or keep as the flagship and build the other two. Pending Zayden's call on build scope.
+**DONE 2026-07-21 — split into 3 SEPARATE tailored demos, all live:**
+  - https://sunmortgagefunding.webblaze.io — mortgages, NMLS #71517 + Equal Housing Lender, 6 loan
+    programs, phone 504-837-3939. (Flagship; featured in webblaze.io portfolio.)
+  - https://sunpremium.webblaze.io — insurance premium financing (how-it-works, no NMLS/EHL — not a
+    mortgage), LA OFI license placeholder, phone 504-834-9400.
+  - https://sunfinance.webblaze.io — personal loans $500-$3k (how-it-works), LA OFI placeholder,
+    phone 504-837-9400.
+  All 3 share the premium Fraunces/navy-gold design (one family brand); differentiated by nav tag,
+  hero, product section, phone, footer compliance. Each has PREVIEW ribbon. = $900 pitch (3×$300).
+  GOTCHA: new subdomains need BOTH (a) add to DEMOS arrays in proxy.ts + next.config.ts, (b) vercel
+  domains add, AND (c) a Cloudflare CNAME record (<sub> → cname.vercel-dns.com, DNS-only) via the
+  token — I forgot (c) first and they 404'd until added. Certs auto-issue after DNS resolves.
 - **DEMO BUILT + LIVE: https://sunfinance.webblaze.io** (also /sunfinance/ path). Static site in
   webblaze/public/sunfinance/, navy+gold "Trust & Authority" via ui-ux-pro-max, real content,
   PREVIEW ribbon. Registered in DEMOS arrays (proxy.ts + next.config.ts) + vercel domain added.
