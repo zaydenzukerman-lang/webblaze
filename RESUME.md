@@ -222,6 +222,19 @@ comment was a mix-up he corrected). The three:
   3. Sun Finance Company — sunfinance.com — personal loans $500-$3k
 All three currently dated, all built by Inspree (Forest's agency) years ago; all real domains
 already in Inspree's Cloudflare (easy production cutover).
+
+### REAL COMPANY RESEARCH (2026-07-21, from their sites + web) — used to make demos accurate + pitch:
+- FOUNDED 1958 by **Albert Daube**. Sun Finance Co. LLC = original; Sun Mortgage Funding = sister
+  company. Family-owned, now run by the **2nd & 3rd generation**. All at 3525 N. Causeway Blvd
+  Ste 900, Metairie LA 70002.
+- **Sun Mortgage Funding**: $5k–$10M, 15+ loan types (New Purchase, Refi, Renovation, New
+  Construction, Cash Option incl. credit issues/foreclosure). NMLS #71517. BBB accredited since
+  1996. **5.0★ (9 reviews)** — praised staff Annette Hesse & Ashley Pabst. Ph 504.837.3939.
+- **Sun Premium Financing**: finances **$100–$250K** across **10+ insurance types**, for BOTH
+  insurance agents AND individuals. Ph 504.834.9400, fax 504.834.9402.
+- **Sun Finance Company**: personal loans **$500–$3,000** (also does some mortgages), serviced
+  in-house, 3 locations. BBB accredited since 1987. Ph 504.837.9400, fax 504.837.9494.
+  Tagline vibe: "an established company that will be here tomorrow just like we are today."
 **DONE 2026-07-21 — split into 3 SEPARATE tailored demos, all live:**
   - https://sunmortgagefunding.webblaze.io — mortgages, NMLS #71517 + Equal Housing Lender, 6 loan
     programs, phone 504-837-3939. (Flagship; featured in webblaze.io portfolio.)
