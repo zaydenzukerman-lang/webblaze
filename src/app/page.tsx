@@ -7,11 +7,11 @@ import ContactForm from "./ContactForm";
 
 const WORK = [
   {
-    name: "Sun Finance",
-    tag: "Mortgage & Lending · Louisiana",
-    desc: "A 65-year-old lender, brought into the modern era — trust-first, compliant, premium.",
-    img: "/portfolio/sunfinance.jpg",
-    href: "https://sunfinance.webblaze.io",
+    name: "Sun Mortgage Funding",
+    tag: "Mortgage Lending · Louisiana",
+    desc: "A 65-year-old lender brought into the modern era — a premium, trust-first, compliant redesign. One of three sites in the Sun family.",
+    img: "/portfolio/sunmortgagefunding.jpg",
+    href: "https://sunmortgagefunding.webblaze.io",
   },
   {
     name: "Orange Beach Fish Charter",

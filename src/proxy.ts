@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 // Client-demo subdomains: <slug>.webblaze.io → serve that demo's static
 // files from public/<slug>/. All subdomain routing lives HERE (not in
 // next.config rewrites) so the prefix is applied exactly once.
-const DEMOS = ["orangebeachfish", "dunebuggy", "sunfinance"];
+const DEMOS = ["orangebeachfish", "dunebuggy", "sunfinance", "sunmortgagefunding", "sunpremium"];
 
 export function proxy(req: NextRequest) {
   const host = req.headers.get("host")?.split(":")[0] ?? "";
