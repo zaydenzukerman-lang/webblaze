@@ -275,3 +275,21 @@
   .locphoto{border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -34px rgba(12,30,51,.45);aspect-ratio:16/10;background-size:cover;background-position:center;position:relative;margin-bottom:28px;}
   .locphoto .lp-cap{position:absolute;left:0;right:0;bottom:0;padding:26px 22px 16px;color:#fff;font-weight:600;font-size:.95rem;background:linear-gradient(0deg,rgba(8,20,36,.8),transparent);display:flex;align-items:center;gap:8px;}
   .locphoto .lp-cap .ico{width:17px;height:17px;color:var(--gold-2);}
+
+  /* ============ SECTION BACKGROUND TREATMENTS ============ */
+  .sec-tint{background:linear-gradient(180deg,#fff 0%,var(--ivory) 100%);}
+  .sec-glow{position:relative;overflow:hidden;}
+  .sec-glow::before{content:"";position:absolute;top:-34%;right:-8%;width:600px;height:600px;border-radius:50%;
+    background:radial-gradient(circle,rgba(201,154,76,.13),transparent 68%);z-index:0;pointer-events:none;}
+  .sec-glow>.wrap{position:relative;z-index:1;}
+  .sec-lines{position:relative;background:var(--ivory);overflow:hidden;}
+  .sec-lines::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background-image:repeating-linear-gradient(115deg,rgba(12,30,51,.028) 0 1px,transparent 1px 46px);}
+  .sec-lines>.wrap{position:relative;z-index:1;}
+  /* subtle gold glow inside the navy story / process bands */
+  .heritage,.band-navy{position:relative;overflow:hidden;}
+  .heritage::before,.band-navy::before{content:"";position:absolute;top:-24%;left:-6%;width:560px;height:560px;border-radius:50%;
+    background:radial-gradient(circle,rgba(201,154,76,.18),transparent 66%);z-index:0;pointer-events:none;}
+  .heritage>.wrap,.band-navy>.wrap{position:relative;z-index:1;}
+  /* richer trust strip */
+  .trust{background:linear-gradient(180deg,#fff,var(--ivory));}
