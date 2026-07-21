@@ -257,6 +257,14 @@ already in Inspree's Cloudflare (easy production cutover).
   All 3 files share identical CSS, so style changes are applied via literal-replace script across
   all 3 at once. Found brand-identity skills (rampstackco/claude-skills) but used direct brand-match
   + ui-ux-pro-max/modern-web-design instead.
+- FINAL 2026-07-21: (a) favicon = their REAL 3-dot logo (img/favicon-{32,192}.png + .ico, all 3).
+  (b) Footer "The Sun Family" = ONLY the other 2 sites (no self-link). (c) EXPANDED each site into a
+  4-PAGE click-through site (Zayden: too small / want 4 pages): Home / [Programs|How It Works] /
+  About / Contact, real page nav (explicit .html links, active highlighted), shared per-site
+  styles.css (~13KB extracted from inline) so pages stay lean; generated via Python scripts.
+  All 12 pages live + verified (nav navigates, styles load via subdomain proxy on inner pages).
+  ARCH: explicit ".html" relative links avoid trailing-slash + subdomain-proxy asset breakage.
+  To edit: styles.css shared per site; page bodies per-file.
 - **DEMO BUILT + LIVE: https://sunfinance.webblaze.io** (also /sunfinance/ path). Static site in
   webblaze/public/sunfinance/, navy+gold "Trust & Authority" via ui-ux-pro-max, real content,
   PREVIEW ribbon. Registered in DEMOS arrays (proxy.ts + next.config.ts) + vercel domain added.
