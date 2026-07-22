@@ -364,3 +364,14 @@
   .locphoto{border-radius:var(--r);overflow:hidden;aspect-ratio:16/11;background-size:cover;background-position:center;position:relative;margin-bottom:28px;box-shadow:0 24px 52px -34px rgba(12,30,51,.5);}
   .locphoto .cap{position:absolute;left:0;right:0;bottom:0;padding:24px 18px 15px;color:#fff;font-weight:600;font-size:.9rem;display:flex;align-items:center;gap:8px;background:linear-gradient(0deg,rgba(12,30,51,.82),transparent);}
   .locphoto .cap .ico{width:16px;height:16px;color:var(--sun-y,#FFC114);}
+
+  /* ==== draw the eye to the application form ==== */
+  .contact{background:linear-gradient(180deg,#fff,var(--ivory));position:relative;overflow:hidden;}
+  .contact::after{content:"";position:absolute;right:-8%;top:50%;transform:translateY(-50%);width:min(680px,52vw);aspect-ratio:1;border-radius:50%;pointer-events:none;z-index:0;
+    background:radial-gradient(circle, color-mix(in srgb, var(--gold-2) 28%, transparent), transparent 66%);}
+  .contact>.wrap{position:relative;z-index:1;}
+  .cform{background:#fff;border:1px solid var(--line);border-top:5px solid var(--gold);box-shadow:0 46px 100px -44px rgba(12,30,51,.6);padding:40px;position:relative;}
+  .cform .form-h{font-family:var(--serif);font-weight:600;font-size:1.7rem;color:var(--navy);margin-bottom:4px;letter-spacing:-.01em;}
+  .cform .form-sub{color:var(--soft);font-size:.9rem;margin-bottom:24px;}
+  .cform button{width:100%;margin-top:24px;padding:19px;font-size:1.08rem;}
+  .cform .form-fine{text-align:center;color:var(--soft);font-size:.78rem;margin-top:14px;}
