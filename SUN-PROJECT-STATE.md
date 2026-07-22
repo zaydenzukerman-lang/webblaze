@@ -50,12 +50,28 @@ other ventures — North Star game, Blue Spark, Crammify — but THIS project is
    on Mortgage, terracotta on Premium) — tasteful, not garish. **CSS versions bumped: Mortgage v9→v10,
    Premium/Finance v6→v7.** NOTE: to tweak the enrichment, edit that v3 block in each of the 3 styles.css (it is
    duplicated identically in all three); the generators do NOT emit it.
-2. **Propagate flagship improvements to Premium & Finance** (currently only done on Mortgage):
-   - Rename their **Contact page → Apply** (file `contact.html`→`apply.html`, nav+footer label, links, sitemap).
-   - Apply the **form-emphasis treatment**: navy `.contact` section, elevated white `.cform` card w/ gold top
-     bar + big shadow + spotlight glow, "Start your application" heading, full-width brand Apply button,
-     reassurance line, `.locphoto` image beside the form.
-   - Add the **photo-trio band** + **grain texture** on plain sections (already in their styles.css).
+2. ~~**Propagate flagship improvements to Premium & Finance.**~~ **✅ DONE 2026-07-22.** Both sites now match
+   the Mortgage flagship Apply page: Contact→Apply rename (`contact.html` deleted, new `apply.html`; nav+footer
+   label "Apply", all links/util/CTAs → apply.html, sitemap regenerated), navy `.contact` form-emphasis section
+   (elevated white `.cform` card + gold top bar + spotlight glow, "Start your application" heading + 2-min
+   reassurance sub, full-width brand Apply button, `.form-fine` reassurance line, `.locphoto` city image beside
+   the form), getting-started 3-step band (grain), FAQ band (grain), and a "Proudly Local" photo-trio band.
+   **This was done via the generator** `scripts/gen_pp_rich.py` (Premium/Finance are the source of truth there):
+   rewrote the CONTACT builder → APPLY, added `applyhead`/`applyband` config fields; then `rm contact.html`,
+   sed CSS `?v=8`, re-ran `seo_inject.py`. Form-emphasis CSS block appended to Premium/Finance `styles.css`.
+   **CSS versions now: Premium/Finance v=8** (Mortgage still v=10). Verified live + screenshot (terracotta Premium).
+   Softened the Hours line to "Call us for current office hours." (real hours still need client confirmation).
+
+## ⚠️ KNOWN ISSUE (pre-existing, all 3 sites incl. flagship — NOT a regression)
+The **bare pretty URL `/apply` (and `/about`, `/how-it-works`, `/programs`) 308-redirects to a trailing-slash
+form (`/apply/`)** because `next.config.ts` sets `trailingSlash: true` (needed so path-based `webblaze.io/<slug>/`
+demos resolve relative assets). At `/apply/` the pages' **relative** asset paths (`img/…`, `styles.css`) resolve
+against `/apply/` and 404 — the page renders unstyled. **Normal navigation is fine**: every nav link/button/CTA
+points to `apply.html` (with `.html`), which serves at a no-slash URL and loads correctly. Only a hand-typed/
+shared bare `/apply` breaks. **If we want the pretty link bulletproof for the pitch:** either (a) flip
+`trailingSlash:false` and re-verify BOTH subdomain + `/<slug>/` path access across all 5 demos, or (b) make the
+demo HTML asset paths root-relative (`/img/…`, `/styles.css`) — but (b) touches the hand-edited flagship too.
+Deferred (shared-infra risk + usage discipline); share `…/apply.html` links until fixed.
 
 ## BUSINESS CONTEXT
 - WebBlaze = Zayden's agency. Model: **websites $300/YEAR**, **SEO $100/MONTH** (separate packages).
@@ -72,12 +88,13 @@ other ventures — North Star game, Blue Spark, Crammify — but THIS project is
   CNAME→cname.vercel-dns.com (DNS-only). Google Workspace email zayden@webblaze.io.
 - **Deploy:** `cd ~/webblaze && npm run build && git add -A && git commit && vercel --prod --yes --scope hbz-holdings`
 - **Cache-busting (critical — same filenames reused):** image URLs use `?v=2`; stylesheet `styles.css?v=N`.
-  Bump `?v=N` in the HTML whenever CSS changes (currently **Mortgage v=10, Premium/Finance v=7**). Verify with curl, not just deploy.
+  Bump `?v=N` in the HTML whenever CSS changes (currently **Mortgage v=10, Premium/Finance v=8**). Verify with curl, not just deploy.
+  NOTE: `gen_pp_rich.py` writes `href="styles.css"` (no version) — after any regen, re-add `?v=N` via sed on the HTML.
 
 ## THE 3 SITES (live)
 - https://sunmortgagefunding.webblaze.io  — brand color **yellow #FFC114**. Pages: index, programs, about, **apply.html**.
-- https://sunpremium.webblaze.io           — brand color **terracotta #DC632C**. Pages: index, how-it-works, about, contact.html.
-- https://sunfinance.webblaze.io           — brand color **orange #FF822A**. Pages: index, how-it-works, about, contact.html.
+- https://sunpremium.webblaze.io           — brand color **terracotta #DC632C**. Pages: index, how-it-works, about, **apply.html**.
+- https://sunfinance.webblaze.io           — brand color **orange #FF822A**. Pages: index, how-it-works, about, **apply.html**.
 - Real 3-dot Sun favicon + logo in each `img/`. Footer "The Sun Companies" cross-links the OTHER two sites only.
 - Per-site brand color is set via a `:root{--gold;--gold-2;--sun-y;--sun-o;--sun-r;...}` override appended at the
   END of each site's `styles.css` (that's why the 3 stylesheets differ). Buttons/blooms auto-tint from these vars.
