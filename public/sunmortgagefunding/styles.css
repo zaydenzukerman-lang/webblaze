@@ -375,3 +375,13 @@
   .cform .form-sub{color:var(--soft);font-size:.9rem;margin-bottom:24px;}
   .cform button{width:100%;margin-top:24px;padding:19px;font-size:1.08rem;}
   .cform .form-fine{text-align:center;color:var(--soft);font-size:.78rem;margin-top:14px;}
+
+  /* ==== dark section so the white form card really pops ==== */
+  .contact{background:var(--navy);}
+  .contact::after{background:radial-gradient(circle, color-mix(in srgb, var(--gold-2) 34%, transparent), transparent 62%);opacity:.55;}
+  .contact .loc b{color:#fff;}
+  .contact .loc span{color:var(--on-navy-soft);}
+  .contact .loc a{color:#fff;}
+  .contact .loc a:hover{color:var(--gold-2);}
+  .contact .loc .ico{color:var(--gold-2);}
+  .cform{box-shadow:0 50px 120px -38px rgba(0,0,0,.75);border-top-width:6px;}
