@@ -296,3 +296,10 @@
 
   /* Official brand color: Sun Premium Financing = sun TERRACOTTA/RED */
   :root{--gold:#C4551F;--gold-2:#DC632C;--sun-y:#F0894A;--sun-o:#DC632C;--sun-r:#BE4E20;--gold-soft:#FBE7DA;}
+/* team */
+  .team-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));}
+  .tm{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 22px;text-align:center;box-shadow:0 18px 44px -30px rgba(12,30,51,.3);}
+  .tm .av{width:66px;height:66px;border-radius:50%;margin:0 auto 15px;display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:1.35rem;color:#3A1B08;background:linear-gradient(135deg,var(--sun-y),var(--sun-o) 55%,var(--sun-r));}
+  .tm h4{font-family:var(--serif);color:var(--navy);font-size:1.12rem;margin-bottom:4px;}
+  .tm .role{color:var(--gold);font-weight:600;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:11px;}
+  .tm .meta{color:var(--soft);font-size:.85rem;line-height:1.5;}
