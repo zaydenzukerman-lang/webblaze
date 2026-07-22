@@ -55,7 +55,7 @@ def build(c):
 
     HOME=(f'<header class="hero photo"><div class="hero-bg" style="background-image:url(\'img/hero.jpg\')"></div>'
      '<div class="wrap hero-in"><div class="hero-copy">'+SEAL+
-     f'<h1 class="reveal">{c["h1"]}</h1><p class="reveal">{c["herop"]}</p>'
+     f'<h1 class="reveal">{c["h1"]}</h1>'
      f'<div class="hero-ctas reveal"><a class="btn btn-gold btn-xl" href="apply.html">{c["apply"]}</a>'
      f'<a class="hero-call" href="tel:{tel}">{ic("phone")}or call {tn}</a></div>'
      f'<div class="hero-trustline reveal"><span>{ic("cash")}{c["herostat"]}</span><span>{ic("check")}Local decisions, in-house</span><span>{ic("shield")}BBB Accredited</span></div>'
@@ -101,10 +101,6 @@ def build(c):
 
     opts="".join(f'<option>{o}</option>' for o in c["formopts"])
     APPLY=(pagehero('Apply',c["applyhead"],c["contactlead"],'loc.jpg')
-     +sec(hb('Getting Started','Three steps, one local team.')+'<div class="progs">'
-       +prog('01','Reach out','Call, or send the form — whatever&apos;s easiest.')
-       +prog('02','Talk it through','A local team member reviews your needs and lays out your options.')
-       +prog('03','Get a real answer','Reviewed in-house, with a fast, straightforward next step.')+'</div>',"sec-lines grain")
      +sec('<div class="contact-grid"><div class="reveal">'
        f'<div class="locphoto" style="background-image:url(\'img/city.jpg\')"><div class="cap">{ic("pin")}Serving Metairie &amp; Greater New Orleans</div></div>'
        f'<div class="loc">{ic("pin")}<div><b>Main Office</b><span>3525 N. Causeway Blvd, Suite 900<br>Metairie, LA 70002</span></div></div>'
@@ -118,6 +114,10 @@ def build(c):
        '<label for="m">Tell us a little about your situation</label><textarea id="m"></textarea>'
        f'<button class="btn btn-gold" type="submit">{c["apply"]}</button>'
        '<p class="form-fine">Your information stays with our local Metairie team.</p></form></div>',"contact")
+     +sec(hb('Getting Started','Three steps, one local team.')+'<div class="progs">'
+       +prog('01','Reach out','Call, or send the form — whatever&apos;s easiest.')
+       +prog('02','Talk it through','A local team member reviews your needs and lays out your options.')
+       +prog('03','Get a real answer','Reviewed in-house, with a fast, straightforward next step.')+'</div>',"sec-lines grain")
      +sec(hb('Questions','Quick answers.')+'<div class="faq-list">'+"".join(faq(q,a) for q,a in c["faq_contact"])+'</div>',"sec-glow grain"))
 
     pages={"index.html":(c["title"],c["desc"],"Home",HOME),
