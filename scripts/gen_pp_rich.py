@@ -15,7 +15,7 @@ def build(c):
      f'<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>{t}</title>'
      f'<meta name="description" content="{d}">{FAV}{FONTS}<link rel="stylesheet" href="styles.css"></head><body>')
     util=(f'<div class="util"><div class="wrap util-in"><div class="util-l"><a href="tel:{tel}">{ic("phone")}{c["label"]} {tn}</a></div>'
-     f'<a href="apply.html">{ic("pin")}Metairie, Louisiana</a></div></div>')
+     f'<a href="about.html">{ic("pin")}Metairie, Louisiana</a></div></div>')
     def nav(a):
         L=[("Home","index.html"),("How It Works","how-it-works.html"),("About","about.html"),("Apply","apply.html")]
         items="".join(f'<a href="{h}"{" style=\"color:var(--navy);font-weight:600\"" if n==a else ""}>{n}</a>' for n,h in L)
@@ -62,11 +62,11 @@ def build(c):
      '</div></div><a class="scrolldown" href="#more">Scroll ▾</a></header>'
      f'<div class="trust" id="more"><div class="wrap trust-in">{trust}</div></div>'
      +sec(hb('Why '+c["shortname"],c["whyhead"],c["whylead"])+'<div class="feature-grid">'+feats+'</div>',"sec-glow")
-     +sec('<div class="imgsplit-in"><div class="ip-img reveal" style="background-image:url(\'img/accent.jpg\')"></div>'
+     +sec('<div class="imgsplit-in"><div class="ip-img reveal" style="background-image:url(\'img/people.jpg\')"></div>'
        f'<div class="reveal"><p class="eyebrow">{c["spliteyebrow"]}</p><h2>{c["splithead"]}</h2><p class="lead">{c["splitlead"]}</p>'
        f'<a class="btn btn-gold" href="apply.html">{c["apply"]}</a></div></div>',"imgsplit")
      +sec(hb('How It Works',c["prodtitle"],c["prodlead"])+'<div class="progs">'+steps_prev+'</div><div class="center" style="margin-top:36px"><a class="btn btn-ghost reveal" href="how-it-works.html">See how it works →</a></div>',"sec-lines")
-     +sec('<div class="lb-bg" style="background-image:url(\'img/city.jpg\')"></div>'
+     +sec('<div class="lb-bg" style="background-image:url(\'img/street.jpg\')"></div>'
        f'<p class="eyebrow reveal">Proudly Local</p><h2 class="reveal">Rooted in Greater New Orleans since 1958.</h2>'
        f'<p class="reveal">{c["localp"]}</p><a class="btn btn-gold reveal" href="apply.html">{c["apply"]}</a>',"localband")
      +sec('<div class="heritage-in"><div class="reveal"><p class="eyebrow">Our Story</p><div class="quote-mark">&ldquo;</div>'
@@ -97,6 +97,10 @@ def build(c):
      +sec(hb('What We Stand For','The way we&apos;ve always done business.')+'<div class="feature-grid">'+vals+'</div>',"sec-glow")
      +sec(hb('Meet the Team',f'The people behind {c["name"]}.','Real, local people you&apos;ll actually work with — with decades of experience right here in Metairie.')+'<div class="team-grid">'+team+'</div>')
      +sec(f'<div class="trust-in"><div class="t reveal"><b>1958</b><span>Serving Louisiana since</span></div><div class="t reveal"><b>{c["ab2b"]}</b><span>{c["ab2s"]}</span></div><div class="t reveal"><b>{c["ab3b"]}</b><span>{c["ab3s"]}</span></div><div class="t reveal"><b>Local</b><span>Metairie, LA</span></div></div>',"sec-tint")
+     +sec('<div class="sec-head center reveal"><p class="eyebrow">Proudly Local</p><h2 class="sec-title">'+c["applyband"]+'</h2></div>'
+       '<div class="photo-trio reveal"><div><img src="img/street.jpg" alt="A New Orleans street"><span class="cap">Greater New Orleans</span></div>'
+       '<div><img src="img/people2.jpg" alt="Local Louisiana people"><span class="cap">Serving Louisiana since 1958</span></div>'
+       '<div><img src="img/city.jpg" alt="New Orleans, Louisiana"><span class="cap">Metairie, Louisiana</span></div></div>',"band-ivory grain")
      +cta(c["ctah"],c["ctap"]))
 
     opts="".join(f'<option>{o}</option>' for o in c["formopts"])
@@ -120,9 +124,9 @@ def build(c):
        '<p class="form-fine">Your information stays with our local Metairie team.</p></form></div>',"contact")
      +sec(hb('Questions','Quick answers.')+'<div class="faq-list">'+"".join(faq(q,a) for q,a in c["faq_contact"])+'</div>',"sec-glow grain")
      +sec('<div class="sec-head center reveal"><p class="eyebrow">Proudly Local</p><h2 class="sec-title">'+c["applyband"]+'</h2></div>'
-       '<div class="photo-trio reveal"><div><img src="img/hero.jpg" alt="New Orleans, Louisiana"><span class="cap">New Orleans, LA</span></div>'
-       '<div><img src="img/prod.jpg" alt="Metairie, Louisiana"><span class="cap">Metairie, LA</span></div>'
-       '<div><img src="img/accent.jpg" alt="Greater New Orleans"><span class="cap">Greater New Orleans</span></div></div>',"band-ivory grain"))
+       '<div class="photo-trio reveal"><div><img src="img/street.jpg" alt="A New Orleans street"><span class="cap">Greater New Orleans</span></div>'
+       '<div><img src="img/people.jpg" alt="Local Louisiana people"><span class="cap">Proudly local, since 1958</span></div>'
+       '<div><img src="img/people2.jpg" alt="Local Louisiana people"><span class="cap">Metairie, Louisiana</span></div></div>',"band-ivory grain"))
 
     pages={"index.html":(c["title"],c["desc"],"Home",HOME),
      "how-it-works.html":(f'How It Works — {c["name"]}',c["prodlead"],"How It Works",PROD),
