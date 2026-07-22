@@ -6,10 +6,13 @@ import type { NextConfig } from "next";
 const DEMOS = ["orangebeachfish", "dunebuggy", "sunfinance", "sunmortgagefunding", "sunpremium"] as const;
 
 const nextConfig: NextConfig = {
-  // Keep trailing slashes so demos served at /<slug>/ resolve their relative
-  // asset paths (img/…) correctly. Without this Next strips the slash and
-  // relative paths break to the root.
-  trailingSlash: true,
+  // trailingSlash:false — pretty URLs (subdomain /apply, /about, …) must NOT
+  // gain a trailing slash, or the pages' relative asset paths (img/…, styles.css)
+  // resolve against /apply/ and 404. With it off, subdomain /apply stays /apply,
+  // relative img/ -> /img/ and the proxy (src/proxy.ts) prefixes the slug. A
+  // stray /apply/ self-heals via Next's redirect back to /apply. (Trade-off:
+  // path-based apex access uses /<slug>/index.html or /<slug>/<page> — see proxy.)
+  trailingSlash: false,
   async rewrites() {
     return {
       beforeFiles: [
