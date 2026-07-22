@@ -41,11 +41,15 @@ other ventures — North Star game, Blue Spark, Crammify — but THIS project is
 5. **Grow:** sell $100/mo SEO retainers (the recurring engine); point SEO at webblaze.io for inbound clients.
 
 ## ⏳ PENDING / NEXT UP
-1. **INTERRUPTED REQUEST (do this first):** "Use the logo colors more everywhere on the whole site."
-   The sun logo trio is **#FFC114 (yellow) → #FF822A (orange) → #DC632C (terracotta)**. Each site owns ONE
-   as its brand accent (Mortgage=yellow, Premium=terracotta, Finance=orange) — but the user wants the colors
-   used MORE throughout (accents, dividers, icons, hovers, section touches), while keeping navy/ivory as base.
-   Don't go garish; tasteful but more present. Apply across all pages of all 3 sites.
+1. ~~**INTERRUPTED REQUEST:** "Use the logo colors more everywhere on the whole site."~~ **✅ DONE 2026-07-22.**
+   Appended an identical **"BRAND COLOR ENRICHMENT v3"** block to the END of all 3 stylesheets (after the
+   `:root` override, so it auto-tints per site from `--sun-y/o/r`/`--gold`). Adds the logo trio to the chrome
+   while keeping navy/ivory base: nav bottom hairline + animated link underline, a short brand accent rule above
+   every `.sec-title`, brand-tinted trust dividers, util/faq/chip hovers, inline-copy links, `::selection`, and a
+   footer top edge. Applies to every page of every site (shared stylesheet). Verified live + screenshots (yellow
+   on Mortgage, terracotta on Premium) — tasteful, not garish. **CSS versions bumped: Mortgage v9→v10,
+   Premium/Finance v6→v7.** NOTE: to tweak the enrichment, edit that v3 block in each of the 3 styles.css (it is
+   duplicated identically in all three); the generators do NOT emit it.
 2. **Propagate flagship improvements to Premium & Finance** (currently only done on Mortgage):
    - Rename their **Contact page → Apply** (file `contact.html`→`apply.html`, nav+footer label, links, sitemap).
    - Apply the **form-emphasis treatment**: navy `.contact` section, elevated white `.cform` card w/ gold top
@@ -68,7 +72,7 @@ other ventures — North Star game, Blue Spark, Crammify — but THIS project is
   CNAME→cname.vercel-dns.com (DNS-only). Google Workspace email zayden@webblaze.io.
 - **Deploy:** `cd ~/webblaze && npm run build && git add -A && git commit && vercel --prod --yes --scope hbz-holdings`
 - **Cache-busting (critical — same filenames reused):** image URLs use `?v=2`; stylesheet `styles.css?v=N`.
-  Bump `?v=N` in the HTML whenever CSS changes (Mortgage is currently at **v=9**). Verify with curl, not just deploy.
+  Bump `?v=N` in the HTML whenever CSS changes (currently **Mortgage v=10, Premium/Finance v=7**). Verify with curl, not just deploy.
 
 ## THE 3 SITES (live)
 - https://sunmortgagefunding.webblaze.io  — brand color **yellow #FFC114**. Pages: index, programs, about, **apply.html**.
