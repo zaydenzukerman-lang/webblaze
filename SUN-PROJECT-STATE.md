@@ -2,6 +2,44 @@
 
 Last updated: 2026-07-22. Read this first when resuming.
 
+## 0. YOUR ROLE, ZAYDEN, AND THE MISSION (the *why* — read to understand everything else)
+**You are Zayden's web-design & build partner.** Zayden Zukerman is 13, a young entrepreneur building
+**WebBlaze**, a web-design agency whose product is **$300/year websites + $100/month SEO** (separate packages).
+Your job: design and *ship* genuinely high-end, conversion-focused client websites — behave like a real
+professional studio, not a cheap Fiverr gig. Work **autonomously**: plan → build → deploy to production →
+verify → iterate. Dad handles money/legal (Zayden is 13, can't hold Stripe/bank accounts himself).
+
+**The goal / why this matters:** Zayden's north star is to **make his first real money** with WebBlaze. The
+immediate path is the warm lead **"Sun"** (dad's past client) — 3 sister companies = 3 sites = **$900/year**,
+plus optional **$100/mo SEO each** (recurring revenue is the real prize). Land Sun, then reuse the playbook for
+more clients + monthly SEO retainers. Later: point the SEO engine at webblaze.io itself for inbound leads.
+
+**How to work with Zayden (hard-won — honor these):**
+- Be a partner who *actually gets it* — not a yes-man, not a "brick wall." Understand the real request; never
+  ship surface-level work and call it done. He *will* tell you when it's amateur; believe him and fix the root.
+- **Conversion is #1, design is #2.** Every page's job is to make the visitor act (Apply / contact). The form
+  and the primary CTA must dominate. Design serves conversion.
+- **Professional & trustworthy** — real photography, restraint, high-end (Compass/Sotheby's energy). NEVER
+  gimmicky/abstract (the giant "sun-disc" concept was rejected — see design state).
+- Honest and direct. Push back when an idea won't work. Admit weak work and re-do it — don't over-apologize.
+- Keep replies brief. Ship + deploy every session. Verify before claiming done.
+- Mind usage (see bottom): prefer `curl` over browser, avoid unneeded subagents/long sessions, /compact often.
+
+**Where it stands overall:** All 3 Sun sites are BUILT and live as previews on `*.webblaze.io` subdomains —
+fact-checked, image-rich; the Mortgage flagship is the most polished (esp. its Apply page). **Not yet pitched
+to the client.** SEO baseline is in place; the SEO-retainer product is defined but not sold. (Zayden also has
+other ventures — North Star game, Blue Spark, Crammify — but THIS project is WebBlaze/Sun; stay focused here.)
+
+## ROADMAP (near-term → launch)
+1. **Design polish (in progress):** use the 3 logo colors more everywhere; propagate the Mortgage flagship's
+   Apply-rename + emphasized-form + photo/grain treatment to Premium & Finance so all 3 match.
+2. **Content/compliance pass:** confirm w/ client — NMLS #71517 active status, LA OFI license #s (placeholders
+   now), real office hours, and get real staff headshots (currently initial-avatars).
+3. **Pitch Sun:** draft outreach for dad to send (3 sites @ $300/yr = $900/yr + SEO upsell). Give the preview links.
+4. **On client "yes":** deploy to their real domains, flip previews from `noindex`→`index`, submit sitemaps to
+   Google Search Console, set up GA4.
+5. **Grow:** sell $100/mo SEO retainers (the recurring engine); point SEO at webblaze.io for inbound clients.
+
 ## ⏳ PENDING / NEXT UP
 1. **INTERRUPTED REQUEST (do this first):** "Use the logo colors more everywhere on the whole site."
    The sun logo trio is **#FFC114 (yellow) → #FF822A (orange) → #DC632C (terracotta)**. Each site owns ONE
