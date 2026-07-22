@@ -62,16 +62,18 @@ other ventures — North Star game, Blue Spark, Crammify — but THIS project is
    **CSS versions now: Premium/Finance v=8** (Mortgage still v=10). Verified live + screenshot (terracotta Premium).
    Softened the Hours line to "Call us for current office hours." (real hours still need client confirmation).
 
-## ⚠️ KNOWN ISSUE (pre-existing, all 3 sites incl. flagship — NOT a regression)
-The **bare pretty URL `/apply` (and `/about`, `/how-it-works`, `/programs`) 308-redirects to a trailing-slash
-form (`/apply/`)** because `next.config.ts` sets `trailingSlash: true` (needed so path-based `webblaze.io/<slug>/`
-demos resolve relative assets). At `/apply/` the pages' **relative** asset paths (`img/…`, `styles.css`) resolve
-against `/apply/` and 404 — the page renders unstyled. **Normal navigation is fine**: every nav link/button/CTA
-points to `apply.html` (with `.html`), which serves at a no-slash URL and loads correctly. Only a hand-typed/
-shared bare `/apply` breaks. **If we want the pretty link bulletproof for the pitch:** either (a) flip
-`trailingSlash:false` and re-verify BOTH subdomain + `/<slug>/` path access across all 5 demos, or (b) make the
-demo HTML asset paths root-relative (`/img/…`, `/styles.css`) — but (b) touches the hand-edited flagship too.
-Deferred (shared-infra risk + usage discipline); share `…/apply.html` links until fixed.
+## ✅ FIXED 2026-07-22 — pretty-URL asset bug
+The bare pretty URLs (subdomain `/apply`, `/about`, `/how-it-works`, `/programs`, and dunebuggy `/menu` etc.)
+used to 308-redirect to a trailing-slash form (`/apply/`), which broke the pages' **relative** asset paths
+(`img/…`, `styles.css` resolved against `/apply/` → 404 → unstyled page). **Fix:** set `trailingSlash: false`
+in `next.config.ts` (one line). Now subdomain `/apply` stays slash-less, relative `img/` → `/img/` and the proxy
+(`src/proxy.ts`) prefixes the slug; a stray `/apply/` self-heals via Next's 308 back to `/apply`.
+**Verified before deploy** with a local `Host:`-header matrix (`npm start` on :3999, curl with subdomain hosts):
+subdomain index + all pretty pages + `/img/*` + `/styles.css` all 200 across the 3 Sun sites AND dunebuggy;
+`/apply.html` still 200; 404s for missing pages; marketing site (`/`, `/privacy`, `/terms`) unaffected.
+**Known trade-off (dev-only, acceptable):** path-based *apex* access `webblaze.io/<slug>` (bare index, no slash)
+now 404s its relative assets. Path-based *pretty pages* (`/<slug>/apply`) and `/<slug>/index.html` still work,
+and all real client links are subdomains (DNS live). Bottom line: **pretty `/apply` links are now safe to share.**
 
 ## BUSINESS CONTEXT
 - WebBlaze = Zayden's agency. Model: **websites $300/YEAR**, **SEO $100/MONTH** (separate packages).
