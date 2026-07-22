@@ -385,3 +385,47 @@
   .contact .loc a:hover{color:var(--gold-2);}
   .contact .loc .ico{color:var(--gold-2);}
   .cform{box-shadow:0 50px 120px -38px rgba(0,0,0,.75);border-top-width:6px;}
+
+  /* ================= BRAND COLOR ENRICHMENT v3 (WebBlaze) =================
+     Push the Sun logo trio (yellow -> orange -> terracotta) further into the
+     chrome: nav, section headers, dividers, hovers, links, page edges. Navy +
+     ivory stay the base; auto-tints per site from the --sun-* vars above.
+     Tasteful, not garish. Applies to every page (shared stylesheet). */
+
+  /* brand-tinted text selection */
+  ::selection{background:var(--gold-soft);color:var(--navy);}
+  ::-moz-selection{background:var(--gold-soft);color:var(--navy);}
+
+  /* nav: brand hairline along the bottom edge + animated underline on links */
+  .nav::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;pointer-events:none;
+    background:linear-gradient(90deg,var(--sun-y),var(--sun-o) 55%,var(--sun-r));opacity:.85;}
+  .nav-links a{position:relative;padding-bottom:3px;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:100%;transform:scaleX(0);transform-origin:left;
+    background:linear-gradient(90deg,var(--sun-o),var(--sun-r));transition:transform .3s var(--ease);}
+  .nav-links a:hover{color:var(--navy);}
+  .nav-links a:hover::after{transform:scaleX(1);}
+
+  /* section headers: short brand accent rule above every title */
+  .sec-title::before{content:"";display:block;width:54px;height:4px;border-radius:3px;margin:0 0 18px;
+    background:linear-gradient(90deg,var(--sun-y),var(--sun-o) 55%,var(--sun-r));}
+  .sec-head.center .sec-title::before{margin-left:auto;margin-right:auto;}
+
+  /* utility bar links: brand hover */
+  .util a:hover{color:var(--gold-2);}
+
+  /* trust strip: warm brand-tinted dividers */
+  .trust-in .t:not(:last-child)::after{background:var(--sun-o);opacity:.4;}
+
+  /* FAQ + chips: brand on interaction */
+  .faq summary:hover{color:var(--gold);}
+  .chip{transition:background .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease);}
+  .chip:hover{background:var(--gold-soft);border-color:var(--gold);color:var(--navy);}
+
+  /* inline links inside copy pick up the brand color */
+  .faq .fa a,.lead a,.compliance a,.loc a{color:var(--gold);text-underline-offset:2px;text-decoration:underline;text-decoration-thickness:1px;}
+  .faq .fa a:hover,.lead a:hover,.compliance a:hover{color:var(--sun-r);}
+
+  /* footer: brand gradient top edge to bookend the page */
+  footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;pointer-events:none;
+    background:linear-gradient(90deg,var(--sun-y),var(--sun-o) 55%,var(--sun-r));opacity:.9;}
+  footer{position:relative;}
