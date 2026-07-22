@@ -15,18 +15,18 @@ def build(c):
      f'<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>{t}</title>'
      f'<meta name="description" content="{d}">{FAV}{FONTS}<link rel="stylesheet" href="styles.css"></head><body>')
     util=(f'<div class="util"><div class="wrap util-in"><div class="util-l"><a href="tel:{tel}">{ic("phone")}{c["label"]} {tn}</a></div>'
-     f'<a href="contact.html">{ic("pin")}Metairie, Louisiana</a></div></div>')
+     f'<a href="apply.html">{ic("pin")}Metairie, Louisiana</a></div></div>')
     def nav(a):
-        L=[("Home","index.html"),("How It Works","how-it-works.html"),("About","about.html"),("Contact","contact.html")]
+        L=[("Home","index.html"),("How It Works","how-it-works.html"),("About","about.html"),("Apply","apply.html")]
         items="".join(f'<a href="{h}"{" style=\"color:var(--navy);font-weight:600\"" if n==a else ""}>{n}</a>' for n,h in L)
         return ('<nav class="nav"><div class="wrap nav-in"><a class="brand" href="index.html">'
         f'<img src="img/sun-logo.svg" alt="Sun" width="297" height="61"><span class="tag">{c["tag"]}</span></a>'
-        f'<div class="nav-links">{items}</div><a class="btn btn-gold" href="contact.html" style="padding:11px 22px">{c["apply"]}</a></div></nav>')
+        f'<div class="nav-links">{items}</div><a class="btn btn-gold" href="apply.html" style="padding:11px 22px">{c["apply"]}</a></div></nav>')
     others="<br>".join(f'<a href="{u}" target="_blank" rel="noopener">{n}</a>' for n,u in c["others"])
     footer=('<footer><div class="wrap"><div class="foot-grid">'
      f'<div class="foot-brand"><span class="serif">{c["name"]}</span><p style="margin-top:12px;max-width:42ch">{c["footdesc"]}</p></div>'
      f'<div><h4>The Sun Companies</h4>{others}</div>'
-     f'<div><h4>Company</h4><a href="how-it-works.html">How It Works</a><br><a href="about.html">Our Story</a><br><a href="contact.html">Contact &amp; Apply</a><br><a href="tel:{tel}">{tn}</a></div></div>'
+     f'<div><h4>Company</h4><a href="how-it-works.html">How It Works</a><br><a href="about.html">Our Story</a><br><a href="apply.html">Apply</a><br><a href="tel:{tel}">{tn}</a></div></div>'
      f'<div class="compliance"><div class="ehl"><span>{c["compliance"]}</span></div>'
      f'<span>© {c["name"]} · Metairie, Louisiana{c["bbbtag"]}</span></div></div></footer>'
      f'<div class="ribbon"><b>PREVIEW</b> — redesign concept built by WebBlaze for {c["name"]} · not the live site</div>'
@@ -45,7 +45,7 @@ def build(c):
     def initials(n): return "".join(w[0] for w in n.split()[:2]).upper()
     def teamcard(name,role,meta): return f'<div class="tm reveal"><div class="av">{initials(name)}</div><h4>{name}</h4>'+(f'<div class="role">{role}</div>' if role else '')+f'<div class="meta">{meta}</div></div>'
     SEAL='<span class="seal reveal">'+ic("award")+'Serving Louisiana since 1958</span>'
-    def cta(h,p): return sec(f'<div class="cta-in"><div class="reveal"><h2>{h}</h2><p>{p}</p></div><div class="cta-actions reveal"><a class="btn btn-gold" href="contact.html">{c["apply"]}</a><a class="btn btn-ghost" href="tel:{tel}">Call {tn}</a></div></div>',"cta")
+    def cta(h,p): return sec(f'<div class="cta-in"><div class="reveal"><h2>{h}</h2><p>{p}</p></div><div class="cta-actions reveal"><a class="btn btn-gold" href="apply.html">{c["apply"]}</a><a class="btn btn-ghost" href="tel:{tel}">Call {tn}</a></div></div>',"cta")
     cardrows="".join(f'<div class="card-row"><span>{s}</span><b>{v}</b></div>' for s,v in c["card"])
     trust="".join(f'<div class="t reveal"><b>{b}</b><span>{s}</span></div>' for b,s in c["trust"])
     steps_full="".join(prog(f"{i+1:02d}",t,d) for i,(t,d) in enumerate(c["steps"]))
@@ -56,7 +56,7 @@ def build(c):
     HOME=(f'<header class="hero photo"><div class="hero-bg" style="background-image:url(\'img/hero.jpg\')"></div>'
      '<div class="wrap hero-in"><div class="hero-copy">'+SEAL+
      f'<h1 class="reveal">{c["h1"]}</h1><p class="reveal">{c["herop"]}</p>'
-     f'<div class="hero-ctas reveal"><a class="btn btn-gold btn-xl" href="contact.html">{c["apply"]}</a>'
+     f'<div class="hero-ctas reveal"><a class="btn btn-gold btn-xl" href="apply.html">{c["apply"]}</a>'
      f'<a class="hero-call" href="tel:{tel}">{ic("phone")}or call {tn}</a></div>'
      f'<div class="hero-trustline reveal"><span>{ic("cash")}{c["herostat"]}</span><span>{ic("check")}Local decisions, in-house</span><span>{ic("shield")}BBB Accredited</span></div>'
      '</div></div><a class="scrolldown" href="#more">Scroll ▾</a></header>'
@@ -64,11 +64,11 @@ def build(c):
      +sec(hb('Why '+c["shortname"],c["whyhead"],c["whylead"])+'<div class="feature-grid">'+feats+'</div>',"sec-glow")
      +sec('<div class="imgsplit-in"><div class="ip-img reveal" style="background-image:url(\'img/accent.jpg\')"></div>'
        f'<div class="reveal"><p class="eyebrow">{c["spliteyebrow"]}</p><h2>{c["splithead"]}</h2><p class="lead">{c["splitlead"]}</p>'
-       f'<a class="btn btn-gold" href="contact.html">{c["apply"]}</a></div></div>',"imgsplit")
+       f'<a class="btn btn-gold" href="apply.html">{c["apply"]}</a></div></div>',"imgsplit")
      +sec(hb('How It Works',c["prodtitle"],c["prodlead"])+'<div class="progs">'+steps_prev+'</div><div class="center" style="margin-top:36px"><a class="btn btn-ghost reveal" href="how-it-works.html">See how it works →</a></div>',"sec-lines")
      +sec('<div class="lb-bg" style="background-image:url(\'img/city.jpg\')"></div>'
        f'<p class="eyebrow reveal">Proudly Local</p><h2 class="reveal">Rooted in Greater New Orleans since 1958.</h2>'
-       f'<p class="reveal">{c["localp"]}</p><a class="btn btn-gold reveal" href="contact.html">{c["apply"]}</a>',"localband")
+       f'<p class="reveal">{c["localp"]}</p><a class="btn btn-gold reveal" href="apply.html">{c["apply"]}</a>',"localband")
      +sec('<div class="heritage-in"><div class="reveal"><p class="eyebrow">Our Story</p><div class="quote-mark">&ldquo;</div>'
        f'<blockquote>Locally owned and operated in Louisiana since 1958.</blockquote><cite>— {c["name"]}, Metairie, Louisiana</cite>'
        '<div style="margin-top:24px"><a class="btn btn-gold" href="about.html">Our story</a></div></div>'
@@ -100,27 +100,34 @@ def build(c):
      +cta(c["ctah"],c["ctap"]))
 
     opts="".join(f'<option>{o}</option>' for o in c["formopts"])
-    CONTACT=(pagehero('Contact &amp; Apply','Let&apos;s talk.',c["contactlead"],'loc.jpg')
+    APPLY=(pagehero('Apply',c["applyhead"],c["contactlead"],'loc.jpg')
      +sec(hb('Getting Started','Three steps, one local team.')+'<div class="progs">'
-       +prog('01','Reach out','Call, or send the form below — whatever&apos;s easiest.')
+       +prog('01','Reach out','Call, or send the form — whatever&apos;s easiest.')
        +prog('02','Talk it through','A local team member reviews your needs and lays out your options.')
-       +prog('03','Get a real answer','Reviewed in-house, with a fast, straightforward next step.')+'</div>',"sec-lines")
+       +prog('03','Get a real answer','Reviewed in-house, with a fast, straightforward next step.')+'</div>',"sec-lines grain")
      +sec('<div class="contact-grid"><div class="reveal">'
+       f'<div class="locphoto" style="background-image:url(\'img/city.jpg\')"><div class="cap">{ic("pin")}Serving Metairie &amp; Greater New Orleans</div></div>'
        f'<div class="loc">{ic("pin")}<div><b>Main Office</b><span>3525 N. Causeway Blvd, Suite 900<br>Metairie, LA 70002</span></div></div>'
        f'<div class="loc">{ic("phone")}<div><b>Call Us</b><a href="tel:{tel}">{tn}</a><br><span>Fax {c["fax"]}</span></div></div>'
-       f'<div class="loc">{ic("clock")}<div><b>Hours</b><span>Monday–Friday · 9:00am – 5:00pm</span></div></div></div>'
+       f'<div class="loc">{ic("clock")}<div><b>Hours</b><span>Call us for current office hours.</span></div></div></div>'
        '<form class="cform reveal" onsubmit="event.preventDefault();var b=this.querySelector(\'button\');b.textContent=\'✓ Received — we\\\'ll be in touch shortly\';b.disabled=true;">'
+       '<div class="form-h">Start your application</div><div class="form-sub">Takes about 2 minutes — no obligation.</div>'
        '<div class="row"><div><label for="n">Full name</label><input id="n" type="text" autocomplete="name" placeholder="Your name" required></div>'
        '<div><label for="p">Phone</label><input id="p" type="tel" autocomplete="tel" placeholder="(504) 000-0000" required></div></div>'
        f'<label for="t">What are you looking for?</label><select id="t">{opts}</select>'
        '<label for="m">Tell us a little about your situation</label><textarea id="m"></textarea>'
-       '<button class="btn btn-gold" type="submit">Request a call back</button></form></div>',"contact")
-     +sec(hb('Before You Reach Out')+'<div class="faq-list">'+"".join(faq(q,a) for q,a in c["faq_contact"])+'</div>',"sec-glow"))
+       f'<button class="btn btn-gold" type="submit">{c["apply"]}</button>'
+       '<p class="form-fine">Your information stays with our local Metairie team.</p></form></div>',"contact")
+     +sec(hb('Questions','Quick answers.')+'<div class="faq-list">'+"".join(faq(q,a) for q,a in c["faq_contact"])+'</div>',"sec-glow grain")
+     +sec('<div class="sec-head center reveal"><p class="eyebrow">Proudly Local</p><h2 class="sec-title">'+c["applyband"]+'</h2></div>'
+       '<div class="photo-trio reveal"><div><img src="img/hero.jpg" alt="New Orleans, Louisiana"><span class="cap">New Orleans, LA</span></div>'
+       '<div><img src="img/prod.jpg" alt="Metairie, Louisiana"><span class="cap">Metairie, LA</span></div>'
+       '<div><img src="img/accent.jpg" alt="Greater New Orleans"><span class="cap">Greater New Orleans</span></div></div>',"band-ivory grain"))
 
     pages={"index.html":(c["title"],c["desc"],"Home",HOME),
      "how-it-works.html":(f'How It Works — {c["name"]}',c["prodlead"],"How It Works",PROD),
      "about.html":(f'About {c["name"]} — Since 1958','Locally owned and operated in Louisiana since 1958. One of the Sun companies in Metairie.',"About",ABOUT),
-     "contact.html":(f'Contact &amp; Apply — {c["name"]} | Metairie, LA','Contact and apply in Metairie, Louisiana.',"Contact",CONTACT)}
+     "apply.html":(f'Apply — {c["name"]} | Metairie, LA',c["contactlead"],"Apply",APPLY)}
     for fn,(t,d,a,m) in pages.items():
         (B/fn).write_text(page(t,d,a,m)); print(B.name,fn,len((B/fn).read_text()))
 
@@ -160,6 +167,7 @@ PREMIUM=dict(dir="/Users/zaydenzukerman/webblaze/public/sunpremium",name="Sun Pr
  formopts=["Commercial insurance premium","Property insurance premium","Life / specialty premium","I&apos;m an insurance agent","Not sure — help me decide"],
  ctah="Ready to finance a premium?",ctap="Agents and individuals welcome. Call for a fast quote.",
  contactlead="Request a quote, call us, or send a note — for agents and individuals alike.",
+ applyhead="Keep your coverage. <em>Free up your cash.</em>",applyband="Serving Louisiana agents &amp; insureds since 1958.",
  faq_contact=[("Are you set up for agents?","Absolutely — many of our relationships are with agents who use us as their financing partner."),("How fast can I get a quote?","Quickly — a real person follows up, usually the same or next business day.")],
  compliance='All financing subject to approval; terms vary by policy. Sun Premium Financing is licensed by the Louisiana Office of Financial Institutions, lic. #<span class="ph">[to confirm]</span>. <span class="ph">[Final disclosures confirmed during engagement.]</span>',
  footdesc="One of the Sun companies in Metairie, Louisiana since 1958 — insurance premium financing that keeps your coverage in force and your cash working.",
@@ -202,6 +210,7 @@ PERSONAL=dict(dir="/Users/zaydenzukerman/webblaze/public/sunfinance",name="Sun F
  formopts=["Personal loan","Returning customer","Not sure — help me decide"],
  ctah="Need a hand this month?",ctap="Apply in minutes or call a local lender — no pressure.",
  contactlead="Apply, call, or send a note — a real, local person will get back to you fast.",
+ applyhead="Life&apos;s little surprises, <em>handled.</em>",applyband="Helping Louisiana families since 1958.",
  faq_contact=[("Does applying affect my credit?","We&apos;ll always tell you before any step that involves a credit check — no surprises."),("Is there any obligation?","None. Get your options and a real answer, then decide on your own terms.")],
  compliance='All loans subject to credit approval. Sun Finance Co. LLC is licensed by the Louisiana Office of Financial Institutions, lic. #<span class="ph">[to confirm]</span>. <span class="ph">[Final state disclosures confirmed during engagement.]</span>',
  footdesc="One of the Sun companies in Metairie, Louisiana since 1958 — fast, friendly personal loans from $500 to $3,000, reviewed and serviced by real local people.",

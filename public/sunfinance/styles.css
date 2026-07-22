@@ -408,3 +408,26 @@
   footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;pointer-events:none;
     background:linear-gradient(90deg,var(--sun-y),var(--sun-o) 55%,var(--sun-r));opacity:.9;}
   footer{position:relative;}
+
+  /* ===== APPLY-PAGE FORM EMPHASIS (propagated from Mortgage flagship) ===== */
+  .band-ivory{background:var(--ivory);}
+  /* ==== draw the eye to the application form ==== */
+  .contact{background:linear-gradient(180deg,#fff,var(--ivory));position:relative;overflow:hidden;}
+  .contact::after{content:"";position:absolute;right:-8%;top:50%;transform:translateY(-50%);width:min(680px,52vw);aspect-ratio:1;border-radius:50%;pointer-events:none;z-index:0;
+    background:radial-gradient(circle, color-mix(in srgb, var(--gold-2) 28%, transparent), transparent 66%);}
+  .contact>.wrap{position:relative;z-index:1;}
+  .cform{background:#fff;border:1px solid var(--line);border-top:5px solid var(--gold);box-shadow:0 46px 100px -44px rgba(12,30,51,.6);padding:40px;position:relative;}
+  .cform .form-h{font-family:var(--serif);font-weight:600;font-size:1.7rem;color:var(--navy);margin-bottom:4px;letter-spacing:-.01em;}
+  .cform .form-sub{color:var(--soft);font-size:.9rem;margin-bottom:24px;}
+  .cform button{width:100%;margin-top:24px;padding:19px;font-size:1.08rem;}
+  .cform .form-fine{text-align:center;color:var(--soft);font-size:.78rem;margin-top:14px;}
+
+  /* ==== dark section so the white form card really pops ==== */
+  .contact{background:var(--navy);}
+  .contact::after{background:radial-gradient(circle, color-mix(in srgb, var(--gold-2) 34%, transparent), transparent 62%);opacity:.55;}
+  .contact .loc b{color:#fff;}
+  .contact .loc span{color:var(--on-navy-soft);}
+  .contact .loc a{color:#fff;}
+  .contact .loc a:hover{color:var(--gold-2);}
+  .contact .loc .ico{color:var(--gold-2);}
+  .cform{box-shadow:0 50px 120px -38px rgba(0,0,0,.75);border-top-width:6px;}
