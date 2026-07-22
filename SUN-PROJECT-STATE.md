@@ -107,15 +107,17 @@ and all real client links are subdomains (DNS live). Bottom line: **pretty `/app
 - Richer backgrounds: `.sec-glow` (warm gradient + brand sun-blooms), `.sec-tint` (gradient + dot texture),
   `.sec-lines` (gradient + diagonal lines), `.grain` (SVG noise overlay), `.photo-trio` (3-image strip).
 - Imagery = **REAL photos, NO AI, NO attribution-required stock**. Original 6 per site (`hero, accent, city,
-  prod, about, loc` .jpg, `?v=2`) = CC0 New Orleans (Openverse/Wikimedia). **Added 2026-07-22: 3 more per site**
-  (`people.jpg, people2.jpg, street.jpg`, no `?v`) sourced from **Pexels** (Pexels license = free, commercial,
-  no attribution needed) — warm, local, people-forward: homebuyers+realtor, small-business owners, friends/
-  couples, French Quarter streets, a brass-band musician. Sourced via Pexels API (Zayden's key) with helper
-  scripts in `/tmp` (pex.py/pool.py/dl.py — temp, not committed). **Placement:** home "Why us" split + local
-  band now show people/street; home, apply & about pages each have a people+city `.photo-trio` band.
-- **Top-right utility location link now → about.html** (was apply.html) per Zayden — About also got a photo band.
-- ⚠️ **"Their actual building" is NOT shown** — we have no real photo of 3525 N. Causeway. Photos are honest
-  area/lifestyle imagery (never captioned as "our office/staff/clients"). **Real office photo = client-provide TODO.**
+  prod, about, loc` .jpg, `?v=2`) = CC0 New Orleans (Openverse/Wikimedia) — unchanged, still used everywhere
+  (home split, home+apply photo-trios, pageheros, locphoto).
+- **2026-07-22 people photo, take 2** (take 1 over-added photo grids + a cluttered/run-down-looking shot —
+  reverted per feedback). Now: **exactly ONE polished people photo per site** (`img/people.jpg`, Pexels, free/
+  commercial/no attribution), used **only as the `.localband` full-bleed background** (dark scrim, existing
+  CSS) — no photo cards/grids anywhere. Picks: Mortgage = realtor+buyers handshake outside a home, Premium =
+  smiling professionals in a business meeting, Finance = happy family in a backyard. No cluttered/run-down
+  shots. Sourced via Pexels API (Zayden's key); throwaway fetch scripts lived in `/tmp`, not committed.
+- **Top-right utility location link → about.html** (was apply.html) per Zayden.
+- ⚠️ **"Their actual building" is NOT shown** — we have no real photo of 3525 N. Causeway. **Real office photo
+  = client-provide TODO.**
 - ⚠️ **REJECTED redesign:** a ground-up "Golden Hour / giant sun-disc art object" hero was tried and the user
   hated it ("gimmicky", "so much worse"). Reverted. **Do NOT do abstract giant shapes / art-student concepts.**
 
