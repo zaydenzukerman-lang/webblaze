@@ -293,3 +293,6 @@
   .heritage>.wrap,.band-navy>.wrap{position:relative;z-index:1;}
   /* richer trust strip */
   .trust{background:linear-gradient(180deg,#fff,var(--ivory));}
+
+  /* Official brand color: Sun Mortgage Funding = sun YELLOW */
+  :root{--gold:#B07D0A;--gold-2:#E0A50E;--sun-y:#FFD24D;--sun-o:#FFC114;--sun-r:#E9A70C;--gold-soft:#FEF3D6;}

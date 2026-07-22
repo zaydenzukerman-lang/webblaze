@@ -293,3 +293,6 @@
   .heritage>.wrap,.band-navy>.wrap{position:relative;z-index:1;}
   /* richer trust strip */
   .trust{background:linear-gradient(180deg,#fff,var(--ivory));}
+
+  /* Official brand color: Sun Finance = sun ORANGE */
+  :root{--gold:#D8641A;--gold-2:#FF822A;--sun-y:#FFA45A;--sun-o:#FF822A;--sun-r:#E86D18;--gold-soft:#FDEAD6;}

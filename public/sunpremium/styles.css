@@ -293,3 +293,6 @@
   .heritage>.wrap,.band-navy>.wrap{position:relative;z-index:1;}
   /* richer trust strip */
   .trust{background:linear-gradient(180deg,#fff,var(--ivory));}
+
+  /* Official brand color: Sun Premium Financing = sun TERRACOTTA/RED */
+  :root{--gold:#C4551F;--gold-2:#DC632C;--sun-y:#F0894A;--sun-o:#DC632C;--sun-r:#BE4E20;--gold-soft:#FBE7DA;}
