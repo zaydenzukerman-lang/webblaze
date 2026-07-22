@@ -106,8 +106,16 @@ and all real client links are subdomains (DNS live). Bottom line: **pretty `/app
   Apply Now), then sections (why / imgsplit / offer / localband / how-it-works / heritage / reviews / faq / cta).
 - Richer backgrounds: `.sec-glow` (warm gradient + brand sun-blooms), `.sec-tint` (gradient + dot texture),
   `.sec-lines` (gradient + diagonal lines), `.grain` (SVG noise overlay), `.photo-trio` (3-image strip).
-- Imagery = **REAL, CC0/public-domain New Orleans photos** (Openverse + Wikimedia), 6 unique per site:
-  `hero, accent, city, prod, about, loc` .jpg (all `?v=2`). NO AI images, NO stock needing attribution.
+- Imagery = **REAL photos, NO AI, NO attribution-required stock**. Original 6 per site (`hero, accent, city,
+  prod, about, loc` .jpg, `?v=2`) = CC0 New Orleans (Openverse/Wikimedia). **Added 2026-07-22: 3 more per site**
+  (`people.jpg, people2.jpg, street.jpg`, no `?v`) sourced from **Pexels** (Pexels license = free, commercial,
+  no attribution needed) — warm, local, people-forward: homebuyers+realtor, small-business owners, friends/
+  couples, French Quarter streets, a brass-band musician. Sourced via Pexels API (Zayden's key) with helper
+  scripts in `/tmp` (pex.py/pool.py/dl.py — temp, not committed). **Placement:** home "Why us" split + local
+  band now show people/street; home, apply & about pages each have a people+city `.photo-trio` band.
+- **Top-right utility location link now → about.html** (was apply.html) per Zayden — About also got a photo band.
+- ⚠️ **"Their actual building" is NOT shown** — we have no real photo of 3525 N. Causeway. Photos are honest
+  area/lifestyle imagery (never captioned as "our office/staff/clients"). **Real office photo = client-provide TODO.**
 - ⚠️ **REJECTED redesign:** a ground-up "Golden Hour / giant sun-disc art object" hero was tried and the user
   hated it ("gimmicky", "so much worse"). Reverted. **Do NOT do abstract giant shapes / art-student concepts.**
 
@@ -151,7 +159,9 @@ not Google/Yelp — keep soft ("5.0★ rated").
 
 ## STILL NEEDS CLIENT CONFIRMATION before real launch
 NMLS #71517 "active" status (manual check at nmlsconsumeraccess.org); LA OFI license #s (placeholders
-`[to confirm]` on Premium/Finance compliance); real office hours; real staff headshots (currently initial-avatars).
+`[to confirm]` on Premium/Finance compliance); real office hours (currently softened to "Call us for current
+office hours."); real staff headshots (currently initial-avatars); **real photo of the office/building** (to
+show on About/Apply — currently using honest NOLA area photos instead).
 
 ## SEO (baseline done; playbook available)
 - Baseline technical SEO on all 3 sites: canonical, OG/Twitter, LocalBusiness JSON-LD, sitemap.xml, robots.txt.
