@@ -303,3 +303,47 @@
   .tm h4{font-family:var(--serif);color:var(--navy);font-size:1.12rem;margin-bottom:4px;}
   .tm .role{color:var(--gold);font-weight:600;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:11px;}
   .tm .meta{color:var(--soft);font-size:.85rem;line-height:1.5;}
+
+  /* ================= RICHER BACKGROUNDS v2 (override) ================= */
+  /* light sections: warm gradient bases + visible brand sun-blooms (no more flat beige) */
+  .sec-glow{background:linear-gradient(165deg,#FFFFFF 0%,#FDF6EC 100%);position:relative;overflow:hidden;}
+  .sec-glow::before{content:"";position:absolute;top:-42%;right:-12%;width:min(780px,64vw);aspect-ratio:1;border-radius:50%;
+    background:radial-gradient(circle, color-mix(in srgb, var(--sun-o) 32%, transparent), transparent 64%);z-index:0;pointer-events:none;}
+  .sec-glow::after{content:"";position:absolute;bottom:-36%;left:-14%;width:min(600px,50vw);aspect-ratio:1;border-radius:50%;
+    background:radial-gradient(circle, color-mix(in srgb, var(--sun-y) 26%, transparent), transparent 66%);z-index:0;pointer-events:none;}
+  .sec-glow>.wrap{position:relative;z-index:1;}
+
+  .sec-tint{background:linear-gradient(180deg,#FFFDFA 0%,#FAF1E3 100%);position:relative;overflow:hidden;}
+  .sec-tint::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.7;
+    background-image:radial-gradient(color-mix(in srgb, var(--navy) 13%, transparent) 1.3px, transparent 1.7px);background-size:24px 24px;
+    -webkit-mask-image:radial-gradient(130% 90% at 85% 15%, #000, transparent 72%);mask-image:radial-gradient(130% 90% at 85% 15%, #000, transparent 72%);}
+  .sec-tint>.wrap{position:relative;z-index:1;}
+
+  .sec-lines{background:linear-gradient(180deg,#FAF1E2,#FFFDFA);position:relative;overflow:hidden;}
+  .sec-lines::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background-image:repeating-linear-gradient(125deg, color-mix(in srgb, var(--navy) 6%, transparent) 0 1px, transparent 1px 58px);}
+  .sec-lines>.wrap{position:relative;z-index:1;}
+
+  /* trust strip: warm gradient */
+  .trust{background:linear-gradient(180deg,#FFFFFF,#FAF1E3);}
+
+  /* feature icon tiles + cards: brand color, top-accent on hover */
+  .feature .fi{background:linear-gradient(135deg, var(--sun-y), var(--sun-o) 55%, var(--sun-r));color:#3A1B08;box-shadow:0 10px 22px -12px color-mix(in srgb, var(--sun-o) 75%, transparent);}
+  .feature .fi .ico{color:#3A1B08;}
+  .feature{position:relative;overflow:hidden;}
+  .feature::after{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:linear-gradient(90deg,var(--sun-y),var(--sun-o),var(--sun-r));transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease);}
+  .feature:hover::after{transform:scaleX(1);}
+
+  /* review cards: brand accent bar + brand stars */
+  .review{position:relative;overflow:hidden;}
+  .review::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--sun-y),var(--sun-r));}
+  .review .stars{color:var(--sun-o);}
+
+  /* stronger warm bloom inside navy story/process bands */
+  .heritage::before,.band-navy::before{width:min(720px,60vw);height:auto;aspect-ratio:1;
+    background:radial-gradient(circle, color-mix(in srgb, var(--sun-o) 34%, transparent), transparent 64%);}
+
+  /* CTA band: add a brand sun-bloom */
+  .cta{position:relative;overflow:hidden;isolation:isolate;}
+  .cta::after{content:"";position:absolute;top:-30%;right:-8%;width:min(560px,46vw);aspect-ratio:1;border-radius:50%;z-index:-1;pointer-events:none;
+    background:radial-gradient(circle, color-mix(in srgb, var(--sun-o) 22%, transparent), transparent 66%);}
