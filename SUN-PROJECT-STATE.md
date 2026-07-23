@@ -35,9 +35,13 @@ other ventures — North Star game, Blue Spark, Crammify — but THIS project is
    **Build is complete + pitch-ready (2026-07-22):** premium imagery on every slot (no run-down buildings, no
    brand names in any photo — audited), Apply form at top of Apply page, hero paragraph removed so Apply CTA
    dominates, no photo-grid clutter, all fabrications removed (incl. Premium false BBB). All 12 pages (4×3) live @ 200.
-2. **Content/compliance pass (CLIENT-PROVIDE — can't finish without them):** NMLS #71517 active status, LA OFI
-   license #s (placeholders `[to confirm]` now), real office hours (softened to "call us"), real staff headshots
-   (initial-avatars now), and a real office/building photo (using honest area photos now).
+   **Mobile QA pass:** added hamburger nav on all 3 (was NONE <940px — critical); cleaned mobile header (tagline
+   hidden, compact CTA, no wrap); Apply form shows first on mobile; removed ALL visible `[to confirm]`/`[disclosures]`
+   bracket placeholders from footers (clean truthful compliance lines). Verified live on mobile. CSS: Mortgage v11,
+   Premium/Finance v9.
+2. **Content/compliance pass (CLIENT-PROVIDE — can't finish without them):** NMLS #71517 active status, real LA OFI
+   license #s (removed the placeholder brackets; add real #s at launch), real office hours (softened to "call us"),
+   real staff headshots (initial-avatars now), and a real office/building photo (using honest area photos now).
 3. **Pitch Sun:** draft outreach for dad to send (3 sites @ $300/yr = $900/yr + SEO upsell). Give the preview links.
 4. **On client "yes":** deploy to their real domains, flip previews from `noindex`→`index`, submit sitemaps to
    Google Search Console, set up GA4.
