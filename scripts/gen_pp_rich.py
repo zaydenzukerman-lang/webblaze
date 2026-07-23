@@ -58,7 +58,7 @@ def build(c):
      f'<h1 class="reveal">{c["h1"]}</h1>'
      f'<div class="hero-ctas reveal"><a class="btn btn-gold btn-xl" href="apply.html">{c["apply"]}</a>'
      f'<a class="hero-call" href="tel:{tel}">{ic("phone")}or call {tn}</a></div>'
-     f'<div class="hero-trustline reveal"><span>{ic("cash")}{c["herostat"]}</span><span>{ic("check")}Local decisions, in-house</span><span>{ic("shield")}BBB Accredited</span></div>'
+     f'<div class="hero-trustline reveal"><span>{ic("cash")}{c["herostat"]}</span><span>{ic("check")}Local decisions, in-house</span><span>{ic("shield")}{c["trust3"]}</span></div>'
      '</div></div><a class="scrolldown" href="#more">Scroll ▾</a></header>'
      f'<div class="trust" id="more"><div class="wrap trust-in">{trust}</div></div>'
      +sec(hb('Why '+c["shortname"],c["whyhead"],c["whylead"])+'<div class="feature-grid">'+feats+'</div>',"sec-glow")
@@ -131,7 +131,7 @@ PREMIUM=dict(dir="/Users/zaydenzukerman/webblaze/public/sunpremium",name="Sun Pr
  tel="+15048349400",telnum="(504) 834-9400",fax="(504) 834-9402",others=[("Sun Mortgage Funding","https://sunmortgagefunding.webblaze.io"),("Sun Finance · Personal Loans","https://sunfinance.webblaze.io")],
  h1="Keep your coverage. <em>Free up your cash.</em>",
  herop="Insurance premium financing from the Sun companies in Metairie, Louisiana since 1958 — for agents and their clients alike. We finance from $100 to $250,000 across more than ten types of insurance.",
- herostat="$100 – $250K financed",cardh="Premium Financing",cardcta="Request a quote",fine="Subject to approval. Terms vary by policy.",bbbtag="",ab3b="10+",ab3s="Insurance types",
+ herostat="$100 – $250K financed",trust3="Agents &amp; individuals welcome",cardh="Premium Financing",cardcta="Request a quote",fine="Subject to approval. Terms vary by policy.",bbbtag="",ab3b="10+",ab3s="Insurance types",
  card=[("Amounts financed","$100 – $250K"),("Insurance types","10+"),("Agents &amp; individuals","Both"),("Local, since","1958")],
  trust=[("1958","Serving Louisiana since"),("$100–$250K","Financed"),("10+","Insurance types"),("Local","Metairie, LA")],
  whyhead="A premium finance partner that answers the phone.",whylead="We work directly with agents and insureds to keep coverage in force and cash free — with the personal service a national finance company can&apos;t match.",
@@ -174,7 +174,7 @@ PERSONAL=dict(dir="/Users/zaydenzukerman/webblaze/public/sunfinance",name="Sun F
  tel="+15048379400",telnum="(504) 837-9400",fax="(504) 837-9494",others=[("Sun Mortgage Funding","https://sunmortgagefunding.webblaze.io"),("Sun Premium Financing","https://sunpremium.webblaze.io")],
  h1="Life&apos;s little surprises, <em>handled.</em>",
  herop="Fast, friendly personal loans from $500 to $3,000 — from the Sun companies in Metairie, Louisiana since 1958. Reviewed and serviced in-house by people you can actually reach, right here at home.",
- herostat="$500 – $3,000 loans",cardh="Personal Loans At A Glance",cardcta="Start your application",fine="Subject to credit approval.",bbbtag=" · BBB A+ Accredited",ab3b="In-house",ab3s="Loans serviced",
+ herostat="$500 – $3,000 loans",trust3="BBB A+ Accredited",cardh="Personal Loans At A Glance",cardcta="Start your application",fine="Subject to credit approval.",bbbtag=" · BBB A+ Accredited",ab3b="In-house",ab3s="Loans serviced",
  card=[("Loan amounts","$500 – $3K"),("Decisions made","Locally"),("Serviced in-house","Always"),("Trusted since","1958")],
  trust=[("1958","Serving Louisiana since"),("A+","BBB · since 1987"),("$500–$3K","Personal loan amounts"),("In-house","Reviewed &amp; serviced")],
  whyhead="A personal loan, from people who treat you like one.",whylead="No big-bank runaround and no out-of-state call center — just fast, friendly help from a lender Louisiana has trusted since 1958.",
