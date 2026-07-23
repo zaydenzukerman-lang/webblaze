@@ -431,3 +431,22 @@
   .contact .loc a:hover{color:var(--gold-2);}
   .contact .loc .ico{color:var(--gold-2);}
   .cform{box-shadow:0 50px 120px -38px rgba(0,0,0,.75);border-top-width:6px;}
+
+  /* ===== MOBILE NAV + APPLY-FORM ORDER (pitch QA) ===== */
+  .nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:6px;color:var(--navy);margin-left:8px;}
+  .nav-toggle svg{width:28px;height:28px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;}
+  @media(max-width:939px){
+    .brand .tag{display:none;}
+    .nav-in .btn-gold{margin-left:auto;padding:10px 16px;font-size:.86rem;}
+    .nav-toggle{display:inline-flex;}
+    .nav-links{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;
+      background:var(--ivory);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+      box-shadow:0 24px 44px -24px rgba(12,30,51,.4);padding:6px 0;
+      visibility:hidden;opacity:0;transform:translateY(-10px);
+      transition:transform .25s var(--ease),opacity .25s var(--ease),visibility .25s;}
+    .nav-links.open{visibility:visible;opacity:1;transform:none;}
+    .nav-links a{padding:15px 24px;font-size:1rem;color:var(--navy);border-bottom:1px solid var(--line);}
+    .nav-links a:last-child{border-bottom:0;}
+  }
+  /* Apply page: put the form first on mobile (conversion) */
+  @media(max-width:899px){ .contact .cform{order:-1;margin-bottom:32px;} }

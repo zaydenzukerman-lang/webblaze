@@ -21,7 +21,8 @@ def build(c):
         items="".join(f'<a href="{h}"{" style=\"color:var(--navy);font-weight:600\"" if n==a else ""}>{n}</a>' for n,h in L)
         return ('<nav class="nav"><div class="wrap nav-in"><a class="brand" href="index.html">'
         f'<img src="img/sun-logo.svg" alt="Sun" width="297" height="61"><span class="tag">{c["tag"]}</span></a>'
-        f'<div class="nav-links">{items}</div><a class="btn btn-gold" href="apply.html" style="padding:11px 22px">{c["apply"]}</a></div></nav>')
+        f'<div class="nav-links">{items}</div><a class="btn btn-gold" href="apply.html" style="padding:11px 22px">{c["apply"]}</a>'
+        '<button class="nav-toggle" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div></nav>')
     others="<br>".join(f'<a href="{u}" target="_blank" rel="noopener">{n}</a>' for n,u in c["others"])
     footer=('<footer><div class="wrap"><div class="foot-grid">'
      f'<div class="foot-brand"><span class="serif">{c["name"]}</span><p style="margin-top:12px;max-width:42ch">{c["footdesc"]}</p></div>'
@@ -30,7 +31,8 @@ def build(c):
      f'<div class="compliance"><div class="ehl"><span>{c["compliance"]}</span></div>'
      f'<span>© {c["name"]} · Metairie, Louisiana{c["bbbtag"]}</span></div></div></footer>'
      f'<div class="ribbon"><b>PREVIEW</b> — redesign concept built by WebBlaze for {c["name"]} · not the live site</div>'
-     '<script>const els=document.querySelectorAll(".reveal");if(matchMedia("(prefers-reduced-motion: reduce)").matches||!("IntersectionObserver"in window)){els.forEach(e=>e.classList.add("in"));}else{const io=new IntersectionObserver(en=>en.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{threshold:.1});els.forEach(e=>io.observe(e));}'
+     '<script>document.querySelectorAll(".nav-toggle").forEach(function(t){t.addEventListener("click",function(){var n=t.closest(".nav").querySelector(".nav-links");var o=n.classList.toggle("open");t.setAttribute("aria-expanded",o);});});'
+     'const els=document.querySelectorAll(".reveal");if(matchMedia("(prefers-reduced-motion: reduce)").matches||!("IntersectionObserver"in window)){els.forEach(e=>e.classList.add("in"));}else{const io=new IntersectionObserver(en=>en.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{threshold:.1});els.forEach(e=>io.observe(e));}'
      'document.addEventListener("click",function(e){var a=e.target.closest("a[href^=\\"#\\"]");if(!a)return;var h=a.getAttribute("href");if(!h||h.length<2)return;var el=document.getElementById(h.slice(1));if(!el)return;e.preventDefault();el.classList.add("in");var y=el.getBoundingClientRect().top+window.scrollY-96;window.scrollTo({top:y,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});history.replaceState(null,"",h);});</script></body></html>')
     def page(t,d,a,m): return head(t,d)+util+nav(a)+m+footer
     def hb(e,t='',l='',center=True):
@@ -165,7 +167,7 @@ PREMIUM=dict(dir="/Users/zaydenzukerman/webblaze/public/sunpremium",name="Sun Pr
  contactlead="Request a quote, call us, or send a note — for agents and individuals alike.",
  applyhead="Keep your coverage. <em>Free up your cash.</em>",applyband="Serving Louisiana agents &amp; insureds since 1958.",
  faq_contact=[("Are you set up for agents?","Absolutely — many of our relationships are with agents who use us as their financing partner."),("How fast can I get a quote?","Quickly — a real person follows up, usually the same or next business day.")],
- compliance='All financing subject to approval; terms vary by policy. Sun Premium Financing is licensed by the Louisiana Office of Financial Institutions, lic. #<span class="ph">[to confirm]</span>. <span class="ph">[Final disclosures confirmed during engagement.]</span>',
+ compliance='All financing subject to approval; terms vary by policy. Sun Premium Financing — locally owned and operated in Metairie, Louisiana since 1958.',
  footdesc="One of the Sun companies in Metairie, Louisiana since 1958 — insurance premium financing that keeps your coverage in force and your cash working.",
  title="Sun Premium Financing — Insurance Premium Financing in Louisiana Since 1958",
  desc="Insurance premium financing from the Sun companies in Metairie, Louisiana since 1958. $100 to $250,000 across 10+ insurance types, for agents and individuals.")
@@ -208,7 +210,7 @@ PERSONAL=dict(dir="/Users/zaydenzukerman/webblaze/public/sunfinance",name="Sun F
  contactlead="Apply, call, or send a note — a real, local person will get back to you fast.",
  applyhead="Life&apos;s little surprises, <em>handled.</em>",applyband="Helping Louisiana families since 1958.",
  faq_contact=[("Does applying affect my credit?","We&apos;ll always tell you before any step that involves a credit check — no surprises."),("Is there any obligation?","None. Get your options and a real answer, then decide on your own terms.")],
- compliance='All loans subject to credit approval. Sun Finance Co. LLC is licensed by the Louisiana Office of Financial Institutions, lic. #<span class="ph">[to confirm]</span>. <span class="ph">[Final state disclosures confirmed during engagement.]</span>',
+ compliance='All loans subject to credit approval. Sun Finance Co. LLC — locally owned and operated in Metairie, Louisiana since 1958. BBB A+ accredited since 1987.',
  footdesc="One of the Sun companies in Metairie, Louisiana since 1958 — fast, friendly personal loans from $500 to $3,000, reviewed and serviced by real local people.",
  title="Sun Finance — Personal Loans in Louisiana Since 1958 | $500–$3,000",
  desc="Fast, friendly personal loans from $500 to $3,000 — from the Sun companies in Metairie, Louisiana since 1958. Serviced in-house.")
