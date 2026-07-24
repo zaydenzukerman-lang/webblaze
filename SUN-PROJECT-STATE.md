@@ -179,6 +179,17 @@ show on About/Apply — currently using honest NOLA area photos instead).
 - Dad relayed an SEO playbook (was a copy-paste, NOT a live agent named "Madison"): tools = Vercel + Google
   Search Console + GA4 + Distribb backlinks + Gmail outreach; daily 1500-word article workflow; tiers
   $500/$1k/$2k /mo. This is the recurring-revenue product on top of the $300/yr sites.
+- **SEO OPERATION PREPARED 2026-07-24** (Brian was pitched $100/mo per site — see below). Built in `seo/`:
+  - `seo/webblaze-seo-playbook.md` — the sellable service + repeatable weekly SOP (5 pillars, tool stack,
+    Mon–Fri routine, on-page rules, guardrails, per-site go-live setup checklist). Cadence: 4 articles/wk +
+    weekly technical/local task + weekly report.
+  - `seo/sun-seo-plan.md` — per-site keyword maps (Mortgage/Premium/Finance), an 8-week content calendar
+    (4 articles/wk × 3 sites), local-SEO plan (GBP per company, NAP, reviews), on-page/technical status, and
+    the go-live setup order. Nothing published yet (sites still `noindex` previews).
+  - `seo/weekly-report-template.md` — the client-facing weekly report.
+- **PITCH SENT 2026-07-24:** Dad emailed client Brian the 3 preview links; offer = $300/site + optional
+  **$100/mo per site** aggressive SEO w/ weekly reporting. Awaiting reply; Zayden fields the "tell me more."
+  On "yes": run the go-live setup order in the SEO plan, then start the weekly routine.
 
 ## BUILD SCRIPTS (in ~/webblaze/scripts/)
 `gen_mort_rich.py` (Mortgage — OUT OF SYNC, see gotcha), `gen_pp_rich.py` (Premium+Finance), `seo_inject.py`
