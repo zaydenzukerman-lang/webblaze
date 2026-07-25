@@ -39,4 +39,6 @@ Pexels API key (Zayden's): 85gzYeGliCl062HE8cT3bQZRphoW2iaH9pI2oxmLxJ7zE1KTttQe8
 
 ## Status
 - [x] Research both · [x] spec saved
-- [ ] Build Fetchero · [ ] Build Town Agency · [ ] deploy+verify · [ ] cold emails
+- [x] Build Fetchero · [x] Build Town Agency · [x] deploy+verify (LIVE) · [ ] cold emails
+- **LIVE:** https://fetchero.webblaze.io · https://thetownagency.webblaze.io (deployed, DNS+domains attached, verified 200 + assets).
+- Slugs added to DEMOS in next.config.ts + src/proxy.ts. Cloudflare CNAMEs (fetchero, thetownagency -> cname.vercel-dns.com) + vercel domains add done.
