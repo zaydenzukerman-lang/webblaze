@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 // Client demo sites served from public/<slug>/.
 //   Path access:      webblaze.io/<slug>/   (works on *.vercel.app immediately)
 //   Subdomain access: <slug>.webblaze.io    (handled in src/proxy.ts)
-const DEMOS = ["orangebeachfish", "dunebuggy", "sunfinance", "sunmortgagefunding", "sunpremium"] as const;
+const DEMOS = ["orangebeachfish", "dunebuggy", "sunfinance", "sunmortgagefunding", "sunpremium", "fetchero", "thetownagency"] as const;
 
 const nextConfig: NextConfig = {
   // trailingSlash:false — pretty URLs (subdomain /apply, /about, …) must NOT

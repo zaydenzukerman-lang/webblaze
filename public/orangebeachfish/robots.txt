@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://orangebeachfish.webblaze.io/sitemap.xml
