@@ -73,8 +73,8 @@ html:not(.js) .reveal{opacity:1;transform:none;}
 .hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,28,35,.92) 0%,rgba(20,28,35,.7) 40%,rgba(20,28,35,.34) 72%,rgba(20,28,35,.15) 100%);}
 .hero-in{padding:96px 0;position:relative;z-index:1;max-width:38ch;}
 .hero .eyebrow{color:#fff;}.hero .eyebrow::before{background:var(--brass);}
-.hero h1{font-family:var(--serif);font-size:clamp(2.7rem,1.7rem+4vw,5rem);color:#fff;line-height:1.02;margin:20px 0 20px;text-shadow:0 3px 26px rgba(0,0,0,.4);}
-.hero p{font-size:clamp(1.08rem,1rem+.5vw,1.32rem);color:rgba(255,255,255,.92);max-width:50ch;margin-bottom:16px;text-shadow:0 1px 10px rgba(0,0,0,.35);}
+.hero h1{font-family:var(--serif);font-size:clamp(2.7rem,1.7rem + 4vw,5rem);color:#fff;line-height:1.02;margin:20px 0 20px;text-shadow:0 3px 26px rgba(0,0,0,.4);}
+.hero p{font-size:clamp(1.08rem,1rem + .5vw,1.32rem);color:rgba(255,255,255,.92);max-width:50ch;margin-bottom:16px;text-shadow:0 1px 10px rgba(0,0,0,.35);}
 .hero .no-pressure{font-family:var(--serif);font-style:italic;color:var(--brass);font-size:1.15rem;margin-bottom:30px;}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:15px;align-items:center;}
 .hero-call{display:inline-flex;align-items:center;gap:9px;font-weight:600;color:#fff;}
@@ -92,7 +92,7 @@ section{padding:96px 0;}
 section[id]{scroll-margin-top:90px;}
 .sec-head{max-width:56ch;margin-bottom:52px;}
 .sec-head.center{margin-inline:auto;text-align:center;}
-.sec-title{font-size:clamp(2.1rem,1.4rem+2.6vw,3.4rem);margin:16px 0 0;color:var(--slate);}
+.sec-title{font-size:clamp(2.1rem,1.4rem + 2.6vw,3.4rem);margin:16px 0 0;color:var(--slate);}
 .lead{color:var(--soft);font-size:1.1rem;margin-top:16px;}
 .center .lead{margin-inline:auto;}
 
@@ -126,14 +126,14 @@ section[id]{scroll-margin-top:90px;}
 .band .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,28,35,.9),rgba(20,28,35,.55) 66%,rgba(20,28,35,.3));}
 .band .wrap{padding:104px 0;}
 .band .eyebrow{color:var(--brass);}
-.band h2{color:#fff;font-size:clamp(2rem,1.4rem+2.4vw,3.2rem);margin:12px 0 16px;max-width:20ch;}
+.band h2{color:#fff;font-size:clamp(2rem,1.4rem + 2.4vw,3.2rem);margin:12px 0 16px;max-width:20ch;}
 .band p{color:rgba(255,255,255,.9);max-width:52ch;margin-bottom:22px;}
 .towns{display:flex;flex-wrap:wrap;gap:10px;max-width:60ch;}
 .towns span{border:1px solid rgba(255,255,255,.28);border-radius:3px;padding:8px 15px;font-size:.9rem;color:#fff;}
 
 /* rating band */
 .rating{background:var(--slate);color:#fff;text-align:center;}
-.rating .big{font-family:var(--serif);font-size:clamp(3rem,2rem+4vw,5rem);line-height:1;color:#fff;}
+.rating .big{font-family:var(--serif);font-size:clamp(3rem,2rem + 4vw,5rem);line-height:1;color:#fff;}
 .rating .stars{color:var(--brass);font-size:1.6rem;letter-spacing:5px;margin:14px 0;}
 .rating p{color:var(--on-slate-soft);max-width:44ch;margin:0 auto;}
 

@@ -81,9 +81,9 @@ html:not(.js) .reveal{opacity:1;transform:none;}
 .hero-in{padding:0 0 150px;position:relative;z-index:1;max-width:20ch;}
 .hero .kicker{color:#fff;margin-bottom:20px;}
 .hero .kicker::before{background:var(--coral);}
-.hero h1{font-family:var(--disp);text-transform:uppercase;font-size:clamp(3.4rem,2rem+8vw,8.5rem);line-height:.86;letter-spacing:.005em;margin-bottom:22px;text-shadow:0 4px 40px rgba(0,0,0,.4);}
+.hero h1{font-family:var(--disp);text-transform:uppercase;font-size:clamp(3.4rem,2rem + 8vw,8.5rem);line-height:.86;letter-spacing:.005em;margin-bottom:22px;text-shadow:0 4px 40px rgba(0,0,0,.4);}
 .hero h1 span{color:var(--coral);}
-.hero p{font-size:clamp(1.1rem,1rem+.5vw,1.35rem);max-width:44ch;color:rgba(255,255,255,.93);text-shadow:0 1px 12px rgba(0,0,0,.4);}
+.hero p{font-size:clamp(1.1rem,1rem + .5vw,1.35rem);max-width:44ch;color:rgba(255,255,255,.93);text-shadow:0 1px 12px rgba(0,0,0,.4);}
 .hero-call{display:inline-flex;align-items:center;gap:9px;margin-top:24px;font-weight:700;color:#fff;}
 .hero-call .ico{width:18px;height:18px;color:var(--gold);}
 
@@ -113,7 +113,7 @@ html:not(.js) .reveal{opacity:1;transform:none;}
 
 section{padding:96px 0;}
 section[id]{scroll-margin-top:90px;}
-.h-mega{font-family:var(--disp);text-transform:uppercase;font-size:clamp(2.4rem,1.5rem+3.6vw,4.6rem);line-height:.92;color:var(--sea);}
+.h-mega{font-family:var(--disp);text-transform:uppercase;font-size:clamp(2.4rem,1.5rem + 3.6vw,4.6rem);line-height:.92;color:var(--sea);}
 .center{text-align:center;}
 .lead{color:var(--soft);font-size:1.12rem;max-width:60ch;margin-top:18px;}
 .center .lead{margin-inline:auto;}
@@ -126,7 +126,7 @@ section[id]{scroll-margin-top:90px;}
 .tb-img .no{position:absolute;left:24px;top:14px;font-family:var(--disp);font-size:5.5rem;color:#fff;opacity:.85;text-shadow:0 4px 24px rgba(0,0,0,.5);line-height:1;}
 .tb-body{padding:46px 44px;display:flex;flex-direction:column;justify-content:center;}
 .tb-body .l{font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--aqua-d);margin-bottom:12px;}
-.tb-body h3{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.8rem,1.3rem+1.8vw,2.8rem);color:var(--sea);line-height:.95;margin-bottom:16px;}
+.tb-body h3{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.8rem,1.3rem + 1.8vw,2.8rem);color:var(--sea);line-height:.95;margin-bottom:16px;}
 .tb-body p{color:var(--soft);margin-bottom:18px;}
 .tb-catch{font-size:.92rem;color:var(--ink);margin-bottom:24px;}
 .tb-catch b{color:var(--sea);}
@@ -161,7 +161,7 @@ section[id]{scroll-margin-top:90px;}
 .band .h-mega{color:#fff;max-width:16ch;margin:14px 0 18px;}
 .band p{color:rgba(255,255,255,.92);max-width:52ch;margin-bottom:26px;}
 .band.center .bg::after{background:linear-gradient(0deg,rgba(3,21,30,.8),rgba(3,21,30,.45));}
-.band.center blockquote{font-family:var(--disp);text-transform:uppercase;font-size:clamp(2rem,1.3rem+3vw,4rem);line-height:.98;max-width:20ch;margin:0 auto 18px;color:#fff;}
+.band.center blockquote{font-family:var(--disp);text-transform:uppercase;font-size:clamp(2rem,1.3rem + 3vw,4rem);line-height:.98;max-width:20ch;margin:0 auto 18px;color:#fff;}
 .band.center cite{font-style:normal;color:var(--gold);font-weight:700;letter-spacing:.06em;font-size:.85rem;text-transform:uppercase;}
 
 /* ---- gallery (edge-to-edge) ---- */
@@ -195,7 +195,7 @@ section[id]{scroll-margin-top:90px;}
 .pagehero .bg{position:absolute;inset:0;z-index:-1;background-size:cover;background-position:center;}
 .pagehero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,21,30,.92),rgba(3,21,30,.5) 70%,rgba(3,21,30,.4));}
 .pagehero .wrap{padding:130px 0 84px;}
-.pagehero h1{font-family:var(--disp);text-transform:uppercase;font-size:clamp(2.6rem,1.6rem+4vw,5.5rem);line-height:.9;margin:14px 0 0;}
+.pagehero h1{font-family:var(--disp);text-transform:uppercase;font-size:clamp(2.6rem,1.6rem + 4vw,5.5rem);line-height:.9;margin:14px 0 0;}
 .pagehero p{color:rgba(255,255,255,.9);max-width:58ch;margin-top:16px;font-size:1.12rem;}
 
 /* ---- what's included list ---- */
