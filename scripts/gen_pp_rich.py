@@ -14,8 +14,9 @@ def build(c):
     def head(t,d): return (f'<!DOCTYPE html><html lang="en"><head><script>document.documentElement.classList.add("js");</script>'
      f'<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>{t}</title>'
      f'<meta name="description" content="{d}">{FAV}{FONTS}<link rel="stylesheet" href="styles.css"></head><body>')
-    util=(f'<div class="util"><div class="wrap util-in"><div class="util-l"><a href="tel:{tel}">{ic("phone")}{c["label"]} {tn}</a></div>'
-     f'<a href="about.html">{ic("pin")}Metairie, Louisiana</a></div></div>')
+    util=(f'<div class="util"><div class="wrap util-in"><div class="util-l"><a href="tel:{tel}">{ic("phone")}{c["label"]} {tn}</a>'
+     + "".join(f'<a href="{u}" target="_blank" rel="noopener">{ic(icn)}{lbl}</a>' for lbl,icn,u in c.get("utillinks",[]))
+     + f'</div><a href="about.html">{ic("pin")}Metairie, Louisiana</a></div></div>')
     def nav(a):
         L=[("Home","index.html"),("How It Works","how-it-works.html"),("About","about.html"),("Apply","apply.html")]
         items="".join(f'<a href="{h}"{" style=\"color:var(--navy);font-weight:600\"" if n==a else ""}>{n}</a>' for n,h in L)
@@ -27,7 +28,10 @@ def build(c):
     footer=('<footer><div class="wrap"><div class="foot-grid">'
      f'<div class="foot-brand"><span class="serif">{c["name"]}</span><p style="margin-top:12px;max-width:42ch">{c["footdesc"]}</p></div>'
      f'<div><h4>The Sun Companies</h4>{others}</div>'
-     f'<div><h4>Company</h4><a href="how-it-works.html">How It Works</a><br><a href="about.html">Our Story</a><br><a href="apply.html">Apply</a><br><a href="tel:{tel}">{tn}</a></div></div>'
+     f'<div><h4>Company</h4><a href="how-it-works.html">How It Works</a><br><a href="about.html">Our Story</a><br><a href="apply.html">Apply</a>'
+     + "".join(f'<br><a href="{u}" target="_blank" rel="noopener">{lbl}</a>' for lbl,icn,u in c.get("utillinks",[]))
+     + (f'<br><a href="{c["blog"]}" target="_blank" rel="noopener">Blog</a>' if c.get("blog") else '')
+     + f'<br><a href="tel:{tel}">{tn}</a></div></div>'
      f'<div class="compliance"><div class="ehl"><span>{c["compliance"]}</span></div>'
      f'<span>© {c["name"]} · Metairie, Louisiana{c["bbbtag"]}</span></div></div></footer>'
      f'<div class="ribbon"><b>PREVIEW</b> — redesign concept built by WebBlaze for {c["name"]} · not the live site</div>'
@@ -166,6 +170,7 @@ PREMIUM=dict(dir="/Users/zaydenzukerman/webblaze/public/sunpremium",name="Sun Pr
  ctah="Ready to finance a premium?",ctap="Agents and individuals welcome. Call for a fast quote.",
  contactlead="Request a quote, call us, or send a note — for agents and individuals alike.",
  applyhead="Keep your coverage. <em>Free up your cash.</em>",applyband="Serving Louisiana agents &amp; insureds since 1958.",
+ utillinks=[("Agent Portal","users","https://www.portal.sunpremium.com:8443/Sun/faces/agents/AgentMain.jsp"),("Pay Online","cash","https://sunpremium.com/payment/")],blog="https://sunpremium.com/blog/",
  faq_contact=[("Are you set up for agents?","Absolutely — many of our relationships are with agents who use us as their financing partner."),("How fast can I get a quote?","Quickly — a real person follows up, usually the same or next business day.")],
  compliance='All financing subject to approval; terms vary by policy. Sun Premium Financing — locally owned and operated in Metairie, Louisiana since 1958.',
  footdesc="One of the Sun companies in Metairie, Louisiana since 1958 — insurance premium financing that keeps your coverage in force and your cash working.",
@@ -209,6 +214,7 @@ PERSONAL=dict(dir="/Users/zaydenzukerman/webblaze/public/sunfinance",name="Sun F
  ctah="Need a hand this month?",ctap="Apply in minutes or call a local lender — no pressure.",
  contactlead="Apply, call, or send a note — a real, local person will get back to you fast.",
  applyhead="Life&apos;s little surprises, <em>handled.</em>",applyband="Helping Louisiana families since 1958.",
+ utillinks=[("Locations","pin","https://www.sunfinance.com/locations/")],
  faq_contact=[("Does applying affect my credit?","We&apos;ll always tell you before any step that involves a credit check — no surprises."),("Is there any obligation?","None. Get your options and a real answer, then decide on your own terms.")],
  compliance='All loans subject to credit approval. Sun Finance Co. LLC — locally owned and operated in Metairie, Louisiana since 1958. BBB A+ accredited since 1987.',
  footdesc="One of the Sun companies in Metairie, Louisiana since 1958 — fast, friendly personal loans from $500 to $3,000, reviewed and serviced by real local people.",
