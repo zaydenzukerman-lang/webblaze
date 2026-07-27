@@ -58,6 +58,14 @@ def build(c):
     steps_prev="".join(prog(f"{i+1:02d}",t,d) for i,(t,d) in enumerate(c["steps"][:3]))
     feats="".join(feat(*w) for w in c["why"])
     revs="".join(f'<div class="review reveal"><div class="stars">★★★★★</div><p>{q}</p><div class="who">{w}</div></div>' for q,w in c["reviews"])
+    # --- Per-site-only parity sections (guarded so shared build() never alters other sites) ---
+    lpsec=""
+    if c.get("loanprograms"):
+        lpsec=sec(hb('Loan Programs',c.get("lphead","Loan programs."),c.get("lplead",""))+'<div class="feature-grid">'+"".join(feat(*w) for w in c["loanprograms"])+'</div>',"sec-tint")
+    applylinks_html=""
+    if c.get("applylinks"):
+        _ll="".join(f'<a class="btn btn-ghost" href="{u}" target="_blank" rel="noopener">{lbl} →</a>' for lbl,u in c["applylinks"])
+        applylinks_html=sec(hb('Official Applications',c.get("applylinkshead","Prefer to apply directly?"),c.get("applylinkslead",""))+f'<div class="cta-actions" style="justify-content:center;flex-wrap:wrap">{_ll}</div>',"sec-glow grain")
 
     HOME=(f'<header class="hero photo"><div class="hero-bg" style="background-image:url(\'img/hero.jpg\')"></div>'
      '<div class="wrap hero-in"><div class="hero-copy">'+SEAL+
@@ -86,6 +94,7 @@ def build(c):
 
     PROD=(pagehero('How It Works',c["prodtitle"],c["prodlead"],'prod.jpg')
      +sec('<div class="progs">'+steps_full+'</div>',"sec-lines")
+     +lpsec
      +sec(hb('Why '+c["shortname"],c["whyhead"])+'<div class="feature-grid">'+feats+'</div>',"band-navy")
      +sec(hb('Questions')+'<div class="faq-list">'+"".join(faq(q,a) for q,a in c["faq_prod"])+'</div>',"sec-glow")
      +cta(c["ctah"],c["ctap"]))
@@ -124,6 +133,7 @@ def build(c):
        +prog('01','Reach out','Call, or send the form — whatever&apos;s easiest.')
        +prog('02','Talk it through','A local team member reviews your needs and lays out your options.')
        +prog('03','Get a real answer','Reviewed in-house, with a fast, straightforward next step.')+'</div>',"sec-lines grain")
+     +applylinks_html
      +sec(hb('Questions','Quick answers.')+'<div class="faq-list">'+"".join(faq(q,a) for q,a in c["faq_contact"])+'</div>',"sec-glow grain"))
 
     pages={"index.html":(c["title"],c["desc"],"Home",HOME),
@@ -209,7 +219,14 @@ PERSONAL=dict(dir="/Users/zaydenzukerman/webblaze/public/sunfinance",name="Sun F
  ab2b="1987",ab2s="BBB accredited since",
  timeline=[("1958","Founded in 1958","Sun Finance Company has served Louisiana families since 1958."),("1987","BBB A+ accreditation","Accredited by the Better Business Bureau with an A+ rating."),("Today","Local &amp; in-house","Still local, still serviced in-house, in Metairie.")],
  values=[("users","People over paperwork","Real conversations, real decisions, made by people you can reach."),("bolt","Fast when it matters","Life doesn&apos;t wait — quick, local decisions when you need them."),("award","Here for the long run","An established company that will be here tomorrow, just like today.")],
- team=[("David Daube","President","44 years in finance · 28 as President"),("Brian Daube","Vice President","15 years in finance"),("Ashley Pabst","Manager","20 years with the company"),("Kim Naquin","Client Services","21 years with the company"),("Liz Jones","Manager","31 years with the company")],
+ team=[("David Daube","President","44 years in finance · 28 as President"),("Brian Daube","Vice President","15 years in finance"),("Ashley Pabst","Manager","20 years with the company"),("Angela Templet","Manager","34 years with the company"),("Liz Jones","Manager","Part of the Sun Finance team"),("Kim Naquin","","21 years with the company"),("Elisa Buoch","","36 years with the company"),("Fallon Cochran","","Part of the Sun Finance team")],
+ loanprograms=[("wallet","Personal Loans","Fast, friendly personal loans from $500 to $3,000 — reviewed and serviced in-house for whatever life brings your way."),
+      ("cash","New Home Purchase","Whether you&apos;re already working with a Realtor or just getting started, we can help you finance the purchase of a Louisiana home."),
+      ("doc","Refinancing","Pull equity out of your primary or investment property, or consolidate debt — with first- and second-mortgage refinancing options."),
+      ("shield","1st &amp; 2nd Mortgages","Years of experience with home renovation, repair and improvement projects — from project planning through permanent financing.")],
+ lphead="More than one way we can help.",lplead="Personal loans are our specialty, and we can also help with home purchases, refinancing, and renovation financing — all handled by the same local Metairie team.",
+ applylinks=[("Personal Loan Application","https://inspree.formstack.com/forms/personal_loan_application_online"),("Mortgage Application","https://inspree.formstack.com/forms/sun_mortgage_application_online"),("Contact Us","https://inspree.formstack.com/forms/sfc_contact_us")],
+ applylinkshead="Prefer the official application?",applylinkslead="You can also apply through Sun Finance&apos;s secure application and contact forms.",
  formopts=["Personal loan","Returning customer","Not sure — help me decide"],
  ctah="Need a hand this month?",ctap="Apply in minutes or call a local lender — no pressure.",
  contactlead="Apply, call, or send a note — a real, local person will get back to you fast.",
