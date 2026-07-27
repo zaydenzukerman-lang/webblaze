@@ -153,7 +153,9 @@ and all real client links are subdomains (DNS live). Bottom line: **pretty `/app
 - Addresses: all 3525 N. Causeway Blvd (Ste 900 Mortgage/Premium), Metairie LA 70002.
 - Phones: Mortgage (504) 837-3939 · Premium (504) 834-9400 · Finance (504) 837-9400.
 - Amounts: Premium **$100–$250K**, **10+ insurance types** (their site). Finance **$500–$3,000** (their site).
-  Mortgage: "more programs than a traditional bank" (NO specific $ range — their site gives none).
+  Mortgage: **$5,000–$10 million**, **over 15 types of loans**, **non-bank** — VERIFIED on their live homepage
+  raw HTML 2026-07-27 ("FROM $5,000.00 – $10 MIL LOAN AMOUNTS AVAILABLE", "OVER 15 TYPES OF LOANS AVAILABLE",
+  "LOANS ARE NONE-BANK"). Earlier "no $ range" claim was WRONG. These are real and now on the preview.
 - Real team (from their team pages):
   - Mortgage: David Daube (President, 43yr/28 as Pres), Brian Daube (VP, 15yr), Annette Hesse (Loan Originator,
     NMLS #90346, 40yr), Tammie Cavanagh (Loan Originator, NMLS #164425, 40yr).
@@ -162,7 +164,7 @@ and all real client links are subdomains (DNS live). Bottom line: **pretty `/app
 
 ## ❌ FABRICATIONS REMOVED — never reintroduce
 "Albert Daube" (wrong — real principal is **David Daube**); "family-owned / 2nd & 3rd generation" (sites say
-"locally owned and operated"); Mortgage "$5K–$10M" & "15+ programs"; "Equal Housing Lender" badge; "65+ years"
+"locally owned and operated"); "Equal Housing Lender" badge; "65+ years"
 (use "since 1958"); Premium BBB accreditation. "5.0★/9 reviews" only exists on a directory (Chamber of Commerce),
 not Google/Yelp — keep soft ("5.0★ rated").
 
