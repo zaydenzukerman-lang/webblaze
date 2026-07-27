@@ -18,8 +18,13 @@ def build(c):
      + "".join(f'<a href="{u}" target="_blank" rel="noopener">{ic(icn)}{lbl}</a>' for lbl,icn,u in c.get("utillinks",[]))
      + f'</div><a href="about.html">{ic("pin")}Metairie, Louisiana</a></div></div>')
     def nav(a):
-        L=[("Home","index.html"),("How It Works","how-it-works.html"),("About","about.html"),("Apply","apply.html")]
-        items="".join(f'<a href="{h}"{" style=\"color:var(--navy);font-weight:600\"" if n==a else ""}>{n}</a>' for n,h in L)
+        L=c.get("nav",[("Home","index.html"),("How It Works","how-it-works.html"),("About","about.html"),("Apply","apply.html")])
+        def _it(n,h):
+            ext=h.startswith("http")
+            act=' style="color:var(--navy);font-weight:600"' if n==a else ''
+            tgt=' target="_blank" rel="noopener"' if ext else ''
+            return f'<a href="{h}"{act}{tgt}>{n}</a>'
+        items="".join(_it(n,h) for n,h in L)
         return ('<nav class="nav"><div class="wrap nav-in"><a class="brand" href="index.html">'
         f'<img src="img/sun-logo.svg" alt="Sun" width="297" height="61"><span class="tag">{c["tag"]}</span></a>'
         f'<div class="nav-links">{items}</div><a class="btn btn-gold" href="apply.html" style="padding:11px 22px">{c["apply"]}</a>'
@@ -61,7 +66,7 @@ def build(c):
     # --- Per-site-only parity sections (guarded so shared build() never alters other sites) ---
     lpsec=""
     if c.get("loanprograms"):
-        lpsec=sec(hb('Loan Programs',c.get("lphead","Loan programs."),c.get("lplead",""))+'<div class="feature-grid">'+"".join(feat(*w) for w in c["loanprograms"])+'</div>',"sec-tint")
+        lpsec=sec(hb('Loan Programs',c.get("lphead","Loan programs."),c.get("lplead",""))+'<div class="feature-grid">'+"".join(feat(*w) for w in c["loanprograms"])+'</div>',"sec-tint","programs")
     applylinks_html=""
     if c.get("applylinks"):
         _ll="".join(f'<a class="btn btn-ghost" href="{u}" target="_blank" rel="noopener">{lbl} →</a>' for lbl,u in c["applylinks"])
@@ -73,7 +78,7 @@ def build(c):
             +'<div class="feature-grid">'
             +f'<div class="feature reveal"><div class="fi">{ic("users")}</div><h3>Personal Lines</h3><p>'+" · ".join(sv["personal"])+'</p></div>'
             +f'<div class="feature reveal"><div class="fi">{ic("doc")}</div><h3>Commercial Lines</h3><p>'+" · ".join(sv["commercial"])+'</p></div>'
-            +'</div>',"sec-tint")
+            +'</div>',"sec-tint","services")
 
     HOME=(f'<header class="hero photo"><div class="hero-bg" style="background-image:url(\'img/hero.jpg\')"></div>'
      '<div class="wrap hero-in"><div class="hero-copy">'+SEAL+
@@ -119,7 +124,7 @@ def build(c):
        f'<div class="h-point">{ic("users")}<div><b>Local decisions</b><p>Handled by a local team in Metairie, Louisiana.</p></div></div></div></div>',"heritage")
      +sec(hb('Our History','Serving Louisiana since 1958.')+'<div class="progs">'+tl+'</div>',"sec-lines")
      +sec(hb('What We Stand For','The way we&apos;ve always done business.')+'<div class="feature-grid">'+vals+'</div>',"sec-glow")
-     +sec(hb('Meet the Team',f'The people behind {c["name"]}.','Real, local people you&apos;ll actually work with — with decades of experience right here in Metairie.')+'<div class="team-grid">'+team+'</div>')
+     +sec(hb('Meet the Team',f'The people behind {c["name"]}.','Real, local people you&apos;ll actually work with — with decades of experience right here in Metairie.')+'<div class="team-grid">'+team+'</div>',"","team")
      +sec(f'<div class="trust-in"><div class="t reveal"><b>1958</b><span>Serving Louisiana since</span></div><div class="t reveal"><b>{c["ab2b"]}</b><span>{c["ab2s"]}</span></div><div class="t reveal"><b>{c["ab3b"]}</b><span>{c["ab3s"]}</span></div><div class="t reveal"><b>Local</b><span>Metairie, LA</span></div></div>',"sec-tint")
      +cta(c["ctah"],c["ctap"]))
 
@@ -127,7 +132,7 @@ def build(c):
     APPLY=(pagehero('Apply',c["applyhead"],c["contactlead"],'loc.jpg')
      +sec('<div class="contact-grid"><div class="reveal">'
        f'<div class="locphoto" style="background-image:url(\'img/city.jpg\')"><div class="cap">{ic("pin")}Serving Metairie &amp; Greater New Orleans</div></div>'
-       f'<div class="loc">{ic("pin")}<div><b>Main Office</b><span>3525 N. Causeway Blvd, Suite 900<br>Metairie, LA 70002</span></div></div>'
+       f'<div class="loc" id="locations">{ic("pin")}<div><b>Main Office</b><span>3525 N. Causeway Blvd, Suite 900<br>Metairie, LA 70002</span></div></div>'
        f'<div class="loc">{ic("phone")}<div><b>Call Us</b><a href="tel:{tel}">{tn}</a><br><span>Fax {c["fax"]}</span></div></div>'
        f'<div class="loc">{ic("clock")}<div><b>Hours</b><span>Call us for current office hours.</span></div></div></div>'
        '<form class="cform reveal" onsubmit="event.preventDefault();var b=this.querySelector(\'button\');b.textContent=\'✓ Received — we\\\'ll be in touch shortly\';b.disabled=true;">'
@@ -194,7 +199,8 @@ PREMIUM=dict(dir="/Users/zaydenzukerman/webblaze/public/sunpremium",name="Sun Pr
  ctah="Ready to finance a premium?",ctap="Agents and individuals welcome. Call for a fast quote.",
  contactlead="Request a quote, call us, or send a note — for agents and individuals alike.",
  applyhead="Keep your coverage. <em>Free up your cash.</em>",applyband="Serving Louisiana agents &amp; insureds since 1958.",
- utillinks=[("Agent Portal","users","https://www.portal.sunpremium.com:8443/Sun/faces/agents/AgentMain.jsp"),("Pay Online","cash","https://sunpremium.com/payment/")],blog="https://sunpremium.com/blog/",
+ nav=[("Home","index.html"),("Services","how-it-works.html#services"),("Team","about.html#team"),("Apply","apply.html")],
+ utillinks=[("Agent Portal","users","https://www.portal.sunpremium.com:8443/Sun/faces/agents/AgentMain.jsp"),("Pay Online","cash","https://sunpremium.com/payment/"),("Contact","phone","https://inspree.formstack.com/forms/spf_contact_us"),("Blog","doc","https://sunpremium.com/blog/")],
  faq_contact=[("Are you set up for agents?","Absolutely — many of our relationships are with agents who use us as their financing partner."),("How fast can I get a quote?","Quickly — a real person follows up, usually the same or next business day.")],
  compliance='All financing subject to approval; terms vary by policy. Sun Premium Financing — locally owned and operated in Metairie, Louisiana since 1958.',
  footdesc="One of the Sun companies in Metairie, Louisiana since 1958 — insurance premium financing that keeps your coverage in force and your cash working.",
@@ -245,7 +251,8 @@ PERSONAL=dict(dir="/Users/zaydenzukerman/webblaze/public/sunfinance",name="Sun F
  ctah="Need a hand this month?",ctap="Apply in minutes or call a local lender — no pressure.",
  contactlead="Apply, call, or send a note — a real, local person will get back to you fast.",
  applyhead="Life&apos;s little surprises, <em>handled.</em>",applyband="Helping Louisiana families since 1958.",
- utillinks=[("Locations","pin","https://www.sunfinance.com/locations/")],
+ nav=[("Home","index.html"),("Loan Programs","how-it-works.html#programs"),("Team","about.html#team"),("Locations","apply.html#locations"),("Apply","apply.html")],
+ utillinks=[("Personal Loan Application","doc","https://inspree.formstack.com/forms/personal_loan_application_online"),("Mortgage Application","doc","https://inspree.formstack.com/forms/sun_mortgage_application_online"),("Contact","phone","https://inspree.formstack.com/forms/sfc_contact_us")],
  faq_contact=[("Does applying affect my credit?","We&apos;ll always tell you before any step that involves a credit check — no surprises."),("Is there any obligation?","None. Get your options and a real answer, then decide on your own terms.")],
  compliance='All loans subject to credit approval. Sun Finance Co. LLC — locally owned and operated in Metairie, Louisiana since 1958. BBB A+ accredited since 1987.',
  footdesc="One of the Sun companies in Metairie, Louisiana since 1958 — fast, friendly personal loans from $500 to $3,000, reviewed and serviced by real local people.",
