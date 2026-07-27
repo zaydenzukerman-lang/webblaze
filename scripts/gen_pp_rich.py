@@ -31,7 +31,7 @@ def build(c):
         '<button class="nav-toggle" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div></nav>')
     others="<br>".join(f'<a href="{u}" target="_blank" rel="noopener">{n}</a>' for n,u in c["others"])
     footer=('<footer><div class="wrap"><div class="foot-grid">'
-     f'<div class="foot-brand"><span class="serif">{c["name"]}</span><p style="margin-top:12px;max-width:42ch">{c["footdesc"]}</p></div>'
+     f'<div class="foot-brand"><span class="serif">{c["name"]}</span><p style="margin-top:10px;font-style:italic;color:var(--gold);font-family:var(--serif)">New Day, New Challenges, New Solutions.</p><p style="margin-top:10px;max-width:42ch">{c["footdesc"]}</p></div>'
      f'<div><h4>The Sun Companies</h4>{others}</div>'
      f'<div><h4>Company</h4><a href="how-it-works.html">How It Works</a><br><a href="about.html">Our Story</a><br><a href="apply.html">Apply</a>'
      + "".join(f'<br><a href="{u}" target="_blank" rel="noopener">{lbl}</a>' for lbl,icn,u in c.get("utillinks",[]))
