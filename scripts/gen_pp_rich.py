@@ -66,6 +66,14 @@ def build(c):
     if c.get("applylinks"):
         _ll="".join(f'<a class="btn btn-ghost" href="{u}" target="_blank" rel="noopener">{lbl} →</a>' for lbl,u in c["applylinks"])
         applylinks_html=sec(hb('Official Applications',c.get("applylinkshead","Prefer to apply directly?"),c.get("applylinkslead",""))+f'<div class="cta-actions" style="justify-content:center;flex-wrap:wrap">{_ll}</div>',"sec-glow grain")
+    svcsec=""
+    if c.get("services"):
+        sv=c["services"]
+        svcsec=sec(hb('What We Finance',c.get("svchead","More than ten types of insurance."),c.get("svclead",""))
+            +'<div class="feature-grid">'
+            +f'<div class="feature reveal"><div class="fi">{ic("users")}</div><h3>Personal Lines</h3><p>'+" · ".join(sv["personal"])+'</p></div>'
+            +f'<div class="feature reveal"><div class="fi">{ic("doc")}</div><h3>Commercial Lines</h3><p>'+" · ".join(sv["commercial"])+'</p></div>'
+            +'</div>',"sec-tint")
 
     HOME=(f'<header class="hero photo"><div class="hero-bg" style="background-image:url(\'img/hero.jpg\')"></div>'
      '<div class="wrap hero-in"><div class="hero-copy">'+SEAL+
@@ -95,6 +103,7 @@ def build(c):
     PROD=(pagehero('How It Works',c["prodtitle"],c["prodlead"],'prod.jpg')
      +sec('<div class="progs">'+steps_full+'</div>',"sec-lines")
      +lpsec
+     +svcsec
      +sec(hb('Why '+c["shortname"],c["whyhead"])+'<div class="feature-grid">'+feats+'</div>',"band-navy")
      +sec(hb('Questions')+'<div class="faq-list">'+"".join(faq(q,a) for q,a in c["faq_prod"])+'</div>',"sec-glow")
      +cta(c["ctah"],c["ctap"]))
@@ -175,7 +184,12 @@ PREMIUM=dict(dir="/Users/zaydenzukerman/webblaze/public/sunpremium",name="Sun Pr
  ab2b="$250K",ab2s="Financed, up to",
  timeline=[("1958","Serving Louisiana since 1958","One of the Sun companies, rooted in Metairie, Louisiana."),("Partner","A partner to agents","Sun Premium Financing helps agents and clients keep coverage in force."),("Today","Local &amp; personal","Real people you can reach, right here in Metairie.")],
  values=[("users","People over paperwork","A seamless experience for agents and insureds, backed by real service."),("shield","Coverage stays protected","We keep your policy in force so you&apos;re never caught uncovered."),("award","Here for the long run","An established company that will be here tomorrow, just like today.")],
- team=[("Aurora Surla","Manager","44 years with Sun Premium Financing"),("Rebecca Perret","Premium Financing","34 years with Sun Premium Financing")],
+ team=[("Aurora Surla","Manager","44 years with Sun Premium Financing"),("Rebecca Perret","","34 years with Sun Premium Financing")],
+ services=dict(personal=["Automobile","Homeowners","Mobile Home","Builder&apos;s Risk","Dwelling","Fire","Excess Liability / Umbrella","Personal Liability"],
+      commercial=["General Liability","Commercial Automobile &amp; Truck","Commercial Property","Cargo","Professional Liability","Equipment","Excess Liability / Umbrella","Builder&apos;s Risk"]),
+ svchead="Personal and commercial lines, financed.",svclead="Through a statewide network of Louisiana agents, we finance both personal and commercial insurance policies across more than ten types of coverage.",
+ applylinks=[("Apply Now","https://secure.smartapp1003.com/200591"),("Contact Us","https://inspree.formstack.com/forms/spf_contact_us")],
+ applylinkshead="Prefer to apply directly?",applylinkslead="You can also apply through Sun Premium&apos;s secure application or contact us directly.",
  formopts=["Commercial insurance premium","Property insurance premium","Life / specialty premium","I&apos;m an insurance agent","Not sure — help me decide"],
  ctah="Ready to finance a premium?",ctap="Agents and individuals welcome. Call for a fast quote.",
  contactlead="Request a quote, call us, or send a note — for agents and individuals alike.",
