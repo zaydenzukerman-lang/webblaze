@@ -6,7 +6,8 @@ I={'phone':'<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 
  'pin':'<path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>','check':'<path d="M20 6L9 17l-5-5"/>',
  'shield':'<path d="M9 12l2 2 4-4M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7z"/>','users':'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>',
  'clock':'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>','award':'<path d="M12 15a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM8.2 13.3 7 22l5-3 5 3-1.2-8.7"/>',
- 'cash':'<path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>','doc':'<path d="M2 7h20v10H2zM2 11h20M6 15h4"/>','bolt':'<path d="M13 2 3 14h9l-1 8 10-12h-9z"/>','wallet':'<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6M12 3v18"/>'}
+ 'cash':'<path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>','doc':'<path d="M2 7h20v10H2zM2 11h20M6 15h4"/>','bolt':'<path d="M13 2 3 14h9l-1 8 10-12h-9z"/>','wallet':'<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6M12 3v18"/>',
+ 'fb':'<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>'}
 def ic(k): return f'<svg class="ico" viewBox="0 0 24 24">{I[k]}</svg>'
 
 def build(c):
@@ -25,8 +26,11 @@ def build(c):
             tgt=' target="_blank" rel="noopener"' if ext else ''
             return f'<a href="{h}"{act}{tgt}>{n}</a>'
         items="".join(_it(n,h) for n,h in L)
+        social="".join(f'<a href="{u}" target="_blank" rel="noopener" aria-label="{lbl}" style="display:inline-flex;color:var(--gold)">{ic(icn)}</a>' for lbl,icn,u in c.get("social",[]))
+        social=f'<span class="brand-social" style="display:inline-flex;gap:10px;align-items:center;margin-left:2px">{social}</span>' if social else ''
         return ('<nav class="nav"><div class="wrap nav-in"><a class="brand" href="index.html">'
         f'<img src="img/sun-logo.svg" alt="Sun" width="297" height="61"><span class="tag">{c["tag"]}</span></a>'
+        f'{social}'
         f'<div class="nav-links">{items}</div><a class="btn btn-gold" href="apply.html" style="padding:11px 22px">{c["apply"]}</a>'
         '<button class="nav-toggle" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div></nav>')
     others="<br>".join(f'<a href="{u}" target="_blank" rel="noopener">{n}</a>' for n,u in c["others"])
@@ -200,6 +204,7 @@ PREMIUM=dict(dir="/Users/zaydenzukerman/webblaze/public/sunpremium",name="Sun Pr
  contactlead="Request a quote, call us, or send a note — for agents and individuals alike.",
  applyhead="Keep your coverage. <em>Free up your cash.</em>",applyband="Serving Louisiana agents &amp; insureds since 1958.",
  nav=[("Home","index.html"),("Services","how-it-works.html#services"),("Team","about.html#team"),("Apply","apply.html")],
+ social=[("Find us on Google Maps","pin","https://www.google.com/maps/search/?api=1&query=3525+N+Causeway+Blvd+Suite+900+Metairie+LA+70002")],
  utillinks=[("Agent Portal","users","https://www.portal.sunpremium.com:8443/Sun/faces/agents/AgentMain.jsp"),("Pay Online","cash","https://sunpremium.com/payment/"),("Contact","phone","https://inspree.formstack.com/forms/spf_contact_us"),("Blog","doc","https://sunpremium.com/blog/")],
  faq_contact=[("Are you set up for agents?","Absolutely — many of our relationships are with agents who use us as their financing partner."),("How fast can I get a quote?","Quickly — a real person follows up, usually the same or next business day.")],
  compliance='All financing subject to approval; terms vary by policy. Sun Premium Financing — locally owned and operated in Metairie, Louisiana since 1958.',
@@ -252,6 +257,7 @@ PERSONAL=dict(dir="/Users/zaydenzukerman/webblaze/public/sunfinance",name="Sun F
  contactlead="Apply, call, or send a note — a real, local person will get back to you fast.",
  applyhead="Life&apos;s little surprises, <em>handled.</em>",applyband="Helping Louisiana families since 1958.",
  nav=[("Home","index.html"),("Loan Programs","how-it-works.html#programs"),("Team","about.html#team"),("Locations","apply.html#locations"),("Apply","apply.html")],
+ social=[("Find us on Google Maps","pin","https://www.google.com/maps/search/?api=1&query=3525+N+Causeway+Blvd+Suite+900+Metairie+LA+70002")],
  utillinks=[("Personal Loan Application","doc","https://inspree.formstack.com/forms/personal_loan_application_online"),("Mortgage Application","doc","https://inspree.formstack.com/forms/sun_mortgage_application_online"),("Contact","phone","https://inspree.formstack.com/forms/sfc_contact_us")],
  faq_contact=[("Does applying affect my credit?","We&apos;ll always tell you before any step that involves a credit check — no surprises."),("Is there any obligation?","None. Get your options and a real answer, then decide on your own terms.")],
  compliance='All loans subject to credit approval. Sun Finance Co. LLC — locally owned and operated in Metairie, Louisiana since 1958. BBB A+ accredited since 1987.',
