@@ -140,13 +140,15 @@ def build(c):
        f'<div class="loc">{ic("phone")}<div><b>Call Us</b><a href="tel:{tel}">{tn}</a><br><span>Fax {c["fax"]}</span></div></div>'
        f'<div class="loc">{ic("clock")}<div><b>Hours</b><span>Call us for current office hours.</span></div></div></div>'
        '<form class="cform reveal" onsubmit="event.preventDefault();var b=this.querySelector(\'button\');b.textContent=\'✓ Received — we\\\'ll be in touch shortly\';b.disabled=true;">'
-       '<div class="form-h">Start your application</div><div class="form-sub">Takes about 2 minutes — no obligation.</div>'
-       '<div class="row"><div><label for="n">Full name</label><input id="n" type="text" autocomplete="name" placeholder="Your name" required></div>'
-       '<div><label for="p">Phone</label><input id="p" type="tel" autocomplete="tel" placeholder="(504) 000-0000" required></div></div>'
-       f'<label for="t">What are you looking for?</label><select id="t">{opts}</select>'
-       '<label for="m">Tell us a little about your situation</label><textarea id="m"></textarea>'
-       f'<button class="btn btn-gold" type="submit">{c["apply"]}</button>'
-       '<p class="form-fine">Your information stays with our local Metairie team.</p></form></div>',"contact")
+       + (c.get("applyform") or (
+         '<div class="form-h">Start your application</div><div class="form-sub">Takes about 2 minutes — no obligation.</div>'
+         '<div class="row"><div><label for="n">Full name</label><input id="n" type="text" autocomplete="name" placeholder="Your name" required></div>'
+         '<div><label for="p">Phone</label><input id="p" type="tel" autocomplete="tel" placeholder="(504) 000-0000" required></div></div>'
+         f'<label for="t">What are you looking for?</label><select id="t">{opts}</select>'
+         '<label for="m">Tell us a little about your situation</label><textarea id="m"></textarea>'
+         f'<button class="btn btn-gold" type="submit">{c["apply"]}</button>'
+         '<p class="form-fine">Your information stays with our local Metairie team.</p>'))
+       + '</form></div>',"contact")
      +sec(hb('Getting Started','Three steps, one local team.')+'<div class="progs">'
        +prog('01','Reach out','Call, or send the form — whatever&apos;s easiest.')
        +prog('02','Talk it through','A local team member reviews your needs and lays out your options.')
@@ -199,6 +201,18 @@ PREMIUM=dict(dir="/Users/zaydenzukerman/webblaze/public/sunpremium",name="Sun Pr
  svchead="Personal and commercial lines, financed.",svclead="Through a statewide network of Louisiana agents, we finance both personal and commercial insurance policies across more than ten types of coverage.",
  applylinks=[("Apply Now","https://secure.smartapp1003.com/200591"),("Contact Us","https://inspree.formstack.com/forms/spf_contact_us")],
  applylinkshead="Prefer to apply directly?",applylinkslead="You can also apply through Sun Premium&apos;s secure application or contact us directly.",
+ applyform=('<div class="form-h">Request a quote</div><div class="form-sub">This is a preview. The live application is submitted through Sun Premium&apos;s secure system.</div>'
+   '<label for="who">I am a(n)*</label><select id="who" required><option value="" selected disabled>Select…</option><option>Insurance agent</option><option>Individual or business (insured)</option></select>'
+   '<label for="co">Agency or company name</label><input id="co" type="text" placeholder="If applicable">'
+   '<div class="row"><div><label for="fn">First name*</label><input id="fn" type="text" autocomplete="given-name" required></div><div><label for="ln">Last name*</label><input id="ln" type="text" autocomplete="family-name" required></div></div>'
+   '<div class="row"><div><label for="cph">Phone*</label><input id="cph" type="tel" autocomplete="tel" required></div><div><label for="em">Email*</label><input id="em" type="email" autocomplete="email" required></div></div>'
+   '<label for="lines">Type of insurance to finance*</label><select id="lines" required><option value="" selected disabled>Select…</option><option>Personal lines</option><option>Commercial lines</option><option>Both / multiple</option><option>Not sure — help me decide</option></select>'
+   '<label for="ctype">Specific coverage (optional)</label><input id="ctype" type="text" placeholder="e.g. commercial property, general liability, homeowners">'
+   '<label for="prem">Total annual premium to finance*</label><input id="prem" type="text" placeholder="$100 – $250,000" required>'
+   '<label for="carrier">Insurance carrier / policy (optional)</label><input id="carrier" type="text">'
+   '<label for="m">Anything else we should know?</label><textarea id="m"></textarea>'
+   '<button class="btn btn-gold" type="submit" style="margin-top:8px">Request a quote</button>'
+   '<p class="form-fine">Preview only — this form doesn&apos;t transmit data. The live application is submitted through Sun Premium&apos;s secure system.</p>'),
  formopts=["Commercial insurance premium","Property insurance premium","Life / specialty premium","I&apos;m an insurance agent","Not sure — help me decide"],
  ctah="Ready to finance a premium?",ctap="Agents and individuals welcome. Call for a fast quote.",
  contactlead="Request a quote, call us, or send a note — for agents and individuals alike.",
@@ -252,6 +266,30 @@ PERSONAL=dict(dir="/Users/zaydenzukerman/webblaze/public/sunfinance",name="Sun F
  lphead="More than one way we can help.",lplead="Personal loans are our specialty, and we can also help with home purchases, refinancing, and renovation financing — all handled by the same local Metairie team.",
  applylinks=[("Personal Loan Application","https://inspree.formstack.com/forms/personal_loan_application_online"),("Mortgage Application","https://inspree.formstack.com/forms/sun_mortgage_application_online"),("Contact Us","https://inspree.formstack.com/forms/sfc_contact_us")],
  applylinkshead="Prefer the official application?",applylinkslead="You can also apply through Sun Finance&apos;s secure application and contact forms.",
+ applyform=('<div class="form-h">Loan application</div><div class="form-sub">This is a preview of the full application. The live version is submitted through Sun Finance&apos;s secure system.</div>'
+   '<label for="amt">How much are you applying for?*</label><input id="amt" type="text" placeholder="Loan amount ($500–$3,000)" required>'
+   '<label for="purp">What is the purpose of this loan?*</label><input id="purp" type="text" placeholder="e.g. car repair, bills, emergency" required>'
+   '<label for="hear">How did you hear about us?*</label><input id="hear" type="text" placeholder="Search, referral, drove by…" required>'
+   '<div class="form-h" style="margin-top:22px">About you</div>'
+   '<div class="row"><div><label for="fn">First name*</label><input id="fn" type="text" autocomplete="given-name" required></div><div><label for="ln">Last name*</label><input id="ln" type="text" autocomplete="family-name" required></div></div>'
+   '<label for="addr">Address*</label><input id="addr" type="text" autocomplete="street-address" required>'
+   '<label for="csz">City / State / Zip*</label><input id="csz" type="text" required>'
+   '<div class="row"><div><label for="taddr">Time at address*</label><input id="taddr" type="text" placeholder="e.g. 3 years" required></div><div><label for="ro">Rent / Own / Live with relatives*</label><select id="ro" required><option value="" selected disabled>Select…</option><option>Rent</option><option>Own</option><option>Live with relatives</option></select></div></div>'
+   '<label for="oprop">Do you own any other property?*</label><select id="oprop" required><option value="" selected disabled>Select…</option><option>Yes</option><option>No</option></select>'
+   '<div class="row"><div><label for="ssn">S.S. #*</label><input id="ssn" type="text" inputmode="numeric" placeholder="___-__-____" required></div><div><label for="dob">Date of birth*</label><input id="dob" type="date" required></div></div>'
+   '<div class="row"><div><label for="cph">Contact phone*</label><input id="cph" type="tel" autocomplete="tel" required></div><div><label for="em">Email address*</label><input id="em" type="email" autocomplete="email" required></div></div>'
+   '<label for="ms">Marital status*</label><select id="ms" required><option value="" selected disabled>Select…</option><option>Single</option><option>Married</option><option>Separated</option><option>Divorced</option><option>Widowed</option></select>'
+   '<div class="form-h" style="margin-top:22px">Employment &amp; income</div>'
+   '<div class="row"><div><label for="emp">Where do you work?*</label><input id="emp" type="text" required></div><div><label for="wph">Work phone*</label><input id="wph" type="tel" required></div></div>'
+   '<div class="row"><div><label for="tenure">How long have you worked there?*</label><input id="tenure" type="text" placeholder="e.g. 5 years" required></div><div><label for="pos">Position / title*</label><input id="pos" type="text" required></div></div>'
+   '<div class="row"><div><label for="pay">Take-home pay before taxes*</label><input id="pay" type="text" required></div><div><label for="sup">Supervisor&apos;s name*</label><input id="sup" type="text" required></div></div>'
+   '<label for="oth">Do you receive any other income?</label><input id="oth" type="text" placeholder="Source and amount (optional)">'
+   '<label for="bank">Do you have any checking / savings accounts? Where?*</label><input id="bank" type="text" required>'
+   '<div class="form-h" style="margin-top:22px">References</div>'
+   '<label for="refs">Please list 3 references*</label><textarea id="refs" placeholder="Name, relationship, and phone for each" required></textarea>'
+   '<label class="form-fine" style="display:flex;gap:10px;align-items:flex-start;margin-top:14px"><input type="checkbox" required style="margin-top:4px;width:auto"><span>Everything I have stated in this application is correct to the best of my knowledge. I understand you will retain this application whether or not it is approved, and I authorize you to verify my credit, employment history, and any information necessary to process my credit application.</span></label>'
+   '<button class="btn btn-gold" type="submit" style="margin-top:14px">Submit application</button>'
+   '<p class="form-fine">Preview only — this form doesn&apos;t transmit data. The live application is submitted through Sun Finance&apos;s secure system.</p>'),
  formopts=["Personal loan","Returning customer","Not sure — help me decide"],
  ctah="Need a hand this month?",ctap="Apply in minutes or call a local lender — no pressure.",
  contactlead="Apply, call, or send a note — a real, local person will get back to you fast.",
