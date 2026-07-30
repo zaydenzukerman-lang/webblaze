@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://sunmortgagefunding.webblaze.io/sitemap.xml
