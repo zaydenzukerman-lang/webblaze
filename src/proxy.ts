@@ -1,16 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// Client-demo subdomains: <slug>.webblaze.io → serve that demo's static
-// files from public/<slug>/. All subdomain routing lives HERE (not in
-// next.config rewrites) so the prefix is applied exactly once.
+// Client-demo subdomains: <slug>.webblaze.io → serve public/<slug>/ files.
 const DEMOS = ["orangebeachfish", "dunebuggy", "sunfinance", "sunmortgagefunding", "sunpremium", "fetchero", "thetownagency"];
-// These slugs are static mirrors of the client's real WordPress sites: pages
-// live in directories (/team/ -> team/index.html), not flat .html files.
+// WordPress-style static mirrors: pages live in directories (/team/ -> team/index.html).
 const DIR_MIRRORS = ["sunfinance", "sunmortgagefunding", "sunpremium"];
+
+// Real client domains we now HOST (Namecheap origin down). Point their DNS at
+// Vercel and each maps to its static mirror.
+const REAL_DOMAINS: Record<string, string> = {
+  "sunfinance.com": "sunfinance",
+  "www.sunfinance.com": "sunfinance",
+  "sunpremium.com": "sunpremium",
+  "www.sunpremium.com": "sunpremium",
+  "sunmortgagefunding.com": "sunmortgagefunding",
+  "www.sunmortgagefunding.com": "sunmortgagefunding",
+};
 
 export function proxy(req: NextRequest) {
   const host = req.headers.get("host")?.split(":")[0] ?? "";
-  const slug = DEMOS.find((d) => host === `${d}.webblaze.io`);
+  const slug = DEMOS.find((d) => host === `${d}.webblaze.io`) ?? REAL_DOMAINS[host];
   if (!slug) return NextResponse.next();
 
   let path = req.nextUrl.pathname;
@@ -22,14 +30,16 @@ export function proxy(req: NextRequest) {
     // else: real asset (has extension) -> pass through unchanged
   } else {
     if (path === "/") path = "/index.html";
-    // Pretty URLs on multi-page demos: /menu -> /menu.html
     else if (/^\/[a-z-]+$/.test(path)) path = `${path}.html`;
   }
 
-  return NextResponse.rewrite(new URL(`/${slug}${path}`, req.url));
+  const res = NextResponse.rewrite(new URL(`/${slug}${path}`, req.url));
+  // Only the real client domains should be indexed; keep our webblaze.io
+  // staging subdomains out of Google to avoid duplicate content.
+  if (host.endsWith(".webblaze.io")) res.headers.set("X-Robots-Tag", "noindex");
+  return res;
 }
 
 export const config = {
-  // Everything except Next internals and static chunks
   matcher: ["/((?!_next/|api/).*)"],
 };
