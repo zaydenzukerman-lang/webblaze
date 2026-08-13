@@ -10,11 +10,19 @@ I={'phone':'<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 
  'fb':'<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>'}
 def ic(k): return f'<svg class="ico" viewBox="0 0 24 24">{I[k]}</svg>'
 
+# Google Analytics 4: set GA_ID to the "G-XXXXXXXXXX" Measurement ID to enable
+# on Finance + Premium (all pages). Empty = nothing injected.
+GA_ID="G-6GYKFE11YF"
+def ga_tag():
+    return (f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>'
+     '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}'
+     f'gtag("js",new Date());gtag("config","{GA_ID}");</script>') if GA_ID else ''
+
 def build(c):
     B=pathlib.Path(c["dir"]); tel=c["tel"]; tn=c["telnum"]
     def head(t,d): return (f'<!DOCTYPE html><html lang="en"><head><script>document.documentElement.classList.add("js");</script>'
      f'<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>{t}</title>'
-     f'<meta name="description" content="{d}">{FAV}{FONTS}<link rel="stylesheet" href="styles.css"></head><body>')
+     f'<meta name="description" content="{d}">{FAV}{FONTS}<link rel="stylesheet" href="styles.css">{ga_tag()}</head><body>')
     util=(f'<div class="util"><div class="wrap util-in"><div class="util-l"><a href="tel:{tel}">{ic("phone")}{c["label"]} {tn}</a>'
      + "".join(f'<a href="{u}" target="_blank" rel="noopener">{ic(icn)}{lbl}</a>' for lbl,icn,u in c.get("utillinks",[]))
      + f'</div><a href="about.html">{ic("pin")}Metairie, Louisiana</a></div></div>')
