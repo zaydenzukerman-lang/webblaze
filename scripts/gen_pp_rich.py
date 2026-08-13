@@ -12,17 +12,17 @@ def ic(k): return f'<svg class="ico" viewBox="0 0 24 24">{I[k]}</svg>'
 
 # Google Analytics 4: set GA_ID to the "G-XXXXXXXXXX" Measurement ID to enable
 # on Finance + Premium (all pages). Empty = nothing injected.
-GA_ID="G-6GYKFE11YF"
-def ga_tag():
-    return (f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>'
+def ga_tag(gid):
+    # Per-site GA4 id (set via each config's "ga" field). Empty = nothing injected.
+    return (f'<script async src="https://www.googletagmanager.com/gtag/js?id={gid}"></script>'
      '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}'
-     f'gtag("js",new Date());gtag("config","{GA_ID}");</script>') if GA_ID else ''
+     f'gtag("js",new Date());gtag("config","{gid}");</script>') if gid else ''
 
 def build(c):
     B=pathlib.Path(c["dir"]); tel=c["tel"]; tn=c["telnum"]
     def head(t,d): return (f'<!DOCTYPE html><html lang="en"><head><script>document.documentElement.classList.add("js");</script>'
      f'<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>{t}</title>'
-     f'<meta name="description" content="{d}">{FAV}{FONTS}<link rel="stylesheet" href="styles.css">{ga_tag()}</head><body>')
+     f'<meta name="description" content="{d}">{FAV}{FONTS}<link rel="stylesheet" href="styles.css">{ga_tag(c.get("ga",""))}</head><body>')
     util=(f'<div class="util"><div class="wrap util-in"><div class="util-l"><a href="tel:{tel}">{ic("phone")}{c["label"]} {tn}</a>'
      + "".join(f'<a href="{u}" target="_blank" rel="noopener">{ic(icn)}{lbl}</a>' for lbl,icn,u in c.get("utillinks",[]))
      + f'</div><a href="about.html">{ic("pin")}Metairie, Louisiana</a></div></div>')
@@ -233,7 +233,7 @@ PREMIUM=dict(dir="/Users/zaydenzukerman/webblaze/public/sunpremium",name="Sun Pr
  title="Sun Premium Financing — Insurance Premium Financing in Louisiana Since 1958",
  desc="Insurance premium financing from the Sun companies in Metairie, Louisiana since 1958. $100 to $250,000 across 10+ insurance types, for agents and individuals.")
 
-PERSONAL=dict(dir="/Users/zaydenzukerman/webblaze/public/sunfinance",name="Sun Finance",shortname="Sun Finance",tag="Personal<br>Loans",label="Personal Loans",apply="Apply now",
+PERSONAL=dict(dir="/Users/zaydenzukerman/webblaze/public/sunfinance",name="Sun Finance",ga="G-6GYKFE11YF",shortname="Sun Finance",tag="Personal<br>Loans",label="Personal Loans",apply="Apply now",
  tel="+15048379400",telnum="(504) 837-9400",fax="(504) 837-9494",others=[("Sun Mortgage Funding","https://sunmortgagefunding.webblaze.io"),("Sun Premium Financing","https://sunpremium.webblaze.io")],
  h1="Life&apos;s little surprises, <em>handled.</em>",
  herop="Fast, friendly personal loans from $500 to $3,000 — from the Sun companies in Metairie, Louisiana since 1958. Reviewed and serviced in-house by people you can actually reach, right here at home.",
