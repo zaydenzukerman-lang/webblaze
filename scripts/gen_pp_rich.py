@@ -43,7 +43,6 @@ def build(c):
      + f'<br><a href="tel:{tel}">{tn}</a></div></div>'
      f'<div class="compliance"><div class="ehl"><span>{c["compliance"]}</span></div>'
      f'<span>© {c["name"]} · Metairie, Louisiana{c["bbbtag"]}</span></div></div></footer>'
-     f'<div class="ribbon"><b>PREVIEW</b> — redesign concept built by WebBlaze for {c["name"]} · not the live site</div>'
      '<script>document.querySelectorAll(".nav-toggle").forEach(function(t){t.addEventListener("click",function(){var n=t.closest(".nav").querySelector(".nav-links");var o=n.classList.toggle("open");t.setAttribute("aria-expanded",o);});});'
      'const els=document.querySelectorAll(".reveal");if(matchMedia("(prefers-reduced-motion: reduce)").matches||!("IntersectionObserver"in window)){els.forEach(e=>e.classList.add("in"));}else{const io=new IntersectionObserver(en=>en.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{threshold:.1});els.forEach(e=>io.observe(e));}'
      'document.addEventListener("click",function(e){var a=e.target.closest("a[href^=\\"#\\"]");if(!a)return;var h=a.getAttribute("href");if(!h||h.length<2)return;var el=document.getElementById(h.slice(1));if(!el)return;e.preventDefault();el.classList.add("in");var y=el.getBoundingClientRect().top+window.scrollY-96;window.scrollTo({top:y,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});history.replaceState(null,"",h);});</script></body></html>')
