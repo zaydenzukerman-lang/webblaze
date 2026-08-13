@@ -170,7 +170,7 @@ def build(c):
     for fn,(t,d,a,m) in pages.items():
         (B/fn).write_text(page(t,d,a,m)); print(B.name,fn,len((B/fn).read_text()))
 
-PREMIUM=dict(dir="/Users/zaydenzukerman/webblaze/public/sunpremium",name="Sun Premium Financing",shortname="Sun Premium",tag="Premium<br>Financing",label="Premium Financing",apply="Get started",
+PREMIUM=dict(dir="/Users/zaydenzukerman/webblaze/public/sunpremium",name="Sun Premium Financing",ga="G-K5RG2PE7HL",shortname="Sun Premium",tag="Premium<br>Financing",label="Premium Financing",apply="Get started",
  tel="+15048349400",telnum="(504) 834-9400",fax="(504) 834-9402",others=[("Sun Mortgage Funding","https://sunmortgagefunding.webblaze.io"),("Sun Finance · Personal Loans","https://sunfinance.webblaze.io")],
  h1="Keep your coverage. <em>Free up your cash.</em>",
  herop="Insurance premium financing from the Sun companies in Metairie, Louisiana since 1958 — for agents and their clients alike. We finance from $100 to $250,000 across more than ten types of insurance.",
