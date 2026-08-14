@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 // Client-demo subdomains: <slug>.webblaze.io → serve public/<slug>/ files.
-const DEMOS = ["orangebeachfish", "dunebuggy", "sunfinance", "sunmortgagefunding", "sunpremium", "fetchero", "thetownagency"];
+const DEMOS = ["orangebeachfish", "dunebuggy", "sunfinance", "sunmortgagefunding", "sunpremium", "fetchero", "thetownagency", "wemploymentlaw"];
 // Staging (webblaze.io) serves the flat .html redesign; live .com sites are on
 // their own sun-*-site projects.
 const DIR_MIRRORS: string[] = [];
