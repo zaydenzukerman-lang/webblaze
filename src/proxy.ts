@@ -2,8 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 // Client-demo subdomains: <slug>.webblaze.io → serve public/<slug>/ files.
 const DEMOS = ["orangebeachfish", "dunebuggy", "sunfinance", "sunmortgagefunding", "sunpremium", "fetchero", "thetownagency"];
-// (No directory mirrors currently — the Sun sites use the flat .html redesign.)
-const DIR_MIRRORS: string[] = [];
+// The Sun sites currently serve the old WordPress copies: pages live in
+// directories (/team/ -> team/index.html).
+const DIR_MIRRORS = ["sunfinance", "sunmortgagefunding", "sunpremium"];
 
 // Real client domains we now HOST (Namecheap origin down). Point their DNS at
 // Vercel and each maps to its static mirror.

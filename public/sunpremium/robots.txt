@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://sunpremium.webblaze.io/sitemap.xml
