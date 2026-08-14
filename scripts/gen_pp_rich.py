@@ -206,7 +206,7 @@ PREMIUM=dict(dir="/Users/zaydenzukerman/webblaze/public/sunpremium",name="Sun Pr
  services=dict(personal=["Automobile","Homeowners","Mobile Home","Builder&apos;s Risk","Dwelling","Fire","Excess Liability / Umbrella","Personal Liability"],
       commercial=["General Liability","Commercial Automobile &amp; Truck","Commercial Property","Cargo","Professional Liability","Equipment","Excess Liability / Umbrella","Builder&apos;s Risk"]),
  svchead="Personal and commercial lines, financed.",svclead="Through a statewide network of Louisiana agents, we finance both personal and commercial insurance policies across more than ten types of coverage.",
- applylinks=[("Apply Now","https://secure.smartapp1003.com/200591"),("Contact Us","https://inspree.formstack.com/forms/spf_contact_us")],
+ applylinks=[("Apply Now","https://secure-apps.smartapp1003.com/200591/"),("Contact Us","https://inspree.formstack.com/forms/spf_contact_us")],
  applylinkshead="Prefer to apply directly?",applylinkslead="You can also apply through Sun Premium&apos;s secure application or contact us directly.",
  applyform=('<div class="form-h">Request a quote</div><div class="form-sub">This is a preview. The live application is submitted through Sun Premium&apos;s secure system.</div>'
    '<label for="who">I am a(n)*</label><select id="who" required><option value="" selected disabled>Select…</option><option>Insurance agent</option><option>Individual or business (insured)</option></select>'
