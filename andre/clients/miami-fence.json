@@ -1,0 +1,17 @@
+{
+  "slug": "miami-fence",
+  "name": "Miami Fence Pros",
+  "email": "info@miamifencepros.com",
+  "phone": "(305) 555-0199",
+  "city": "Miami",
+  "brand": "#1f6feb",
+  "plan": "both",
+  "mrr": 500,
+  "services": [
+    {
+      "name": "Wood Fences",
+      "desc": "x"
+    }
+  ],
+  "reviews": []
+}

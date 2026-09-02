@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunrise Auto Repair — Honest auto repair in Miami since 1999</title>
+<meta name="description" content="Family-owned, ASE-certified auto repair in Miami since 1999. Brakes, AC, engine, transmission — upfront pricing, no surprises. Call (305) 555-0142.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111013;--panel:#191820;--panel2:#211f28;--paper:#f4f1ec;--cloud:#faf8f5;
+  --red:#d4202f;--red-d:#b0121f;--amber:#f0b429;--muted:#8b8792;--line:#2a2830;--line-l:#e6e1d8;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.dsp{font-family:Archivo,system-ui,sans-serif;margin:0;line-height:.98;letter-spacing:-.02em}
+.dsp{text-transform:uppercase}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 26px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:Archivo;font-weight:800;text-transform:uppercase;letter-spacing:.03em;font-size:.82rem;padding:15px 26px;border-radius:2px;cursor:pointer;transition:.16s;border:0}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:var(--red-d)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}.btn-ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+.btn-ink{background:var(--ink);color:#fff}.btn-ink:hover{background:#000}
+.ey{font-family:Archivo;font-weight:800;text-transform:uppercase;letter-spacing:.24em;font-size:.72rem;color:var(--red)}
+/* top utility */
+.util{background:var(--ink);color:#c9c6cf;font-size:.8rem;font-weight:600}
+.util-in{display:flex;justify-content:space-between;align-items:center;height:40px;letter-spacing:.02em}
+.util a{color:#fff}.util .sep{color:#4a4753;margin:0 12px}
+/* nav */
+header.nav{position:absolute;top:40px;left:0;right:0;z-index:20}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:82px;color:#fff}
+.logo{font-family:Archivo;font-weight:900;font-size:1.35rem;letter-spacing:-.02em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.logo .bar{width:34px;height:4px;background:var(--red);display:block}
+.nav-links{display:flex;gap:34px;font-family:Archivo;font-weight:700;text-transform:uppercase;font-size:.78rem;letter-spacing:.08em}
+.nav-links a{opacity:.8}.nav-links a:hover{opacity:1;color:var(--amber)}
+.nav-r{display:flex;align-items:center;gap:20px}.nav-r .ph{font-family:Archivo;font-weight:800;font-size:1rem}
+/* hero */
+.hero{position:relative;min-height:94vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('img/hero.jpg') center 30%/cover;filter:contrast(1.05) saturate(1.05)}
+.hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,14,17,.72) 0%,rgba(15,14,17,.35) 40%,rgba(15,14,17,.9) 100%)}
+.hero-in{position:relative;padding:0 0 76px;width:100%}
+.hero .kick{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.hero .kick .line{width:54px;height:2px;background:var(--red)}
+.hero h1{font-weight:900;font-size:clamp(3rem,9vw,7.4rem);text-transform:uppercase;max-width:15ch}
+.hero h1 em{font-style:normal;color:var(--red);-webkit-text-stroke:1.5px var(--red);color:transparent}
+.hero .sub{max-width:46ch;font-size:1.18rem;color:#e7e4de;margin:24px 0 0}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.hero-meta{position:absolute;right:0;bottom:76px;text-align:right;font-family:Archivo;display:none}
+/* marquee stat bar */
+.stats{background:var(--red);color:#fff}
+.stats-in{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:30px 26px;border-right:1px solid rgba(255,255,255,.2)}
+.stat:last-child{border-right:0}
+.stat b{font-family:Archivo;font-weight:900;font-size:2.6rem;display:block;line-height:1;letter-spacing:-.03em}
+.stat span{font-family:Archivo;font-weight:700;text-transform:uppercase;font-size:.74rem;letter-spacing:.12em;opacity:.9;margin-top:8px;display:block}
+/* section frame */
+.sec{padding:110px 0}
+.sec-dark{background:var(--ink);color:#fff}
+.head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:56px}
+.head-row h2{font-weight:900;text-transform:uppercase;font-size:clamp(2.2rem,5vw,4rem)}
+.head-row p{color:var(--muted);max-width:38ch;font-size:1.05rem}
+/* services as an editorial numbered list */
+.svc-list{border-top:1px solid var(--line)}
+.sec:not(.sec-dark) .svc-list{border-top-color:var(--line-l)}
+.svc{display:grid;grid-template-columns:88px 1fr auto;gap:28px;align-items:center;padding:30px 8px;border-bottom:1px solid var(--line-l);transition:.2s;cursor:default}
+.sec-dark .svc{border-bottom-color:var(--line)}
+.svc .no{font-family:Archivo;font-weight:800;font-size:1.05rem;color:var(--red)}
+.svc h3{font-family:Archivo;font-weight:800;text-transform:uppercase;font-size:1.7rem;letter-spacing:-.01em;transition:.2s}
+.svc p{color:var(--muted);margin:6px 0 0;max-width:52ch;font-size:.98rem}
+.svc .arw{font-family:Archivo;font-weight:900;font-size:1.4rem;color:var(--line-l);transition:.2s}
+.sec-dark .svc .arw{color:var(--line)}
+.svc:hover{padding-left:24px}.svc:hover h3{color:var(--red)}.svc:hover .arw{color:var(--red);transform:translateX(6px)}
+/* story split */
+.story{display:grid;grid-template-columns:1.05fr 1fr;align-items:stretch}
+.story .ph{background:url('img/story.jpg') center/cover;min-height:600px;position:relative}
+.story .ph .tag{position:absolute;left:0;bottom:0;background:var(--red);color:#fff;font-family:Archivo;font-weight:900;text-transform:uppercase;font-size:1rem;letter-spacing:.02em;padding:20px 26px}
+.story .tx{background:var(--panel);color:#fff;padding:88px 7vw;display:flex;flex-direction:column;justify-content:center}
+.story .tx h2{font-weight:900;text-transform:uppercase;font-size:clamp(2rem,4vw,3.2rem);margin:16px 0 0}
+.story .tx p{color:#c6c2cc;font-size:1.08rem;margin:22px 0 0}
+.story .pts{list-style:none;padding:0;margin:30px 0 0;display:grid;gap:14px}
+.story .pts li{display:flex;gap:14px;font-family:Archivo;font-weight:700;text-transform:uppercase;font-size:.9rem;letter-spacing:.04em}
+.story .pts .n{color:var(--red);font-weight:900}
+/* reviews — big pull quote + cards */
+.rev-hero{font-family:Archivo;font-weight:800;text-transform:uppercase;font-size:clamp(1.8rem,4vw,3.2rem);line-height:1.05;letter-spacing:-.02em;max-width:20ch}
+.rev-hero em{font-style:normal;color:var(--red)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-l);border:1px solid var(--line-l);margin-top:56px}
+.rev{background:var(--cloud);padding:36px 32px;color:var(--ink)}
+.rev .stars{color:var(--amber);letter-spacing:3px;font-size:1.05rem}
+.rev p{font-size:1.1rem;margin:16px 0 0;font-weight:500}
+.rev .who{font-family:Archivo;font-weight:800;text-transform:uppercase;font-size:.82rem;letter-spacing:.06em;margin-top:22px}
+.rev .who span{color:var(--muted);font-weight:600}
+/* booking band */
+.book{position:relative;color:#fff;text-align:center;padding:120px 0;overflow:hidden}
+.book-bg{position:absolute;inset:0;background:url('img/detail.jpg') center/cover;filter:grayscale(.3)}
+.book-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(17,16,19,.9),rgba(17,16,19,.82))}
+.book-in{position:relative}
+.book h2{font-weight:900;text-transform:uppercase;font-size:clamp(2.4rem,6vw,5rem)}
+.book h2 em{font-style:normal;color:var(--red)}
+.book p{color:#d7d4cd;font-size:1.15rem;margin:18px auto 0;max-width:44ch}
+.book .row{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.info .line{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line-l)}
+.info .line .k{font-family:Archivo;font-weight:800;text-transform:uppercase;font-size:.74rem;letter-spacing:.14em;color:var(--red);width:120px;flex:0 0 120px;padding-top:4px}
+.info .line .v{font-size:1.12rem;font-weight:600}
+.info .line .v a{border-bottom:2px solid var(--red)}
+.info .line .v small{display:block;color:var(--muted);font-weight:500;font-size:.92rem;margin-top:2px}
+.form{background:var(--ink);color:#fff;padding:44px}
+.form h3{font-family:Archivo;font-weight:900;text-transform:uppercase;font-size:1.6rem}
+.field{width:100%;padding:15px 16px;background:var(--panel2);border:1px solid var(--line);color:#fff;font:inherit;margin-top:12px;border-radius:2px;outline:none}
+.field:focus{border-color:var(--red)}
+.field::placeholder{color:#7c7986}
+/* footer */
+footer{background:#0a090c;color:#7c7986;padding:60px 0 30px;font-size:.92rem}
+.foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center;padding-bottom:34px;border-bottom:1px solid #1c1a22}
+.foot-top .logo{color:#fff}
+.foot-disc{padding-top:24px;font-size:.8rem;color:#5a5763}
+.mbar{display:none}
+@media(max-width:920px){
+  .nav-links,.util,.nav-r .ph{display:none}
+  .stats-in{grid-template-columns:1fr 1fr}.stat{border-right:0;border-bottom:1px solid rgba(255,255,255,.2)}
+  .svc{grid-template-columns:52px 1fr;}.svc .arw{display:none}
+  .story{grid-template-columns:1fr}.story .ph{min-height:320px}.story .tx{padding:56px 30px}
+  .rev-grid{grid-template-columns:1fr}.contact{grid-template-columns:1fr;gap:40px}
+  .sec{padding:70px 0}.hero{min-height:88vh}
+  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:0;position:fixed;bottom:0;left:0;right:0;z-index:60}
+  .mbar a{padding:16px;text-align:center;font-family:Archivo;font-weight:800;text-transform:uppercase;font-size:.82rem}
+  .mbar .c{background:var(--ink);color:#fff}.mbar .b{background:var(--red);color:#fff}
+  body{padding-bottom:54px}
+}
+</style></head>
+<body>
+
+<div class="util"><div class="wrap util-in">
+  <span>1420 SW 8th St, Miami, FL 33135</span>
+  <span>Mon&ndash;Fri 8&ndash;6 <span class="sep">/</span> Sat 8&ndash;1 <span class="sep">/</span> <a href="tel:+13055550142">(305) 555-0142</a></span>
+</div></div>
+
+<header class="nav"><div class="wrap nav-in">
+  <a class="logo" href="#"><span class="bar"></span>Sunrise Auto</a>
+  <nav class="nav-links"><a href="#services">Services</a><a href="#story">Our Shop</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
+  <div class="nav-r"><a class="ph" href="tel:+13055550142">(305) 555-0142</a><a class="btn btn-red" href="#contact">Book a Service</a></div>
+</div></header>
+
+<section class="hero"><div class="hero-bg"></div><div class="wrap hero-in">
+  <div class="kick"><span class="line"></span><span class="ey">Family-owned in Miami since 1999</span></div>
+  <h1>Honest repair.<br><em>No surprises.</em></h1>
+  <p class="sub">ASE-certified techs who treat your car like their own &mdash; upfront pricing, real warranties, most repairs done same day.</p>
+  <div class="hero-cta">
+    <a class="btn btn-red" href="#contact">Get a Free Estimate</a>
+    <a class="btn btn-ghost" href="tel:+13055550142">Call (305) 555-0142</a>
+  </div>
+</div></section>
+
+<section class="stats"><div class="wrap"><div class="stats-in">
+  <div class="stat"><b>25</b><span>Years in Miami</span></div>
+  <div class="stat"><b>4.9</b><span>Google rating</span></div>
+  <div class="stat"><b>Same</b><span>Day service</span></div>
+  <div class="stat"><b>2 yr</b><span>Repair warranty</span></div>
+</div></div></section>
+
+<section class="sec" id="services"><div class="wrap">
+  <div class="head-row">
+    <div><div class="ey" style="margin-bottom:14px">What we do</div><h2>Every repair,<br>done right.</h2></div>
+    <p>From a quick oil change to a full engine rebuild &mdash; one honest shop for everything your car needs.</p>
+  </div>
+  <div class="svc-list">
+    <div class="svc"><span class="no">01</span><div><h3>Brakes &amp; Rotors</h3><p>Grinding or squeaking? We inspect, show you what's worn, and fix it with parts that last.</p></div><span class="arw">&rarr;</span></div>
+    <div class="svc"><span class="no">02</span><div><h3>A/C &amp; Cooling</h3><p>Miami heat is no joke. We get your A/C blowing cold again &mdash; same day when possible.</p></div><span class="arw">&rarr;</span></div>
+    <div class="svc"><span class="no">03</span><div><h3>Engine Diagnostics</h3><p>Check-engine light on? We pinpoint the real problem. No guessing, no upsells.</p></div><span class="arw">&rarr;</span></div>
+    <div class="svc"><span class="no">04</span><div><h3>Transmission</h3><p>Fluid service to full rebuilds &mdash; we keep your transmission shifting smooth.</p></div><span class="arw">&rarr;</span></div>
+    <div class="svc"><span class="no">05</span><div><h3>Oil &amp; Maintenance</h3><p>Fast oil changes and full tune-ups that keep your car running for years.</p></div><span class="arw">&rarr;</span></div>
+    <div class="svc"><span class="no">06</span><div><h3>Tires &amp; Alignment</h3><p>New tires, rotations, and precision alignments to keep you safe on the road.</p></div><span class="arw">&rarr;</span></div>
+  </div>
+</div></section>
+
+<section id="story"><div class="story">
+  <div class="ph"><span class="tag">Third generation. Same family.</span></div>
+  <div class="tx">
+    <div class="ey">Our shop</div>
+    <h2>The shop your neighbors actually recommend.</h2>
+    <p>We're a family-owned shop that treats your car like our own. No upsells, no runaround &mdash; just honest work from ASE-certified techs who've kept Miami running for 25 years.</p>
+    <ul class="pts">
+      <li><span class="n">/</span> ASE-certified technicians</li>
+      <li><span class="n">/</span> Upfront pricing before we touch a bolt</li>
+      <li><span class="n">/</span> Free written estimates, always</li>
+      <li><span class="n">/</span> 2-year / 24,000-mile warranty</li>
+    </ul>
+    <div style="margin-top:34px"><a class="btn btn-red" href="#contact">Book your service</a></div>
+  </div>
+</div></section>
+
+<section class="sec sec-dark" id="reviews"><div class="wrap">
+  <div class="ey" style="margin-bottom:22px">Reviews</div>
+  <div class="rev-hero">"Honest, fast, and they never sell you<br>what you <em>don't need.</em>"</div>
+  <div class="rev-grid">
+    <div class="rev"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Been coming here for years. Efficient, courteous, and never try to sell you stuff you don't need. Rare these days."</p><div class="who">Maria G. <span>&nbsp;/ Little Havana</span></div></div>
+    <div class="rev"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"My A/C died in July and they had it fixed the same afternoon for a fair price. Absolute lifesavers."</p><div class="who">Andre T. <span>&nbsp;/ Coral Gables</span></div></div>
+    <div class="rev"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Took my truck in for brakes. They showed me exactly what was worn and only charged for what I needed."</p><div class="who">Luis R. <span>&nbsp;/ Westchester</span></div></div>
+  </div>
+</div></section>
+
+<section class="book"><div class="book-bg"></div><div class="wrap book-in">
+  <h2>Wronged by your<br>last <em>mechanic?</em></h2>
+  <p>Come to the shop Miami's trusted for 25 years. Free estimate, no obligation.</p>
+  <div class="row"><a class="btn btn-red" href="#contact">Get My Free Estimate</a><a class="btn btn-ghost" href="tel:+13055550142">Call (305) 555-0142</a></div>
+</div></section>
+
+<section class="sec" id="contact"><div class="wrap"><div class="contact">
+  <div>
+    <div class="ey" style="margin-bottom:16px">Get in touch</div>
+    <h2 class="dsp" style="font-weight:900;font-size:clamp(2rem,4vw,3rem);margin-bottom:30px">Stop by or<br>book online.</h2>
+    <div class="info">
+      <div class="line"><div class="k">Call</div><div class="v"><a href="tel:+13055550142">(305) 555-0142</a><small>Call or text, 7 days</small></div></div>
+      <div class="line"><div class="k">Visit</div><div class="v">1420 SW 8th St, Miami, FL 33135<small>Serving Little Havana &amp; all of Miami</small></div></div>
+      <div class="line"><div class="k">Hours</div><div class="v">Mon&ndash;Fri 8am&ndash;6pm<small>Saturday 8am&ndash;1pm &middot; Closed Sunday</small></div></div>
+      <div class="line"><div class="k">Email</div><div class="v"><a href="mailto:service@sunriseautomiami.com">service@sunriseautomiami.com</a></div></div>
+    </div>
+  </div>
+  <form class="form" onsubmit="event.preventDefault();this.innerHTML='<h3>Thanks.</h3><p style=&quot;color:#c6c2cc;margin-top:12px&quot;>We got your request and will call you back shortly. Need us now? Call <b style=&quot;color:#fff&quot;>(305) 555-0142</b>.</p>'">
+    <h3>Request a free estimate</h3>
+    <input class="field" placeholder="Your name" required>
+    <input class="field" type="tel" placeholder="Phone number" required>
+    <input class="field" placeholder="Year / make / model">
+    <textarea class="field" rows="3" placeholder="What's going on with your car?"></textarea>
+    <button class="btn btn-red" type="submit" style="width:100%;margin-top:14px;justify-content:center">Send request</button>
+  </form>
+</div></div></section>
+
+<footer><div class="wrap">
+  <div class="foot-top">
+    <a class="logo" href="#"><span class="bar"></span>Sunrise Auto</a>
+    <a class="btn btn-red" href="tel:+13055550142">(305) 555-0142</a>
+  </div>
+  <div class="foot-disc">&copy; <span id="yr"></span> Sunrise Auto Repair &middot; 1420 SW 8th St, Miami, FL 33135 &middot; Family-owned &amp; serving Miami since 1999. &nbsp;Site by WebBlaze.</div>
+</div></footer>
+
+<div class="mbar"><a class="c" href="tel:+13055550142">Call Now</a><a class="b" href="#contact">Free Estimate</a></div>
+<script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+</body></html>

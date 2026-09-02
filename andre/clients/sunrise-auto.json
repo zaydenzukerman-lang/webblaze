@@ -1,0 +1,73 @@
+{
+  "slug": "sunrise-auto",
+  "name": "Sunrise Auto Repair",
+  "headline": "Honest auto repair Miami has trusted for 25 years",
+  "tagline": "Family-owned service on brakes, AC, engines and more \u2014 with upfront pricing and no surprises.",
+  "badge": "Family-owned in Miami since 1999",
+  "phone": "(305) 555-0142",
+  "email": "service@sunriseautomiami.com",
+  "address": "1420 SW 8th St, Miami, FL 33135",
+  "city": "Miami",
+  "hours": "Mon\u2013Fri 8am\u20136pm \u00b7 Sat 8am\u20131pm",
+  "years": "1999",
+  "brand": "#c8102e",
+  "brand_dark": "#a10c22",
+  "cta": "Get a Free Estimate",
+  "hero_image": "img/hero.jpg",
+  "about_image": "img/shop.jpg",
+  "why_head": "The shop your neighbors actually recommend",
+  "about": "We're a family-owned shop that treats your car like our own. No upsells, no runaround \u2014 just honest work from ASE-certified techs who've kept Miami running for 25 years.",
+  "why": [
+    "ASE-certified technicians",
+    "Upfront pricing before we start",
+    "Free written estimates",
+    "2-year / 24,000-mile warranty",
+    "Most repairs done same day"
+  ],
+  "services": [
+    {
+      "icon": "\ud83d\uded1",
+      "name": "Brakes & Rotors",
+      "desc": "Squeaking or grinding? We'll inspect and fix it fast, with quality parts that last."
+    },
+    {
+      "icon": "\ud83d\udee2\ufe0f",
+      "name": "Oil & Maintenance",
+      "desc": "Fast oil changes and full tune-ups to keep your car running smooth for years."
+    },
+    {
+      "icon": "\u2744\ufe0f",
+      "name": "AC Repair",
+      "desc": "Miami heat is no joke. We get your A/C blowing cold again, same day when possible."
+    },
+    {
+      "icon": "\ud83d\udd27",
+      "name": "Engine Diagnostics",
+      "desc": "Check-engine light on? We pinpoint the real problem \u2014 no guessing, no upsells."
+    },
+    {
+      "icon": "\ud83d\udede",
+      "name": "Tires & Alignment",
+      "desc": "New tires, rotations, and precision alignments to keep you safe on the road."
+    },
+    {
+      "icon": "\u2699\ufe0f",
+      "name": "Transmission",
+      "desc": "From fluid service to full repairs, we keep your transmission shifting right."
+    }
+  ],
+  "reviews": [
+    {
+      "text": "Been coming here for years. They're honest, fast, and never try to sell you stuff you don't need. Rare to find these days.",
+      "author": "Maria G."
+    },
+    {
+      "text": "My AC died in July and they had it fixed the same afternoon for a fair price. Lifesavers.",
+      "author": "Andre T."
+    },
+    {
+      "text": "Took my truck in for brakes, they showed me exactly what was worn and only charged for what I needed. Trustworthy shop.",
+      "author": "Luis R."
+    }
+  ]
+}

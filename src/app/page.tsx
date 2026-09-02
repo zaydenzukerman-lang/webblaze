@@ -30,16 +30,16 @@ const WORK = [
 ];
 
 const STEPS = [
-  { n: "01", t: "We build it first", d: "No deposit, no contract. We design and build your real site using your real business info — before you pay a cent." },
+  { n: "01", t: "We build it first", d: "No deposit, no risk. We design and build your real site using your real business info — before you pay a cent." },
   { n: "02", t: "You shape it", d: "Photos, copy, colors, prices — tell us what to change and we refine it. As many rounds as it takes to make it yours." },
-  { n: "03", t: "Pay only if you love it", d: "$300 flat, once. No monthly fees, no lock-in. Don't love it? You owe nothing and walk away." },
+  { n: "03", t: "Pay only if you love it", d: "Just $300 a year — hosting, free updates, and reports all included. Don't love it? You owe nothing and walk away." },
 ];
 
 const FAQS = [
-  { q: "Why is it only $300?", a: "We're lean, with no agency overhead — and we'd rather earn your trust with a fair first project than oversell you. Most clients come back for growth services once the site's live." },
-  { q: "Is there a catch — hidden fees or contracts?", a: "No. $300 flat, once, when you're happy. No monthly hosting fee, no contract. Any ongoing SEO or lead-gen help is discussed separately, never bundled into the first sale." },
-  { q: "What if I want changes after it's live?", a: "Small updates — a new number, a price change, a fresh photo — are free. Just ask. Larger redesigns are quoted separately." },
-  { q: "Do I own the site?", a: "Completely. Once you pay, the site and its domain setup are yours. We're not a subscription you can get locked into." },
+  { q: "Why is it only $300 a year?", a: "We're lean, with no agency overhead — and we'd rather earn your trust with a fair price than oversell you. The $300 covers your whole site for the year: hosting, updates, and reports. Most clients grow with us from there." },
+  { q: "What does the $300 a year include?", a: "Everything to keep your site live and current: hosting, unlimited small updates whenever you need them, a fast mobile-friendly build, and a simple monthly report on your traffic. No hidden fees, no contract — cancel anytime." },
+  { q: "What if I want changes after it's live?", a: "Small updates — a new number, a price change, a fresh photo — are free anytime, included in your yearly fee. Just ask. Larger redesigns are quoted separately." },
+  { q: "Do you help me get more customers, not just a site?", a: "Yes — that's the real value. Once your site's live, we can get you ranking higher on Google Maps and pulling in more reviews so more local customers actually find you. It's a separate monthly service, never bundled or pushy." },
 ];
 
 export default function Home() {
@@ -87,8 +87,8 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            We design and build your website first — you only pay the $300 flat fee once you love it.
-            No monthly fees. No contracts. Then, when you're ready, we help you get found and get booked.
+            We design and build your website first — you only pay once you love it. Just $300 a year,
+            hosting and updates included. Then, when you're ready, we get you found on Google and booked more often.
           </motion.p>
           <motion.div
             className="mt-10 flex flex-wrap items-center gap-4"
@@ -102,17 +102,17 @@ export default function Home() {
             <a href="#work" className="btn btn-ghost-noir">See our work</a>
           </motion.div>
         </div>
-        <Marquee items={["$300 flat", "No monthly fees", "Built before you pay", "You own it", "No contracts", "Local SEO", "Lead generation"]} />
+        <Marquee items={["$300 a year", "Built before you pay", "Hosting included", "Free updates", "Cancel anytime", "Google ranking", "More reviews"]} />
       </header>
 
       {/* ============ STATS ============ */}
       <section className="relative isolate bg-[var(--noir-2)] text-[var(--on-noir)] grain">
         <div className="relative z-10 mx-auto grid max-w-[1180px] grid-cols-2 gap-x-6 gap-y-12 px-6 py-20 md:grid-cols-4">
           {[
-            { v: 300, prefix: "$", label: "Flat price. Nothing hidden." },
+            { v: 300, prefix: "$", suffix: "/yr", label: "All-in. Nothing hidden." },
             { v: 0, label: "Upfront. Pay only if you love it." },
             { v: 3, suffix: "-day", label: "First draft in your inbox." },
-            { v: 100, suffix: "%", label: "Yours. No lock-in, ever." },
+            { v: 100, suffix: "%", label: "Custom. Never a template." },
           ].map((s, i) => (
             <Reveal key={i} delay={i * 0.08}>
               <Stat value={s.v} prefix={s.prefix} suffix={s.suffix} label={s.label} />
@@ -198,35 +198,59 @@ export default function Home() {
           <div>
             <Reveal><p className="eyebrow text-[var(--flame)]">Pricing</p></Reveal>
             <Reveal delay={0.05}>
-              <h2 className="mt-3 text-[length:var(--fs-h2)] font-bold">One price. Nothing hidden.</h2>
+              <h2 className="mt-3 text-[length:var(--fs-h2)] font-bold">Simple pricing. Two ways to grow.</h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 max-w-[42ch] text-[var(--ink-soft)] text-[length:var(--fs-body)]">
-                Want ongoing help getting found on Google and booked more often? We offer growth &amp;
-                lead-gen services too — but only after your site is live and you&apos;re happy. Never
-                bundled, never pushy.
+                Start with a website that makes you look legit for $300 a year. Then, when you&apos;re
+                ready, we get you found on Google Maps and booked more often. Growth is added only once
+                your site&apos;s live — never bundled, never pushy.
               </p>
             </Reveal>
           </div>
           <Reveal delay={0.1}>
-            <div className="relative isolate overflow-hidden rounded-[24px] border border-[var(--line)] bg-white p-9 shadow-[0_30px_70px_-40px_rgba(0,0,0,.4)]">
-              <div aria-hidden className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full blur-3xl" style={{ background: "radial-gradient(circle,rgba(234,88,12,.28),transparent 70%)" }} />
-              <div className="relative z-10">
-                <div className="flex items-end gap-2">
-                  <span className="font-[family-name:var(--font-space-grotesk)] text-6xl font-bold tracking-tight">$300</span>
-                  <span className="mb-2 text-sm text-[var(--ink-soft)]">flat · one time</span>
+            <div className="flex flex-col gap-5">
+              {/* Website */}
+              <div className="relative isolate overflow-hidden rounded-[24px] border border-[var(--line)] bg-white p-9 shadow-[0_30px_70px_-40px_rgba(0,0,0,.4)]">
+                <div aria-hidden className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full blur-3xl" style={{ background: "radial-gradient(circle,rgba(234,88,12,.28),transparent 70%)" }} />
+                <div className="relative z-10">
+                  <span className="eyebrow text-[var(--flame)]">Website</span>
+                  <div className="mt-3 flex items-end gap-2">
+                    <span className="font-[family-name:var(--font-space-grotesk)] text-6xl font-bold tracking-tight">$300</span>
+                    <span className="mb-2 text-sm text-[var(--ink-soft)]">/ year</span>
+                  </div>
+                  <ul className="mt-7 space-y-3 text-[0.97rem] text-[var(--ink-soft)]">
+                    {["Custom site, built for your business","Fast, mobile-first design","Hosting + free updates included","Built first — pay only if you love it","Cancel anytime, no contract"].map((f) => (
+                      <li key={f} className="flex items-start gap-3">
+                        <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full flame-bg text-[11px] text-white">✓</span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Magnetic>
+                    <a href="#contact" className="btn btn-flame mt-8 w-full">Get your free build</a>
+                  </Magnetic>
                 </div>
-                <ul className="mt-8 space-y-3.5 text-[0.97rem] text-[var(--ink-soft)]">
-                  {["Custom-designed site, built for your business","Fast, mobile-first, easy to update","Built first — pay only once you're happy","Unlimited revisions before you pay","You own it — no contract, no lock-in"].map((f) => (
+              </div>
+              {/* Google Growth */}
+              <div className="relative overflow-hidden rounded-[24px] border border-[var(--noir-line)] bg-[var(--noir)] p-9 text-[var(--on-noir)]">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="eyebrow text-[var(--ember)]">Google Growth</span>
+                  <span className="rounded-full bg-[rgba(234,88,12,.16)] px-3 py-1 text-xs font-semibold text-[var(--ember)]">$200 off month one</span>
+                </div>
+                <div className="mt-3 flex items-end gap-2">
+                  <span className="font-[family-name:var(--font-space-grotesk)] text-5xl font-bold tracking-tight">$500</span>
+                  <span className="mb-1.5 text-sm text-[var(--on-noir-soft)]">/ month</span>
+                </div>
+                <ul className="mt-6 grid gap-2.5 text-[0.95rem] text-[var(--on-noir-soft)]">
+                  {["Rank higher on Google Maps","Get more 5-star reviews","Weekly Google posts","Monthly ranking report","Cancel anytime"].map((f) => (
                     <li key={f} className="flex items-start gap-3">
-                      <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full flame-bg text-[11px] text-white">✓</span>
+                      <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full bg-[var(--ember)] text-[11px] text-[var(--noir)]">✓</span>
                       {f}
                     </li>
                   ))}
                 </ul>
-                <Magnetic>
-                  <a href="#contact" className="btn btn-flame mt-9 w-full">Get your free build</a>
-                </Magnetic>
+                <p className="mt-6 text-xs text-[var(--on-noir-soft)]">Added once your site&apos;s live and you&apos;re happy.</p>
               </div>
             </div>
           </Reveal>

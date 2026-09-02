@@ -15,9 +15,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "WebBlaze — $300 Flat Websites for Small Businesses",
+  title: "WebBlaze — Websites & Google Growth for Local Businesses",
   description:
-    "WebBlaze builds your website first — you only pay if you love it. $300 flat, no monthly fees. Then we help you get found with local SEO and lead-gen that keeps the phone ringing.",
+    "WebBlaze builds your website first — you only pay if you love it. Just $300 a year, hosting and updates included. Then we get you found on Google Maps and booked more often.",
   icons: {
     icon: [
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
