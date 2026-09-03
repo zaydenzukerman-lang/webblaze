@@ -29,76 +29,76 @@
 
 <!-- UTILITY BAR -->
 <div class="util"><div class="wrap util-in">
-  <span>Serving employees across all of California</span>
-  <div class="u-r"><span class="dot">●</span> Available 24/7 <span>·</span> Hablamos Español <a href="tel:+18884920633">888-492-0633</a></div>
+  <span data-es="Al servicio de los empleados en todo California">Serving employees across all of California</span>
+  <div class="u-r"><span class="dot">●</span> <span data-es="Disponibles 24/7">Available 24/7</span> <span>·</span> Hablamos Español <a href="tel:+18884920633">888-492-0633</a></div>
 </div></div>
 
 <!-- NAV -->
 <header class="nav" id="nav"><div class="wrap nav-in">
   <a class="brand" href="index.html"><img src="img/logo.png" alt="W Employment Law" class="brand-logo"></a>
   <nav class="nav-links">
-    <a href="index.html">Home</a><a href="practice-areas.html">Practice Areas</a><a href="calculator.html">Wage Calculator</a><a href="blog.html">Insights</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    <a href="index.html" data-es="Inicio">Home</a><a href="practice-areas.html" data-es="Áreas de Práctica">Practice Areas</a><a href="calculator.html" data-es="Calculadora de Salarios">Wage Calculator</a><a href="blog.html" data-es="Recursos">Insights</a><a href="about.html" data-es="Nosotros">About</a><a href="contact.html" data-es="Contacto">Contact</a>
   </nav>
-  <div class="nav-r">
+  <div class="nav-r"><button class="langtog" id="langtog" type="button" aria-label="Switch to Spanish" onclick="toggleLang()"><span class="l-en active">EN</span><span class="l-es">ES</span></button>
     <a class="ph" href="tel:+18884920633"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg> 888-492-0633</a>
-    <a class="btn btn-gold" href="contact.html">Free Case Review</a>
+    <a class="btn btn-gold" href="contact.html" data-es="Consulta Gratis">Free Case Review</a>
     <button class="hamb" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
   </div>
 </div></header>
 
 <!-- PAGE HEAD -->
 <section class="phead"><div class="wrap">
-  <span class="eyebrow">Free case review</span>
-  <h1>Tell Us What Happened</h1>
-  <p>It's free, confidential, and there's no obligation. Fill out the form and an attorney will reach out — or call us any time at <a href="tel:+18884920633" style="color:#fff;font-weight:800">888-492-0633</a>.</p>
+  <span class="eyebrow" data-es="Revisión de caso gratuita">Free case review</span>
+  <h1 data-es="Díganos Qué Pasó">Tell Us What Happened</h1>
+  <p data-es="Es gratis, confidencial y sin compromiso. Complete el formulario y un abogado se comunicará con usted, o llámenos en cualquier momento al &lt;a href=&quot;tel:+18884920633&quot; style=&quot;color:#fff;font-weight:800&quot;&gt;888-492-0633&lt;/a&gt;.">It's free, confidential, and there's no obligation. Fill out the form and an attorney will reach out — or call us any time at <a href="tel:+18884920633" style="color:#fff;font-weight:800">888-492-0633</a>.</p>
 </div></section>
 
 <!-- CONTACT: form + details -->
 <section class="sec" style="padding-top:44px"><div class="wrap">
   <div class="calc-wrap">
     <div class="form-card" id="review" style="align-self:start">
-      <div class="fc-head"><h3>Free Case Review</h3><p>Confidential · No obligation · No fee unless we win</p></div>
+      <div class="fc-head"><h3 data-es="Revisión Gratuita de su Caso">Free Case Review</h3><p data-es="Confidencial · Sin compromiso · Sin honorarios a menos que ganemos">Confidential · No obligation · No fee unless we win</p></div>
       <form id="caseForm">
-        <input class="field" id="f_first" required placeholder="First name" aria-label="First name" autocomplete="given-name">
-        <input class="field" id="f_last" required placeholder="Last name" aria-label="Last name" autocomplete="family-name">
-        <input class="field" id="f_phone" type="tel" required placeholder="Phone number" aria-label="Phone" autocomplete="tel">
-        <input class="field" id="f_email" type="email" required placeholder="Email address" aria-label="Email" autocomplete="email">
+        <input class="field" id="f_first" required placeholder="First name" data-es-ph="Nombre" aria-label="First name" autocomplete="given-name">
+        <input class="field" id="f_last" required placeholder="Last name" data-es-ph="Apellido" aria-label="Last name" autocomplete="family-name">
+        <input class="field" id="f_phone" type="tel" required placeholder="Phone number" data-es-ph="Número de teléfono" aria-label="Phone" autocomplete="tel">
+        <input class="field" id="f_email" type="email" required placeholder="Email address" data-es-ph="Correo electrónico" aria-label="Email" autocomplete="email">
         <input id="f_co" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-        <button class="btn btn-gold" type="submit" id="f_btn">Get My Free Case Review →</button>
-        <p class="fine" id="f_note"><svg class="ico" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> 100% confidential. Submitting does not create an attorney-client relationship.</p>
+        <button class="btn btn-gold" type="submit" id="f_btn" data-es="Obtener Mi Revisión Gratuita →">Get My Free Case Review →</button>
+        <p class="fine" id="f_note"><svg class="ico" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> <span data-es="100% confidencial. Enviar el formulario no crea una relación abogado-cliente.">100% confidential. Submitting does not create an attorney-client relationship.</span></p>
       </form>
     </div>
     <div>
-      <h2 class="sec-h" style="font-size:1.5rem">Prefer to talk?</h2>
-      <p class="lead" style="margin-top:10px">Our team is available 24/7, and we speak both English and Spanish. Most clients never need to come into the office — we handle cases by phone, email, and video.</p>
+      <h2 class="sec-h" style="font-size:1.5rem" data-es="¿Prefiere hablar?">Prefer to talk?</h2>
+      <p class="lead" style="margin-top:10px" data-es="Nuestro equipo está disponible 24/7, y hablamos inglés y español. La mayoría de los clientes nunca necesitan venir a la oficina; manejamos los casos por teléfono, correo electrónico y video.">Our team is available 24/7, and we speak both English and Spanish. Most clients never need to come into the office — we handle cases by phone, email, and video.</p>
       <div style="margin-top:22px;display:grid;gap:14px">
         <div class="row-i" style="color:var(--ink)"><span class="g" style="color:var(--gold-d)"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg></span> <a href="tel:+18884920633" style="font-weight:800;color:var(--teal-dd)">888-492-0633</a></div>
         <div class="row-i" style="color:var(--ink)"><span class="g" style="color:var(--gold-d)"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span> <a href="mailto:contact@wemploymentlaw.com" style="font-weight:700;color:var(--teal-dd)">contact@wemploymentlaw.com</a></div>
         <div class="row-i" style="color:var(--ink)"><span class="g" style="color:var(--gold-d)"><svg class="ico" viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> <span>7700 Irvine Center Drive, Suite 800<br>Irvine, CA 92618</span></div>
-        <div class="row-i" style="color:var(--ink)"><span class="g" style="color:var(--gold-d)"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span> <span>Available 24/7 · Hablamos Español</span></div>
+        <div class="row-i" style="color:var(--ink)"><span class="g" style="color:var(--gold-d)"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span> <span><span data-es="Disponibles 24/7 · Hablamos Español">Available 24/7 · Hablamos Español</span></span></div>
       </div>
-      <div style="margin-top:22px"><a class="btn btn-teal" href="tel:+18884920633">Call Now</a></div>
+      <div style="margin-top:22px"><a class="btn btn-teal" href="tel:+18884920633" data-es="Llamar Ahora">Call Now</a></div>
     </div>
   </div>
 </div></section>
 
 <!-- FAQ -->
 <section class="sec" id="faq" style="background:var(--soft);border-top:1px solid var(--line)"><div class="wrap center">
-  <span class="eyebrow">Answers</span>
-  <h2 class="sec-h" style="margin:8px 0 0">California Employment Law FAQ</h2>
+  <span class="eyebrow" data-es="Respuestas">Answers</span>
+  <h2 class="sec-h" style="margin:8px 0 0" data-es="Preguntas Frecuentes sobre el Derecho Laboral de California">California Employment Law FAQ</h2>
   <div class="faq" style="text-align:left">
-    <details class="q"><summary>Do I have a case? <span class="pm">+</span></summary><div class="a">The best way to find out is a free case review. Tell us what happened by phone or through our form, and we'll go over your options with you at no cost and no obligation.</div></details>
-    <details class="q"><summary>Is going to trial the only way to recover compensation? <span class="pm">+</span></summary><div class="a">No. Sometimes, all it takes is a simple letter to your employer. We will go over all your options with you to determine the best course of action for each individual situation. If a long-drawn out legal process isn't in your best interest, we'll let you know upfront.</div></details>
-    <details class="q"><summary>How much do you charge? <span class="pm">+</span></summary><div class="a">$0 unless we recover compensation for you. We take cases on a contingency basis, which means you don't pay any upfront fees or costs. If we negotiate a settlement from your employer or win your case in court, our fee comes out of the recovery from the employer. If we didn't win your case, you owe absolutely nothing.</div></details>
-    <details class="q"><summary>What if I still work for my employer? <span class="pm">+</span></summary><div class="a">We may still be able to help guide you through your options, even if you still work for your employer. Call us or fill out our free case evaluation form.</div></details>
-    <details class="q"><summary>Can my employer retaliate against me for hiring a lawyer to represent me with my claims? <span class="pm">+</span></summary><div class="a">In California, it is illegal for an employer to retaliate against current or former employees for filing a lawsuit or complaint against them. This means the employer cannot legally terminate, demote, harass or discriminate against you for hiring an attorney to write a demand letter, filing a complaint in court, or complaining about workplace violations. If you were retaliated against, we can help fight for your rights and recover the compensation you deserve.</div></details>
-    <details class="q"><summary>I don't live in Southern California. Can you still help with my case? <span class="pm">+</span></summary><div class="a">As long as you worked for a California employer, we can help. The majority of our clients never need to come into our office in person. We consult most of our clients over the phone, email, and via video conference call. Of course, if you'd like to meet us in person, you're welcome to stop by!</div></details>
+    <details class="q"><summary data-es="¿Tengo un caso? <span class=&quot;pm&quot;>+</span>">Do I have a case? <span class="pm">+</span></summary><div class="a" data-es="La mejor manera de saberlo es una revisión de caso gratuita. Díganos qué pasó por teléfono o mediante nuestro formulario, y repasaremos sus opciones con usted sin costo ni compromiso.">The best way to find out is a free case review. Tell us what happened by phone or through our form, and we'll go over your options with you at no cost and no obligation.</div></details>
+    <details class="q"><summary data-es="¿Ir a juicio es la única forma de recuperar una compensación? <span class=&quot;pm&quot;>+</span>">Is going to trial the only way to recover compensation? <span class="pm">+</span></summary><div class="a" data-es="No. A veces, basta con una simple carta a su empleador. Repasaremos todas sus opciones con usted para determinar el mejor curso de acción para cada situación. Si un proceso legal largo no le conviene, se lo diremos desde el principio.">No. Sometimes, all it takes is a simple letter to your employer. We will go over all your options with you to determine the best course of action for each individual situation. If a long-drawn out legal process isn't in your best interest, we'll let you know upfront.</div></details>
+    <details class="q"><summary data-es="¿Cuánto cobran? <span class=&quot;pm&quot;>+</span>">How much do you charge? <span class="pm">+</span></summary><div class="a" data-es="$0 a menos que recuperemos una compensación para usted. Tomamos los casos por contingencia, lo que significa que no paga honorarios ni costos por adelantado. Si negociamos un acuerdo con su empleador o ganamos su caso en la corte, nuestros honorarios salen de lo recuperado del empleador. Si no ganamos su caso, no debe absolutamente nada.">$0 unless we recover compensation for you. We take cases on a contingency basis, which means you don't pay any upfront fees or costs. If we negotiate a settlement from your employer or win your case in court, our fee comes out of the recovery from the employer. If we didn't win your case, you owe absolutely nothing.</div></details>
+    <details class="q"><summary data-es="¿Qué pasa si todavía trabajo para mi empleador? <span class=&quot;pm&quot;>+</span>">What if I still work for my employer? <span class="pm">+</span></summary><div class="a" data-es="Aún podemos ayudarle a guiarle por sus opciones, incluso si todavía trabaja para su empleador. Llámenos o complete nuestro formulario de evaluación gratuita.">We may still be able to help guide you through your options, even if you still work for your employer. Call us or fill out our free case evaluation form.</div></details>
+    <details class="q"><summary data-es="¿Puede mi empleador tomar represalias por contratar a un abogado para representarme? <span class=&quot;pm&quot;>+</span>">Can my employer retaliate against me for hiring a lawyer to represent me with my claims? <span class="pm">+</span></summary><div class="a" data-es="En California, es ilegal que un empleador tome represalias contra empleados actuales o anteriores por presentar una demanda o queja en su contra. Esto significa que el empleador no puede legalmente despedirle, degradarle, acosarle ni discriminarle por contratar a un abogado para escribir una carta de demanda, presentar una queja en la corte o denunciar violaciones en el trabajo. Si sufrió represalias, podemos ayudar a luchar por sus derechos y recuperar la compensación que merece.">In California, it is illegal for an employer to retaliate against current or former employees for filing a lawsuit or complaint against them. This means the employer cannot legally terminate, demote, harass or discriminate against you for hiring an attorney to write a demand letter, filing a complaint in court, or complaining about workplace violations. If you were retaliated against, we can help fight for your rights and recover the compensation you deserve.</div></details>
+    <details class="q"><summary data-es="No vivo en el sur de California. ¿Aún pueden ayudar con mi caso? <span class=&quot;pm&quot;>+</span>">I don't live in Southern California. Can you still help with my case? <span class="pm">+</span></summary><div class="a" data-es="Siempre que haya trabajado para un empleador de California, podemos ayudar. La mayoría de nuestros clientes nunca necesitan venir a nuestra oficina en persona. Consultamos a la mayoría de nuestros clientes por teléfono, correo electrónico y videoconferencia. Por supuesto, si desea conocernos en persona, es bienvenido a visitarnos.">As long as you worked for a California employer, we can help. The majority of our clients never need to come into our office in person. We consult most of our clients over the phone, email, and via video conference call. Of course, if you'd like to meet us in person, you're welcome to stop by!</div></details>
   </div>
 </div></section>
 
 <!-- SOCIAL BAND -->
 <div class="f-social"><div class="wrap">
-  <h3>Follow Us</h3>
+  <h3 data-es="Síganos">Follow Us</h3>
   <div class="ic"><a href="https://www.facebook.com/wemploymentlaw" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07"/></svg></a><a href="https://www.instagram.com/wemploymentlaw/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.7 3.7 0 0 1-.9 1.38 3.7 3.7 0 0 1-1.38.9c-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 0 0-2.12 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.12A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0m0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84m0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4m6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44"/></svg></a><a href="https://www.youtube.com/channel/UCmUnEU5NU5jlZQTVZqrRhRQ" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.08 0 12 0 12s0 3.92.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.81M9.55 15.57V8.43L15.82 12z"/></svg></a><a href="https://www.tiktok.com/@employmentattorney" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07"/></svg></a></div>
 </div></div>
 
@@ -107,24 +107,24 @@
   <div class="f-cols">
     <div>
       <img src="img/logo-white.png" alt="W Employment Law" class="brand-logo-f">
-      <p style="margin-top:16px;max-width:40ch">Standing up for California employees against wrongful termination, discrimination, harassment, and wage theft. No Win, No Fee.</p>
+      <p style="margin-top:16px;max-width:40ch" data-es="Defendiendo a los empleados de California contra el despido injustificado, la discriminación, el acoso y el robo de salarios. Sin Ganar, Sin Honorarios.">Standing up for California employees against wrongful termination, discrimination, harassment, and wage theft. No Win, No Fee.</p>
       <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg></span><a href="tel:+18884920633" style="font-weight:800;color:#fff">888-492-0633</a></div>
       <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><a href="mailto:contact@wemploymentlaw.com" style="color:#fff">contact@wemploymentlaw.com</a></div>
       <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span>7700 Irvine Center Drive, Suite 800<br>Irvine, CA 92618</span></div>
-      <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span>Available 24/7 · Hablamos Español</span></div>
+      <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><span data-es="Disponibles 24/7 · Hablamos Español">Available 24/7 · Hablamos Español</span></span></div>
     </div>
-    <div><h4>Site</h4>
+    <div><h4 data-es="Sitio">Site</h4>
       <a href="practice-areas.html">Practice Areas</a><a href="calculator.html">Wage Calculator</a><a href="blog.html">Insights</a><a href="about.html">About</a><a href="contact.html">Contact</a>
     </div>
-    <div><h4>Free Case Review</h4>
-      <p style="margin:0 0 14px;max-width:34ch">Tell us what happened — an attorney will reach out. Free &amp; confidential.</p>
-      <a class="btn btn-gold" href="contact.html">Start My Free Review →</a>
+    <div><h4 data-es="Revisión Gratuita">Free Case Review</h4>
+      <p style="margin:0 0 14px;max-width:34ch" data-es="Díganos qué pasó, un abogado se comunicará con usted. Gratis y confidencial.">Tell us what happened — an attorney will reach out. Free &amp; confidential.</p>
+      <a class="btn btn-gold" href="contact.html" data-es="Iniciar Mi Revisión Gratuita →">Start My Free Review →</a>
     </div>
   </div>
-  <div class="disc">© <span id="yr"></span> W Employment Law. <b>Attorney Advertising.</b> The information on this website is for general informational purposes only and is not intended to be, and should not be taken as, legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship. Prior results do not guarantee a similar outcome.</div>
+  <div class="disc">© <span id="yr"></span> W Employment Law. <span data-es="<b>Publicidad de Abogados.</b> La información de este sitio web tiene fines informativos generales únicamente y no pretende ser, ni debe tomarse como, asesoría legal para ningún caso o situación individual. Esta información no pretende crear, y su recepción o visualización no constituye, una relación abogado-cliente. Los resultados anteriores no garantizan un resultado similar."><b>Attorney Advertising.</b> The information on this website is for general informational purposes only and is not intended to be, and should not be taken as, legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship. Prior results do not guarantee a similar outcome.</span></div>
 </div></footer>
 
-<div class="mbar"><a class="btn btn-teal" href="tel:+18884920633"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg> Call Now</a><a class="btn btn-gold" href="#review">Free Review</a></div>
+<div class="mbar"><a class="btn btn-teal" href="tel:+18884920633"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg> <span data-es="Llamar Ahora">Call Now</span></a><a class="btn btn-gold" href="#review"><span data-es="Revisión Gratis">Free Review</span></a></div>
 
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
@@ -158,4 +158,5 @@ els.forEach(function(e){io.observe(e);});
 window.addEventListener('load',function(){setTimeout(showAll,1600);});
 })();
 </script>
+<script src="i18n.js"></script>
 </body></html>

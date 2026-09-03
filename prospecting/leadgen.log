@@ -1,0 +1,6 @@
+[18:42:22] === round 1 | niche=trades | sourcing OSM across Miami cities ===
+  ! Coral Gables: HTTP Error 429: Too Many Requests
+  ! Homestead: HTTP Error 429: Too Many Requests
+  ! Miami Springs: HTTP Error 429: Too Many Requests
+  ! Hialeah Gardens: HTTP Error 429: Too Many Requests
+  ! South Miami: HTTP Error 429: Too Many Requests

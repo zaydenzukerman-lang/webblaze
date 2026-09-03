@@ -52,6 +52,25 @@ area["name"="{city}"]["boundary"="administrative"]->.a;
 );
 out tags center 200;'''
 
+CHAINS = set(x.strip() for x in """
+disney.go.com pandora.net starbucks.com mcdonalds.com subway.com dominos.com
+walmart.com target.com cvs.com walgreens.com homedepot.com lowes.com bestbuy.com
+ upsstore.com fedex.com autozone.com oreillyauto.com jiffylube.com midas.com
+h&rblock.com hrblock.com jacksonhewitt.com edwardjones.com statefarm.com
+allstate.com geico.com farmers.com pandora.net verizon.com att.com t-mobile.com
+7-eleven.com dennys.com ihop.com wendys.com burgerking.com tacobell.com kfc.com
+chase.com wellsfargo.com bankofamerica.com regions.com pnc.com citibank.com
+uhaul.com penske.com enterprise.com hertz.com avis.com massageenvy.com
+anytimefitness.com planetfitness.com lafitness.com orangetheory.com
+greatclips.com supercuts.com sportclips.com europeanwax.com
+firestone.com goodyear.com discounttire.com pepboys.com meineke.com aamco.com
+century21.com coldwellbanker.com kw.com remax.com compass.com redfin.com zillow.com
+""".split())
+
+def is_chain(domain):
+    d = domain.lower()
+    return any(d == c or d.endswith("." + c) for c in CHAINS)
+
 def domain_of(url):
     try:
         d = urllib.parse.urlparse(url).netloc.lower()
@@ -74,6 +93,9 @@ def query_city(city, filters, niche_label):
         t = e.get("tags", {})
         site = t.get("website") or t.get("contact:website") or ""
         if not site.startswith("http"):
+            continue
+        dom = domain_of(site)
+        if not dom or is_chain(dom):
             continue
         rows.append({
             "name": t.get("name", "").strip(),
