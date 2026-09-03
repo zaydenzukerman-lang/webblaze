@@ -216,3 +216,15 @@ footer .row-i .g{color:var(--gold);font-weight:800}
 .article-block{border-top:1px solid var(--line);padding-top:40px;margin-top:40px}
 @media(max-width:900px){.calc-wrap{grid-template-columns:1fr}.calc-out{position:static}.blog-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
+/* ===== hero portrait + polish ===== */
+.hero-eyebrow{display:inline-block;color:var(--gold);font-weight:800;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.hero-cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.hero-portrait{margin:0;position:relative;border-radius:14px;overflow:hidden;box-shadow:0 26px 70px rgba(0,0,0,.34);width:100%;max-width:400px;justify-self:end;align-self:center;border:1px solid rgba(255,255,255,.14)}
+.hero-portrait img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover;object-position:50% 20%}
+.hero-portrait .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 22px 16px;background:linear-gradient(180deg,transparent,rgba(8,63,71,.94));color:#fff}
+.hero-portrait .cap b{display:block;font-family:'Roboto Slab',serif;font-size:1.3rem}
+.hero-portrait .cap span{display:block;margin-top:2px;color:var(--gold);font-weight:800;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase}
+/* svg icons replacing emoji */
+.ico{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 17px;display:inline-block;vertical-align:-3px}
+.f-social .ic a svg{width:20px;height:20px;fill:currentColor;stroke:none}
+@media(max-width:960px){.hero-portrait{max-width:340px;justify-self:center;margin:0 auto}}
