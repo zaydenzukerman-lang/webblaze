@@ -250,7 +250,7 @@ footer .row-i .g{color:var(--gold);font-weight:800}
 .hero-cutout{border:0;box-shadow:none;overflow:visible;border-radius:0;min-height:560px;display:flex;align-items:flex-end;justify-content:center}
 .hero-cutout:before{content:"";position:absolute;left:50%;top:40%;transform:translate(-50%,-46%);width:140%;height:130%;background:radial-gradient(58% 58% at 50% 40%,rgba(255,255,255,.16),rgba(8,63,71,0) 70%);z-index:0}
 .hero-cutout img{position:relative;inset:auto;width:auto;height:auto;max-height:none;max-width:150%;object-fit:contain;object-position:top;filter:drop-shadow(0 24px 40px rgba(0,0,0,.35));z-index:1;margin-bottom:-110px}
-.hero-namecard{position:absolute;left:58%;bottom:26px;z-index:3;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.hero-namecard{position:absolute;left:56%;bottom:96px;z-index:3;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.75)}
 .hero-namecard b{display:block;font-family:'Roboto Slab',serif;font-size:1.45rem}
 .hero-namecard span{display:block;margin-top:3px;color:var(--gold);font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
 @media(max-width:960px){.hero-cutout{min-height:360px}.hero-cutout img{max-width:96%;margin-bottom:-60px}.hero-namecard{left:auto;right:6%}}
