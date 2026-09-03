@@ -39,7 +39,7 @@ header.nav{position:sticky;top:0;z-index:60;background:#fff;box-shadow:0 1px 0 v
 .nav-r .ph{color:var(--teal-dd);font-weight:800;font-size:1.02rem}
 .hamb{display:none;background:none;border:0;color:var(--teal-dd);font-size:1.7rem;cursor:pointer}
 /* hero */
-.hero{background:linear-gradient(120deg,var(--teal-dd),var(--teal) 70%)}
+.hero{background:linear-gradient(120deg,rgba(8,63,71,.93),rgba(10,107,120,.9) 70%),url('img/city.jpg') center/cover}
 .hero-in{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:52px 0 60px}
 .hero-l{color:#fff}
 .hero-photo{position:relative;border-radius:12px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);margin-bottom:26px}
@@ -87,7 +87,7 @@ header.nav{position:sticky;top:0;z-index:60;background:#fff;box-shadow:0 1px 0 v
 .checks .ck{flex:0 0 26px;width:26px;height:26px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:900;font-size:.82rem;margin-top:2px}
 .checks b{color:var(--teal-dd)}
 /* teal band header */
-.band-h{background:var(--teal);color:#fff;text-align:center;padding:44px 0}
+.band-h{background:linear-gradient(180deg,rgba(8,63,71,.9),rgba(10,107,120,.92)),url('img/city.jpg') center/cover;color:#fff;text-align:center;padding:44px 0}
 .band-h h2{font-family:'Roboto Slab',serif;font-size:clamp(1.6rem,3.4vw,2.4rem)}
 .band-h p{margin:10px auto 0;max-width:56ch;color:#dbf1f3}
 /* practice grid */
