@@ -28,6 +28,12 @@ PRESETS = {
         'craft=blacksmith', 'craft=welder', 'craft=sawmill', 'craft=painter',
         'craft=roofer', 'craft=stonemason', 'shop=trade', 'shop=hardware',
         'shop=doityourself', 'craft=glaziery', 'craft=signmaker',
+        'craft=tiler', 'craft=plasterer', 'craft=cabinet_maker', 'craft=locksmith',
+        'craft=gardener', 'craft=insulation', 'craft=scaffolder', 'craft=floorer',
+        'craft=window_construction', 'craft=heating_engineer', 'craft=key_cutter',
+        'shop=locksmith', 'shop=paint', 'shop=fireplace', 'shop=doors', 'shop=pool',
+        'shop=kitchen', 'shop=bathroom_furnishing', 'shop=window_blind', 'shop=tyres',
+        'shop=fabric', 'shop=sewing', 'shop=trophy', 'shop=security',
     ],
     "pro": [
         'office=lawyer', 'office=accountant', 'office=tax_advisor',
@@ -41,6 +47,11 @@ PRESETS = {
     "local": [
         'shop=florist', 'shop=jewelry', 'shop=shoe_repair', 'craft=photographer',
         'shop=bakery', 'shop=furniture', 'shop=frame', 'craft=tailor',
+        'shop=dry_cleaning', 'shop=laundry', 'shop=travel_agency', 'shop=music',
+        'shop=musical_instrument', 'shop=pet', 'shop=pet_grooming', 'shop=garden_centre',
+        'shop=hairdresser', 'shop=beauty', 'shop=car_parts', 'shop=antiques',
+        'shop=appliance', 'shop=vacuum_cleaner', 'shop=bicycle', 'shop=computer',
+        'craft=confectionery', 'craft=jeweller', 'craft=watchmaker', 'office=travel_agent',
     ],
 }
 

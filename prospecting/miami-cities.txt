@@ -1,49 +1,84 @@
+Aventura
+Bal Harbour
+Bay Harbor Islands
+Biscayne Park
+Boca Raton
+Boynton Beach
+Coconut Creek
+Coconut Grove
+Cooper City
+Coral Gables
+Coral Springs
+Coral Terrace
+Country Club
+Cutler Bay
+Dania Beach
+Davie
+Deerfield Beach
+Delray Beach
+Doral
+El Portal
+Florida City
+Fontainebleau
+Fort Lauderdale
+Golden Beach
+Greenacres
+Hallandale Beach
+Hialeah
+Hialeah Gardens
+Hillsboro Beach
+Hollywood
+Homestead
+Jupiter
+Kendall
+Key Biscayne
+Lake Park
+Lake Worth Beach
+Lantana
+Lauderdale Lakes
+Lauderhill
+Lighthouse Point
+Margate
+Medley
 Miami
 Miami Beach
-Hialeah
-Coral Gables
-Doral
-Homestead
+Miami Gardens
+Miami Lakes
+Miami Shores
+Miami Springs
+Miramar
+North Bay Village
+North Lauderdale
 North Miami
 North Miami Beach
-Miami Gardens
-Aventura
-Cutler Bay
-Palmetto Bay
-Pinecrest
-Sunny Isles Beach
-Miami Springs
+Oakland Park
 Opa-locka
-Sweetwater
-Hialeah Gardens
+Palm Beach
+Palm Beach Gardens
+Palm Springs
+Palmetto Bay
+Parkland
+Pembroke Park
+Pembroke Pines
+Pinecrest
+Plantation
+Pompano Beach
+Riviera Beach
+Royal Palm Beach
+Sea Ranch Lakes
 South Miami
-Key Biscayne
-Florida City
-Miami Lakes
-Coral Terrace
-Kendall
-Westchester
-Fontainebleau
+Southwest Ranches
+Sunny Isles Beach
+Sunrise
+Surfside
+Sweetwater
+Tamarac
 Tamiami
 The Hammocks
-Country Club
-Fort Lauderdale
-Hollywood
-Pembroke Pines
-Miramar
-Davie
-Plantation
-Sunrise
-Coral Springs
-Pompano Beach
-Deerfield Beach
+Virginia Gardens
+Wellington
+West Miami
+West Park
+Westchester
 Weston
-Tamarac
-Margate
-Coconut Creek
-Lauderhill
-Dania Beach
-Hallandale Beach
-Boca Raton
-Delray Beach
-Boynton Beach
+Wilton Manors
