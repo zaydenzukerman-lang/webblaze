@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dune Buggy — Burgers, Fries & Beach Bites | Food Truck & Catering, Grand Rapids MI</title>
+<meta name="description" content="Dune Buggy food truck — smash burgers, loaded fries & beach bites rolling through Grand Rapids and West Michigan. See this month's menu, find the truck, or book your event.">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Yellowtail&family=Oswald:wght@400;500;600&family=Karla:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html"><img src="images/logo.png" alt="Dune Buggy logo">Dune Buggy</a>
+    <div class="nav-links">
+      <a href="menu.html">Menu</a>
+      <a href="story.html">Our Story</a>
+      <a href="find.html">Find the Truck</a>
+      <a class="nav-cta" href="catering.html">Book the Truck</a>
+    </div>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" onclick="const m=document.getElementById('mm');const o=m.classList.toggle('open');this.setAttribute('aria-expanded',o)">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mm">
+  <a href="index.html" class="active">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="story.html">Our Story</a>
+  <a href="find.html">Find the Truck</a>
+  <a href="catering.html">Book the Truck</a>
+</div>
+
+<header class="hero">
+  <div class="hero-bg" role="img" aria-label="Bacon smash burger held up in front of the Dune Buggy food truck"></div>
+  <div class="hero-content">
+    <span class="script reveal">burgers, fries &amp; beach bites</span>
+    <h1 class="reveal">Beach food, done seriously.</h1>
+    <p class="reveal">Smash burgers with yacht-chef DNA, rolling through Grand Rapids and all of West Michigan.</p>
+    <div class="hero-ctas reveal">
+      <a class="btn btn-coral" href="menu.html">The Menu</a>
+      <a class="btn btn-glass" href="find.html">Find the Truck</a>
+    </div>
+    <div class="trust-strip reveal">
+      <span><b>★ 5.0</b> West Michigan</span>
+      <span>Food Truck &amp; Catering</span>
+      <span>Grand Rapids + 35 miles</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <span class="sec-script reveal">where to next?</span>
+    <h2 class="sec-title reveal">Three ways in.</h2>
+    <div class="teaser-grid">
+      <a class="teaser reveal" href="menu.html">
+        <div class="t-img"><img src="images/menu-current.jpg" alt="This month's Dune Buggy menu" loading="lazy"></div>
+        <div class="t-body">
+          <h3>The Menu</h3>
+          <p>Smash burgers and loaded fries always on the truck — plus a brand-new special every month.</p>
+          <span class="t-link">See the menu →</span>
+        </div>
+      </a>
+      <a class="teaser reveal" href="story.html">
+        <div class="t-img"><img src="images/burger-rings.jpg" alt="Double smash burger stacked with onion rings" loading="lazy"></div>
+        <div class="t-body">
+          <h3>Our Story</h3>
+          <p>Nine years cooking on Caribbean yachts. Then Grant and Stephanie put that standard on wheels.</p>
+          <span class="t-link">Read the story →</span>
+        </div>
+      </a>
+      <a class="teaser reveal" href="catering.html">
+        <div class="t-img"><img src="images/hero-truck.jpg" alt="The Dune Buggy food truck" loading="lazy"></div>
+        <div class="t-body">
+          <h3>Catering &amp; Events</h3>
+          <p>Weddings, graduations, office lunches — the truck books out months ahead. Lock your date.</p>
+          <span class="t-link">Check your date →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <span class="script reveal">hungry yet?</span>
+    <h2 class="reveal">Find out where we're parked today.</h2>
+    <a class="btn btn-navy reveal" href="find.html">Find the Truck</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><h4>Dune Buggy</h4><p>Burgers, Fries &amp; Beach Bites<br>Food Truck &amp; Catering<br>Grand Rapids, MI</p></div>
+      <div><h4>Explore</h4><p><a href="menu.html">The Menu</a><br><a href="story.html">Our Story</a><br><a href="catering.html">Catering &amp; Events</a></p></div>
+      <div><h4>Find Us</h4><p><a href="https://streetfoodfinder.com/dunebuggyfoodtruckmi" target="_blank" rel="noopener">Live Schedule</a><br><a href="https://www.instagram.com/dunebuggyfoodtruckmi/" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.facebook.com/dunebuggyfoodtruckmi/" target="_blank" rel="noopener">Facebook</a></p></div>
+      <div><h4>Contact</h4><p><a href="tel:+15613738080">(561) 373-8080</a><br><a href="mailto:dunebuggyfoodtruck@gmail.com">dunebuggyfoodtruck@gmail.com</a></p></div>
+    </div>
+    <div class="credit"><span>© Dune Buggy · Grand Rapids, MI</span><span>Site by Webblaze</span></div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "name": "Dune Buggy",
+  "servesCuisine": "Burgers",
+  "telephone": "+15613738080",
+  "email": "dunebuggyfoodtruck@gmail.com",
+  "priceRange": "$",
+  "image": "images/logo.png",
+  "address": {"@type":"PostalAddress","addressLocality":"Grand Rapids","addressRegion":"MI","addressCountry":"US"},
+  "areaServed": ["Grand Rapids","Holland","Grand Haven","Allendale","Jenison","Wyoming"],
+  "sameAs": ["https://www.facebook.com/dunebuggyfoodtruckmi/","https://www.instagram.com/dunebuggyfoodtruckmi/"]
+}
+</script>
+<script>
+  const targets=document.querySelectorAll('.reveal');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver'in window)){
+    targets.forEach(el=>el.classList.add('in'));
+  }else{
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+    targets.forEach(el=>io.observe(el));
+  }
+</script>
+<div class="demo-ribbon"><b>Preview</b> — built by Webblaze for Dune Buggy · not live yet</div>
+</body>
+</html>

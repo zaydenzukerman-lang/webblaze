@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story — Dune Buggy | From Caribbean Yachts to Grand Rapids</title>
+<meta name="description" content="Dune Buggy's story: nine years as a yacht chef in the Caribbean, brought home to West Michigan on wheels by Grant and Stephanie Francisco.">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Yellowtail&family=Oswald:wght@400;500;600&family=Karla:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html"><img src="images/logo.png" alt="Dune Buggy logo">Dune Buggy</a>
+    <div class="nav-links">
+      <a href="menu.html">Menu</a>
+      <a href="story.html" class="active">Our Story</a>
+      <a href="find.html">Find the Truck</a>
+      <a class="nav-cta" href="catering.html">Book the Truck</a>
+    </div>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" onclick="const m=document.getElementById('mm');const o=m.classList.toggle('open');this.setAttribute('aria-expanded',o)">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mm">
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="story.html" class="active">Our Story</a>
+  <a href="find.html">Find the Truck</a>
+  <a href="catering.html">Book the Truck</a>
+</div>
+
+<main>
+<div class="page-hero">
+  <div class="wrap">
+    <span class="script reveal">how it started</span>
+    <h1 class="reveal">From Caribbean yachts to West Michigan streets.</h1>
+  </div>
+</div>
+
+<section>
+  <div class="wrap story-grid">
+    <div class="story-copy">
+      <span class="sec-script reveal">the short version</span>
+      <h2 class="sec-title reveal">Nine years at sea. Then home.</h2>
+      <p class="reveal">Before the truck, <b>Grant Francisco</b> spent nearly a decade as a chef on yachts in the Caribbean — where every plate had to be perfect, every single time, for people who expected exactly that.</p>
+      <p class="reveal">In 2022, Grant and <b>Stephanie</b> brought that standard home to West Michigan and put it on wheels: proper smash burgers, house-made sauces, and beach vibes wherever the truck parks.</p>
+      <p class="reveal">Today Dune Buggy is one of Grand Rapids' most in-demand trucks — regulars chase the monthly menu drops, and events book out months in advance.</p>
+    </div>
+    <div class="story-img reveal"><img src="images/burger-rings.jpg" alt="Double smash burger stacked with onion rings, bacon and melted cheese held up outdoors"></div>
+  </div>
+  <div class="wrap">
+    <div class="stat-band reveal">
+      <div><b>9 yrs</b><span>Yacht Chef</span></div>
+      <div><b>2022</b><span>Truck Launched</span></div>
+      <div><b>35 mi</b><span>Around Grand Rapids</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <span class="script reveal">taste the story</span>
+    <h2 class="reveal">See what's on the truck this month.</h2>
+    <a class="btn btn-navy reveal" href="menu.html">The Menu</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><h4>Dune Buggy</h4><p>Burgers, Fries &amp; Beach Bites<br>Food Truck &amp; Catering<br>Grand Rapids, MI</p></div>
+      <div><h4>Explore</h4><p><a href="menu.html">The Menu</a><br><a href="story.html">Our Story</a><br><a href="catering.html">Catering &amp; Events</a></p></div>
+      <div><h4>Find Us</h4><p><a href="https://streetfoodfinder.com/dunebuggyfoodtruckmi" target="_blank" rel="noopener">Live Schedule</a><br><a href="https://www.instagram.com/dunebuggyfoodtruckmi/" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.facebook.com/dunebuggyfoodtruckmi/" target="_blank" rel="noopener">Facebook</a></p></div>
+      <div><h4>Contact</h4><p><a href="tel:+15613738080">(561) 373-8080</a><br><a href="mailto:dunebuggyfoodtruck@gmail.com">dunebuggyfoodtruck@gmail.com</a></p></div>
+    </div>
+    <div class="credit"><span>© Dune Buggy · Grand Rapids, MI</span><span>Site by Webblaze</span></div>
+  </div>
+</footer>
+
+<script>
+  const targets=document.querySelectorAll('.reveal');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver'in window)){
+    targets.forEach(el=>el.classList.add('in'));
+  }else{
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+    targets.forEach(el=>io.observe(el));
+  }
+</script>
+<div class="demo-ribbon"><b>Preview</b> — built by Webblaze for Dune Buggy · not live yet</div>
+</body>
+</html>

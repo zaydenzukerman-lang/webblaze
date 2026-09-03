@@ -1,41 +1,18 @@
 import type { NextConfig } from "next";
 
-// Client demo sites served from public/<slug>/.
-//   Path access:      webblaze.io/<slug>/   (works on *.vercel.app immediately)
-//   Subdomain access: <slug>.webblaze.io    (handled in src/proxy.ts)
-const DEMOS = ["orangebeachfish", "dunebuggy", "sunfinance", "sunmortgagefunding", "sunpremium", "fetchero", "thetownagency", "wemploymentlaw"] as const;
-
+// Static export → hosted on GitHub Pages (custom domain webblaze.io).
+// Deploy = build to /docs, git push. No Vercel token / login needed.
+//
+// Client demo sites live in public/<slug>/ and are copied into the export as-is.
+// GitHub Pages natively serves /<slug>/ -> /<slug>/index.html (directory index),
+// so path-based demo access (webblaze.io/<slug>/) keeps working.
+// The <slug>.webblaze.io subdomains and the live client .com domains stay on the
+// existing Vercel deployment (src/proxy.ts middleware) — separate DNS records,
+// untouched by moving this apex homepage to Pages.
 const nextConfig: NextConfig = {
-  // trailingSlash:false — pretty URLs (subdomain /apply, /about, …) must NOT
-  // gain a trailing slash, or the pages' relative asset paths (img/…, styles.css)
-  // resolve against /apply/ and 404. With it off, subdomain /apply stays /apply,
-  // relative img/ -> /img/ and the proxy (src/proxy.ts) prefixes the slug. A
-  // stray /apply/ self-heals via Next's redirect back to /apply. (Trade-off:
-  // path-based apex access uses /<slug>/index.html or /<slug>/<page> — see proxy.)
+  output: "export",
   trailingSlash: false,
-  async rewrites() {
-    return {
-      beforeFiles: [
-        // Directory-index: /<slug> and /<slug>/ -> /<slug>/index.html
-        ...DEMOS.map((slug) => ({
-          source: `/${slug}`,
-          destination: `/${slug}/index.html`,
-        })),
-        ...DEMOS.map((slug) => ({
-          source: `/${slug}/`,
-          destination: `/${slug}/index.html`,
-        })),
-      ],
-      afterFiles: [
-        // Pretty URLs inside demos: /<slug>/menu -> /<slug>/menu.html
-        ...DEMOS.map((slug) => ({
-          source: `/${slug}/:page([a-z-]+)`,
-          destination: `/${slug}/:page.html`,
-        })),
-      ],
-      fallback: [],
-    };
-  },
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
