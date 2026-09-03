@@ -11,8 +11,16 @@ Sun work is done/saved in `SUN-STATE.md` (reference only — don't re-touch unle
 
 ## 2. Infra & credentials
 - Repo `~/webblaze` (Next.js). Client sites live in `public/<slug>/` (static HTML). A new slug must be added to the `DEMOS` array in **both** `src/proxy.ts` and `next.config.ts`.
-- Deploy staging: `cd ~/webblaze && npm run build && git add -A && git commit -m "…" && vercel --prod --yes --scope hbz-holdings`. (Vercel scope `hbz-holdings`, team `team_wy9hEdFNi11gAe8NqbwTQiRx`, webblaze project id `prj_IKQlruOVyixsZq2rs6se1pdB6QPc`.) Propagation lag ~10–30s; recheck with `?cb=$RANDOM`.
-- Vercel API token: `~/Library/Application Support/com.vercel.cli/auth.json` → field `token`.
+- **DEPLOY (current — GitHub Pages, no token/login needed):** the apex `webblaze.io` homepage is a **static export hosted on GitHub Pages**, served from repo `zaydenzukerman-lang/webblaze`, branch `main`, folder `/docs`. Deploy =
+  ```
+  cd ~/webblaze && npm run build && rm -rf docs && cp -R out docs \
+    && touch docs/.nojekyll && printf 'webblaze.io' > docs/CNAME \
+    && git add -A && git commit -m "…" && git push origin main
+  ```
+  GitHub Pages rebuilds in ~1 min. `public/CNAME`=`webblaze.io` + `public/.nojekyll` are committed so they always land in the build. `next.config.ts` has `output:"export"`, `images.unoptimized:true`. GH CLI is already authed (`gh auth status`). No Vercel, no login — the "token that died" was Vercel's; we left it.
+- **DNS (Cloudflare, token `~/.cf_webblaze_token`, zone `38f5574d3d2e456ed8f24ba23682d395`):** apex `webblaze.io` = 4 A records → `185.199.108–111.153` (GitHub Pages), `www` CNAME → `zaydenzukerman-lang.github.io`, DNS-only. **Revert to Vercel** = apex A → `76.76.21.21`, www CNAME → `cname.vercel-dns.com`.
+- **⚠️ Still on the OLD Vercel deployment (frozen, last deploy still live):** the `<slug>.webblaze.io` demo subdomains AND the live client `.com` sites (`sunfinance.com`, `sunpremium.com`, `sunmortgagefunding.com`) run off `src/proxy.ts` middleware on Vercel — Pages can't run middleware, so those stayed on Vercel and are UNTOUCHED. Path-based demo access (`webblaze.io/<slug>/`) works on Pages via native directory-index. To *update* a client demo or add a subdomain again we'd need a fresh Vercel token from dad (project `prj_IKQlruOVyixsZq2rs6se1pdB6QPc`, scope `hbz-holdings`) — or migrate those to their own Pages repos.
+- Vercel API token (DEAD — API returns `invalidToken`): was `~/Library/Application Support/com.vercel.cli/auth.json` → field `token`. Not used anymore.
 - **New subdomain** `<slug>.webblaze.io`: (a) Cloudflare CNAME `<slug>` → `cname.vercel-dns.com` DNS-only, zone `38f5574d3d2e456ed8f24ba23682d395`, token `~/.cf_webblaze_token`; (b) attach domain via Vercel API `POST /v10/projects/<projId>/domains`.
 - **Images: Pexels API** key `85gzYeGliCl062HE8cT3bQZRphoW2iaH9pI2oxmLxJ7zE1KTttQe8eXL` — send `Authorization: <key>` header + a normal browser User-Agent, use `src.large2x`, `orientation=landscape|portrait`. Free/commercial/no-attribution.
 - Concierge = dad's Claude Code. Reach via `~/message-concierge.sh "msg"` (SSH to Forest's Mac mini — only works when this machine is on his home Wi-Fi, subnet 192.168.68.x) or GitHub issue `github.com/zaydenzukerman-lang/webblaze/issues/1`.
