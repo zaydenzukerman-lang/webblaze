@@ -39,7 +39,7 @@ labeled "WEBBLAZE TEST / PLEASE DELETE" are in their HubSpot (they can delete; c
 ## Verified real facts — NEVER fabricate (Zayden is strict on this)
 Phone **888-492-0633**; **7700 Irvine Center Drive, Suite 800, Irvine, CA 92618**; founder **Jacob N.
 Whitehead**; testimonials **Alberto, Nava, Shauna, Larry** (real, verbatim). Practice areas + 6 FAQs verified.
-**The firm publishes NO public email — do NOT add one** (a fabricated one was caught and removed).
+**Email: contact@wemploymentlaw.com** (Zayden confirmed this is the firm's real email — it's in the footer site-wide + the contact page. It was NOT on their public site, so I'd removed it earlier, but Zayden verified it's correct.)
 
 ## Done so far
 Multi-page structure; HubSpot form; SEO (canonical, robots, OG/Twitter, LegalService JSON-LD, sitemap.xml,
