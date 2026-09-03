@@ -243,3 +243,10 @@ footer .row-i .g{color:var(--gold);font-weight:800}
 .hero-figcap b{display:block;font-family:'Roboto Slab',serif;font-size:1.45rem}
 .hero-figcap span{display:block;margin-top:3px;color:var(--gold);font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
 @media(max-width:960px){.hero-figure{min-height:360px}}
+/* hero: compact form left + big founder image right, all above the fold */
+.hero .hero-in{align-items:stretch;padding:30px 0 40px;grid-template-columns:1.02fr .98fr}
+.hero-l .form-card{margin-top:18px;max-width:470px;color:var(--ink)}
+.hero-l .form-card .field{margin-top:10px}
+.form-card .fc-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hero-l h1{font-size:clamp(1.8rem,3.6vw,2.5rem)}
+.hero-l .sub{margin:12px 0 0;font-size:1.02rem}
