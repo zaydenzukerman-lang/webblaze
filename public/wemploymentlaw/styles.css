@@ -235,3 +235,11 @@ footer .row-i .g{color:var(--gold);font-weight:800}
 .founder-chip>div>span{display:block;color:var(--gold);font-weight:800;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
 .founder-chip .fc-stars{color:var(--gold);font-size:.8rem;margin-top:4px;letter-spacing:1px}
 .founder-chip .fc-stars em{color:#cfe8ea;font-style:normal;letter-spacing:0}
+/* big founder hero image (right half) */
+.hero .hero-in{align-items:stretch}
+.hero-figure{margin:0;position:relative;border-radius:16px;overflow:hidden;box-shadow:0 26px 70px rgba(0,0,0,.36);border:1px solid rgba(255,255,255,.14);min-height:480px}
+.hero-figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 14%}
+.hero-figcap{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:44px 26px 22px;background:linear-gradient(180deg,transparent,rgba(8,63,71,.94));color:#fff}
+.hero-figcap b{display:block;font-family:'Roboto Slab',serif;font-size:1.45rem}
+.hero-figcap span{display:block;margin-top:3px;color:var(--gold);font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:960px){.hero-figure{min-height:360px}}
