@@ -232,21 +232,14 @@ footer .row-i .g{color:var(--gold);font-weight:800}
   </div>
   <div class="form-card" id="review">
     <div class="fc-head"><h3>Free Case Review</h3><p>Confidential · No obligation · No fee unless we win</p></div>
-    <form onsubmit="event.preventDefault();this.innerHTML='&lt;div style=&quot;padding:14px 0;text-align:center&quot;&gt;&lt;h3 style=&quot;font-family:Roboto Slab,serif;color:#0a6b78;font-size:1.4rem&quot;&gt;Thank you.&lt;/h3&gt;&lt;p style=&quot;color:#697079;margin-top:8px&quot;&gt;Your request has been received. An attorney will reach out shortly. To speak with someone now, call &lt;b&gt;888-492-0633&lt;/b&gt;.&lt;/p&gt;&lt;/div&gt;';">
-      <input class="field" required placeholder="First &amp; last name" aria-label="Name">
-      <input class="field" type="tel" required placeholder="Phone number" aria-label="Phone">
-      <input class="field" type="email" placeholder="Email address" aria-label="Email">
-      <select class="field" aria-label="What happened">
-        <option value="">What happened? (select one)</option>
-        <option>Wrongful Termination</option><option>Discrimination</option>
-        <option>Sexual Harassment</option><option>Unpaid Wages / Overtime</option>
-        <option>Meal &amp; Rest Breaks</option><option>Pregnancy Discrimination</option>
-        <option>Medical Leave / Disability</option><option>Whistleblower Retaliation</option>
-        <option>Misclassification</option><option>Something else</option>
-      </select>
-      <textarea class="field" rows="3" placeholder="Briefly, what happened?" aria-label="Details"></textarea>
-      <button class="btn btn-gold" type="submit">Get My Free Case Review →</button>
-      <p class="fine">🔒 100% confidential. Submitting does not create an attorney-client relationship.</p>
+    <form id="caseForm">
+      <input class="field" id="f_first" required placeholder="First name" aria-label="First name" autocomplete="given-name">
+      <input class="field" id="f_last" required placeholder="Last name" aria-label="Last name" autocomplete="family-name">
+      <input class="field" id="f_phone" type="tel" required placeholder="Phone number" aria-label="Phone" autocomplete="tel">
+      <input class="field" id="f_email" type="email" required placeholder="Email address" aria-label="Email" autocomplete="email">
+      <input id="f_co" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <button class="btn btn-gold" type="submit" id="f_btn">Get My Free Case Review →</button>
+      <p class="fine" id="f_note">🔒 100% confidential. Submitting does not create an attorney-client relationship.</p>
     </form>
   </div>
 </div></section>
@@ -419,6 +412,31 @@ footer .row-i .g{color:var(--gold);font-weight:800}
 
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
+// Case-review form -> posts straight into W Employment Law's HubSpot CRM (portal 7690372)
+(function(){
+  var form=document.getElementById('caseForm'); if(!form) return;
+  var ENDPOINT="https://api.hsforms.com/submissions/v3/integration/submit/7690372/2860c01f-db29-45c3-bc90-567d6cc5d835";
+  var note=document.getElementById('f_note'), btn=document.getElementById('f_btn');
+  var okMsg='<div style="padding:14px 0;text-align:center"><h3 style="font-family:Roboto Slab,serif;color:#0a6b78;font-size:1.4rem">Thank you.</h3><p style="color:#697079;margin-top:8px">Your request has been received. An attorney will reach out shortly. To speak with someone now, call <b>888-492-0633</b>.</p></div>';
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(document.getElementById('f_co').value){return;} // honeypot: silently drop bots
+    btn.disabled=true; btn.textContent='Sending…';
+    var payload={fields:[
+      {name:"firstname",value:document.getElementById('f_first').value.trim()},
+      {name:"lastname", value:document.getElementById('f_last').value.trim()},
+      {name:"email",    value:document.getElementById('f_email').value.trim()},
+      {name:"phone",    value:document.getElementById('f_phone').value.trim()}
+    ],context:{pageUri:location.href,pageName:document.title}};
+    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
+      .then(function(r){return r.ok?r.json():Promise.reject(r);})
+      .then(function(){ form.innerHTML=okMsg; })
+      .catch(function(){
+        btn.disabled=false; btn.textContent='Get My Free Case Review →';
+        note.innerHTML='Something went wrong. Please call <b>888-492-0633</b> and we\'ll get you taken care of.';
+      });
+  });
+})();
 document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(a)document.getElementById('nav').classList.remove('open');});
 (function(){var els=document.querySelectorAll('.reveal');
 function showAll(){els.forEach(function(e){e.classList.add('in');});}
