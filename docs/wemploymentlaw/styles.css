@@ -261,3 +261,9 @@ footer .row-i .g{color:var(--gold);font-weight:800}
 .brand-logo{height:58px;width:auto;display:block}
 .brand-logo-f{height:50px;width:auto;display:block;margin-bottom:10px}
 @media(max-width:960px){.brand-logo{height:46px}}
+/* EN/ES language toggle */
+.langtog{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;overflow:hidden;background:#fff;cursor:pointer;font-weight:800;font-size:.76rem;font-family:inherit;padding:0;margin-right:4px}
+.langtog span{padding:6px 10px;color:var(--muted);transition:.15s}
+.langtog span.active{background:var(--teal);color:#fff}
+.langtog:hover{border-color:var(--teal)}
+@media(max-width:960px){.langtog{margin-right:8px}}

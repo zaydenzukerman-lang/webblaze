@@ -29,19 +29,19 @@
 
 <!-- UTILITY BAR -->
 <div class="util"><div class="wrap util-in">
-  <span>Serving employees across all of California</span>
-  <div class="u-r"><span class="dot">●</span> Available 24/7 <span>·</span> Hablamos Español <a href="tel:+18884920633">888-492-0633</a></div>
+  <span data-es="Al servicio de los empleados en todo California">Serving employees across all of California</span>
+  <div class="u-r"><span class="dot">●</span> <span data-es="Disponibles 24/7">Available 24/7</span> <span>·</span> Hablamos Español <a href="tel:+18884920633">888-492-0633</a></div>
 </div></div>
 
 <!-- NAV -->
 <header class="nav" id="nav"><div class="wrap nav-in">
   <a class="brand" href="index.html"><img src="img/logo.png" alt="W Employment Law" class="brand-logo"></a>
   <nav class="nav-links">
-    <a href="index.html">Home</a><a href="practice-areas.html">Practice Areas</a><a href="calculator.html">Wage Calculator</a><a href="blog.html">Insights</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    <a href="index.html" data-es="Inicio">Home</a><a href="practice-areas.html" data-es="Áreas de Práctica">Practice Areas</a><a href="calculator.html" data-es="Calculadora de Salarios">Wage Calculator</a><a href="blog.html" data-es="Recursos">Insights</a><a href="about.html" data-es="Nosotros">About</a><a href="contact.html" data-es="Contacto">Contact</a>
   </nav>
-  <div class="nav-r">
+  <div class="nav-r"><button class="langtog" id="langtog" type="button" aria-label="Switch to Spanish" onclick="toggleLang()"><span class="l-en active">EN</span><span class="l-es">ES</span></button>
     <a class="ph" href="tel:+18884920633"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg> 888-492-0633</a>
-    <a class="btn btn-gold" href="contact.html">Free Case Review</a>
+    <a class="btn btn-gold" href="contact.html" data-es="Consulta Gratis">Free Case Review</a>
     <button class="hamb" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
   </div>
 </div></header>
@@ -49,33 +49,33 @@
 <!-- HERO -->
 <section class="hero"><div class="wrap hero-in">
   <div class="hero-l">
-    <h1>Fighting for California <em>Employees</em></h1>
+    <h1 data-es="Luchando por los <em>Empleados</em> de California">Fighting for California <em>Employees</em></h1>
     <div class="form-card" id="review">
-      <div class="fc-head"><h3>Free Case Review</h3><p>Confidential · No obligation · No fee unless we win</p></div>
+      <div class="fc-head"><h3 data-es="Revisión Gratuita de su Caso">Free Case Review</h3><p data-es="Confidencial · Sin compromiso · Sin honorarios a menos que ganemos">Confidential · No obligation · No fee unless we win</p></div>
       <form id="caseForm">
         <div class="fc-row">
-          <input class="field" id="f_first" required placeholder="First name" aria-label="First name" autocomplete="given-name">
-          <input class="field" id="f_last" required placeholder="Last name" aria-label="Last name" autocomplete="family-name">
+          <input class="field" id="f_first" required placeholder="First name" data-es-ph="Nombre" aria-label="First name" autocomplete="given-name">
+          <input class="field" id="f_last" required placeholder="Last name" data-es-ph="Apellido" aria-label="Last name" autocomplete="family-name">
         </div>
-        <input class="field" id="f_phone" type="tel" required placeholder="Phone number" aria-label="Phone" autocomplete="tel">
-        <input class="field" id="f_email" type="email" required placeholder="Email address" aria-label="Email" autocomplete="email">
+        <input class="field" id="f_phone" type="tel" required placeholder="Phone number" data-es-ph="Número de teléfono" aria-label="Phone" autocomplete="tel">
+        <input class="field" id="f_email" type="email" required placeholder="Email address" data-es-ph="Correo electrónico" aria-label="Email" autocomplete="email">
         <input id="f_co" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-        <button class="btn btn-gold" type="submit" id="f_btn">Get My Free Case Review →</button>
+        <button class="btn btn-gold" type="submit" id="f_btn" data-es="Obtener Mi Revisión Gratuita →">Get My Free Case Review →</button>
         <p class="fine" id="f_note"><svg class="ico" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> 100% confidential. No attorney-client relationship is formed by submitting.</p>
       </form>
     </div>
   </div>
   <figure class="hero-figure">
     <img src="img/jacob.png" alt="Jacob N. Whitehead, Founding Attorney at W Employment Law">
-    <figcaption class="hero-figcap"><b>Jacob N. Whitehead</b><span>Founding Attorney</span></figcaption>
+    <figcaption class="hero-figcap"><b>Jacob N. Whitehead</b><span data-es="Abogado Fundador">Founding Attorney</span></figcaption>
   </figure>
 </div></section>
 
 <!-- TRUST STRIP -->
 <div class="trust"><div class="wrap trust-in">
-  <span><i class="g">★★★★★</i> Trusted by California workers</span>
-  <span><i class="g">✓</i> No Win, No Fee — contingency representation</span>
-  <span><i class="g">✓</i> Free &amp; confidential consultations</span>
+  <span><i class="g">★★★★★</i> <span data-es="La confianza de los trabajadores de California">Trusted by California workers</span></span>
+  <span><i class="g">✓</i> <span data-es="Sin Ganar, Sin Honorarios — representación por contingencia">No Win, No Fee — contingency representation</span></span>
+  <span><i class="g">✓</i> <span data-es="Consultas gratuitas y confidenciales">Free &amp; confidential consultations</span></span>
   <span><i class="g">✓</i> Hablamos Español</span>
 </div></div>
 
@@ -112,7 +112,7 @@
 <!-- HOW IT WORKS -->
 <section class="sec" style="padding:8px 0 40px"><div class="wrap center">
   <span class="eyebrow">Simple &amp; free to start</span>
-  <h2 class="sec-h" style="margin:8px 0 0">How It Works</h2>
+  <h2 class="sec-h" style="margin:8px 0 0" data-es="Cómo Funciona">How It Works</h2>
   <p class="lead" style="margin:12px auto 0">Three steps, and it costs nothing to find out where you stand.</p>
   <div class="steps reveal">
     <div class="step"><div class="sn">1</div><b>Tell Us What Happened</b><small>Call us or fill out the form. It's free, confidential, and takes just a few minutes.</small></div>
@@ -123,27 +123,27 @@
 
 <!-- PRACTICE AREAS (preview) -->
 <div class="band-h"><div class="wrap">
-  <h2>Serving All of California<br>In These Practice Areas</h2>
+  <h2 data-es="Al Servicio de Todo California<br>en Estas Áreas de Práctica">Serving All of California<br>In These Practice Areas</h2>
   <p>Whatever your employer did, there's a good chance we've handled it before. Choose an area — or just ask us, free.</p>
 </div></div>
 <section class="sec" style="padding-top:48px"><div class="wrap">
   <div class="pa-grid reveal">
-    <a class="pa" href="practice-areas.html#wrongful-termination"><img src="img/pa-termination.jpg" alt="Wrongful termination"><div class="lbl"><h3>Wrongful Termination</h3><span class="arw">→</span></div></a>
-    <a class="pa" href="practice-areas.html#discrimination"><img src="img/pa-discrimination.jpg" alt="Discrimination"><div class="lbl"><h3>Discrimination</h3><span class="arw">→</span></div></a>
-    <a class="pa" href="practice-areas.html#harassment"><img src="img/pa-harassment.jpg" alt="Sexual harassment"><div class="lbl"><h3>Sexual Harassment</h3><span class="arw">→</span></div></a>
-    <a class="pa" href="practice-areas.html#wages"><img src="img/pa-wages.jpg" alt="Unpaid wages"><div class="lbl"><h3>Unpaid Wages &amp; Overtime</h3><span class="arw">→</span></div></a>
-    <a class="pa" href="practice-areas.html#breaks"><img src="img/pa-breaks.jpg" alt="Meal and rest breaks"><div class="lbl"><h3>Meal &amp; Rest Breaks</h3><span class="arw">→</span></div></a>
-    <a class="pa" href="practice-areas.html#pregnancy"><img src="img/pa-pregnancy.jpg" alt="Pregnancy discrimination"><div class="lbl"><h3>Pregnancy Discrimination</h3><span class="arw">→</span></div></a>
-    <a class="pa" href="practice-areas.html#medical"><img src="img/pa-medical.jpg" alt="Medical leave and disability"><div class="lbl"><h3>Medical Leave &amp; Disability</h3><span class="arw">→</span></div></a>
-    <a class="pa" href="practice-areas.html#whistleblower"><img src="img/pa-whistleblower.jpg" alt="Whistleblower retaliation"><div class="lbl"><h3>Whistleblower Retaliation</h3><span class="arw">→</span></div></a>
-    <a class="pa" href="practice-areas.html#contractor"><img src="img/pa-contractor.jpg" alt="Independent contractor misclassification"><div class="lbl"><h3>Contractor Misclassification</h3><span class="arw">→</span></div></a>
+    <a class="pa" href="practice-areas.html#wrongful-termination"><img src="img/pa-termination.jpg" alt="Wrongful termination"><div class="lbl"><h3 data-es="Despido Injustificado">Wrongful Termination</h3><span class="arw">→</span></div></a>
+    <a class="pa" href="practice-areas.html#discrimination"><img src="img/pa-discrimination.jpg" alt="Discrimination"><div class="lbl"><h3 data-es="Discriminación">Discrimination</h3><span class="arw">→</span></div></a>
+    <a class="pa" href="practice-areas.html#harassment"><img src="img/pa-harassment.jpg" alt="Sexual harassment"><div class="lbl"><h3 data-es="Acoso Sexual">Sexual Harassment</h3><span class="arw">→</span></div></a>
+    <a class="pa" href="practice-areas.html#wages"><img src="img/pa-wages.jpg" alt="Unpaid wages"><div class="lbl"><h3 data-es="Salarios y Horas Extra No Pagadas">Unpaid Wages &amp; Overtime</h3><span class="arw">→</span></div></a>
+    <a class="pa" href="practice-areas.html#breaks"><img src="img/pa-breaks.jpg" alt="Meal and rest breaks"><div class="lbl"><h3 data-es="Descansos y Comidas">Meal &amp; Rest Breaks</h3><span class="arw">→</span></div></a>
+    <a class="pa" href="practice-areas.html#pregnancy"><img src="img/pa-pregnancy.jpg" alt="Pregnancy discrimination"><div class="lbl"><h3 data-es="Discriminación por Embarazo">Pregnancy Discrimination</h3><span class="arw">→</span></div></a>
+    <a class="pa" href="practice-areas.html#medical"><img src="img/pa-medical.jpg" alt="Medical leave and disability"><div class="lbl"><h3 data-es="Licencia Médica y Discapacidad">Medical Leave &amp; Disability</h3><span class="arw">→</span></div></a>
+    <a class="pa" href="practice-areas.html#whistleblower"><img src="img/pa-whistleblower.jpg" alt="Whistleblower retaliation"><div class="lbl"><h3 data-es="Represalias por Denunciar">Whistleblower Retaliation</h3><span class="arw">→</span></div></a>
+    <a class="pa" href="practice-areas.html#contractor"><img src="img/pa-contractor.jpg" alt="Independent contractor misclassification"><div class="lbl"><h3 data-es="Clasificación Errónea de Contratistas">Contractor Misclassification</h3><span class="arw">→</span></div></a>
   </div>
-  <div class="center" style="margin-top:30px"><a class="btn btn-outt" href="practice-areas.html">See all practice areas →</a></div>
+  <div class="center" style="margin-top:30px"><a class="btn btn-outt" href="practice-areas.html" data-es="Ver todas las áreas →">See all practice areas →</a></div>
 </div></section>
 
 <!-- WHY US -->
 <section class="why" id="why"><div class="why-bg"></div><div class="wrap why-in">
-  <h2>Why Hire W Employment Law?</h2>
+  <h2 data-es="¿Por Qué Contratar a W Employment Law?">Why Hire W Employment Law?</h2>
   <div class="why-grid reveal">
     <div class="why-c"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8h14M7 8l-3 6a4 4 0 0 0 6 0zM20 8l-3 6a4 4 0 0 0 6 0z"/></svg></div><b>Free Legal Advice</b><small>Talk to a real attorney at no cost</small></div>
     <div class="why-c"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><b>No Win, No Fee</b><small>Pay nothing unless we recover</small></div>
@@ -152,13 +152,13 @@
     <div class="why-c"><div class="ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><b>Proven Results</b><small>Standing up for workers, and winning</small></div>
     <div class="why-c"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.5 8 8 11 4.5-3 8-6 8-11V5z"/></svg></div><b>Confidential Advice</b><small>What you share stays private</small></div>
   </div>
-  <div class="center" style="margin-top:40px"><a class="btn btn-gold" href="contact.html">Get Your Free Case Review →</a></div>
+  <div class="center" style="margin-top:40px"><a class="btn btn-gold" href="contact.html" data-es="Obtenga Su Revisión Gratuita →">Get Your Free Case Review →</a></div>
 </div></section>
 
 <!-- TESTIMONIALS -->
 <section class="sec" id="reviews"><div class="wrap center">
   <span class="eyebrow">Testimonials</span>
-  <h2 class="sec-h" style="margin:8px 0 0">Real Clients. Real Outcomes.</h2>
+  <h2 class="sec-h" style="margin:8px 0 0" data-es="Clientes Reales. Resultados Reales.">Real Clients. Real Outcomes.</h2>
   <div class="revs" style="text-align:left">
     <div class="rcard reveal"><div class="stars">★★★★★</div><p>"I would recommend this firm to anyone in need of this type of representation. They are efficient, courteous, and very timely in their response. I dealt with a few people within the company and everyone's level of professionalism is beyond expectation. Anytime I had a question a professional was there to help. The kind of personal service they offer here is a rarity, if you're looking for a winning team, look no further. 1000% satisfied."</p><div class="who"><span class="av">A</span> Alberto</div></div>
     <div class="rcard reveal"><div class="stars">★★★★★</div><p>"I'm glad I chose them to fight for me! Communication was excellent and everything was completed much quicker than I expected. Highly recommend."</p><div class="who"><span class="av">N</span> Nava</div></div>
@@ -168,10 +168,10 @@
 
 <!-- CTA BAND -->
 <section class="cta"><div class="cta-bg"></div><div class="wrap cta-in">
-  <h2>Wronged at work?<br>Let's <em>fight back.</em></h2>
+  <h2 data-es="¿Le hicieron daño en el trabajo?<br>Vamos a <em>contraatacar.</em>">Wronged at work?<br>Let's <em>fight back.</em></h2>
   <p>Free, confidential case review. No obligation, and no fee unless we win. Serving employees across all of California.</p>
   <div class="row">
-    <a class="btn btn-gold" href="contact.html">Get My Free Case Review</a>
+    <a class="btn btn-gold" href="contact.html" data-es="Obtener Mi Revisión Gratuita">Get My Free Case Review</a>
     <a class="btn btn-out" href="tel:+18884920633">Call 888-492-0633</a>
   </div>
 </div></section>
@@ -193,7 +193,7 @@
       <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span>Available 24/7 · Hablamos Español</span></div>
     </div>
     <div><h4>Site</h4>
-      <a href="practice-areas.html">Practice Areas</a><a href="calculator.html">Wage Calculator</a><a href="blog.html">Insights</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      <a href="practice-areas.html" data-es="Áreas de Práctica">Practice Areas</a><a href="calculator.html" data-es="Calculadora de Salarios">Wage Calculator</a><a href="blog.html" data-es="Recursos">Insights</a><a href="about.html" data-es="Nosotros">About</a><a href="contact.html" data-es="Contacto">Contact</a>
     </div>
     <div><h4>Free Case Review</h4>
       <p style="margin:0 0 14px;max-width:34ch">Tell us what happened — an attorney will reach out. Free &amp; confidential.</p>
@@ -237,4 +237,5 @@ els.forEach(function(e){io.observe(e);});
 window.addEventListener('load',function(){setTimeout(showAll,1600);});
 })();
 </script>
+<script src="i18n.js"></script>
 </body></html>
