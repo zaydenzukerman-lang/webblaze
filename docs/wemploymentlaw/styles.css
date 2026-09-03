@@ -39,7 +39,7 @@ header.nav{position:sticky;top:0;z-index:60;background:#fff;box-shadow:0 1px 0 v
 .nav-r .ph{color:var(--teal-dd);font-weight:800;font-size:1.02rem}
 .hamb{display:none;background:none;border:0;color:var(--teal-dd);font-size:1.7rem;cursor:pointer}
 /* hero */
-.hero{position:relative;overflow:hidden;background:var(--teal-dd);min-height:calc(100vh - 128px)}
+.hero{position:relative;overflow:hidden;background:var(--teal-dd);min-height:calc(100vh - 122px)}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(120deg,rgba(8,63,71,.92),rgba(10,107,120,.9) 70%)}
 .hero .hero-in{position:relative;z-index:2}
@@ -247,13 +247,13 @@ footer .row-i .g{color:var(--gold);font-weight:800}
 .hero-figcap span{display:block;margin-top:3px;color:var(--gold);font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
 @media(max-width:960px){.hero-figure{min-height:360px}}
 /* transparent founder cutout floating over a semi-transparent backdrop */
-.hero-cutout{border:0;box-shadow:none;overflow:visible;border-radius:0;min-height:560px;display:flex;align-items:flex-end;justify-content:center}
-.hero-cutout:before{content:"";position:absolute;left:50%;top:40%;transform:translate(-50%,-46%);width:140%;height:130%;background:radial-gradient(58% 58% at 50% 40%,rgba(255,255,255,.16),rgba(8,63,71,0) 70%);z-index:0}
-.hero-cutout img{position:relative;inset:auto;width:auto;height:auto;max-height:none;max-width:150%;object-fit:contain;object-position:top;filter:drop-shadow(0 24px 40px rgba(0,0,0,.35));z-index:1;margin-bottom:-110px}
-.hero-namecard{position:absolute;left:56%;bottom:96px;z-index:3;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.75)}
+.hero-cutout{border:0;box-shadow:none;overflow:visible;border-radius:0;min-height:0}
+.hero-cutout:before{content:"";position:absolute;left:64%;top:44%;transform:translate(-50%,-46%);width:70%;height:120%;background:radial-gradient(58% 58% at 50% 40%,rgba(255,255,255,.16),rgba(8,63,71,0) 70%);z-index:0}
+.hero-cutout img{position:absolute;right:-1%;top:4%;bottom:auto;width:auto;height:112%;max-height:none;max-width:none;filter:drop-shadow(0 24px 40px rgba(0,0,0,.35));z-index:1}
+.hero-namecard{position:absolute;left:56%;bottom:34px;z-index:3;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.75)}
 .hero-namecard b{display:block;font-family:'Roboto Slab',serif;font-size:1.45rem}
 .hero-namecard span{display:block;margin-top:3px;color:var(--gold);font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
-@media(max-width:960px){.hero-cutout{min-height:360px}.hero-cutout img{max-width:96%;margin-bottom:-60px}.hero-namecard{left:auto;right:6%}}
+@media(max-width:960px){.hero{min-height:0}.hero-cutout{min-height:300px}.hero-cutout img{position:relative;top:0;right:0;height:auto;max-height:360px;max-width:80%;margin:0 auto;display:block}.hero-namecard{position:static;margin:8px 0 0;left:auto;right:auto;text-align:center}}
 /* hero: compact form left + big founder image right, all above the fold */
 .hero .hero-in{align-items:stretch;padding:30px 0 40px;grid-template-columns:1.02fr .98fr}
 .hero-l .form-card{margin-top:18px;max-width:470px;color:var(--ink)}
