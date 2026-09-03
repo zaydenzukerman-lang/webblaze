@@ -250,3 +250,10 @@ footer .row-i .g{color:var(--gold);font-weight:800}
 .form-card .fc-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .hero-l h1{font-size:clamp(1.8rem,3.6vw,2.5rem)}
 .hero-l .sub{margin:12px 0 0;font-size:1.02rem}
+/* minimal, full-height hero: slogan + form + founder image only */
+@media(min-width:961px){
+  .hero .hero-in{min-height:calc(100vh - 112px);align-items:stretch;padding:30px 0}
+  .hero-l{display:flex;flex-direction:column;justify-content:center}
+  .hero-figure{min-height:auto}
+}
+.hero-l h1{font-size:clamp(2rem,4vw,3rem);margin-bottom:4px}
