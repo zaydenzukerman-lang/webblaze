@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://webblaze.io/wemploymentlaw/sitemap.xml
