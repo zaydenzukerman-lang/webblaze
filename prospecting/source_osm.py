@@ -10,9 +10,15 @@ Usage:
 Output CSV columns: name,website,domain,email,phone,city,niche
 Leads WITHOUT an email are still written (scan.sh can harvest one from the site later).
 """
-import sys, json, csv, time, argparse, urllib.parse, urllib.request, re
+import sys, json, csv, time, argparse, urllib.parse, urllib.request, urllib.error, re
 
-OVERPASS = "https://overpass-api.de/api/interpreter"
+OVERPASS_ENDPOINTS = [
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter",
+    "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+    "https://overpass.osm.jp/api/interpreter",
+]
+_ep_idx = [0]
 
 # OSM tag filters by preset. These map to WebBlaze's ICP (old trades + small pro services).
 PRESETS = {
@@ -71,6 +77,44 @@ def is_chain(domain):
     d = domain.lower()
     return any(d == c or d.endswith("." + c) for c in CHAINS)
 
+# franchise / dealership / national brands by NAME (OSM name substring, lowercased)
+NAME_BLOCK = [
+ "ace hardware","jiffy lube","firestone","midas","aamco","meineke","pep boys",
+ "valvoline","u-haul","uhaul","penske","enterprise rent","hertz","avis","budget rent",
+ "napa auto","o'reilly","oreilly","autozone","advance auto","mavis","discount tire",
+ "tire kingdom","goodyear","big o tires","take 5","grease monkey","tires plus",
+ "alfa romeo","fiat","ford","toyota","honda","nissan","chevrolet","chevy","hyundai",
+ "kia ","bmw","mercedes","volkswagen","mazda","subaru","jeep","dodge","chrysler",
+ "cadillac","buick","gmc","lexus","acura","infiniti","mitsubishi","volvo","audi",
+ "porsche","land rover","jaguar","genesis","ram truck","lincoln","mini cooper",
+ "7-eleven","circle k","wawa","dunkin","starbucks","mcdonald","burger king","wendy",
+ "subway","domino","pizza hut","papa john","little caesar","taco bell","kfc","popeyes",
+ "chick-fil","panera","chipotle","five guys","wingstop","planet fitness","la fitness",
+ "anytime fitness","orangetheory","crunch fitness","massage envy","great clips",
+ "supercuts","sport clips","european wax","the ups store","fedex office","h&r block",
+ "jackson hewitt","edward jones","state farm","allstate","geico","farmers insurance",
+ "re/max","remax","century 21","keller williams","coldwell banker","exp realty",
+]
+def is_brand_name(name):
+    n = (name or "").lower()
+    return any(b in n for b in NAME_BLOCK)
+
+FOREIGN_TLD = (".au",".es",".uk",".ca",".de",".fr",".it",".mx",".br",".in",".nz",".co.uk",".ie",".pt",".nl",".be",".ch",".ar",".cl",".co")
+def is_foreign(domain):
+    d = domain.lower()
+    return any(d.endswith(t) for t in FOREIGN_TLD)
+
+# email domains belonging to web agencies / builders (false "owner" emails)
+EMAIL_BLOCK = ["pixelmotion.com","godaddy.com","wix.com","squarespace.com","weebly.com",
+    "duda.co","dudamobile.com","vistaprint.com","networksolutions.com","web.com",
+    "thryv.com","yodle.com","hibu.com","reachlocal.com","townsquareinteractive.com",
+    "sitemason.com","example.com","sentry.io","wordpress.com"]
+def bad_email(email):
+    e = (email or "").lower()
+    if not e or "@" not in e: return True
+    dom = e.split("@")[-1]
+    return any(dom == b or dom.endswith("." + b) for b in EMAIL_BLOCK)
+
 def domain_of(url):
     try:
         d = urllib.parse.urlparse(url).netloc.lower()
@@ -78,13 +122,30 @@ def domain_of(url):
     except Exception:
         return ""
 
+def _fetch(q):
+    data = urllib.parse.urlencode({"data": q}).encode()
+    last = None
+    for attempt in range(5):
+        ep = OVERPASS_ENDPOINTS[_ep_idx[0] % len(OVERPASS_ENDPOINTS)]
+        req = urllib.request.Request(ep, data=data,
+            headers={"User-Agent": "WebBlaze-lead-sourcer/1.0 (hello@webblaze.io)"})
+        try:
+            return urllib.request.urlopen(req, timeout=120).read()
+        except urllib.error.HTTPError as e:
+            last = e
+            if e.code in (429, 504, 502, 503):
+                _ep_idx[0] += 1                      # rotate endpoint
+                time.sleep(min(60, 8 * (attempt + 1)))  # backoff
+                continue
+            raise
+        except Exception as e:
+            last = e; _ep_idx[0] += 1; time.sleep(6)
+    raise last
+
 def query_city(city, filters, niche_label):
     q = build_query(city, filters)
-    data = urllib.parse.urlencode({"data": q}).encode()
-    req = urllib.request.Request(OVERPASS, data=data,
-        headers={"User-Agent": "WebBlaze-lead-sourcer/1.0 (contact hello@webblaze.io)"})
     try:
-        raw = urllib.request.urlopen(req, timeout=90).read()
+        raw = _fetch(q)
     except Exception as e:
         print(f"  ! {city}: {e}", file=sys.stderr); return []
     els = json.loads(raw).get("elements", [])
@@ -95,7 +156,7 @@ def query_city(city, filters, niche_label):
         if not site.startswith("http"):
             continue
         dom = domain_of(site)
-        if not dom or is_chain(dom):
+        if not dom or is_chain(dom) or is_foreign(dom) or is_brand_name(t.get("name", "")):
             continue
         rows.append({
             "name": t.get("name", "").strip(),
@@ -137,7 +198,8 @@ def main():
                 continue
             seen.add(key); all_rows.append(r); fresh += 1
         print(f"[{i}/{len(cities)}] {city}: {len(rows)} found, {fresh} new (total {len(all_rows)})")
-        time.sleep(1.2)  # be polite to Overpass
+        sys.stdout.flush()
+        time.sleep(4)  # be polite to Overpass (avoid 429)
 
     with_email = sum(1 for r in all_rows if r["email"])
     with open(args.out, "w", newline="") as f:
