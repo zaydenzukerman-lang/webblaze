@@ -204,6 +204,48 @@ main{flex:1;padding:16px 14px 118px;border-top:3px solid var(--ink);margin-top:-
   transition:opacity .3s,transform .3s;text-align:center;max-width:88%}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .toast .big{font-size:1.1rem}.toast .sm{font-family:'Patrick Hand',cursive;font-weight:400;font-size:.9rem;opacity:.9}
+/* ---------- celebration modal ---------- */
+.modal{position:fixed;inset:0;z-index:80;background:rgba(26,51,32,.5);backdrop-filter:blur(3px);
+  display:none;align-items:center;justify-content:center;padding:24px}
+.modal.show{display:flex;animation:fade .2s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.mcard{background:var(--paper);border:3px solid var(--ink);border-radius:24px;padding:26px 22px;max-width:340px;width:100%;
+  text-align:center;box-shadow:0 12px 0 rgba(31,107,65,.25);animation:bounce .45s cubic-bezier(.2,1.3,.4,1)}
+@keyframes bounce{0%{transform:scale(.6) translateY(20px);opacity:0}100%{transform:none;opacity:1}}
+.mburst{font-size:4.6rem;line-height:1;animation:wob 1.4s ease-in-out infinite}
+@keyframes wob{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(6deg) scale(1.08)}}
+.mtitle{font-size:1.9rem;font-weight:800;margin:6px 0 2px}
+.msub{font-family:'Patrick Hand',cursive;font-size:1.15rem;color:var(--mut);margin-bottom:18px}
+/* ---------- onboarding ---------- */
+.onb{position:fixed;inset:0;z-index:90;background:var(--green);
+  background-image:radial-gradient(rgba(255,255,255,.12) 1.5px,transparent 1.5px);background-size:22px 22px;
+  display:none;align-items:center;justify-content:center;padding:24px}
+.onb.show{display:flex}
+.onbcard{background:var(--paper);border:3px solid var(--ink);border-radius:26px;padding:28px 22px;max-width:380px;width:100%;
+  text-align:center;box-shadow:0 14px 0 rgba(0,0,0,.2)}
+.onbcard h2{font-size:1.8rem;margin:10px 0 2px}
+.onbcard>p{font-size:1.15rem;color:var(--mut);margin-bottom:16px}
+.onblist{list-style:none;text-align:left;margin:0 0 20px;display:flex;flex-direction:column;gap:12px}
+.onblist li{display:flex;align-items:center;gap:12px;font-size:.98rem;background:#fff;border:2.5px solid var(--ink);
+  border-radius:14px;padding:10px 12px;box-shadow:0 3px 0 rgba(31,107,65,.14)}
+.onblist li span{font-size:1.6rem;flex:0 0 auto}.onblist li b{font-weight:700}
+/* ---------- stats dashboard ---------- */
+.dash{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.dcard{background:#fff;border:3px solid var(--ink);border-radius:14px;padding:10px 4px;text-align:center;
+  box-shadow:0 4px 0 rgba(31,107,65,.14)}
+.dcard .dv{font-size:1.35rem;font-weight:800;line-height:1}
+.dcard .dl{font-size:.56rem;color:var(--mut);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-top:2px}
+.dcard .di{font-size:1.1rem}
+/* level ring progress arc */
+.lvl .ring .arc{transition:stroke-dashoffset .6s cubic-bezier(.2,.8,.2,1)}
+/* route map */
+.mapbox{background:#eef6ea;border:3px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:0 4px 0 rgba(31,107,65,.14)}
+.mapbox svg{display:block;width:100%;height:150px}
+/* tab active bounce + smoother views */
+.tab{transition:top .14s cubic-bezier(.2,1.4,.4,1),background .14s,color .14s}
+.view.on{animation:slidein .3s cubic-bezier(.2,.8,.2,1)}
+@keyframes slidein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.btn{-webkit-user-select:none;user-select:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -217,7 +259,7 @@ main{flex:1;padding:16px 14px 118px;border-top:3px solid var(--ink);margin-top:-
     </div>
     <div class="hud">
       <div class="lvl">
-        <svg class="ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="#eef6ea" stroke="#1A3320" stroke-width="3"/><text id="lvlnum" x="20" y="26" text-anchor="middle" font-size="16" font-weight="800" font-family="Baloo 2" fill="#1A3320">1</text></svg>
+        <svg class="ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="#eef6ea" stroke="#1A3320" stroke-width="3"/><circle id="lvlarc" class="arc" cx="20" cy="20" r="16" fill="none" stroke="#FFD700" stroke-width="4" stroke-linecap="round" stroke-dasharray="100.5" stroke-dashoffset="100.5" transform="rotate(-90 20 20)"/><text id="lvlnum" x="20" y="26" text-anchor="middle" font-size="15" font-weight="800" font-family="Baloo 2" fill="#1A3320">1</text></svg>
         <div class="lt"><b id="lvlname">Sprout</b><span>Explorer</span></div>
       </div>
       <div class="xpwrap"><div class="xpbar"><div class="xpfill" id="xpfill"></div></div><div class="xptxt" id="xptxt">0 / 100 XP</div></div>
@@ -258,6 +300,31 @@ main{flex:1;padding:16px 14px 118px;border-top:3px solid var(--ink);margin-top:-
 <div class="bar" id="bar"></div>
 <div id="confetti"></div>
 <div class="toast" id="toast"></div>
+
+<!-- celebration modal -->
+<div class="modal" id="modal" onclick="closeModal()">
+  <div class="mcard" onclick="event.stopPropagation()">
+    <div class="mburst" id="mburst">🎉</div>
+    <div class="mtitle" id="mtitle">Nice!</div>
+    <div class="msub" id="msub"></div>
+    <button class="btn" onclick="closeModal()">Keep exploring</button>
+  </div>
+</div>
+
+<!-- onboarding -->
+<div class="onb" id="onb">
+  <div class="onbcard">
+    <svg width="88" height="88" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#fffdf5" stroke="#1A3320" stroke-width="3"/><path d="M24 9l4 11 11 4-11 4-4 11-4-11-11-4 11-4z" fill="#2E8B57" stroke="#1A3320" stroke-width="2" stroke-linejoin="round"/><circle cx="24" cy="24" r="3" fill="#FFD700" stroke="#1A3320" stroke-width="2"/></svg>
+    <h2>Welcome, Explorer!</h2>
+    <p class="hand" id="onbtext">Fieldbook turns every walk into an adventure.</p>
+    <ul class="onblist">
+      <li><span>🧭</span><b>Pick a scavenger hunt</b> and head outside</li>
+      <li><span>📸</span><b>Photograph what you find</b> to earn XP</li>
+      <li><span>🏅</span><b>Level up &amp; collect badges</b> as you explore</li>
+    </ul>
+    <button class="btn green" onclick="finishOnb()">Let's go!</button>
+  </div>
+</div>
 <input type="file" id="cam" accept="image/*" capture="environment" hidden>
 
 <script>
@@ -278,14 +345,22 @@ function levelOf(xp){let i=0;for(let j=0;j<LEVELS.length;j++)if(xp>=LEVELS[j][1]
 function levelInfo(){const i=levelOf(PROF.xp);const cur=LEVELS[i][1];const next=LEVELS[i+1]?LEVELS[i+1][1]:cur;
   return {i:i+1,name:LEVELS[i][0],cur,next,into:PROF.xp-cur,span:Math.max(1,next-cur),max:!LEVELS[i+1]};}
 async function addXP(n,label){const before=levelOf(PROF.xp);PROF.xp+=n;await idbPut(PSTORE,PROF);renderHUD();
-  if(levelOf(PROF.xp)>before){const li=levelInfo();confetti(80);toast("⭐ Level "+li.i+"!","You're now a "+li.name);}
-  else if(label){toast("+"+n+" XP",label);}}
+  if(levelOf(PROF.xp)>before){const li=levelInfo();celebrate("⭐","Level "+li.i+" — "+li.name+"!","You leveled up! Keep exploring.");}
+  else if(label){toast("+"+n+" XP",label);buzz(30);}}
 function renderHUD(){const li=levelInfo();
   document.getElementById('lvlnum').textContent=li.i;document.getElementById('lvlname').textContent=li.name;
   document.getElementById('streak').textContent=PROF.streak;
   const pct=li.max?100:Math.round(li.into/li.span*100);
   document.getElementById('xpfill').style.width=pct+'%';
-  document.getElementById('xptxt').textContent=li.max?PROF.xp+" XP · MAX":(PROF.xp+" / "+li.next+" XP");}
+  document.getElementById('xptxt').textContent=li.max?PROF.xp+" XP · MAX":(PROF.xp+" / "+li.next+" XP");
+  const arc=document.getElementById('lvlarc');if(arc)arc.style.strokeDashoffset=(100.5*(1-pct/100)).toFixed(1);}
+function buzz(p){try{if(navigator.vibrate)navigator.vibrate(p);}catch(e){}}
+let cq=[],cshowing=false;
+function celebrate(burst,title,sub){cq.push([burst,title,sub]);if(!cshowing)nextCeleb();}
+function nextCeleb(){if(!cq.length){cshowing=false;return;}cshowing=true;const [b,t,s]=cq.shift();
+  document.getElementById('mburst').textContent=b;document.getElementById('mtitle').textContent=t;
+  document.getElementById('msub').textContent=s||'';document.getElementById('modal').classList.add('show');confetti(90);buzz([40,60,40,60,80]);}
+function closeModal(){document.getElementById('modal').classList.remove('show');setTimeout(nextCeleb,260);}
 function bumpStreak(){const today=new Date().toDateString();const y=new Date(Date.now()-864e5).toDateString();
   if(PROF.lastDay===today)return;PROF.streak=(PROF.lastDay===y)?PROF.streak+1:1;PROF.lastDay=today;}
 
@@ -305,7 +380,7 @@ const BADGES=[
  {id:"colors",em:"🌈",nm:"Chromatic",ds:"Complete Color Quest"},
 ];
 async function grant(id){if(PROF.badges.includes(id))return;PROF.badges.push(id);await idbPut(PSTORE,PROF);
-  const b=BADGES.find(x=>x.id===id);confetti(60);toast("🏅 Badge unlocked!",b.nm);}
+  const b=BADGES.find(x=>x.id===id);celebrate(b.em,"Badge unlocked!",b.nm+" — "+b.ds);}
 
 //////////////////// scavenger hunts ////////////////////
 const HUNTS=[
@@ -380,7 +455,7 @@ $('#cam').addEventListener('change',e=>{const f=e.target.files[0];e.target.value
   const r=new FileReader();r.onload=async()=>{const last=W.track[W.track.length-1]||{};
     const photo={data:r.result,t:Date.now(),lat:last.lat,lng:last.lng,label:''};
     if(pendingIdx!=null&&W.hunt){const it=W.hunt.items[pendingIdx];it.found=true;it.photo=r.result;photo.label=it.lb;
-      W.photos.push(photo);renderCheck();confetti(40);await addXP(15,"Found "+it.lb+"!");
+      W.photos.push(photo);renderCheck();confetti(40);buzz([30,40,70]);await addXP(15,"Found "+it.lb+"!");
       const done=W.hunt.items.filter(i=>i.found).length;
       if(done===W.hunt.items.length){await addXP(75,"Hunt complete!");}
     } else {W.photos.push(photo);await addXP(5,"Sighting logged");}
@@ -410,15 +485,24 @@ async function finishWalk(){clearInterval(tick);if(geoId!=null)navigator.geoloca
 function discardWalk(){if(!confirm('Discard this walk?'))return;clearInterval(tick);if(geoId!=null)navigator.geolocation.clearWatch(geoId);window.removeEventListener('devicemotion',onMotion);W=null;tab('journal');}
 
 //////////////////// renders ////////////////////
+function weekStart(){const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-d.getDay());return d.getTime();}
 async function renderJournal(){const ws=(await idbAll(WSTORE)).sort((a,b)=>b.start-a.start);
   const el=$('#journalList');
-  if(!ws.length){el.innerHTML=`<div class="empty">
+  const totalMi=ws.reduce((s,w)=>s+w.distM,0)/M_PER_MI;
+  const wk=weekStart();const wkMi=ws.filter(w=>w.start>=wk).reduce((s,w)=>s+w.distM,0)/M_PER_MI;
+  const dash=`<div class="dash">
+    <div class="dcard"><div class="di">🥾</div><div class="dv">${ws.length}</div><div class="dl">Walks</div></div>
+    <div class="dcard"><div class="di">📏</div><div class="dv">${totalMi.toFixed(1)}</div><div class="dl">Miles</div></div>
+    <div class="dcard"><div class="di">📸</div><div class="dv">${PROF.finds||0}</div><div class="dl">Finds</div></div>
+    <div class="dcard"><div class="di">🏅</div><div class="dv">${(PROF.badges||[]).length}</div><div class="dl">Badges</div></div>
+  </div>${ws.length?`<div class="script" style="font-size:1.15rem;color:var(--green);margin:0 4px 12px;transform:rotate(-1deg)">${wkMi>0?('🌟 '+wkMi.toFixed(1)+' miles this week — nice going!'):'A new week awaits. Go explore!'}</div>`:''}`;
+  if(!ws.length){el.innerHTML=dash+`<div class="empty">
     <svg viewBox="0 0 120 120" fill="none"><rect x="24" y="18" width="72" height="86" rx="8" fill="#fff7d6" stroke="#1A3320" stroke-width="3"/><path d="M24 34h72M40 50h40M40 64h40M40 78h26" stroke="#1A3320" stroke-width="3" stroke-linecap="round"/><path d="M78 88l6 16 11 4-11 4-6 16-6-16-11-4 11-4z" fill="#2E8B57" stroke="#1A3320" stroke-width="2.5" stroke-linejoin="round"/></svg>
     <h3>Your journal is empty</h3><p>Start a hunt and fill these pages!</p></div>`;return;}
   const DOO=['<svg class="doodle" viewBox="0 0 40 40" fill="none" stroke="#2E8B57" stroke-width="3"><path d="M20 34C10 28 6 16 14 8c6-6 18-2 18 8 0 8-6 14-12 18z"/><path d="M20 30V12"/></svg>',
     '<svg class="doodle" viewBox="0 0 40 40" fill="none" stroke="#FFD700" stroke-width="3"><path d="M20 5l4 10 10 1-8 7 3 11-9-6-9 6 3-11-8-7 10-1z"/></svg>',
     '<svg class="doodle" viewBox="0 0 40 40" fill="none" stroke="#87CEEB" stroke-width="3"><circle cx="20" cy="20" r="14"/><path d="M20 8v12l8 4"/></svg>'];
-  el.innerHTML=ws.map((w,i)=>{const n=ws.length-i;const th=w.photos[0]?w.photos[0].data:'';
+  el.innerHTML=dash+ws.map((w,i)=>{const n=ws.length-i;const th=w.photos[0]?w.photos[0].data:'';
     const finds=w.hunt?w.hunt.items.filter(x=>x.found).length:0;
     return `<div class="entry" onclick="openDetail('${w.id}')">
       <div class="stamp">No.${String(n).padStart(3,'0')}</div>
@@ -454,7 +538,18 @@ function renderBadges(){const el=$('#badgeWrap');const got=PROF.badges;
     BADGES.map(b=>{const on=got.includes(b.id);
       return `<div class="badge ${on?'':'locked'}"><div class="disc">${on?b.em:'🔒'}</div><div class="nm">${b.nm}</div><div class="ds">${b.ds}</div></div>`;}).join('')+`</div>`;}
 
+function routeSVG(track){if(!track||track.length<2)return '';
+  const lats=track.map(p=>p.lat),lngs=track.map(p=>p.lng),MW=300,MH=150,pad=20;
+  const minLa=Math.min(...lats),maxLa=Math.max(...lats),minLo=Math.min(...lngs),maxLo=Math.max(...lngs);
+  const spanLa=Math.max(1e-6,maxLa-minLa),spanLo=Math.max(1e-6,maxLo-minLo);
+  const s=Math.min((MW-2*pad)/spanLo,(MH-2*pad)/spanLa);
+  const ox=(MW-spanLo*s)/2,oy=(MH-spanLa*s)/2;
+  const pts=track.map(p=>[ox+(p.lng-minLo)*s,MH-(oy+(p.lat-minLa)*s)]);
+  const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+  const a=pts[0],b=pts[pts.length-1];
+  return `<div class="mapbox"><svg viewBox="0 0 300 150"><path d="${d}" fill="none" stroke="#2E8B57" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 8"/><circle cx="${a[0].toFixed(1)}" cy="${a[1].toFixed(1)}" r="6.5" fill="#87CEEB" stroke="#1A3320" stroke-width="2.5"/><circle cx="${b[0].toFixed(1)}" cy="${b[1].toFixed(1)}" r="6.5" fill="#ff6f59" stroke="#1A3320" stroke-width="2.5"/></svg></div>`;}
 async function openDetail(id){const w=await idbGet(WSTORE,id);if(!w){tab('journal');return;}
+  const rmap=routeSVG(w.track);
   const finds=w.hunt?w.hunt.items.filter(x=>x.found).length:0;
   const gal=w.photos.length?`<div class="finds">`+w.photos.map(p=>`<figure class="find"><img src="${p.data}"><figcaption class="cap">${p.label?esc(p.label)+' · ':''}${new Date(p.t).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</figcaption></figure>`).join('')+`</div>`:'<p class="hand" style="color:var(--mut)">No photos this walk.</p>';
   const huntSec=w.hunt?`<div class="sec">🔎 ${esc(w.hunt.name)} — ${finds}/${w.hunt.items.length} found</div>
@@ -468,6 +563,7 @@ async function openDetail(id){const w=await idbGet(WSTORE,id);if(!w){tab('journa
       <div class="lstat"><div class="v">${w.steps}</div><div class="l">steps</div></div>
       <div class="lstat"><div class="v">${w.cad}</div><div class="l">cadence /min</div></div>
     </div>
+    ${rmap?`<div class="sec">🗺️ Your route</div>${rmap}`:''}
     <div class="sec">✏️ Field notes</div>
     <textarea id="dnote" class="note" rows="3" placeholder="What did you notice out there?">${esc(w.note||'')}</textarea>
     ${huntSec}
@@ -487,7 +583,10 @@ function renderBar(){const v=document.querySelector('.view.on').id;const b=$('#b
 }
 
 //////////////////// boot ////////////////////
-(async()=>{const p=await idbGet(PSTORE,"me");if(p)PROF=Object.assign(PROF,p);renderHUD();renderJournal();renderBar();})();
+function finishOnb(){try{localStorage.setItem('fb_onb','1');}catch(e){}document.getElementById('onb').classList.remove('show');buzz(20);tab('hunt');}
+(async()=>{const p=await idbGet(PSTORE,"me");if(p)PROF=Object.assign(PROF,p);renderHUD();renderJournal();renderBar();
+  let seen=false;try{seen=localStorage.getItem('fb_onb');}catch(e){}
+  if(!seen)document.getElementById('onb').classList.add('show');})();
 if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
 </script>
 </body>
