@@ -253,7 +253,29 @@ main{flex:1;padding:16px 14px 118px;border-top:3px solid var(--ink);margin-top:-
 @keyframes slidein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .btn{-webkit-user-select:none;user-select:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* ---------- auth gate ---------- */
+.acct{margin-left:auto;background:#fff;border:2.5px solid var(--ink);border-radius:14px;width:38px;height:38px;
+  font-size:1.1rem;cursor:pointer;box-shadow:2px 2px 0 var(--ink);flex:0 0 auto;line-height:1}
+.acct:active{transform:translate(2px,2px);box-shadow:none}
+.gate{position:fixed;inset:0;z-index:95;background:var(--green);display:none;align-items:center;justify-content:center;padding:22px;overflow:auto}
+.gate.show{display:flex}
+.gatecard{background:var(--paper);border:3px solid var(--ink);border-radius:26px;padding:26px 22px;max-width:380px;width:100%;
+  text-align:center;box-shadow:8px 8px 0 rgba(0,0,0,.25);animation:pop .35s cubic-bezier(.2,1.4,.4,1)}
+.gatecard h2{font-size:1.7rem;margin:8px 0 2px}
+.gatecard>p{font-size:1.02rem;color:var(--mut);margin-bottom:18px}
+.gatecard input{width:100%;box-sizing:border-box;padding:13px 14px;margin:6px 0;border:2.5px solid var(--ink);border-radius:14px;
+  font-size:16px;font-family:inherit;background:#fff}
+.gatecard .btn{width:100%;margin:7px 0;justify-content:center}
+.btn.google{background:#fff;color:var(--ink);display:flex;align-items:center;gap:10px}
+.btn.ghost{background:transparent;box-shadow:none;border:2.5px dashed var(--ink)}
+.ordiv{display:flex;align-items:center;gap:10px;color:var(--mut);font-size:.85rem;margin:14px 0 6px}
+.ordiv:before,.ordiv:after{content:"";flex:1;height:2px;background:var(--ink);opacity:.25}
+.gerr{font-size:.9rem;color:#b3402f;background:#ffe9e4;border:2px solid #b3402f;border-radius:12px;padding:8px 10px;margin:8px 0;display:none;text-align:left}
+.skip{background:none;border:none;color:var(--mut);text-decoration:underline;font-family:inherit;font-size:.95rem;cursor:pointer;margin-top:12px}
+.gacct{font-size:.9rem;color:var(--mut);margin-top:14px}
+.gacct a{color:var(--green);font-weight:700}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 <div class="app">
@@ -262,6 +284,7 @@ main{flex:1;padding:16px 14px 118px;border-top:3px solid var(--ink);margin-top:-
       <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#fffdf5" stroke="#1A3320" stroke-width="3"/><path d="M24 9l4 11 11 4-11 4-4 11-4-11-11-4 11-4z" fill="#2E8B57" stroke="#1A3320" stroke-width="2" stroke-linejoin="round"/><circle cx="24" cy="24" r="3" fill="#FFD700" stroke="#1A3320" stroke-width="2"/></svg>
       <h1>Fieldbook</h1>
       <span class="tag">explore &amp; collect!</span>
+      <button id="acctBtn" class="acct" onclick="openGate()" title="Sign in to sync">☁</button>
     </div>
     <div class="hud">
       <div class="lvl">
@@ -331,6 +354,23 @@ main{flex:1;padding:16px 14px 118px;border-top:3px solid var(--ink);margin-top:-
     <button class="btn green" onclick="finishOnb()">Let's go!</button>
   </div>
 </div>
+<!-- auth gate -->
+<div class="gate" id="gate">
+  <div class="gatecard">
+    <svg width="76" height="76" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#fffdf5" stroke="#1A3320" stroke-width="3"/><path d="M24 9l4 11 11 4-11 4-4 11-4-11-11-4 11-4z" fill="#2E8B57" stroke="#1A3320" stroke-width="2" stroke-linejoin="round"/><circle cx="24" cy="24" r="3" fill="#FFD700" stroke="#1A3320" stroke-width="2"/></svg>
+    <h2>Your Fieldbook</h2>
+    <p class="hand">Sign in to save your walks, XP &amp; badges across every device.</p>
+    <button class="btn google" onclick="signInGoogle()"><svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.6l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.4 5.4 2.6 13.2l7.8 6.1C12.2 13.3 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.6c0-1.6-.1-3.1-.4-4.6H24v9.1h12.4c-.5 2.9-2.1 5.3-4.6 7l7.1 5.5c4.2-3.9 6.6-9.6 6.6-16z"/><path fill="#FBBC05" d="M10.4 28.7c-.5-1.4-.7-2.9-.7-4.7s.3-3.3.7-4.7l-7.8-6.1C.9 16.4 0 20.1 0 24s.9 7.6 2.6 10.8l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.2 0 11.5-2 15.3-5.6l-7.1-5.5c-2 1.4-4.6 2.2-8.2 2.2-6.4 0-11.8-3.8-13.6-9.3l-7.8 6.1C6.4 42.6 14.6 48 24 48z"/></svg> Continue with Google</button>
+    <div class="ordiv"><span>or use email</span></div>
+    <input id="gEmail" type="email" placeholder="you@email.com" autocomplete="email">
+    <input id="gPass" type="password" placeholder="password (6+ characters)" autocomplete="current-password">
+    <div class="gerr" id="gErr"></div>
+    <button class="btn green" onclick="emailAuth('in')">Sign in</button>
+    <button class="btn ghost" onclick="emailAuth('up')">Create account</button>
+    <button class="skip" onclick="skipGate()">Skip — just explore offline</button>
+    <div class="gacct" id="gAcct"></div>
+  </div>
+</div>
 <input type="file" id="cam" accept="image/*" capture="environment" hidden>
 
 <script>
@@ -344,13 +384,92 @@ async function idbAll(store){const d=await db();return new Promise(res=>{const o
 async function idbGet(store,k){const d=await db();return new Promise(res=>{const t=d.transaction(store,"readonly");t.objectStore(store).get(k).onsuccess=e=>res(e.target.result);});}
 async function idbDel(store,k){const d=await db();return new Promise(res=>{const t=d.transaction(store,"readwrite");t.objectStore(store).delete(k);t.oncomplete=res;});}
 
+//////////////////// cloud sync (Supabase) ////////////////////
+const SB_URL="https://ywnxsvlpdkassxkmcybc.supabase.co";
+const SB_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl3bnhzdmxwZGthc3N4a21jeWJjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg3MzEzNTQsImV4cCI6MjEwNDMwNzM1NH0.xlw9B_7EV8Ppu4h36IvjzQWCKvwSCqc-k5GlkGjfQic";
+let sb=null,USER=null;
+try{if(typeof supabase!=='undefined')sb=supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});}catch(e){console.warn('sb init',e);}
+
+function gerr(m,ok){const e=document.getElementById('gErr');if(!e)return;e.textContent=m||'';e.style.display=m?'block':'none';
+  e.style.color=ok?'#1f7a3d':'#b3402f';e.style.background=ok?'#e3f6e8':'#ffe9e4';e.style.borderColor=ok?'#1f7a3d':'#b3402f';}
+function openGate(){document.getElementById('gate').classList.add('show');renderAcct();}
+function closeGate(){document.getElementById('gate').classList.remove('show');}
+function afterGate(){let seen=false;try{seen=localStorage.getItem('fb_onb');}catch(e){}if(!seen)document.getElementById('onb').classList.add('show');}
+function skipGate(){try{localStorage.setItem('fb_skip','1');}catch(e){}closeGate();afterGate();}
+
+async function signInGoogle(){if(!sb){gerr('No connection right now — you can still explore offline.');return;}
+  gerr('');try{await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}});}
+  catch(e){gerr(e.message||'Google sign-in failed');}}
+
+async function emailAuth(mode){if(!sb){gerr('No connection right now — you can still explore offline.');return;}
+  const email=(document.getElementById('gEmail').value||'').trim();
+  const pass=document.getElementById('gPass').value||'';
+  if(!email||pass.length<6){gerr('Enter your email and a password of 6+ characters.');return;}
+  gerr('');
+  try{
+    if(mode==='up'){const{data,error}=await sb.auth.signUp({email,password:pass});if(error)throw error;
+      if(!data.session){gerr('✓ Check your email to confirm your account, then tap Sign in.',true);return;}}
+    else{const{error}=await sb.auth.signInWithPassword({email,password:pass});if(error)throw error;}
+  }catch(e){gerr(e.message||'Something went wrong.');}}
+
+async function signOut(){if(sb){try{await sb.auth.signOut();}catch(e){}}USER=null;renderAcct();toast("👋 Signed out","Your walks stay on this device.");}
+
+function renderAcct(){const a=document.getElementById('gAcct'),b=document.getElementById('acctBtn');
+  if(USER){if(a)a.innerHTML='Synced as <b>'+(USER.email||'you')+'</b> · <a href="#" onclick="signOut();return false">Sign out</a>';
+    if(b){b.textContent='✅';b.title='Synced'+(USER.email?' — '+USER.email:'');}}
+  else{if(a)a.innerHTML='';if(b){b.textContent='☁';b.title='Sign in to sync';}}}
+
+// ---- state serialize + merge ----
+async function localState(){const walks=await idbAll(WSTORE);return{v:1,prof:PROF,walks};}
+function mergeProf(a,b){if(!b)return a;if(!a)return b;const hi=(b.xp||0)>(a.xp||0)?b:a,lo=hi===a?b:a;
+  return{k:"me",xp:Math.max(a.xp||0,b.xp||0),streak:Math.max(a.streak||0,b.streak||0),
+    lastDay:[a.lastDay,b.lastDay].filter(Boolean).sort().pop()||null,
+    badges:Array.from(new Set([...(a.badges||[]),...(b.badges||[])])),
+    finds:Math.max(a.finds||0,b.finds||0),
+    huntsDone:Array.from(new Set([...(a.huntsDone||[]),...(b.huntsDone||[])])),
+    weeklyGoal:hi.weeklyGoal||lo.weeklyGoal||5};}
+
+let pulling=false;
+async function pullMerge(){if(!sb||!USER||pulling)return;pulling=true;
+  try{const{data,error}=await sb.from('fieldbook_state').select('state').eq('user_id',USER.id).maybeSingle();
+    if(error)throw error;const cloud=data&&data.state;
+    if(cloud&&(cloud.prof||cloud.walks)){
+      const local=await idbAll(WSTORE),map={};local.forEach(w=>map[w.id]=w);
+      (cloud.walks||[]).forEach(w=>{const ex=map[w.id];if(!ex||(w.end||0)>=(ex.end||0))map[w.id]=w;});
+      for(const id in map)await idbPut(WSTORE,map[id]);
+      PROF=mergeProf(PROF,cloud.prof);await idbPut(PSTORE,PROF);
+      renderHUD();renderJournal();renderBar();
+    }
+    await pushNow();// write merged snapshot back up
+  }catch(e){console.warn('pull',e);}finally{pulling=false;}}
+
+async function pushNow(){if(!sb||!USER)return;
+  try{const st=await localState();
+    await sb.from('fieldbook_state').upsert({user_id:USER.id,state:st,updated_at:new Date().toISOString()});
+  }catch(e){console.warn('push',e);}}
+let pushT=null;
+function syncUp(){if(!sb||!USER)return;clearTimeout(pushT);pushT=setTimeout(pushNow,1400);}
+
+if(sb){sb.auth.onAuthStateChange((ev,session)=>{const nu=(session&&session.user)||null;const was=USER&&USER.id;
+  USER=nu;renderAcct();
+  if(nu){closeGate();afterGate();if(nu.id!==was)pullMerge();}});}
+
+// ---- photo downscale (keeps synced state small) ----
+function downscale(dataURL,max){max=max||1000;return new Promise(res=>{const img=new Image();
+  img.onload=()=>{let w=img.width,h=img.height;const s=Math.min(1,max/Math.max(w,h));
+    const cw=Math.max(1,Math.round(w*s)),ch=Math.max(1,Math.round(h*s));
+    const c=document.createElement('canvas');c.width=cw;c.height=ch;
+    c.getContext('2d').drawImage(img,0,0,cw,ch);
+    try{res(c.toDataURL('image/jpeg',0.72));}catch(e){res(dataURL);}};
+  img.onerror=()=>res(dataURL);img.src=dataURL;});}
+
 //////////////////// profile / gamification ////////////////////
 let PROF={k:"me",xp:0,streak:0,lastDay:null,badges:[],finds:0,huntsDone:[],weeklyGoal:5};
 const LEVELS=[["Sprout",0],["Scout",100],["Tracker",300],["Ranger",650],["Naturalist",1100],["Trailblazer",1800],["Legend",3000]];
 function levelOf(xp){let i=0;for(let j=0;j<LEVELS.length;j++)if(xp>=LEVELS[j][1])i=j;return i;}
 function levelInfo(){const i=levelOf(PROF.xp);const cur=LEVELS[i][1];const next=LEVELS[i+1]?LEVELS[i+1][1]:cur;
   return {i:i+1,name:LEVELS[i][0],cur,next,into:PROF.xp-cur,span:Math.max(1,next-cur),max:!LEVELS[i+1]};}
-async function addXP(n,label){const before=levelOf(PROF.xp);PROF.xp+=n;await idbPut(PSTORE,PROF);renderHUD();
+async function addXP(n,label){const before=levelOf(PROF.xp);PROF.xp+=n;await idbPut(PSTORE,PROF);renderHUD();syncUp();
   if(levelOf(PROF.xp)>before){const li=levelInfo();celebrate("⭐","Level "+li.i+" — "+li.name+"!","You leveled up! Keep exploring.");}
   else if(label){toast("+"+n+" XP",label);buzz(30);}}
 function renderHUD(){const li=levelInfo();
@@ -385,7 +504,7 @@ const BADGES=[
  {id:"botanist",em:"🌸",nm:"Botanist",ds:"Complete Nature Basics"},
  {id:"colors",em:"🌈",nm:"Chromatic",ds:"Complete Color Quest"},
 ];
-async function grant(id){if(PROF.badges.includes(id))return;PROF.badges.push(id);await idbPut(PSTORE,PROF);
+async function grant(id){if(PROF.badges.includes(id))return;PROF.badges.push(id);await idbPut(PSTORE,PROF);syncUp();
   const b=BADGES.find(x=>x.id===id);celebrate(b.em,"Badge unlocked!",b.nm+" — "+b.ds);}
 
 //////////////////// scavenger hunts ////////////////////
@@ -467,8 +586,9 @@ function huntShot(idx){pendingIdx=idx;$('#cam').click();}
 function freeShot(){pendingIdx=null;$('#cam').click();}
 $('#cam').addEventListener('change',e=>{const f=e.target.files[0];e.target.value='';if(!f||!W)return;
   const r=new FileReader();r.onload=async()=>{const last=W.track[W.track.length-1]||{};
-    const photo={data:r.result,t:Date.now(),lat:last.lat,lng:last.lng,label:''};
-    if(pendingIdx!=null&&W.hunt){const it=W.hunt.items[pendingIdx];it.found=true;it.photo=r.result;photo.label=it.lb;
+    const small=await downscale(r.result);
+    const photo={data:small,t:Date.now(),lat:last.lat,lng:last.lng,label:''};
+    if(pendingIdx!=null&&W.hunt){const it=W.hunt.items[pendingIdx];it.found=true;it.photo=small;photo.label=it.lb;
       W.photos.push(photo);renderCheck();confetti(40);buzz([30,40,70]);await addXP(15,"Found "+it.lb+"!");
       const done=W.hunt.items.filter(i=>i.found).length;
       if(done===W.hunt.items.length){await addXP(75,"Hunt complete!");}
@@ -495,12 +615,12 @@ async function finishWalk(){clearInterval(tick);if(geoId!=null)navigator.geoloca
     if(done){if(!PROF.huntsDone.includes(W.hunt.id)){PROF.huntsDone.push(W.hunt.id);await idbPut(PSTORE,PROF);}
       await grant("hunt1");if(PROF.huntsDone.length>=3)await grant("triple");
       if(W.hunt.id==='nature')await grant("botanist");if(W.hunt.id==='color')await grant("colors");}}
-  const id=W.id;W=null;renderHUD();openDetail(id);}
+  const id=W.id;W=null;renderHUD();syncUp();openDetail(id);}
 function discardWalk(){if(!confirm('Discard this walk?'))return;clearInterval(tick);if(geoId!=null)navigator.geolocation.clearWatch(geoId);window.removeEventListener('devicemotion',onMotion);W=null;tab('journal');}
 
 //////////////////// renders ////////////////////
 function weekStart(){const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-d.getDay());return d.getTime();}
-async function setGoal(){const v=prompt("Set your weekly distance goal (miles):",PROF.weeklyGoal||5);if(v===null)return;const n=parseFloat(v);if(n>0){PROF.weeklyGoal=n;await idbPut(PSTORE,PROF);renderJournal();toast("🎯 Goal set!",n+" miles this week");buzz(30);}}
+async function setGoal(){const v=prompt("Set your weekly distance goal (miles):",PROF.weeklyGoal||5);if(v===null)return;const n=parseFloat(v);if(n>0){PROF.weeklyGoal=n;await idbPut(PSTORE,PROF);renderJournal();syncUp();toast("🎯 Goal set!",n+" miles this week");buzz(30);}}
 async function renderJournal(){const ws=(await idbAll(WSTORE)).sort((a,b)=>b.start-a.start);
   const el=$('#journalList');
   const totalMi=ws.reduce((s,w)=>s+w.distM,0)/M_PER_MI;
@@ -619,10 +739,10 @@ async function openDetail(id){const w=await idbGet(WSTORE,id);if(!w){tab('journa
     <div style="height:14px"></div>
     <button class="btn sky" onclick="shareWalk('${w.id}')">📤 Share this walk</button>
     <button class="link" onclick="removeWalk('${w.id}')">🗑 Delete this entry</button>`;
-  const save=()=>{w.title=$('#ttl').value;w.note=$('#dnote').value;idbPut(WSTORE,w);};
+  const save=()=>{w.title=$('#ttl').value;w.note=$('#dnote').value;idbPut(WSTORE,w);syncUp();};
   $('#ttl').addEventListener('change',save);$('#dnote').addEventListener('change',save);
   showView('detail');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));renderBar();}
-async function removeWalk(id){if(confirm('Delete this walk and its photos?')){await idbDel(WSTORE,id);tab('journal');}}
+async function removeWalk(id){if(confirm('Delete this walk and its photos?')){await idbDel(WSTORE,id);syncUp();tab('journal');}}
 
 //////////////////// action bar ////////////////////
 function renderBar(){const v=document.querySelector('.view.on').id;const b=$('#bar');
@@ -634,9 +754,13 @@ function renderBar(){const v=document.querySelector('.view.on').id;const b=$('#b
 
 //////////////////// boot ////////////////////
 function finishOnb(){try{localStorage.setItem('fb_onb','1');}catch(e){}document.getElementById('onb').classList.remove('show');buzz(20);tab('hunt');}
-(async()=>{const p=await idbGet(PSTORE,"me");if(p)PROF=Object.assign(PROF,p);renderHUD();renderJournal();renderBar();
-  let seen=false;try{seen=localStorage.getItem('fb_onb');}catch(e){}
-  if(!seen)document.getElementById('onb').classList.add('show');})();
+(async()=>{const p=await idbGet(PSTORE,"me");if(p)PROF=Object.assign(PROF,p);renderHUD();renderJournal();renderBar();renderAcct();
+  let sess=null;if(sb){try{const{data}=await sb.auth.getSession();sess=data&&data.session;}catch(e){}}
+  if(sess){/* onAuthStateChange handles pull + onboarding */return;}
+  let skip=false;try{skip=localStorage.getItem('fb_skip');}catch(e){}
+  if(sb&&!skip){openGate();}          // sign-in first for new visitors
+  else{afterGate();}                    // offline / returning skipper -> onboarding if unseen
+})();
 if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
 </script>
 </body>
