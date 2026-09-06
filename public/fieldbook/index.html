@@ -236,6 +236,12 @@ main{flex:1;padding:16px 14px 118px;border-top:3px solid var(--ink);margin-top:-
 .dcard .dv{font-size:1.35rem;font-weight:800;line-height:1}
 .dcard .dl{font-size:.56rem;color:var(--mut);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-top:2px}
 .dcard .di{font-size:1.1rem}
+.goal{display:flex;align-items:center;gap:14px;background:#fff;border:3px solid var(--ink);border-radius:18px;
+  padding:12px 14px;margin-bottom:12px;box-shadow:var(--shadow);cursor:pointer}
+.goal .gr{width:64px;height:64px;flex:0 0 64px}
+.goal .gt b{font-size:1.1rem}.goal .gt .s{font-family:'Patrick Hand',cursive;color:var(--mut);font-size:1rem}
+.goal .edit{margin-left:auto;font-size:.72rem;font-weight:800;color:var(--green);border:2px solid var(--green);
+  border-radius:20px;padding:4px 11px;white-space:nowrap}
 /* level ring progress arc */
 .lvl .ring .arc{transition:stroke-dashoffset .6s cubic-bezier(.2,.8,.2,1)}
 /* route map */
@@ -339,7 +345,7 @@ async function idbGet(store,k){const d=await db();return new Promise(res=>{const
 async function idbDel(store,k){const d=await db();return new Promise(res=>{const t=d.transaction(store,"readwrite");t.objectStore(store).delete(k);t.oncomplete=res;});}
 
 //////////////////// profile / gamification ////////////////////
-let PROF={k:"me",xp:0,streak:0,lastDay:null,badges:[],finds:0,huntsDone:[]};
+let PROF={k:"me",xp:0,streak:0,lastDay:null,badges:[],finds:0,huntsDone:[],weeklyGoal:5};
 const LEVELS=[["Sprout",0],["Scout",100],["Tracker",300],["Ranger",650],["Naturalist",1100],["Trailblazer",1800],["Legend",3000]];
 function levelOf(xp){let i=0;for(let j=0;j<LEVELS.length;j++)if(xp>=LEVELS[j][1])i=j;return i;}
 function levelInfo(){const i=levelOf(PROF.xp);const cur=LEVELS[i][1];const next=LEVELS[i+1]?LEVELS[i+1][1]:cur;
@@ -392,6 +398,14 @@ const HUNTS=[
   items:[["🎨","a mural"],["🚪","a cool door"],["🪧","an old sign"],["🗿","a statue"],["🐈","a street cat or dog"],["🪟","an interesting window"],["🧱","a brick pattern"],["🌱","a plant in concrete"],["💡","a cool light"],["🚲","a parked bike"]]},
  {id:"texture",name:"Texture Hunt",emoji:"🪵",color:"y",desc:"Look closely. Feel with your eyes.",
   items:[["🌲","rough bark"],["🪨","smooth stone"],["🧶","something fuzzy"],["✨","something shiny"],["🔳","a repeating pattern"],["🧱","peeling paint"],["🕸️","a spiderweb"],["💦","dew or droplets"],["🍃","a waxy leaf"],["🪶","a feather"]]},
+ {id:"beach",name:"Beach Day",emoji:"🏖️",color:"s",desc:"Sand, salt, and treasures by the shore.",
+  items:[["🐚","a seashell"],["🌊","a breaking wave"],["🪵","driftwood"],["⛵","a boat"],["🦀","a shore creature"],["🏰","a sandcastle"],["👣","footprints in sand"],["🪸","seaweed or coral"],["🐦","a seabird"],["🌅","sun over water"]]},
+ {id:"autumn",name:"Fall Colors",emoji:"🍁",color:"c",desc:"Chase the colors of the season.",
+  items:[["🍁","a red leaf"],["🍂","an orange leaf"],["🌾","a yellow leaf"],["🌰","an acorn or seed"],["🎃","a pumpkin"],["🪵","a bare branch"],["🍄","a mushroom"],["🧺","a pile of leaves"],["🌫️","misty air"],["🐿️","a squirrel"]]},
+ {id:"night",name:"Night Walk",emoji:"🌙",color:"b",desc:"The world after dark is a different place.",
+  items:[["🌕","the moon"],["💡","a streetlight"],["⭐","a star"],["🪟","a lit window"],["🌑","your shadow"],["✨","something glowing"],["🐈‍⬛","a night creature"],["🏙️","city lights"],["🫧","a reflection"],["🌃","a quiet street"]]},
+ {id:"micro",name:"Tiny Worlds",emoji:"🔬",color:"g",desc:"Get low. Find the small stuff.",
+  items:[["🐜","an ant"],["🌱","a single sprout"],["🐞","a bug on a leaf"],["🕸️","a web up close"],["🌼","a tiny flower"],["🪱","a worm"],["🍃","a leaf's veins"],["🫧","a water drop"],["🌰","a seed"],["🐌","a snail or slug"]]},
 ];
 function huntById(id){return HUNTS.find(h=>h.id===id);}
 
@@ -486,16 +500,22 @@ function discardWalk(){if(!confirm('Discard this walk?'))return;clearInterval(ti
 
 //////////////////// renders ////////////////////
 function weekStart(){const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-d.getDay());return d.getTime();}
+async function setGoal(){const v=prompt("Set your weekly distance goal (miles):",PROF.weeklyGoal||5);if(v===null)return;const n=parseFloat(v);if(n>0){PROF.weeklyGoal=n;await idbPut(PSTORE,PROF);renderJournal();toast("🎯 Goal set!",n+" miles this week");buzz(30);}}
 async function renderJournal(){const ws=(await idbAll(WSTORE)).sort((a,b)=>b.start-a.start);
   const el=$('#journalList');
   const totalMi=ws.reduce((s,w)=>s+w.distM,0)/M_PER_MI;
   const wk=weekStart();const wkMi=ws.filter(w=>w.start>=wk).reduce((s,w)=>s+w.distM,0)/M_PER_MI;
-  const dash=`<div class="dash">
+  const goal=PROF.weeklyGoal||5;const gp=Math.min(1,wkMi/goal);const off=(163.3*(1-gp)).toFixed(1);
+  const goalCard=`<div class="goal" onclick="setGoal()">
+    <svg class="gr" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="none" stroke="#e7f0e2" stroke-width="7"/><circle cx="32" cy="32" r="26" fill="none" stroke="#2E8B57" stroke-width="7" stroke-linecap="round" stroke-dasharray="163.3" stroke-dashoffset="${off}" transform="rotate(-90 32 32)"/><text x="32" y="31" text-anchor="middle" font-size="14" font-weight="800" font-family="Baloo 2" fill="#1A3320">${Math.round(gp*100)}%</text><text x="32" y="44" text-anchor="middle" font-size="8" font-family="Patrick Hand" fill="#5c7a63">goal</text></svg>
+    <div class="gt"><b>Weekly goal</b><div class="s">${wkMi.toFixed(1)} / ${goal} mi ${gp>=1?'— crushed it! 🎉':'this week'}</div></div>
+    <span class="edit">✎ edit</span></div>`;
+  const dash=goalCard+`<div class="dash">
     <div class="dcard"><div class="di">🥾</div><div class="dv">${ws.length}</div><div class="dl">Walks</div></div>
     <div class="dcard"><div class="di">📏</div><div class="dv">${totalMi.toFixed(1)}</div><div class="dl">Miles</div></div>
     <div class="dcard"><div class="di">📸</div><div class="dv">${PROF.finds||0}</div><div class="dl">Finds</div></div>
     <div class="dcard"><div class="di">🏅</div><div class="dv">${(PROF.badges||[]).length}</div><div class="dl">Badges</div></div>
-  </div>${ws.length?`<div class="script" style="font-size:1.15rem;color:var(--green);margin:0 4px 12px;transform:rotate(-1deg)">${wkMi>0?('🌟 '+wkMi.toFixed(1)+' miles this week — nice going!'):'A new week awaits. Go explore!'}</div>`:''}`;
+  </div>`;
   if(!ws.length){el.innerHTML=dash+`<div class="empty">
     <svg viewBox="0 0 120 120" fill="none"><rect x="24" y="18" width="72" height="86" rx="8" fill="#fff7d6" stroke="#1A3320" stroke-width="3"/><path d="M24 34h72M40 50h40M40 64h40M40 78h26" stroke="#1A3320" stroke-width="3" stroke-linecap="round"/><path d="M78 88l6 16 11 4-11 4-6 16-6-16-11-4 11-4z" fill="#2E8B57" stroke="#1A3320" stroke-width="2.5" stroke-linejoin="round"/></svg>
     <h3>Your journal is empty</h3><p>Start a hunt and fill these pages!</p></div>`;return;}
@@ -548,6 +568,34 @@ function routeSVG(track){if(!track||track.length<2)return '';
   const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
   const a=pts[0],b=pts[pts.length-1];
   return `<div class="mapbox"><svg viewBox="0 0 300 150"><path d="${d}" fill="none" stroke="#2E8B57" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 8"/><circle cx="${a[0].toFixed(1)}" cy="${a[1].toFixed(1)}" r="6.5" fill="#87CEEB" stroke="#1A3320" stroke-width="2.5"/><circle cx="${b[0].toFixed(1)}" cy="${b[1].toFixed(1)}" r="6.5" fill="#ff6f59" stroke="#1A3320" stroke-width="2.5"/></svg></div>`;}
+function loadImg(src){return new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=rej;i.src=src;});}
+function rr(x,X,Y,Wd,Hd,r){x.beginPath();x.moveTo(X+r,Y);x.arcTo(X+Wd,Y,X+Wd,Y+Hd,r);x.arcTo(X+Wd,Y+Hd,X,Y+Hd,r);x.arcTo(X,Y+Hd,X,Y,r);x.arcTo(X,Y,X+Wd,Y,r);x.closePath();}
+function wrapText(x,t,X,Y,maxW,lh){const words=String(t).split(' ');let line='',yy=Y;for(const wd of words){const test=line+wd+' ';if(x.measureText(test).width>maxW&&line){x.fillText(line.trim(),X,yy);line=wd+' ';yy+=lh;}else line=test;}x.fillText(line.trim(),X,yy);return yy;}
+async function shareWalk(id){const w=await idbGet(WSTORE,id);if(!w)return;toast("🎨 Building your card…","");
+  const cv=document.createElement('canvas');cv.width=1080;cv.height=1350;const x=cv.getContext('2d');
+  try{await document.fonts.ready;}catch(e){}
+  const F=(fw,s)=>x.font=fw+' '+s+"px 'Baloo 2',sans-serif";
+  x.fillStyle='#f3fbef';x.fillRect(0,0,1080,1350);
+  x.fillStyle='rgba(46,139,87,.09)';for(let i=44;i<1080;i+=54)for(let j=44;j<1350;j+=54){x.beginPath();x.arc(i,j,3,0,7);x.fill();}
+  x.strokeStyle='#1A3320';x.lineWidth=10;rr(x,30,30,1020,1290,34);x.stroke();
+  x.fillStyle='#2E8B57';F('800',46);x.fillText('✦ Fieldbook',70,116);
+  x.fillStyle='#5c7a63';x.font="30px 'Patrick Hand',cursive";x.fillText('a nature explorer log',74,154);
+  let py=200;
+  if(w.photos[0]){try{const img=await loadImg(w.photos[0].data);const pw=940,ph=560,px=70;
+    x.save();rr(x,px,py,pw,ph,20);x.clip();const ar=img.width/img.height,tar=pw/ph;let sw,sh,sx,sy;
+    if(ar>tar){sh=img.height;sw=sh*tar;sx=(img.width-sw)/2;sy=0;}else{sw=img.width;sh=sw/tar;sx=0;sy=(img.height-sh)/2;}
+    x.drawImage(img,sx,sy,sw,sh,px,py,pw,ph);x.restore();x.strokeStyle='#1A3320';x.lineWidth=6;rr(x,px,py,pw,ph,20);x.stroke();py+=ph+56;}catch(e){py+=20;}}
+  else{x.fillStyle='#e3f6e9';rr(x,70,py,940,320,20);x.fill();x.strokeStyle='#1A3320';x.lineWidth=6;rr(x,70,py,940,320,20);x.stroke();x.textAlign='center';x.font='150px sans-serif';x.fillText(w.hunt?w.hunt.emoji:'🥾',540,py+210);x.textAlign='left';py+=380;}
+  x.fillStyle='#1A3320';F('800',56);py=wrapText(x,w.title||'Walk',70,py+30,940,66)+50;
+  x.fillStyle='#5c7a63';x.font="36px 'Patrick Hand',cursive";x.fillText(dateStr(w.start),70,py);py+=70;
+  const stats=[[(w.distM/M_PER_MI).toFixed(2),'MILES'],[fmtT(w.dur),'TIME'],[String(w.steps),'STEPS'],[String(w.photos.length),'FINDS']];
+  const bw=940/4;x.textAlign='center';stats.forEach((s,i)=>{const cx=70+bw*i+bw/2;
+    x.fillStyle='#1A3320';F('800',48);x.fillText(s[0],cx,py+44);x.fillStyle='#5c7a63';F('700',24);x.fillText(s[1],cx,py+82);});
+  if(w.hunt){py+=150;const done=w.hunt.items.filter(i=>i.found).length;x.fillStyle='#2E8B57';F('700',36);x.fillText(w.hunt.emoji+'  '+w.hunt.name+' — '+done+'/'+w.hunt.items.length+' found',540,py+30);}
+  x.fillStyle='#2E8B57';F('700',30);x.fillText('webblaze.io/fieldbook',540,1285);x.textAlign='left';
+  cv.toBlob(async(blob)=>{if(!blob)return;const file=new File([blob],'fieldbook-walk.png',{type:'image/png'});
+    if(navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:w.title||'My Fieldbook walk'});return;}catch(e){}}
+    const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='fieldbook-walk.png';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);toast("📥 Card saved!","Post it or set it as a wallpaper.");},'image/png');}
 async function openDetail(id){const w=await idbGet(WSTORE,id);if(!w){tab('journal');return;}
   const rmap=routeSVG(w.track);
   const finds=w.hunt?w.hunt.items.filter(x=>x.found).length:0;
@@ -568,6 +616,8 @@ async function openDetail(id){const w=await idbGet(WSTORE,id);if(!w){tab('journa
     <textarea id="dnote" class="note" rows="3" placeholder="What did you notice out there?">${esc(w.note||'')}</textarea>
     ${huntSec}
     <div class="sec">📷 Sightings (${w.photos.length})</div>${gal}
+    <div style="height:14px"></div>
+    <button class="btn sky" onclick="shareWalk('${w.id}')">📤 Share this walk</button>
     <button class="link" onclick="removeWalk('${w.id}')">🗑 Delete this entry</button>`;
   const save=()=>{w.title=$('#ttl').value;w.note=$('#dnote').value;idbPut(WSTORE,w);};
   $('#ttl').addEventListener('change',save);$('#dnote').addEventListener('change',save);
