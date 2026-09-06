@@ -22,18 +22,26 @@ _ep_idx = [0]
 
 # OSM tag filters by preset. These map to WebBlaze's ICP (old trades + small pro services).
 PRESETS = {
-    "trades": [
-        'shop=upholsterer', 'shop=car_repair', 'craft=upholsterer', 'craft=electrician',
-        'craft=plumber', 'craft=hvac', 'craft=carpenter', 'craft=metal_construction',
-        'craft=blacksmith', 'craft=welder', 'craft=sawmill', 'craft=painter',
-        'craft=roofer', 'craft=stonemason', 'shop=trade', 'shop=hardware',
-        'shop=doityourself', 'craft=glaziery', 'craft=signmaker',
-        'craft=tiler', 'craft=plasterer', 'craft=cabinet_maker', 'craft=locksmith',
-        'craft=gardener', 'craft=insulation', 'craft=scaffolder', 'craft=floorer',
-        'craft=window_construction', 'craft=heating_engineer', 'craft=key_cutter',
-        'shop=locksmith', 'shop=paint', 'shop=fireplace', 'shop=doors', 'shop=pool',
-        'shop=kitchen', 'shop=bathroom_furnishing', 'shop=window_blind', 'shop=tyres',
-        'shop=fabric', 'shop=sewing', 'shop=trophy', 'shop=security',
+    # smaller groups (~8-12 tags) = lighter/faster Overpass queries, fewer timeouts
+    "trades_auto": [
+        'shop=car_repair', 'shop=tyres', 'shop=car_parts', 'craft=upholsterer',
+        'shop=upholsterer', 'craft=electrician', 'craft=welder', 'craft=blacksmith',
+        'craft=metal_construction', 'craft=signmaker',
+    ],
+    "trades_build": [
+        'craft=plumber', 'craft=hvac', 'craft=carpenter', 'craft=roofer',
+        'craft=painter', 'craft=tiler', 'craft=plasterer', 'craft=stonemason',
+        'craft=insulation', 'craft=scaffolder', 'craft=floorer', 'craft=heating_engineer',
+    ],
+    "trades_shop": [
+        'shop=hardware', 'shop=doityourself', 'shop=trade', 'shop=paint',
+        'shop=fireplace', 'shop=doors', 'shop=pool', 'shop=kitchen',
+        'shop=bathroom_furnishing', 'shop=window_blind', 'craft=glaziery',
+        'craft=cabinet_maker', 'craft=window_construction',
+    ],
+    "trades_misc": [
+        'craft=locksmith', 'shop=locksmith', 'craft=key_cutter', 'craft=sawmill',
+        'craft=gardener', 'shop=fabric', 'shop=sewing', 'shop=trophy', 'shop=security',
     ],
     "pro": [
         'office=lawyer', 'office=accountant', 'office=tax_advisor',
@@ -44,22 +52,28 @@ PRESETS = {
         'amenity=dentist', 'healthcare=dentist', 'amenity=veterinary',
         'healthcare=physiotherapist', 'shop=optician', 'healthcare=chiropractor',
     ],
-    "local": [
+    "local_a": [
         'shop=florist', 'shop=jewelry', 'shop=shoe_repair', 'craft=photographer',
         'shop=bakery', 'shop=furniture', 'shop=frame', 'craft=tailor',
-        'shop=dry_cleaning', 'shop=laundry', 'shop=travel_agency', 'shop=music',
-        'shop=musical_instrument', 'shop=pet', 'shop=pet_grooming', 'shop=garden_centre',
-        'shop=hairdresser', 'shop=beauty', 'shop=car_parts', 'shop=antiques',
-        'shop=appliance', 'shop=vacuum_cleaner', 'shop=bicycle', 'shop=computer',
-        'craft=confectionery', 'craft=jeweller', 'craft=watchmaker', 'office=travel_agent',
+        'shop=dry_cleaning', 'shop=laundry',
+    ],
+    "local_b": [
+        'shop=travel_agency', 'shop=music', 'shop=musical_instrument', 'shop=pet',
+        'shop=pet_grooming', 'shop=garden_centre', 'shop=antiques', 'shop=appliance',
+        'shop=vacuum_cleaner', 'shop=bicycle', 'shop=computer', 'craft=confectionery',
+        'craft=jeweller', 'craft=watchmaker', 'office=travel_agent',
     ],
 }
 
 def build_query(city, filters):
+    # capture businesses that have EITHER a website OR an email tag.
+    # email-tagged-but-no-website businesses are prime WebBlaze targets.
     parts = []
     for f in filters:
         k, v = f.split('=', 1)
         parts.append(f'  nwr(area.a)["{k}"="{v}"]["website"];')
+        parts.append(f'  nwr(area.a)["{k}"="{v}"]["email"];')
+        parts.append(f'  nwr(area.a)["{k}"="{v}"]["contact:email"];')
     body = "\n".join(parts)
     # match city as administrative area by name
     return f'''[out:json][timeout:60];
@@ -164,16 +178,21 @@ def query_city(city, filters, niche_label):
     for e in els:
         t = e.get("tags", {})
         site = t.get("website") or t.get("contact:website") or ""
-        if not site.startswith("http"):
+        email = (t.get("email") or t.get("contact:email") or "").strip().lower()
+        has_site = site.startswith("http")
+        if not has_site and not email:
             continue
-        dom = domain_of(site)
-        if not dom or is_chain(dom) or is_foreign(dom) or is_brand_name(t.get("name", "")):
+        dom = domain_of(site) if has_site else ""
+        # chain/foreign only apply to sites; brand-name filter always applies
+        if is_brand_name(t.get("name", "")):
+            continue
+        if has_site and (is_chain(dom) or is_foreign(dom)):
             continue
         rows.append({
             "name": t.get("name", "").strip(),
             "website": site.strip(),
-            "domain": domain_of(site),
-            "email": (t.get("email") or t.get("contact:email") or "").strip().lower(),
+            "domain": dom,
+            "email": email,
             "phone": (t.get("phone") or t.get("contact:phone") or "").strip(),
             "city": city,
             "niche": niche_label,

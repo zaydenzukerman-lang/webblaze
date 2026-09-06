@@ -1,0 +1,8 @@
+adding 6584 leads to campaign 5da84137-14a1-49ca-bd7e-b70c74132501
+  1000/6584 ok=1001 fail=0
+  2000/6584 ok=2019 fail=0
+  3000/6584 ok=3014 fail=0
+  4000/6584 ok=4002 fail=0
+  5000/6584 ok=5001 fail=0
+  6000/6584 ok=5999 fail=1
+DONE campaign ok=6583 fail=1

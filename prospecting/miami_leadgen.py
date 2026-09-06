@@ -14,7 +14,8 @@ MASTER = os.path.join(HERE, "leads_miami_master.csv")
 SEENF  = os.path.join(HERE, "seen_domains.txt")
 LOG    = os.path.join(HERE, "leadgen.log")
 CITIES = os.path.join(HERE, "miami-cities.txt")
-PRESETS = ["trades", "pro", "clinic", "local"]
+PRESETS = ["trades_auto","trades_build","trades_shop","trades_misc","pro","clinic","local_a","local_b"]
+PROG = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".leadgen_round")
 FIELDS = ["name","website","domain","email","phone","city","niche","score","https","mobile","reason"]
 
 def log(m):
@@ -56,9 +57,14 @@ def append_rows(rows):
 def main():
     ensure_master()
     seen = load_seen()
-    rnd = 0
+    try:
+        rnd = int(io.open(PROG).read().strip())
+    except Exception:
+        rnd = 0
     while True:
         rnd += 1
+        try: io.open(PROG, "w").write(str(rnd))
+        except Exception: pass
         preset = PRESETS[(rnd - 1) % len(PRESETS)]
         raw = os.path.join(HERE, "raw_%s.csv" % preset)
         log("=== round %d | niche=%s | sourcing OSM ===" % (rnd, preset))
@@ -71,11 +77,13 @@ def main():
         batch = []
         for row in csv.DictReader(io.open(raw, encoding="utf-8")):
             dom = (row.get("domain") or "").strip().lower()
-            if not dom or dom in seen: continue
-            seen.add(dom); add_seen(dom)
             email = (row.get("email") or "").strip()
+            if not dom and not email: continue
+            key = dom or ("email:" + email.lower())
+            if key in seen: continue
+            seen.add(key); add_seen(key)
             score = https = mobile = reason = ""
-            if not email:
+            if not email and dom:      # only scan when we have a site but no email yet
                 score, https, mobile, semail, reason = scan_one(dom)
                 scanned += 1
                 if semail: email = semail

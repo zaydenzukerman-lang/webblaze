@@ -1,0 +1,126 @@
+#!/usr/bin/env python3
+# WebBlaze — SECOND lead source: Bing search scraping (per niche x city).
+# Decodes Bing ck/a redirect links -> real business site URLs -> scan.sh harvests email.
+# Own files (leads_bing_master.csv / bing_seen.txt) so it never races the OSM engine.
+import re, base64, urllib.parse, urllib.request, csv, io, os, subprocess, sys, time
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from source_osm import is_chain, is_foreign, is_brand_name, bad_email, domain_of
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+MASTER = os.path.join(HERE, "leads_bing_master.csv")
+SEENF  = os.path.join(HERE, "bing_seen.txt")
+LOG    = os.path.join(HERE, "bing_leadgen.log")
+CITIES = os.path.join(HERE, "miami-cities.txt")
+FIELDS = ["name","website","domain","email","phone","city","niche","score","https","mobile","reason"]
+UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+
+NICHES = [
+ "roofing contractor","plumber","hvac repair","auto repair shop","upholstery shop",
+ "welding shop","electrician","landscaping company","pest control","cabinet maker",
+ "sign shop","machine shop","locksmith","flooring contractor","pool service",
+ "garage door repair","appliance repair","tree service","fence company","concrete contractor",
+ "painting contractor","tile contractor","glass shop","auto body shop","dry cleaner",
+ "print shop","tax preparation","bookkeeping","insurance agency","immigration lawyer",
+ "family law attorney","dentist office","chiropractor","florist","jewelry store",
+ "pet grooming","catering","tow truck service","pressure washing","window installation",
+]
+# directory/aggregator hosts to drop (not real leads)
+SKIP = ("bing.com","microsoft","yelp.com","facebook.com","instagram","yellowpages","mapquest",
+ "angi.com","thumbtack","birdeye","houzz","bbb.org","indeed","tripadvisor","wikipedia",
+ "linkedin","nextdoor","porch.com","homeadvisor","expertise.com","yellowbook","manta.com",
+ "chamberofcommerce","cylex","hotfrog","superpages","citysearch","foursquare","apple.com",
+ "google.com","youtube","amazon","reddit","glassdoor","zocdoc","healthgrades","avvo.com",
+ "justia","findlaw","lawyers.com","martindale","ziprecruiter","craigslist","pinterest",
+ "tiktok","twitter","x.com",".gov",".edu")
+
+def log(m):
+    line="[%s] %s"%(time.strftime("%H:%M:%S"),m); print(line,flush=True)
+    with io.open(LOG,"a",encoding="utf-8") as f: f.write(line+"\n")
+
+def load_seen():
+    return set(x.strip() for x in io.open(SEENF,encoding="utf-8")) if os.path.exists(SEENF) else set()
+
+def bing_urls(query):
+    q=urllib.parse.urlencode({"q":query,"cc":"us","count":"30"})
+    req=urllib.request.Request("https://www.bing.com/search?"+q, headers={"User-Agent":UA})
+    try:
+        h=urllib.request.urlopen(req,timeout=25).read().decode("utf-8","ignore")
+    except Exception as e:
+        log("  ! bing %s: %s"%(query,e)); return []
+    out=set()
+    for m in re.findall(r'u=a1([A-Za-z0-9%_\-]+)', h):
+        s=urllib.parse.unquote(m).replace('-','+').replace('_','/'); s+='='*(-len(s)%4)
+        try:
+            d=base64.b64decode(s).decode('utf-8','ignore')
+            if d.startswith('http'): out.add(d)
+        except Exception: pass
+    return list(out)
+
+FL_STRONG = ("florida","miami","hialeah","broward","miami-dade","palm beach",
+ "fort lauderdale","boca raton","coral gables","doral","homestead","aventura",
+ "pembroke pines","pompano","deerfield beach","davie, fl","kendall","coral springs")
+def is_local_fl(domain):
+    """Fetch homepage; keep only if it clearly references South Florida by name
+    (or a ', FL' address token). Strong textual signals only — no bare digits."""
+    for scheme in ("https://","http://"):
+        try:
+            req=urllib.request.Request(scheme+domain, headers={"User-Agent":UA})
+            html=urllib.request.urlopen(req,timeout=15).read().decode("utf-8","ignore").lower()
+            if ", fl " in html or ", fl<" in html or ", fl," in html or " fl 3" in html:
+                return True   # a Florida street address
+            return any(t in html for t in FL_STRONG)
+        except Exception:
+            continue
+    return False
+
+def scan_one(domain):
+    try:
+        tmp="/tmp/bscan_%d.csv"%os.getpid()
+        subprocess.run(["bash",os.path.join(HERE,"scan.sh"),"/dev/stdin",tmp],
+                       input=domain+"\n",text=True,capture_output=True,timeout=60)
+        rows=list(csv.reader(io.open(tmp,encoding="utf-8")))
+        if len(rows)>=2:
+            r=rows[1]; return (r[0],r[2],r[3],r[6],r[8] if len(r)>8 else "")
+    except Exception: pass
+    return ("","","","","")
+
+def ensure():
+    if not os.path.exists(MASTER):
+        with io.open(MASTER,"w",encoding="utf-8",newline="") as f: csv.writer(f).writerow(FIELDS)
+
+def main():
+    ensure()
+    seen=load_seen()
+    # anchor locations across the tri-county area (Bing barely localizes, so query a few)
+    ANCHORS=["Miami FL","Hialeah FL","Fort Lauderdale FL","Hollywood FL","Boca Raton FL",
+             "Pompano Beach FL","Kendall FL","Homestead FL"]
+    rnd=0
+    while True:
+        rnd+=1
+        for niche in NICHES:
+            added=0
+            for loc in ANCHORS:
+                for url in bing_urls('%s %s'%(niche, loc)):
+                    dom=domain_of(url)
+                    if not dom or dom in seen: continue
+                    if any(k in dom for k in SKIP): continue
+                    if is_chain(dom) or is_foreign(dom) or is_brand_name(dom): continue
+                    seen.add(dom)
+                    with io.open(SEENF,"a",encoding="utf-8") as f: f.write(dom+"\n")
+                    if not is_local_fl(dom):   # strict: must reference South Florida
+                        continue
+                    score,https,mob,email,reason=scan_one(dom)
+                    if bad_email(email): continue
+                    row={"name":dom,"website":url,"domain":dom,"email":email,"phone":"",
+                         "city":loc,"niche":niche,"score":score,"https":https,"mobile":mob,"reason":reason}
+                    with io.open(MASTER,"a",encoding="utf-8",newline="") as f:
+                        csv.writer(f).writerow([row[k] for k in FIELDS])
+                    added+=1
+                time.sleep(2.5)  # be gentle with Bing
+            total=sum(1 for _ in io.open(MASTER,encoding="utf-8"))-1
+            log("niche '%s' done | +%d | bing master total: %d"%(niche,added,total))
+        log("=== full Bing pass %d done; sleeping 600s ==="%rnd)
+        time.sleep(600)
+
+if __name__=="__main__":
+    main()

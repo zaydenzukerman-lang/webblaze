@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
+<meta name="theme-color" content="#2b2620">
+<title>Fieldbook — a walking field journal</title>
+<style>
+:root{--paper:#efe7d6;--paper2:#e6dcc6;--ink:#2b2620;--mut:#7a6f5c;--line:#cdbfa3;--accent:#b4552d;--green:#4a6b3f;--card:#f6f0e2}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{font-family:'Iowan Old Style','Palatino Linotype',Georgia,serif;background:var(--paper);
+  background-image:radial-gradient(var(--line) .5px,transparent .5px);background-size:22px 22px;color:var(--ink);
+  overscroll-behavior:none}
+.mono{font-family:ui-monospace,'SF Mono',Menlo,monospace}
+.app{max-width:560px;margin:0 auto;min-height:100%;display:flex;flex-direction:column}
+header{padding:18px 20px 12px;border-bottom:2px solid var(--ink);display:flex;align-items:baseline;justify-content:space-between}
+header h1{font-size:1.5rem;letter-spacing:.02em}
+header .sub{font-size:.72rem;color:var(--mut);text-transform:uppercase;letter-spacing:.18em}
+main{flex:1;padding:16px 16px 96px}
+.view{display:none}.view.on{display:block}
+/* logbook */
+.entry{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:14px;
+  box-shadow:2px 3px 0 rgba(43,38,32,.08);cursor:pointer;display:flex}
+.entry .thumb{width:104px;flex:0 0 104px;background:#ddd center/cover no-repeat;background-color:var(--paper2)}
+.entry .eb{padding:12px 14px;flex:1;min-width:0}
+.entry .no{font-size:.66rem;color:var(--accent);letter-spacing:.16em;text-transform:uppercase}
+.entry h3{font-size:1.05rem;margin:2px 0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.entry .st{display:flex;gap:14px;font-size:.78rem;color:var(--mut)}
+.entry .st b{color:var(--ink)}
+.empty{text-align:center;color:var(--mut);padding:60px 20px}
+.empty .big{font-size:3rem}
+/* active */
+.live{text-align:center}
+.timer{font-size:3.4rem;letter-spacing:.02em;margin:6px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:14px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 8px}
+.stat .v{font-size:1.5rem}.stat .l{font-size:.62rem;color:var(--mut);text-transform:uppercase;letter-spacing:.12em}
+.shots{display:flex;gap:8px;overflow-x:auto;padding:8px 2px;min-height:8px}
+.shots img{height:76px;width:76px;object-fit:cover;border-radius:8px;border:1px solid var(--line);flex:0 0 auto}
+.gps{font-size:.72rem;color:var(--mut);margin-top:4px}
+.gps.warn{color:var(--accent)}
+/* detail */
+.dstat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gal figure{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+.gal img{width:100%;display:block;aspect-ratio:1;object-fit:cover}
+.gal figcaption{font-size:.66rem;color:var(--mut);padding:5px 7px}
+.note{width:100%;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit;font-size:.95rem;margin-top:10px;resize:vertical}
+/* buttons */
+button{font:inherit;cursor:pointer}
+.btn{display:block;width:100%;background:var(--ink);color:var(--paper);border:0;border-radius:12px;padding:16px;
+  font-size:1.05rem;letter-spacing:.03em}
+.btn.accent{background:var(--accent)}
+.btn.green{background:var(--green)}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.bar{position:fixed;left:0;right:0;bottom:0;max-width:560px;margin:0 auto;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:linear-gradient(transparent,var(--paper) 22%)}
+.link{background:none;border:0;color:var(--accent);text-decoration:underline;font-size:.9rem;padding:8px}
+.cap{font-size:.7rem;color:var(--mut);text-align:center;margin-top:8px}
+h2.sec{font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:var(--mut);margin:16px 0 8px;border-bottom:1px solid var(--line);padding-bottom:4px}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div><h1>Fieldbook</h1><div class="sub">Walking Field Journal</div></div>
+    <div class="mono sub" id="hcount"></div>
+  </header>
+  <main>
+    <!-- LOGBOOK -->
+    <section id="v-log" class="view on">
+      <div id="logList"></div>
+    </section>
+
+    <!-- ACTIVE WALK -->
+    <section id="v-active" class="view">
+      <div class="live">
+        <div class="sub">Entry in progress</div>
+        <div class="timer mono" id="t">00:00</div>
+        <div class="gps" id="gps">Locating…</div>
+      </div>
+      <div class="grid">
+        <div class="stat"><div class="v mono" id="s-dist">0.00</div><div class="l">miles</div></div>
+        <div class="stat"><div class="v mono" id="s-steps">0</div><div class="l">steps</div></div>
+        <div class="stat"><div class="v mono" id="s-cad">0</div><div class="l">cadence</div></div>
+      </div>
+      <div class="shots" id="shots"></div>
+      <div class="cap" id="shotcap">Tap “Log a sighting” to photograph anything cool.</div>
+    </section>
+
+    <!-- DETAIL -->
+    <section id="v-detail" class="view"></section>
+  </main>
+</div>
+
+<!-- bottom action bar -->
+<div class="bar" id="bar"></div>
+<input type="file" id="cam" accept="image/*" capture="environment" hidden>
+
+<script>
+//////////////////// storage (IndexedDB) ////////////////////
+const DB="fieldbook",STORE="walks";
+function db(){return new Promise((res,rej)=>{const r=indexedDB.open(DB,1);
+  r.onupgradeneeded=e=>{e.target.result.createObjectStore(STORE,{keyPath:"id"})};
+  r.onsuccess=e=>res(e.target.result);r.onerror=e=>rej(e)});}
+async function putWalk(w){const d=await db();return new Promise((res,rej)=>{const tx=d.transaction(STORE,"readwrite");tx.objectStore(STORE).put(w);tx.oncomplete=res;tx.onerror=rej});}
+async function allWalks(){const d=await db();return new Promise((res)=>{const out=[];const tx=d.transaction(STORE,"readonly");tx.objectStore(STORE).openCursor().onsuccess=e=>{const c=e.target.result;if(c){out.push(c.value);c.continue();}else res(out.sort((a,b)=>b.start-a.start));}});}
+async function getWalk(id){const d=await db();return new Promise((res)=>{const tx=d.transaction(STORE,"readonly");tx.objectStore(STORE).get(id).onsuccess=e=>res(e.target.result);});}
+async function delWalk(id){const d=await db();return new Promise((res)=>{const tx=d.transaction(STORE,"readwrite");tx.objectStore(STORE).delete(id);tx.oncomplete=res;});}
+
+//////////////////// helpers ////////////////////
+const $=s=>document.querySelector(s);
+const M_PER_MI=1609.34;
+function fmtT(s){s=Math.floor(s);const h=Math.floor(s/3600),m=Math.floor(s%3600/60),ss=s%60;
+  return (h?String(h).padStart(2,'0')+':':'')+String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0');}
+function hav(a,b){const R=6371000,toR=x=>x*Math.PI/180;
+  const dLat=toR(b.lat-a.lat),dLng=toR(b.lng-a.lng);
+  const s=Math.sin(dLat/2)**2+Math.cos(toR(a.lat))*Math.cos(toR(b.lat))*Math.sin(dLng/2)**2;
+  return 2*R*Math.asin(Math.sqrt(s));}
+function dateStr(t){return new Date(t).toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'});}
+function show(v){document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));$('#v-'+v).classList.add('on');}
+
+//////////////////// active walk engine ////////////////////
+let W=null, tick=null, geoId=null, motionOn=false, lastAcc=null, stepCool=0;
+function startWalk(){
+  W={id:'w'+Date.now(),start:Date.now(),end:null,dur:0,distM:0,steps:0,cad:0,track:[],photos:[],note:''};
+  show('active'); renderBar();
+  $('#t').textContent='00:00';$('#s-dist').textContent='0.00';$('#s-steps').textContent='0';$('#s-cad').textContent='0';
+  $('#shots').innerHTML='';$('#gps').textContent='Locating…';$('#gps').className='gps';
+  tick=setInterval(()=>{W.dur=(Date.now()-W.start)/1000;$('#t').textContent=fmtT(W.dur);
+    W.cad=W.dur>5?Math.round(W.steps/(W.dur/60)):0;$('#s-cad').textContent=W.cad;},1000);
+  // GPS
+  if(navigator.geolocation){geoId=navigator.geolocation.watchPosition(onPos,onGeoErr,{enableHighAccuracy:true,maximumAge:1000,timeout:12000});}
+  else{$('#gps').textContent='No GPS on this device';$('#gps').className='gps warn';}
+  // Motion (steps) — iOS needs permission
+  startMotion();
+}
+function onPos(p){const c=p.coords;if(c.accuracy>40){$('#gps').textContent='GPS signal weak…';$('#gps').className='gps warn';return;}
+  const pt={lat:c.latitude,lng:c.longitude,t:Date.now()};
+  const last=W.track[W.track.length-1];
+  if(last){const d=hav(last,pt);if(d>1&&d<60){W.distM+=d;}}
+  W.track.push(pt);
+  $('#s-dist').textContent=(W.distM/M_PER_MI).toFixed(2);
+  $('#gps').textContent='● Tracking · ±'+Math.round(c.accuracy)+'m';$('#gps').className='gps';
+  if(!motionOn){/* fallback: estimate steps from distance, ~0.76m stride */ W.steps=Math.round(W.distM/0.76);$('#s-steps').textContent=W.steps;}
+}
+function onGeoErr(){$('#gps').textContent='GPS blocked — enable location to track distance';$('#gps').className='gps warn';}
+function startMotion(){
+  const attach=()=>{window.addEventListener('devicemotion',onMotion);motionOn=true;};
+  if(typeof DeviceMotionEvent!=='undefined'&&typeof DeviceMotionEvent.requestPermission==='function'){
+    DeviceMotionEvent.requestPermission().then(r=>{if(r==='granted')attach();}).catch(()=>{});
+  }else if(typeof DeviceMotionEvent!=='undefined'){attach();}
+}
+function onMotion(e){const a=e.accelerationIncludingGravity||e.acceleration;if(!a)return;
+  const mag=Math.sqrt((a.x||0)**2+(a.y||0)**2+(a.z||0)**2);
+  const now=Date.now();
+  if(lastAcc!==null){const d=mag-lastAcc;
+    // simple peak detection: a strong upward jerk, debounced ~280ms
+    if(d>2.2 && now-stepCool>280){W.steps++;stepCool=now;$('#s-steps').textContent=W.steps;}}
+  lastAcc=mag;
+}
+async function finishWalk(){
+  clearInterval(tick);if(geoId!=null)navigator.geolocation.clearWatch(geoId);
+  window.removeEventListener('devicemotion',onMotion);motionOn=false;lastAcc=null;
+  W.end=Date.now();W.dur=(W.end-W.start)/1000;W.cad=W.dur>5?Math.round(W.steps/(W.dur/60)):0;
+  W.title=W.title||('Walk · '+dateStr(W.start));
+  await putWalk(W);const id=W.id;W=null;openDetail(id);
+}
+function discardWalk(){clearInterval(tick);if(geoId!=null)navigator.geolocation.clearWatch(geoId);
+  window.removeEventListener('devicemotion',onMotion);W=null;renderLog();show('log');renderBar();}
+
+//////////////////// photos ////////////////////
+$('#cam').addEventListener('change',e=>{const f=e.target.files[0];e.target.value='';if(!f||!W)return;
+  const r=new FileReader();r.onload=()=>{const last=W.track[W.track.length-1]||{};
+    W.photos.push({data:r.result,t:Date.now(),lat:last.lat,lng:last.lng});renderShots();};
+  r.readAsDataURL(f);});
+function renderShots(){$('#shots').innerHTML=W.photos.map(p=>`<img src="${p.data}">`).join('');
+  $('#shotcap').textContent=W.photos.length?W.photos.length+' sighting'+(W.photos.length>1?'s':'')+' logged':'Tap “Log a sighting” to photograph anything cool.';}
+
+//////////////////// views ////////////////////
+async function renderLog(){const ws=await allWalks();$('#hcount').textContent=ws.length?ws.length+' entries':'';
+  if(!ws.length){$('#logList').innerHTML=`<div class="empty"><div class="big">🧭</div><p>No walks logged yet.<br>Head out and start your first entry.</p></div>`;return;}
+  $('#logList').innerHTML=ws.map((w,i)=>{const n=ws.length-i;const th=w.photos[0]?w.photos[0].data:'';
+    return `<div class="entry" onclick="openDetail('${w.id}')">
+      <div class="thumb" style="background-image:url('${th}')"></div>
+      <div class="eb"><div class="no">Entry No. ${String(n).padStart(3,'0')} · ${dateStr(w.start)}</div>
+      <h3>${(w.title||'Walk').replace(/</g,'&lt;')}</h3>
+      <div class="st"><span><b>${(w.distM/M_PER_MI).toFixed(2)}</b> mi</span>
+      <span><b>${fmtT(w.dur)}</b></span><span><b>${w.steps}</b> steps</span>
+      <span>📷 ${w.photos.length}</span></div></div></div>`;}).join('');}
+
+async function openDetail(id){const w=await getWalk(id);if(!w){renderLog();show('log');return;}
+  const gal=w.photos.length?`<div class="gal">${w.photos.map(p=>`<figure><img src="${p.data}"><figcaption>${new Date(p.t).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}${p.lat?' · 📍':''}</figcaption></figure>`).join('')}</div>`:'<p style="color:var(--mut)">No photos on this walk.</p>';
+  $('#v-detail').innerHTML=`
+    <div class="sub" style="color:var(--accent)">${dateStr(w.start)} · ${new Date(w.start).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div>
+    <input id="ttl" class="note" style="font-size:1.2rem;font-family:inherit" value="${(w.title||'').replace(/"/g,'&quot;')}">
+    <div class="dstat">
+      <div class="stat"><div class="v mono">${(w.distM/M_PER_MI).toFixed(2)}</div><div class="l">miles</div></div>
+      <div class="stat"><div class="v mono">${fmtT(w.dur)}</div><div class="l">duration</div></div>
+      <div class="stat"><div class="v mono">${w.steps}</div><div class="l">steps</div></div>
+      <div class="stat"><div class="v mono">${w.cad}</div><div class="l">cadence /min</div></div>
+    </div>
+    <h2 class="sec">Field notes</h2>
+    <textarea id="dnote" class="note" rows="3" placeholder="What did you notice out there?">${(w.note||'').replace(/</g,'&lt;')}</textarea>
+    <h2 class="sec">Sightings (${w.photos.length})</h2>${gal}
+    <div style="height:14px"></div>
+    <button class="link" onclick="removeWalk('${w.id}')">Delete this entry</button>`;
+  const save=()=>{w.title=$('#ttl').value;w.note=$('#dnote').value;putWalk(w);};
+  $('#ttl').addEventListener('change',save);$('#dnote').addEventListener('change',save);
+  show('detail');curDetail=id;renderBar();}
+async function removeWalk(id){if(confirm('Delete this walk and its photos?')){await delWalk(id);renderLog();show('log');renderBar();}}
+
+//////////////////// action bar ////////////////////
+let curDetail=null;
+function renderBar(){const v=document.querySelector('.view.on').id;
+  const b=$('#bar');
+  if(v==='v-log'){b.innerHTML=`<button class="btn accent" onclick="startWalk()">＋ Start a Walk</button>`;}
+  else if(v==='v-active'){b.innerHTML=`<button class="btn green" onclick="cam.click()">📷 Log a sighting</button>
+    <div style="height:10px"></div><div class="row"><button class="btn ghost" onclick="discardWalk()">Discard</button>
+    <button class="btn" onclick="finishWalk()">Finish entry</button></div>`;}
+  else{b.innerHTML=`<button class="btn ghost" onclick="renderLog();show('log');renderBar()">← Back to logbook</button>`;}
+}
+//////////////////// boot ////////////////////
+renderLog();renderBar();
+</script>
+</body>
+</html>
