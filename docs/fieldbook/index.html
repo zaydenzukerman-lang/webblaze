@@ -60,19 +60,40 @@ img{display:block}
 .tab .ico{display:block;margin:0 auto 2px;width:22px;height:22px}
 .tab.on{top:0;color:var(--ink);background:var(--paper)}
 .tab.on.j{background:#fff7d6}.tab.on.h{background:#e3f6ff}.tab.on.f{background:#ffe9e4}.tab.on.b{background:#f0e6ff}
-main{flex:1;padding:14px 14px 110px;border-top:3px solid var(--ink);background:var(--paper);margin-top:-3px}
+main{flex:1;padding:16px 14px 118px;border-top:3px solid var(--ink);margin-top:-3px;
+  background:var(--paper);
+  background-image:
+    linear-gradient(rgba(46,139,87,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(46,139,87,.04) 1px,transparent 1px),
+    radial-gradient(circle at 12% 18%,rgba(255,215,0,.06),transparent 40%),
+    radial-gradient(circle at 88% 72%,rgba(135,206,235,.08),transparent 42%);
+  background-size:30px 30px,30px 30px,100% 100%,100% 100%}
 .view{display:none;animation:pop .25s ease}.view.on{display:block}
 @keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
 /* ---------- scrapbook journal cards ---------- */
-.entry{background:#fff;border:3px solid var(--ink);border-radius:16px;padding:12px;margin-bottom:20px;
+.entry{background:#fff;border:3px solid var(--ink);border-radius:16px;padding:14px;margin-bottom:24px;
   box-shadow:var(--shadow);position:relative}
 .entry:nth-child(odd){transform:rotate(-.8deg)}.entry:nth-child(even){transform:rotate(.7deg)}
-.entry .tape{position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-3deg);
-  width:120px;height:26px;background:rgba(255,215,0,.7);border:1px dashed rgba(0,0,0,.15)}
-.entry .stamp{position:absolute;top:8px;right:10px;font-family:'Caveat',cursive;font-weight:700;color:var(--coral);
-  font-size:1.1rem;transform:rotate(6deg);border:2px solid var(--coral);border-radius:8px;padding:0 6px;opacity:.85}
-.entry .photo{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;border:3px solid var(--ink);background:var(--sky)}
+.entry .pic{position:relative}
+.entry .tape{position:absolute;top:-13px;left:50%;width:116px;height:28px;
+  background:rgba(255,215,0,.72);box-shadow:0 1px 3px rgba(0,0,0,.12);
+  border-left:1px dashed rgba(0,0,0,.12);border-right:1px dashed rgba(0,0,0,.12)}
+.entry .tape.t0{transform:translateX(-50%) rotate(-4deg);background:rgba(255,215,0,.72)}
+.entry .tape.t1{transform:translateX(-58%) rotate(3deg);background:rgba(135,206,235,.72)}
+.entry .tape.t2{transform:translateX(-42%) rotate(-2deg);background:rgba(255,111,89,.6)}
+.entry .tape.t3{transform:translateX(-50%) rotate(5deg);background:rgba(198,91,155,.55)}
+/* photo corners */
+.entry .pic:before,.entry .pic:after{content:"";position:absolute;width:20px;height:20px;z-index:2;
+  border:0 solid rgba(26,51,32,.55)}
+.entry .pic:before{top:-2px;left:-2px;border-top-width:3px;border-left-width:3px;border-radius:4px 0 0 0}
+.entry .pic:after{bottom:44px;right:-2px;border-bottom-width:3px;border-right-width:3px;border-radius:0 0 4px 0}
+.entry .stamp{position:absolute;top:-6px;right:-4px;font-family:'Caveat',cursive;font-weight:700;color:var(--coral);
+  font-size:1.15rem;transform:rotate(8deg);border:2.5px solid var(--coral);border-radius:9px;padding:1px 8px;
+  background:rgba(255,253,245,.9);z-index:3;box-shadow:0 2px 4px rgba(0,0,0,.08)}
+.entry .photo{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;border:3px solid var(--ink);background:var(--sky);
+  box-shadow:0 3px 8px rgba(0,0,0,.12)}
+.entry .doodle{position:absolute;bottom:8px;right:10px;width:34px;height:34px;opacity:.5;transform:rotate(-8deg);z-index:1}
 .entry h3{font-size:1.25rem;margin:10px 2px 2px}
 .entry .date{font-family:'Patrick Hand',cursive;color:var(--mut);font-size:.95rem;margin:0 2px 8px}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
@@ -96,6 +117,10 @@ main{flex:1;padding:14px 14px 110px;border-top:3px solid var(--ink);background:v
 .hcard .pbar{flex:1;height:10px;background:#fff;border:2px solid var(--ink);border-radius:20px;overflow:hidden}
 .hcard .pf{height:100%;background:var(--green)}
 .hbadge{font-size:.72rem;font-weight:800;background:var(--sun);border:2px solid var(--ink);border-radius:20px;padding:2px 8px}
+.stickstrip{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
+.stickstrip span{width:32px;height:32px;border-radius:50%;background:#fff;border:2.5px solid var(--ink);
+  display:grid;place-items:center;font-size:1.05rem;box-shadow:0 2px 0 rgba(31,107,65,.16)}
+.stickstrip span.more{font-family:'Patrick Hand',cursive;font-size:.82rem;border-style:dashed;color:var(--mut)}
 
 /* checklist */
 .check{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
@@ -114,12 +139,17 @@ main{flex:1;padding:14px 14px 110px;border-top:3px solid var(--ink);background:v
 .item.done .xp{color:#fff}
 
 /* finds grid */
-.finds{columns:2;column-gap:10px}
-.find{break-inside:avoid;margin-bottom:10px;border:3px solid var(--ink);border-radius:12px;overflow:hidden;background:#fff;
-  box-shadow:var(--shadow)}
-.find:nth-child(3n){transform:rotate(-1.2deg)}.find:nth-child(3n+1){transform:rotate(1deg)}
-.find img{width:100%}
-.find .cap{font-family:'Patrick Hand',cursive;font-size:.85rem;padding:4px 8px;color:var(--mut)}
+.finds{columns:2;column-gap:14px}
+.find{break-inside:avoid;margin-bottom:18px;background:#fff;border:1px solid var(--line);border-radius:4px;
+  padding:8px 8px 4px;box-shadow:0 5px 12px rgba(26,51,32,.16);position:relative}
+.find:nth-child(4n){transform:rotate(-1.8deg)}.find:nth-child(4n+1){transform:rotate(1.5deg)}
+.find:nth-child(4n+2){transform:rotate(-.6deg)}.find:nth-child(4n+3){transform:rotate(1deg)}
+.find:before{content:"";position:absolute;top:-8px;left:50%;transform:translateX(-50%) rotate(-4deg);
+  width:58px;height:18px;background:rgba(135,206,235,.68);box-shadow:0 1px 2px rgba(0,0,0,.1)}
+.find:nth-child(3n):before{background:rgba(255,215,0,.7);transform:translateX(-40%) rotate(5deg)}
+.find:nth-child(3n+1):before{background:rgba(255,111,89,.55);transform:translateX(-60%) rotate(-6deg)}
+.find img{width:100%;border:2px solid var(--ink);border-radius:2px;display:block}
+.find .cap{font-family:'Patrick Hand',cursive;font-size:.94rem;padding:6px 2px 2px;color:var(--ink);text-align:center}
 
 /* badges */
 .badges{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
@@ -385,15 +415,20 @@ async function renderJournal(){const ws=(await idbAll(WSTORE)).sort((a,b)=>b.sta
   if(!ws.length){el.innerHTML=`<div class="empty">
     <svg viewBox="0 0 120 120" fill="none"><rect x="24" y="18" width="72" height="86" rx="8" fill="#fff7d6" stroke="#1A3320" stroke-width="3"/><path d="M24 34h72M40 50h40M40 64h40M40 78h26" stroke="#1A3320" stroke-width="3" stroke-linecap="round"/><path d="M78 88l6 16 11 4-11 4-6 16-6-16-11-4 11-4z" fill="#2E8B57" stroke="#1A3320" stroke-width="2.5" stroke-linejoin="round"/></svg>
     <h3>Your journal is empty</h3><p>Start a hunt and fill these pages!</p></div>`;return;}
+  const DOO=['<svg class="doodle" viewBox="0 0 40 40" fill="none" stroke="#2E8B57" stroke-width="3"><path d="M20 34C10 28 6 16 14 8c6-6 18-2 18 8 0 8-6 14-12 18z"/><path d="M20 30V12"/></svg>',
+    '<svg class="doodle" viewBox="0 0 40 40" fill="none" stroke="#FFD700" stroke-width="3"><path d="M20 5l4 10 10 1-8 7 3 11-9-6-9 6 3-11-8-7 10-1z"/></svg>',
+    '<svg class="doodle" viewBox="0 0 40 40" fill="none" stroke="#87CEEB" stroke-width="3"><circle cx="20" cy="20" r="14"/><path d="M20 8v12l8 4"/></svg>'];
   el.innerHTML=ws.map((w,i)=>{const n=ws.length-i;const th=w.photos[0]?w.photos[0].data:'';
     const finds=w.hunt?w.hunt.items.filter(x=>x.found).length:0;
     return `<div class="entry" onclick="openDetail('${w.id}')">
-      <div class="tape"></div><div class="stamp">No.${String(n).padStart(3,'0')}</div>
-      ${th?`<img class="photo" src="${th}" alt="walk photo">`:`<div class="photo" style="display:grid;place-items:center;font-size:2.4rem">${w.hunt?w.hunt.emoji:'🥾'}</div>`}
+      <div class="stamp">No.${String(n).padStart(3,'0')}</div>
+      <div class="pic"><div class="tape t${n%4}"></div>
+      ${th?`<img class="photo" src="${th}" alt="walk photo">`:`<div class="photo" style="display:grid;place-items:center;font-size:2.6rem">${w.hunt?w.hunt.emoji:'🥾'}</div>`}</div>
       <h3>${esc(w.title||'Walk')}</h3><div class="date">${dateStr(w.start)}</div>
       <div class="chips"><span class="chip g">📏 ${(w.distM/M_PER_MI).toFixed(2)} mi</span>
       <span class="chip s">⏱ ${fmtT(w.dur)}</span><span class="chip y">👣 ${w.steps}</span>
       <span class="chip c">📷 ${w.photos.length}</span>${w.hunt?`<span class="chip">🔎 ${finds}/${w.hunt.items.length}</span>`:''}</div>
+      ${DOO[n%3]}
     </div>`;}).join('');}
 
 function renderHunts(){$('#huntList').innerHTML=`<p class="hand" style="color:var(--mut);font-size:1.05rem;margin:2px 4px 12px">Pick a hunt, head outside, and photograph what you find. Each find = 15 XP ⭐</p>`+
@@ -401,6 +436,7 @@ function renderHunts(){$('#huntList').innerHTML=`<p class="hand" style="color:va
     return `<div class="hcard" style="background:${cardBg(h.color)}" onclick="startWalk('${h.id}')">
       <h3><span style="font-size:1.6rem">${h.emoji}</span> ${h.name} ${done?'<span class="hbadge">✓ done</span>':''}</h3>
       <div class="sub">${h.desc}</div>
+      <div class="stickstrip">${h.items.slice(0,7).map(it=>`<span>${it[0]}</span>`).join('')}${h.items.length>7?`<span class="more">+${h.items.length-7}</span>`:''}</div>
       <div class="prog"><div class="pbar"><div class="pf" style="width:${done?100:0}%"></div></div>
       <span style="font-weight:800;font-size:.85rem">${h.items.length} finds</span></div>
     </div>`;}).join('')+
