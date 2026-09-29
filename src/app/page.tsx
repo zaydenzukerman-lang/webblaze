@@ -121,6 +121,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ============ FOUNDER — a real face behind the cold email ============ */}
+      <section id="about" className="mx-auto max-w-[1180px] px-6 pt-28">
+        <div className="grid items-center gap-10 md:grid-cols-[260px_1fr] md:gap-16">
+          <Reveal>
+            <Image
+              src="/zayden.png"
+              alt="Zayden Zukerman, founder of WebBlaze"
+              width={260}
+              height={260}
+              className="mx-auto h-[200px] w-[200px] rounded-full object-cover shadow-[0_20px_50px_rgba(0,0,0,0.18)] ring-4 ring-white md:h-[260px] md:w-[260px]"
+              priority
+            />
+          </Reveal>
+          <div>
+            <Reveal><p className="eyebrow text-[var(--flame)]">Who you&apos;re talking to</p></Reveal>
+            <Reveal delay={0.05}>
+              <h2 className="mt-3 max-w-[20ch] text-[length:var(--fs-h2)] font-bold">
+                Hi, I&apos;m Zayden. I build every site myself.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="mt-5 max-w-[56ch] text-[var(--ink-soft)] text-[length:var(--fs-body)]">
+                I&apos;m a teenager in South Florida who started WebBlaze to help local businesses look as good
+                online as they are in person. When you email me, you get me, not a call center or a sales
+                team. I&apos;ll build your new site before you pay a cent, so you can see exactly what you&apos;re getting.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* ============ WORK ============ */}
       <section id="work" className="mx-auto max-w-[1180px] px-6 py-28">
         <Reveal><p className="eyebrow text-[var(--flame)]">Selected Work</p></Reveal>
