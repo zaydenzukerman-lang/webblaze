@@ -8,26 +8,23 @@
   var f=document.getElementById('cform');
   if(f){
     var q=new URLSearchParams(location.search),plan=q.get('plan'),svc=q.get('service');
-    if(plan){var m=document.getElementById('cm');m.value='I built a Home Watch plan on your website:\n'+plan+'\n\nPlease contact me to set it up.';}
+    if(plan){var m=document.getElementById('cm');m.value='My request from your website:\n'+plan+'\n\nPlease get in touch.';}
     if(svc){var s=document.getElementById('cs');Array.prototype.forEach.call(s.options,function(o){if(o.value===svc)o.selected=true;});}
     f.addEventListener('submit',function(e){e.preventDefault();document.getElementById('cthanks').style.display='block';f.querySelectorAll('input,select,textarea,button').forEach(function(x){x.disabled=true;});});
   }
   // Home Watch plan builder
   var pb=document.getElementById('pb');
   if(pb){
-    var FREQ={vacant:['Weekly','visits while the home sits empty'],seasonal:['Bi-weekly','visits while you are away for the season'],travel:['Bi-weekly','visits, plus a check before you return'],rental:['Weekly','visits between guests or tenants']};
     var TYPE={condo:'Condo or apartment',home:'Single-family home',estate:'Waterfront estate',invest:'Investment property'};
-    var CARE={water:'Leak, moisture and mold checks',ac:'A/C and humidity monitoring',security:'Doors, windows and security checks',storm:'Storm and emergency oversight',vendors:'Pool, landscaping and vendor coordination',repairs:'Handyman repairs as needed'};
+    var USE={seasonal:"Away for the season",travel:'Owner travels often',vacant:'Home sits vacant',primary:'Primary home'};
+    var CARE={watch:'Home Watch',maint:'Preventative Maintenance',handy:'Handyman Services',vendors:'Vendor coordination',emergency:'Emergency oversight'};
     function val(n){var c=pb.querySelector('input[name='+n+']:checked');return c?c.value:null;}
     function upd(){
       var t=val('type'),a=val('away'),cs=[].map.call(pb.querySelectorAll('input[name=care]:checked'),function(x){return x.value;});
-      var fr=FREQ[a||'seasonal'];
-      document.getElementById('pf').textContent=fr[0];
-      document.getElementById('pfs').textContent=fr[1];
       document.getElementById('pt').textContent=t?TYPE[t]:'Your property';
-      var items=['Documented inspections, inside and out','Updates sent straight to you'].concat(cs.map(function(c){return CARE[c];}));
-      document.getElementById('pl').innerHTML=items.map(function(x){return '<li>'+x+'</li>';}).join('');
-      var summary=(t?TYPE[t]:'Property')+' | '+fr[0]+' '+fr[1]+(cs.length?' | Focus: '+cs.map(function(c){return CARE[c];}).join(', '):'');
+      document.getElementById('pfs').textContent=a?USE[a]:'';
+      document.getElementById('pl').innerHTML=(cs.length?cs.map(function(c){return '<li>'+CARE[c]+'</li>';}).join(''):'<li>Choose what you would like help with</li>');
+      var summary=(t?TYPE[t]:'Property')+' | '+(a?USE[a]:'')+(cs.length?' | Interested in: '+cs.map(function(c){return CARE[c];}).join(', '):'');
       document.getElementById('pgo').href='../contact/?service=Home+Watch+Program&plan='+encodeURIComponent(summary)+'#form';
     }
     pb.addEventListener('change',upd);upd();
