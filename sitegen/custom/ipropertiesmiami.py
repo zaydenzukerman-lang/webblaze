@@ -20,7 +20,8 @@ img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;line-height:1.1;letter-spacing:-.01em}
-.eyebrow{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#7A5B24}
+.dark .eyebrow,.hero .eyebrow,.phero .eyebrow,.band .eyebrow,.pb .r .eyebrow{color:var(--gold2)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:2px;font-weight:600;font-size:15px;border:0;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s;font-family:inherit}
 .btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#121417}.btn-gold:hover{box-shadow:0 10px 30px rgba(184,145,76,.35)}
 .btn-line{border:1px solid rgba(255,255,255,.7);color:#fff;background:transparent}.btn-line:hover{background:#fff;color:var(--ink)}
@@ -43,6 +44,8 @@ header{position:sticky;top:0;z-index:40;background:rgba(18,20,23,.96);backdrop-f
  .nav ul.open{display:flex}.nav ul a{display:block;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
  .burger{display:block}.nav .call{display:none}.logo img{height:44px}}
 .hero{position:relative;min-height:86vh;display:flex;align-items:flex-end;color:#fff;background:#121417 center/cover}
+.hero .bg,.phero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero:before,.phero:before{z-index:1}.hero .wrap,.phero .wrap{z-index:2}
 .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,20,23,.15) 0%,rgba(18,20,23,.3) 45%,rgba(18,20,23,.88) 100%)}
 .hero .wrap{position:relative;padding:130px 24px 80px}
 .hero .eyebrow{color:var(--gold2)}
@@ -75,7 +78,7 @@ header{position:sticky;top:0;z-index:40;background:rgba(18,20,23,.96);backdrop-f
 .card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(18,20,23,.08)}
 .card img{width:100%;aspect-ratio:3/2;object-fit:cover}
 .card .t{padding:30px;display:flex;flex-direction:column;flex:1}
-.card small{font-size:12px;font-weight:600;letter-spacing:.18em;color:var(--gold)}
+.card small{font-size:12px;font-weight:600;letter-spacing:.18em;color:#7A5B24}
 .card h3{font-size:28px;color:var(--ink);margin-top:8px}
 .card p{color:var(--mut);margin-top:10px;flex:1}
 .card .more{margin-top:20px;font-weight:600;font-size:14px;color:var(--ink);border-bottom:1px solid var(--gold);align-self:flex-start;padding-bottom:2px}
@@ -115,7 +118,7 @@ form .btn{margin-top:22px;width:100%}
 .pb .q{padding:40px}
 .pb fieldset{border:0;margin-top:30px}.pb fieldset:first-child{margin-top:0}
 .pb legend{font-family:Fraunces,serif;font-size:22px;color:var(--ink)}
-.pb legend span{font-family:Inter,sans-serif;font-size:12px;letter-spacing:.18em;color:var(--gold);display:block;margin-bottom:4px;font-weight:600}
+.pb legend span{font-family:Inter,sans-serif;font-size:12px;letter-spacing:.18em;color:#7A5B24;display:block;margin-bottom:4px;font-weight:600}
 .opts{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
 .opts label{margin:0;cursor:pointer}
 .opts input{position:absolute;opacity:0;width:1px;height:1px}
@@ -182,7 +185,36 @@ JS = r"""
 })();
 """
 
+
+import re, subprocess, functools
+@functools.lru_cache(None)
+def dims(name):
+    o=subprocess.run(["magick","identify","-format","%w %h",os.path.join(OUT,"img",name+".webp")],capture_output=True,text=True).stdout.split()
+    return int(o[0]),int(o[1])
+def srcset(r,name):
+    md=os.path.join(OUT,"img",name+"-md.webp")
+    if os.path.exists(md): return '%simg/%s-md.webp 900w, %simg/%s.webp %dw' % (r,name,r,name,dims(name)[0])
+    return '%simg/%s.webp %dw' % (r,name,dims(name)[0])
+def responsive(html, r):
+    pre=[]
+    def bg(m):
+        cls,name=m.group(1),m.group(2); rest=m.group(3) or ""
+        w,h=dims(name); pre.append(name)
+        return ('<section class="%s"%s><img class="bg" src="%simg/%s.webp" srcset="%s" sizes="100vw" width="%d" height="%d" alt="" fetchpriority="high">'
+                % (cls, (' style="%s"' % rest.strip(";")) if rest.strip(";") else "", r, name, srcset(r,name), w, h))
+    html=re.sub(r'<section class="(hero|phero)" style="background-image:url\((?:\.\./)?img/([a-z-]+)\.webp\);?([^"]*)">', bg, html)
+    def im(m):
+        attrs=m.group(0); name=m.group(1)
+        if 'class="bg"' in attrs or 'srcset=' in attrs: return attrs
+        w,h=dims(name)
+        size='(min-width:920px) 50vw, 100vw'
+        if 'class="card' in attrs or m.group(0).find('loading')<0: pass
+        return attrs.replace('src="%simg/%s.webp"'%(r,name),'src="%simg/%s.webp" srcset="%s" sizes="%s" width="%d" height="%d" decoding="async"'%(r,name,srcset(r,name),size,w,h))
+    html=re.sub(r'<img[^>]*src="(?:\.\./)?img/([a-z-]+)\.webp"[^>]*>', im, html)
+    return html, pre
+
 def page(slug, title, desc, body, active):
+    body, pre = responsive(body, "../" if slug else "")
     r = "../" if slug else ""
     nav = [("", "Home"), ("services/", "Services"), ("home-watch/", "Home Watch"), ("contact/", "Contact")]
     links = "".join('<li><a href="%s%s"%s>%s</a></li>' % (r, h, ' class="on" aria-current="page"' if h == active else "", n) for h, n in nav)
@@ -191,14 +223,14 @@ def page(slug, title, desc, body, active):
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>{title}</title><meta name="description" content="{desc}">
-<link rel="icon" href="{r}img/favicon.png">
+<link rel="icon" href="{r}img/favicon.png" sizes="64x64">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+{pre}<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap"></noscript>
 <link rel="stylesheet" href="{r}site.css">
 </head><body>
 <div class="preview">Free preview designed for <b>iProperties Miami</b> by WebBlaze</div>
 <header><div class="wrap nav">
-  <a class="logo" href="{r}" aria-label="iProperties Miami home"><img src="{r}img/emblem.png" alt=""><span class="lt">iProperties<small>Miami</small></span></a>
+  <a class="logo" href="{r}"><img src="{r}img/emblem.webp" alt="" width="70" height="55"><span class="lt">iProperties<small>Miami</small></span></a>
   <ul>{links}</ul>
   <a class="call" href="tel:{pl}">{phone}</a>
   <button class="burger" aria-label="Menu" aria-expanded="false">&#9776;</button>
@@ -206,7 +238,7 @@ def page(slug, title, desc, body, active):
 {body}
 <footer><div class="wrap">
   <div class="top">
-    <div><img src="{r}img/logo.png" alt="iProperties Miami"><p style="margin-top:16px;max-width:340px">Luxury property care and preventative maintenance, protecting high-value homes throughout Miami.</p></div>
+    <div><img src="{r}img/logo.webp" alt="iProperties Miami" width="66" height="84" loading="lazy"><p style="margin-top:16px;max-width:340px">Luxury property care and preventative maintenance, protecting high-value homes throughout Miami.</p></div>
     <div><b>Explore</b><a href="{r}">Home</a><a href="{r}services/">Services</a><a href="{r}home-watch/">Home Watch</a><a href="{r}contact/">Contact</a></div>
     <div><b>Contact</b><a href="tel:{pl}">{phone}</a><a href="mailto:{email}">{email}</a><span style="display:block;padding:4px 0">Mon - Fri, 9am - 5pm</span></div>
   </div>
@@ -214,7 +246,8 @@ def page(slug, title, desc, body, active):
 </div></footer>
 <div class="mbar"><a class="c" href="tel:{pl}">Call</a><a class="q" href="{r}contact/#form">Get in touch</a></div>
 <script src="{r}site.js"></script>
-</body></html>""".format(title=title, desc=desc, r=r, links=links, pl=PHONE_LINK, phone=PHONE, email=EMAIL, body=body)
+</body></html>""".format(title=title, desc=desc, r=r, links=links, pl=PHONE_LINK, phone=PHONE, email=EMAIL, body=body,
+      pre="".join('<link rel="preload" as="image" href="%simg/%s.webp" imagesrcset="%s" imagesizes="100vw" fetchpriority="high">' % (r,n,srcset(r,n)) for n in pre))
 
 def cta(r):
     return """<section class="band"><div class="wrap reveal">
