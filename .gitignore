@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# prospecting data/logs — never publish (repo is public)
+prospecting/*.csv
+prospecting/*.log
+prospecting/*.txt
+prospecting/*.json
+prospecting/.*
+prospecting/__pycache__/
+prospecting/HOT-LEADS.txt
+prospecting/REVIEW.txt
