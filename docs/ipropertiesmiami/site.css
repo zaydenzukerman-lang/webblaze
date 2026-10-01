@@ -26,10 +26,13 @@ header{position:sticky;top:0;z-index:40;background:rgba(18,20,23,.96);backdrop-f
 .nav ul a{padding:6px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
 .nav ul a:hover,.nav ul a.on{color:#fff;border-color:var(--gold)}
 .nav .call{font-weight:600;color:var(--gold2);white-space:nowrap}
+.nav .lang{font-size:13px;font-weight:600;letter-spacing:.12em;color:#fff;border:1px solid rgba(217,182,111,.6);padding:7px 11px;border-radius:2px;margin-left:auto}
+.nav .lang:hover{background:var(--gold2);color:var(--ink)}
+.nav{gap:22px}
 .burger{display:none;width:44px;height:44px;border:1px solid rgba(255,255,255,.3);border-radius:2px;background:transparent;color:#fff;font-size:20px;cursor:pointer}
 @media(max-width:920px){.logo .lt{font-size:20px}.nav ul{display:none;position:absolute;left:0;right:0;top:82px;flex-direction:column;gap:0;background:var(--ink);padding:10px 24px 20px}
  .nav ul.open{display:flex}.nav ul a{display:block;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
- .burger{display:block}.nav .call{display:none}.logo img{height:44px}}
+ .burger{display:block}.nav .call{display:none}.nav .lang{margin-left:auto}.logo img{height:44px}}
 .hero{position:relative;min-height:86vh;display:flex;align-items:flex-end;color:#fff;background:#121417 center/cover}
 .hero .bg,.phero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero:before,.phero:before{z-index:1}.hero .wrap,.phero .wrap{z-index:2}

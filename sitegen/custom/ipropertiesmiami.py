@@ -6,7 +6,7 @@ Content parity: every piece of copy from ipropertiesmiami.com (Home, Services, C
 plus new sections. Images are THEIR OWN branded images (logo, checklist, technician, homes).
 Run: python3 sitegen/custom/ipropertiesmiami.py
 """
-import os
+import os, json
 
 OUT = os.path.expanduser("~/webblaze/public/ipropertiesmiami")
 PHONE, PHONE_LINK, EMAIL = "305-391-7095", "+13053917095", "info@ipropertiesmiami.com"
@@ -39,10 +39,13 @@ header{position:sticky;top:0;z-index:40;background:rgba(18,20,23,.96);backdrop-f
 .nav ul a{padding:6px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
 .nav ul a:hover,.nav ul a.on{color:#fff;border-color:var(--gold)}
 .nav .call{font-weight:600;color:var(--gold2);white-space:nowrap}
+.nav .lang{font-size:13px;font-weight:600;letter-spacing:.12em;color:#fff;border:1px solid rgba(217,182,111,.6);padding:7px 11px;border-radius:2px;margin-left:auto}
+.nav .lang:hover{background:var(--gold2);color:var(--ink)}
+.nav{gap:22px}
 .burger{display:none;width:44px;height:44px;border:1px solid rgba(255,255,255,.3);border-radius:2px;background:transparent;color:#fff;font-size:20px;cursor:pointer}
 @media(max-width:920px){.logo .lt{font-size:20px}.nav ul{display:none;position:absolute;left:0;right:0;top:82px;flex-direction:column;gap:0;background:var(--ink);padding:10px 24px 20px}
  .nav ul.open{display:flex}.nav ul a{display:block;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
- .burger{display:block}.nav .call{display:none}.logo img{height:44px}}
+ .burger{display:block}.nav .call{display:none}.nav .lang{margin-left:auto}.logo img{height:44px}}
 .hero{position:relative;min-height:86vh;display:flex;align-items:flex-end;color:#fff;background:#121417 center/cover}
 .hero .bg,.phero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero:before,.phero:before{z-index:1}.hero .wrap,.phero .wrap{z-index:2}
@@ -161,23 +164,25 @@ JS = r"""
   var f=document.getElementById('cform');
   if(f){
     var q=new URLSearchParams(location.search),plan=q.get('plan'),svc=q.get('service');
-    if(plan){var m=document.getElementById('cm');m.value='My request from your website:\n'+plan+'\n\nPlease get in touch.';}
+    if(plan){var m=document.getElementById('cm');m.value=(document.documentElement.lang==='es'?'Mi solicitud desde su sitio web:\n'+plan+'\n\nPor favor contácteme.':'My request from your website:\n'+plan+'\n\nPlease get in touch.');}
     if(svc){var s=document.getElementById('cs');Array.prototype.forEach.call(s.options,function(o){if(o.value===svc)o.selected=true;});}
     f.addEventListener('submit',function(e){e.preventDefault();document.getElementById('cthanks').style.display='block';f.querySelectorAll('input,select,textarea,button').forEach(function(x){x.disabled=true;});});
   }
   // Home Watch plan builder
   var pb=document.getElementById('pb');
   if(pb){
-    var TYPE={condo:'Condo or apartment',home:'Single-family home',estate:'Waterfront estate',invest:'Investment property'};
-    var USE={seasonal:"Away for the season",travel:'Owner travels often',vacant:'Home sits vacant',primary:'Primary home'};
-    var CARE={watch:'Home Watch',maint:'Preventative Maintenance',handy:'Handyman Services',vendors:'Vendor coordination',emergency:'Emergency oversight'};
+    var ES=document.documentElement.lang==='es';
+    var TYPE=ES?{condo:'Condominio o apartamento',home:'Casa unifamiliar',estate:'Residencia frente al agua',invest:'Propiedad de inversión'}:{condo:'Condo or apartment',home:'Single-family home',estate:'Waterfront estate',invest:'Investment property'};
+    var USE=ES?{seasonal:'Fuera por temporada',travel:'El propietario viaja con frecuencia',vacant:'La casa está desocupada',primary:'Residencia principal'}:{seasonal:"Away for the season",travel:'Owner travels often',vacant:'Home sits vacant',primary:'Primary home'};
+    var CARE=ES?{watch:'Home Watch',maint:'Mantenimiento preventivo',handy:'Servicios de handyman',vendors:'Coordinación de proveedores',emergency:'Supervisión de emergencias'}:{watch:'Home Watch',maint:'Preventative Maintenance',handy:'Handyman Services',vendors:'Vendor coordination',emergency:'Emergency oversight'};
+    var TX=ES?{prop:'Su propiedad',pick:'Elija con qué le gustaría recibir ayuda',propw:'Propiedad',int:'Le interesa: '}:{prop:'Your property',pick:'Choose what you would like help with',propw:'Property',int:'Interested in: '};
     function val(n){var c=pb.querySelector('input[name='+n+']:checked');return c?c.value:null;}
     function upd(){
       var t=val('type'),a=val('away'),cs=[].map.call(pb.querySelectorAll('input[name=care]:checked'),function(x){return x.value;});
-      document.getElementById('pt').textContent=t?TYPE[t]:'Your property';
+      document.getElementById('pt').textContent=t?TYPE[t]:TX.prop;
       document.getElementById('pfs').textContent=a?USE[a]:'';
-      document.getElementById('pl').innerHTML=(cs.length?cs.map(function(c){return '<li>'+CARE[c]+'</li>';}).join(''):'<li>Choose what you would like help with</li>');
-      var summary=(t?TYPE[t]:'Property')+' | '+(a?USE[a]:'')+(cs.length?' | Interested in: '+cs.map(function(c){return CARE[c];}).join(', '):'');
+      document.getElementById('pl').innerHTML=(cs.length?cs.map(function(c){return '<li>'+CARE[c]+'</li>';}).join(''):'<li>'+TX.pick+'</li>');
+      var summary=(t?TYPE[t]:TX.propw)+' | '+(a?USE[a]:'')+(cs.length?' | '+TX.int+cs.map(function(c){return CARE[c];}).join(', '):'');
       document.getElementById('pgo').href='../contact/?service=Home+Watch+Program&plan='+encodeURIComponent(summary)+'#form';
     }
     pb.addEventListener('change',upd);upd();
@@ -224,6 +229,7 @@ def page(slug, title, desc, body, active):
 <meta name="robots" content="noindex,nofollow">
 <title>{title}</title><meta name="description" content="{desc}">
 <link rel="icon" href="{r}img/favicon.png" sizes="64x64">
+<link rel="alternate" hreflang="en" href="https://webblaze.io/ipropertiesmiami/{slugpath}"><link rel="alternate" hreflang="es" href="https://webblaze.io/ipropertiesmiami/es/{slugpath}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {pre}<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap"></noscript>
 <link rel="stylesheet" href="{r}site.css">
@@ -232,6 +238,7 @@ def page(slug, title, desc, body, active):
 <header><div class="wrap nav">
   <a class="logo" href="{r}"><img src="{r}img/emblem.webp" alt="" width="70" height="55"><span class="lt">iProperties<small>Miami</small></span></a>
   <ul>{links}</ul>
+  <a class="lang" href="{lang_href}" hreflang="{lang_code}" lang="{lang_code}" aria-label="{lang_label}">{lang_text}</a>
   <a class="call" href="tel:{pl}">{phone}</a>
   <button class="burger" aria-label="Menu" aria-expanded="false">&#9776;</button>
 </div></header>
@@ -246,7 +253,8 @@ def page(slug, title, desc, body, active):
 </div></footer>
 <div class="mbar"><a class="c" href="tel:{pl}">Call</a><a class="q" href="{r}contact/#form">Get in touch</a></div>
 <script src="{r}site.js"></script>
-</body></html>""".format(title=title, desc=desc, r=r, links=links, pl=PHONE_LINK, phone=PHONE, email=EMAIL, body=body,
+</body></html>""".format(title=title, desc=desc, r=r, links=links, slugpath=(slug+"/" if slug else ""),
+      lang_href=r+"es/"+(slug+"/" if slug else ""), lang_code="es", lang_label="Ver en español", lang_text="ES", pl=PHONE_LINK, phone=PHONE, email=EMAIL, body=body,
       pre="".join('<link rel="preload" as="image" href="%simg/%s.webp" imagesrcset="%s" imagesizes="100vw" fetchpriority="high">' % (r,n,srcset(r,n)) for n in pre))
 
 def cta(r):
@@ -395,7 +403,7 @@ CONTACT_PAGE = lambda r: """
     <label for="ce">Email *</label><input id="ce" type="email" required autocomplete="email">
     <label for="cp">Phone</label><input id="cp" type="tel" autocomplete="tel">
     <label for="cs">I'm interested in</label>
-    <select id="cs"><option>Home Watch Program</option><option>Preventative Maintenance</option><option>Handyman Services</option><option>Something else</option></select>
+    <select id="cs"><option value="Home Watch Program">Home Watch Program</option><option value="Preventative Maintenance">Preventative Maintenance</option><option value="Handyman Services">Handyman Services</option><option value="Something else">Something else</option></select>
     <label for="cm">Message *</label><textarea id="cm" required></textarea>
     <p class="req">* Indicates required fields</p>
     <button class="btn btn-gold" type="submit">Send</button>
@@ -412,6 +420,38 @@ PRIVACY_PAGE = lambda r: """
 </div></section>
 """
 
+ES = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "ipropertiesmiami_es.json"), encoding="utf-8"))
+MISSING = set()
+def to_spanish(doc, slug):
+    import html as H
+    def tr(t):
+        key = re.sub(r"\s+", " ", H.unescape(t)).strip()
+        if not key or not re.search(r"[A-Za-z]", key) or key in ("iProperties Miami","iProperties","Miami","info@ipropertiesmiami.com","ES","EN"): return None
+        if key in ES: return ES[key]
+        MISSING.add(key); return None
+    head, body = doc.split("<body>", 1)
+    def text_node(m):
+        raw = m.group(1); v = tr(raw)
+        if not v: return ">" + raw + "<"
+        lead = raw[:len(raw) - len(raw.lstrip())]; trail = raw[len(raw.rstrip()):]
+        return ">" + lead + H.escape(v, quote=False) + trail + "<"
+    def attr(m):
+        v = tr(m.group(2)); return '%s="%s"' % (m.group(1), H.escape(v) if v else m.group(2))
+    parts = re.split(r"(<script.*?</script>)", body, flags=re.S)
+    body = "".join(p if p.startswith("<script") else re.sub(r">([^<>]+)<", text_node, p) for p in parts)
+    body = re.sub(r'\b(alt|placeholder|aria-label|title)="([^"]*)"', attr, body)
+    head = re.sub(r"<title>(.*?)</title>", lambda m: "<title>%s</title>" % H.escape(tr(m.group(1)) or m.group(1), quote=False), head)
+    head = re.sub(r'(name="description" content)="([^"]*)"', lambda m: '%s="%s"' % (m.group(1), H.escape(tr(m.group(2)) or m.group(2))), head)
+    doc = head + "<body>" + body
+    doc = doc.replace('<html lang="en">', '<html lang="es">')
+    # assets live one folder up from /es/
+    doc = re.sub(r'(["\s,])((?:\.\./)*)(img/|site\.css|site\.js)', lambda m: m.group(1) + "../" + m.group(2) + m.group(3), doc)
+    # language switch points back to English
+    back = ("../" * (2 if slug else 1)) + (slug + "/" if slug else "")
+    doc = re.sub(r'<a class="lang" href="[^"]*" hreflang="es" lang="es" aria-label="[^"]*">ES</a>',
+                 '<a class="lang" href="%s" hreflang="en" lang="en" aria-label="View in English">EN</a>' % back, doc)
+    return doc
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     open(os.path.join(OUT, "site.css"), "w").write(CSS)
@@ -424,8 +464,12 @@ def main():
     for slug, title, desc, fn, active in pages:
         d = os.path.join(OUT, slug); os.makedirs(d, exist_ok=True)
         r = "../" if slug else ""
-        open(os.path.join(d, "index.html"), "w").write(page(slug, title, desc, fn(r), active))
-    print("built", len(pages), "pages ->", OUT)
+        doc = page(slug, title, desc, fn(r), active)
+        open(os.path.join(d, "index.html"), "w").write(doc)
+        de = os.path.join(OUT, "es", slug); os.makedirs(de, exist_ok=True)
+        open(os.path.join(de, "index.html"), "w").write(to_spanish(doc, slug))
+    print("built", len(pages), "pages x 2 languages ->", OUT)
+    if MISSING: print("UNTRANSLATED:", sorted(MISSING))
 
 if __name__ == "__main__":
     main()
