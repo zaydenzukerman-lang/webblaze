@@ -1,0 +1,805 @@
+{
+ "order": [
+  "pool-service-boca-raton",
+  "pool-service-delray-beach",
+  "pool-service-boynton-beach",
+  "pool-service-lake-worth",
+  "pool-service-highland-beach",
+  "pool-service-hypoluxo",
+  "pool-service-west-palm-beach",
+  "pool-service-palm-beach-gardens",
+  "pool-service-jupiter",
+  "pool-service-wellington",
+  "pool-service-royal-palm-beach",
+  "pool-service-greenacres",
+  "pool-service-lantana",
+  "pool-service-riviera-beach",
+  "pool-service-palm-springs",
+  "pool-service-north-palm-beach",
+  "pool-service-palm-beach"
+ ],
+ "cities": {
+  "pool-service-boca-raton": {
+   "slug": "pool-service-boca-raton",
+   "name": "Boca Raton",
+   "title": "Pool Service in Boca Raton, FL | Blue Halo Pools",
+   "sub": "From the Golden Triangle out to Mission Bay and Boca Falls. Every visit ends with a report, readings and photos, in your inbox before you get home.",
+   "h2": "Two towns, one city",
+   "p": [
+    "Boca is really two pool towns. East of Federal the pools are older, mostly open to the sky, and close enough to the ocean that salt gets into everything. West of Military they're newer, almost all screened, and sitting under enough ficus and live oak to fill a basket in three days.",
+    "Those two halves need different work. An east Boca pool needs the equipment watched for corrosion and the chemistry held tighter against evaporation and wind. A west Boca screened pool needs the cage tracks and the waterline brushed properly, because the debris that gets past the screen settles in the same corners every week. We run both ends of the city and quote them differently, because pretending they're the same job is how a pool ends up neglected."
+   ],
+   "h_wrong": "The three things that go wrong here",
+   "wrong": [
+    [
+     "Screen cages and debris",
+     "West Boca cages trap what blows in and then hold it. Baskets fill faster than owners expect, and a full pump basket is the most common cause of a pool that looks fine while its motor quietly runs hot."
+    ],
+    [
+     "Salt systems",
+     "Salt cells are close to standard in Boca now. They need inspecting and cleaning on a schedule or they stop producing chlorine while the panel still reports everything is fine."
+    ],
+    [
+     "HOA rules",
+     "Plenty of Boca communities set rules on equipment noise, pump run times and what can sit on the pad. We work inside them rather than finding out when a letter arrives."
+    ]
+   ],
+   "price": [
+    "Boca runs the full range. A compact screened pool in Boca Del Mar and a big open pool east of Federal aren't the same monthly rate, and pretending otherwise is how people end up underserviced.",
+    "So we quote the pool, not the zip code. Weekly plans start at $129 a month and move up with size, equipment and how much chemical work the water actually needs."
+   ],
+   "faq": [
+    [
+     "Do you cover west Boca as well as east?",
+     "Yes. Mission Bay, Boca Falls, Loggers' Run and Boca Del Mar are all covered, along with the older east Boca neighborhoods. The two halves of the city need different work, so we quote them differently."
+    ],
+    [
+     "Will you work within our HOA's rules?",
+     "Yes, and we'd rather know them up front. Tell us at the quote and we work inside them instead of finding out when a letter arrives."
+    ],
+    [
+     "How do I know the visit happened?",
+     "You get a Pool Health Report by email the moment we finish: the readings taken at your pool, what we added, what we did, and photos shot on site that day."
+    ]
+   ],
+   "cta": "Have us look at your Boca Raton pool",
+   "blurb": "From the Golden Triangle out to Mission Bay. Screened cages, heavy tree cover and salt systems."
+  },
+  "pool-service-delray-beach": {
+   "slug": "pool-service-delray-beach",
+   "name": "Delray Beach",
+   "title": "Pool Service in Delray Beach, FL | Blue Halo Pools",
+   "sub": "Lake Ida to Tropic Isle, beachside to the Avenue. Delray is where this business started, which means it's the town we can reach fastest when something goes wrong.",
+   "h2": "Older pools, a lot of them empty half the year",
+   "p": [
+    "Delray pools skew older and smaller than the county average, and plenty of them sit on lots where the house went up in the fifties and the pool was added later. Tropic Isle and the beachside streets are close enough to the water that salt air is part of the maintenance picture.",
+    "A meaningful share of Delray homes are second homes, and that changes the job. A pool nobody is looking at for four months doesn't forgive a missed week, and it's exactly the situation where a service report earns its keep. You're reading it from Connecticut in February, and it's the only evidence you have that anyone is showing up. We treat seasonal accounts as full accounts, not as a reduced service that gets picked back up when you land."
+   ],
+   "h_wrong": "What Delray pools need",
+   "wrong": [
+    [
+     "Seasonal and absentee homes",
+     "Off-season is when a neglected pool turns. Seasonal pools stay on full weekly service and get the same report whether you're in town or not, so there's no surprise waiting in November."
+    ],
+    [
+     "Older surfaces",
+     "A lot of Delray pools are on marcite that's been patched more than once. Rough spots hold algae no matter how good the chemistry is, so we tell you when brushing has stopped being the answer."
+    ],
+    [
+     "Salt air, beachside",
+     "East of the Intracoastal, heaters and pumps corrode faster than the manual suggests. We check the pad for it rather than waiting for a failure in July."
+    ]
+   ],
+   "price": [
+    "Delray pools skew smaller and older than the county average, which puts a lot of them at the lower end of our range.",
+    "Weekly plans start at $129 a month. If your pool is a second home we'll also talk about what the off-season looks like, because that's where the price difference between companies usually shows up."
+   ],
+   "faq": [
+    [
+     "We're only here part of the year. Can you service the pool while we're away?",
+     "That's a large part of what we do in Delray. Seasonal pools stay on full weekly service, not a reduced plan, and you get the same report every week whether you're in town or not."
+    ],
+    [
+     "Our pool is beachside. Does that change anything?",
+     "It changes the equipment more than the water. East of the Intracoastal, heaters and pump housings corrode faster than the manual suggests, so we check the pad every visit."
+    ],
+    [
+     "How much is pool service in Delray Beach?",
+     "Plans start at $129 a month for weekly service on a standard residential pool, and every account is subject to a price quote by a technician or at the point of sale."
+    ]
+   ],
+   "cta": "Have us look at your Delray Beach pool",
+   "blurb": "Lake Ida to Tropic Isle, beachside to the Avenue. Older pools and a lot of second homes."
+  },
+  "pool-service-boynton-beach": {
+   "slug": "pool-service-boynton-beach",
+   "name": "Boynton Beach",
+   "title": "Pool Service in Boynton Beach, FL | Blue Halo Pools",
+   "sub": "Chapel Hill and the Intracoastal streets through to the newer communities out west. A straightforward stop, serviced the same day every week.",
+   "h2": "Mixed housing, mixed pools",
+   "p": [
+    "Boynton has one of the widest spreads of pool types in the county. Small older pools east of Federal, sizeable screened pools in the western communities, and a lot of homes in between where the pool is twenty-five years old and the equipment has been replaced piecemeal by three different companies.",
+    "That last group is where most of our Boynton work sits, and it's the one where a weekly report earns its keep. When a pump, a heater and a salt cell were each installed by someone different in a different decade, nobody has a complete picture of what's on the pad. We log filter pressure and equipment condition every week, so by the time something needs replacing you have months of history rather than a phone call telling you it died."
+   ],
+   "h_wrong": "What Boynton pools need",
+   "wrong": [
+    [
+     "Piecemeal equipment",
+     "Mismatched pads are common here. We record what's actually installed and flag the part going to fail first, with enough notice that you can price it rather than pay the emergency rate."
+    ],
+    [
+     "HOA and community pools",
+     "We service a small number of HOA pools in Boynton. They run to a different standard and a different log, and we'll tell you honestly whether we have the capacity before taking one on."
+    ],
+    [
+     "Winter algae",
+     "Boynton pools with heavy shade go green in the cool months more often than owners expect, because everyone drops their chlorine when the weather turns. We hold it steady through the winter instead."
+    ]
+   ],
+   "price": [
+    "Boynton has the widest price spread on our route, because it has the widest range of pools. Small older pools east of Federal sit near the bottom; the larger screened pools out west sit a tier up.",
+    "Weekly plans start at $129 a month. We'll tell you which tier your pool lands in before you commit to anything."
+   ],
+   "faq": [
+    [
+     "Do you service the newer communities out west?",
+     "Yes. West Boynton is covered along with the older streets east of Federal. The western pools tend to be larger and screened, which usually puts them a tier up, but the quote is on your pool, not on your zip code."
+    ],
+    [
+     "Our equipment was installed by three different companies. Is that a problem?",
+     "It's common in Boynton and it's the main reason we log the pad every week. We record what's actually installed and flag the part likely to fail first."
+    ],
+    [
+     "How much is pool service in Boynton Beach?",
+     "Plans start at $129 a month for weekly service on a standard residential pool, and every account is subject to a price quote by a technician or at the point of sale."
+    ]
+   ],
+   "cta": "Have us look at your Boynton Beach pool",
+   "blurb": "Chapel Hill and the Intracoastal streets through to the newer communities out west."
+  },
+  "pool-service-lake-worth": {
+   "slug": "pool-service-lake-worth",
+   "name": "Lake Worth",
+   "title": "Pool Service in Lake Worth, FL | Blue Halo Pools",
+   "sub": "Lake Worth Beach and the neighborhoods around it. Older pools, older equipment, and owners who want to know what they're paying for.",
+   "h2": "Older pools, honest answers",
+   "p": [
+    "Lake Worth has some of the oldest housing stock we service. College Park, the historic districts near Bryant Park and the streets off Dixie are full of small pools that were put in decades ago and have been maintained to wildly different standards since.",
+    "That means a lot of first visits here start with a real conversation about what the pool needs versus what it can get by on. Some of these pools genuinely need resurfacing and no amount of weekly chemistry will fix that. We'd rather tell you at the quote than take your money for a year and let you find out. When a pool only needs steady maintenance and a bit of patience, we say that too."
+   ],
+   "h_wrong": "What Lake Worth pools need",
+   "wrong": [
+    [
+     "Aging surfaces",
+     "Old plaster and marcite hold algae in the rough patches. We tell you plainly when brushing has stopped working and resurfacing is the actual fix, instead of selling more chemicals."
+    ],
+    [
+     "Undersized or tired equipment",
+     "Original pumps and filters are still running on plenty of these pools. We track filter pressure weekly so a failing filter is a planned replacement rather than a green pool."
+    ],
+    [
+     "Straight pricing",
+     "This is a price-conscious part of the county and we treat it that way. You get the rate before we start, and repairs are quoted before anything is ordered."
+    ]
+   ],
+   "price": [
+    "This is a price-conscious part of the county and we treat it that way. You get the rate before we start, and a repair is quoted before anything is ordered.",
+    "Weekly plans start at $129 a month. If your pool needs resurfacing rather than a service plan, we'll tell you that at the quote instead of billing you for a year first."
+   ],
+   "faq": [
+    [
+     "My plaster is rough and the pool keeps going green. Will weekly service fix it?",
+     "Sometimes, and sometimes not. Rough old plaster holds algae in the pitted areas no matter how good the chemistry is. We'll tell you at the quote which of the two you have."
+    ],
+    [
+     "How much is pool service in Lake Worth?",
+     "Plans start at $129 a month for weekly service on a standard residential pool, and every account is subject to a price quote by a technician or at the point of sale."
+    ],
+    [
+     "How do I know the visit happened?",
+     "You get a Pool Health Report by email the moment we finish: the readings taken at your pool, what we added, what we did, and photos shot on site that day."
+    ]
+   ],
+   "cta": "Have us look at your Lake Worth pool",
+   "blurb": "Lake Worth Beach and the neighborhoods around it. Older pools and owners who want straight answers."
+  },
+  "pool-service-highland-beach": {
+   "slug": "pool-service-highland-beach",
+   "name": "Highland Beach",
+   "title": "Pool Service in Highland Beach, FL | Blue Halo Pools",
+   "sub": "The oceanfront strip between Delray and Boca. Small town, hard conditions, and equipment that ages faster than anywhere else we work.",
+   "h2": "Salt air is the whole job",
+   "p": [
+    "Highland Beach is a mile-wide strip of ocean, condos and single-family homes, and every pool on it is dealing with salt air all day. It's the most demanding town we service, and the one where the difference between a good pool company and a cheap one shows up fastest, usually on the equipment pad.",
+    "Chemistry here needs a firmer hand. Wind carries salt and fine sand into the water constantly, evaporation runs high, and pools sit open to the sky with no screen to slow any of it down. We test tighter, dose more often, and check the pad for corrosion on every visit rather than at a seasonal service. On oceanfront accounts we photograph the equipment as well as the water, so you have a record of how it's holding up."
+   ],
+   "h_wrong": "What Highland Beach pools need",
+   "wrong": [
+    [
+     "Equipment corrosion",
+     "Heaters, pump housings and light rings corrode fast this close to the water. We photograph the pad on the report so you can see it degrading rather than hearing about it once it fails."
+    ],
+    [
+     "Constant salt and sand load",
+     "Open pools this near the beach take on wind-blown salt and sand year round. That moves chemistry between visits, so we test rather than assume."
+    ],
+    [
+     "Condo and building access",
+     "Several Highland Beach properties need scheduled access and building coordination. We work to the building's rules and arrive in the window rather than whenever suits the day."
+    ]
+   ],
+   "price": [
+    "Highland Beach is the one town where we usually steer people up a tier rather than down. Salt air means more frequent dosing and closer equipment attention, and the entry plan isn't really built for it.",
+    "Weekly plans start at $129 a month, but most oceanfront pools here end up on Halo Complete or Signature. We'll say so at the quote rather than after."
+   ],
+   "faq": [
+    [
+     "Do you service condo buildings as well as houses?",
+     "Yes. Several Highland Beach properties need scheduled access and building coordination. Tell us the building's requirements at the quote and we work to them."
+    ],
+    [
+     "Why does salt air matter so much here?",
+     "Because it never stops. Wind carries salt and fine sand into open oceanfront pools all day, which moves the chemistry between visits and corrodes heaters, pump housings and light rings years earlier than inland."
+    ],
+    [
+     "How much is pool service in Highland Beach?",
+     "Plans start at $129 a month, and every account is subject to a price quote by a technician or at the point of sale. Most oceanfront pools here land on a higher tier."
+    ]
+   ],
+   "cta": "Have us look at your Highland Beach pool",
+   "blurb": "The oceanfront strip between Delray and Boca, where salt air is hard on equipment."
+  },
+  "pool-service-hypoluxo": {
+   "slug": "pool-service-hypoluxo",
+   "name": "Hypoluxo",
+   "title": "Pool Service in Hypoluxo, FL | Blue Halo Pools",
+   "sub": "A small town on the Intracoastal, Hypoluxo Island included. Few enough pools that we know each one.",
+   "h2": "Small town, not an afterthought",
+   "p": [
+    "Hypoluxo is under three thousand people, which means most pool companies treat it as a detour off a Lantana or Boynton route. We don't. It gets the same weekly slot as everywhere else, and nobody is skipping it because the drive didn't pay that day.",
+    "The island and the Intracoastal-side homes carry the same salt-air load as the beachside towns further south, while the pools west of Federal behave more like Boynton. Because the town is small, we usually have someone within a few minutes of your pool if something goes wrong midweek, which on a route business is worth more than any promise on a website."
+   ],
+   "h_wrong": "What Hypoluxo pools need",
+   "wrong": [
+    [
+     "Waterfront exposure",
+     "Intracoastal and island pools take salt and wind. Equipment needs watching and chemistry needs holding tighter than an inland pool of the same size."
+    ],
+    [
+     "Reliable scheduling",
+     "The real risk in a small town is being the stop that gets dropped when the day runs long. A fixed weekly slot and a report that proves the visit happened is how we make that impossible to hide."
+    ],
+    [
+     "Midweek response",
+     "Being close by means we can usually get back out the same week when something breaks, rather than adding you to next Tuesday."
+    ]
+   ],
+   "price": [
+    "A small town doesn't mean a small-town price, in either direction. Hypoluxo pools are quoted on exactly the same basis as everywhere else.",
+    "Weekly plans start at $129 a month. Because the town is small we can usually quote a Hypoluxo pool on the phone without coming out at all."
+   ],
+   "faq": [
+    [
+     "Are you actually in Hypoluxo every week?",
+     "Yes. Hypoluxo gets a fixed weekly slot like everywhere else, and the report proves the visit happened. The real risk in a small town is being the stop that quietly gets dropped."
+    ],
+    [
+     "Does the island get the same service as the mainland?",
+     "Same service, and the island pools need it more. Hypoluxo Island and the Intracoastal-side homes carry the same salt-air load as the beachside towns further south."
+    ],
+    [
+     "How much is pool service in Hypoluxo?",
+     "Plans start at $129 a month for weekly service on a standard residential pool, and every account is subject to a price quote by a technician or at the point of sale."
+    ]
+   ],
+   "cta": "Have us look at your Hypoluxo pool",
+   "blurb": "A small town on the Intracoastal, including Hypoluxo Island. Few enough pools that we know each one."
+  },
+  "pool-service-west-palm-beach": {
+   "slug": "pool-service-west-palm-beach",
+   "name": "West Palm Beach",
+   "title": "Pool Service in West Palm Beach, FL | Blue Halo Pools",
+   "sub": "El Cid, Flamingo Park, SoSo and Northwood through to the western suburbs. The biggest city in the county, and the widest range of pools in it.",
+   "h2": "A 1925 courtyard pool and a 2015 screened pool are not the same job",
+   "p": [
+    "West Palm covers more ground than anywhere else we work. The historic districts are full of 1920s homes on tight lots where the pool was fitted into a courtyard, and the western neighborhoods are conventional suburban pools with modern equipment.",
+    "The old ones are the interesting problem. Narrow side gates, no vehicle access, mature trees hanging directly over the water, and equipment tucked into a space it was never really designed to sit in. It takes longer and it needs someone who has done it before. We quote those pools on what they actually take rather than on square footage."
+   ],
+   "h_wrong": "What West Palm pools need",
+   "wrong": [
+    [
+     "Access, in the historic districts",
+     "El Cid and Grandview lots are tight. A narrow gate changes what equipment can reach the pool and how long a filter clean takes, and it belongs in the quote rather than as a surprise later."
+    ],
+    [
+     "Heavy organic load",
+     "Mature oaks and ficus over a courtyard pool drop constantly. That is a chemistry problem as much as a skimming problem, because organics eat chlorine."
+    ],
+    [
+     "Two different equipment eras",
+     "Downtown pools often run patched decades-old equipment; the western neighborhoods run modern variable-speed pumps and automation. We log the pad either way so you know what you actually have."
+    ]
+   ],
+   "price": [
+    "West Palm has the widest price spread of any city we cover, because a courtyard pool in El Cid and a screened pool off Okeechobee are genuinely different amounts of work.",
+    "Weekly plans start at $129 a month. On the older historic-district pools we would rather look at it than quote blind, and that visit costs you nothing."
+   ],
+   "faq": [
+    [
+     "Do you cover the historic districts?",
+     "Yes. El Cid, Flamingo Park, Grandview Heights, Northwood and SoSo. Those pools take longer because of access and tree cover, which is reflected in the quote rather than discovered later."
+    ],
+    [
+     "How much is pool service in West Palm Beach?",
+     "Plans start at $129 a month for weekly service on a standard residential pool, and every account is subject to a price quote by a technician or at the point of sale."
+    ],
+    [
+     "Our pool is under heavy tree cover. Does that cost more?",
+     "Usually a little, yes. Constant organic load uses up chlorine faster and adds time to every visit. We would rather price it honestly than quote low and cut the visit short."
+    ]
+   ],
+   "cta": "Have us look at your West Palm Beach pool",
+   "blurb": "El Cid and Flamingo Park through to the western suburbs. The widest range of pools in the county."
+  },
+  "pool-service-palm-beach-gardens": {
+   "slug": "pool-service-palm-beach-gardens",
+   "name": "Palm Beach Gardens",
+   "title": "Pool Service in Palm Beach Gardens, FL | Blue Halo Pools",
+   "sub": "PGA National, BallenIsles, Mirasol, Frenchman's and Evergrene. Larger pools, more equipment, and communities with rules about how service happens.",
+   "h2": "More equipment than anywhere else in the county",
+   "p": [
+    "Gardens pools tend to be bigger, more likely to have an attached spa, and far more likely to be running full automation. Variable-speed pumps, heaters, salt systems, water features and a controller tying it all together.",
+    "That is a different service call. More equipment means more that can drift out of adjustment and more that can fail expensively, and a controller will happily report a schedule running perfectly while the salt cell behind it has stopped producing. We check what the equipment is actually doing rather than what the panel claims, and it goes on the report with the chemistry."
+   ],
+   "h_wrong": "What Gardens pools need",
+   "wrong": [
+    [
+     "Automation that gets checked",
+     "A controller is only as good as the last time someone verified it against reality. We check output and pressure against the panel, not instead of it."
+    ],
+    [
+     "Pool and spa together",
+     "An attached spa is a second body of water with its own chemistry and its own heater. It should be quoted as such, not folded in as a rounding error."
+    ],
+    [
+     "Gate and community access",
+     "Most of these communities have gate procedures, approved-vendor lists and service hours. Give us the requirements at the quote and we work to them from the first visit."
+    ]
+   ],
+   "price": [
+    "Gardens pools sit at the higher end of our range, and honestly so: they are larger, they carry more equipment, and most of them include a spa.",
+    "Weekly plans start at $129 a month, but a Mirasol or BallenIsles pool with a spa and automation is usually a Halo Complete or Signature conversation. We will tell you which at the quote."
+   ],
+   "faq": [
+    [
+     "Do you service pools in the gated communities?",
+     "Yes. PGA National, BallenIsles, Mirasol, Frenchman's and Evergrene among others. Most require gate procedures or an approved-vendor registration, so tell us at the quote and we handle it before the first visit."
+    ],
+    [
+     "Our pool has a spa and full automation. Is that a problem?",
+     "No, it is most of what Gardens pools look like. It does change the price, because a spa is a second body of water and automation needs verifying rather than trusting."
+    ],
+    [
+     "How much is pool service in Palm Beach Gardens?",
+     "Plans start at $129 a month, and every account is subject to a price quote by a technician or at the point of sale. Larger pools with spas and automation sit higher."
+    ]
+   ],
+   "cta": "Have us look at your Palm Beach Gardens pool",
+   "blurb": "PGA National, BallenIsles, Mirasol and Evergrene. Gated communities, big pools, serious automation."
+  },
+  "pool-service-jupiter": {
+   "slug": "pool-service-jupiter",
+   "name": "Jupiter",
+   "title": "Pool Service in Jupiter, FL | Blue Halo Pools",
+   "sub": "Abacoa, Admirals Cove, Jonathan's Landing and out into Jupiter Farms. Two very different pool problems in one town.",
+   "h2": "Well water changes everything",
+   "p": [
+    "Jupiter Farms and the properties west of the turnpike are largely on well water, and well water carries iron and other metals. Top a pool off with it and you get staining on the surface, discoloration in the water, and chemistry that behaves in ways a coastal pool never does.",
+    "It is a solvable problem, but only if someone is actually testing for metals and sequestering rather than throwing more chlorine at brown water and making the staining worse. Nearer the coast the pools are newer, the equipment is modern, and the job looks more like Palm Beach Gardens. We treat the two ends of Jupiter as the different jobs they are."
+   ],
+   "h_wrong": "What Jupiter pools need",
+   "wrong": [
+    [
+     "Metals, out in the Farms",
+     "Iron from well water stains surfaces and turns water off-color. It needs testing for and sequestering, not more chlorine, which sets the stain rather than clearing it."
+    ],
+    [
+     "Large lots and heavy debris",
+     "Farms properties sit on acreage with real tree cover. Baskets fill fast and the organic load draws down chlorine between visits."
+    ],
+    [
+     "Newer equipment near the coast",
+     "Abacoa and the waterfront communities run modern variable-speed pumps and automation. Different job, same weekly report."
+    ]
+   ],
+   "price": [
+    "Jupiter splits neatly in two on price. Coastal pools quote much like the rest of the county; Jupiter Farms pools usually cost a little more, because well water and acreage genuinely add work.",
+    "Weekly plans start at $129 a month. If you are on a well we will say so at the quote and explain what the metal treatment involves, rather than discovering it in month three."
+   ],
+   "faq": [
+    [
+     "We are on well water in Jupiter Farms. Can you handle the staining?",
+     "Yes, and it is the main thing that makes a Farms pool different. Metals need testing for and sequestering. Adding more chlorine to iron-stained water sets the stain rather than clearing it."
+    ],
+    [
+     "Do you cover Abacoa and the waterfront communities?",
+     "Yes. Those pools are newer and usually run modern equipment and automation, which we verify against what it is actually doing rather than what the panel reports."
+    ],
+    [
+     "How much is pool service in Jupiter?",
+     "Plans start at $129 a month, and every account is subject to a price quote by a technician or at the point of sale. Well-water properties usually sit a little higher."
+    ]
+   ],
+   "cta": "Have us look at your Jupiter pool",
+   "blurb": "Abacoa, Admirals Cove and Jupiter Farms. Newer equipment near the coast, well water out west."
+  },
+  "pool-service-wellington": {
+   "slug": "pool-service-wellington",
+   "name": "Wellington",
+   "title": "Pool Service in Wellington, FL | Blue Halo Pools",
+   "sub": "Big lots, mature tree cover, and a town whose population changes with the season. Wellington pools need more attention than their size suggests.",
+   "h2": "The trees are the job",
+   "p": [
+    "Wellington lots are large and heavily planted, and that is the defining feature of a pool here. Constant leaf and organic load fills baskets, draws down chlorine between visits, and quietly stains surfaces if it is left sitting.",
+    "The other thing that shapes the work is the season. A significant share of Wellington homes go from empty to full when the equestrian season starts, and a pool that has been coasting through the summer is exactly the pool that is not ready for people to arrive and use it. We would rather hold it properly year round than perform a rescue in December."
+   ],
+   "h_wrong": "What Wellington pools need",
+   "wrong": [
+    [
+     "Constant organic load",
+     "Heavy tree cover means chlorine demand that does not let up. Skimming alone does not solve it; the chemistry has to be held against it."
+    ],
+    [
+     "Seasonal occupancy",
+     "Houses that sit empty for months and then fill up need the pool held to a usable standard the whole time, not brought back from the brink in November."
+    ],
+    [
+     "Larger pools and equipment",
+     "Wellington pools are often bigger than the county average with the pumps and filters to match. Filter cleans matter more here and we track pressure weekly."
+    ]
+   ],
+   "price": [
+    "Wellington pools usually price a little above a comparable coastal pool of the same size, for one reason: tree cover. More organic load means more chemistry and more time on site.",
+    "Weekly plans start at $129 a month. On a heavily shaded Wellington lot the flat-rate chemical plan is normally the better value, and we will show you the math at the quote."
+   ],
+   "faq": [
+    [
+     "Our lot is heavily shaded. Does that cost more?",
+     "Usually a little. Constant leaf and organic load uses chlorine faster and adds time to every visit. On those pools the flat-rate chemical plan normally works out better than paying for chemicals as used."
+    ],
+    [
+     "The house is empty most of the year. Do we still need weekly service?",
+     "Yes, and arguably more than an occupied house does. A pool nobody is watching is the one that turns, and bringing one back is far more expensive than holding it."
+    ],
+    [
+     "How much is pool service in Wellington?",
+     "Plans start at $129 a month, and every account is subject to a price quote by a technician or at the point of sale."
+    ]
+   ],
+   "cta": "Have us look at your Wellington pool",
+   "blurb": "Big lots, mature trees, and a town that fills up for the winter equestrian season."
+  },
+  "pool-service-royal-palm-beach": {
+   "slug": "pool-service-royal-palm-beach",
+   "name": "Royal Palm Beach",
+   "title": "Pool Service in Royal Palm Beach, FL | Blue Halo Pools",
+   "sub": "Madison Green, Counterpoint Estates, La Mancha and the neighborhoods around them. Consistent housing stock, which makes for consistent pricing.",
+   "h2": "The cage is the story",
+   "p": [
+    "Royal Palm pools are more uniform than most of the county. Largely built between the nineties and the two-thousands, largely screened, largely the same size, and largely running the same generation of equipment.",
+    "That uniformity is good news on price, because there are fewer surprises in a quote. It also means the failure modes are predictable: cage tracks that collect debris, screens that let just enough through to settle in the same corners every week, and equipment that is now old enough to be reaching the end of its life all at once across the whole neighborhood."
+   ],
+   "h_wrong": "What Royal Palm pools need",
+   "wrong": [
+    [
+     "Cage track debris",
+     "A screen enclosure does not keep everything out. What gets through settles in the same places, and the tracks hold it. It is a five-minute job that most companies skip."
+    ],
+    [
+     "Equipment reaching end of life",
+     "Whole streets here were built at once, which means pumps and heaters age out at once. We log pressure and condition weekly so you get notice rather than a failure."
+    ],
+    [
+     "Predictable pricing",
+     "Similar pools mean fewer surprises in a quote. Most Royal Palm pools can be priced accurately over the phone."
+    ]
+   ],
+   "price": [
+    "Royal Palm is one of the easier places in the county to quote accurately, because the pools are so similar to one another.",
+    "Weekly plans start at $129 a month, and most standard screened pools here land at or near that. We can usually give you a firm number on the phone."
+   ],
+   "faq": [
+    [
+     "Can you quote my pool over the phone?",
+     "In Royal Palm, usually yes. The housing stock is consistent enough that we can price a standard screened pool accurately from a short conversation."
+    ],
+    [
+     "Does a screen enclosure mean less work?",
+     "Less than an open pool, but not none. Debris still gets through and settles in the same corners, and cage tracks collect it. That gets done on every visit."
+    ],
+    [
+     "How much is pool service in Royal Palm Beach?",
+     "Plans start at $129 a month for weekly service on a standard residential pool, and every account is subject to a price quote by a technician or at the point of sale."
+    ]
+   ],
+   "cta": "Have us look at your Royal Palm Beach pool",
+   "blurb": "Madison Green, Counterpoint and La Mancha. Screened suburban pools, mostly built the same way."
+  },
+  "pool-service-greenacres": {
+   "slug": "pool-service-greenacres",
+   "name": "Greenacres",
+   "title": "Pool Service in Greenacres, FL | Blue Halo Pools",
+   "sub": "A dense, established part of the county with mostly seventies and eighties housing. Smaller pools, and owners who reasonably want to know where the money goes.",
+   "h2": "Small pools, old surfaces, tight budgets",
+   "p": [
+    "Greenacres pools are generally on the smaller side and generally older, and a good number of them are still on their original surface. That combination makes chemistry easier in one way and harder in another.",
+    "Smaller water volume means a dose moves the numbers faster, so a pool here can swing out of range between visits more easily than a large one. Old surfaces hold algae in the rough patches. Neither is a reason to overservice a pool, and we would rather put you on the plan that fits than sell up. The report tells you what the water actually did that week either way."
+   ],
+   "h_wrong": "What Greenacres pools need",
+   "wrong": [
+    [
+     "Small volume, fast swings",
+     "Less water means chemistry moves faster in both directions. Consistent weekly dosing matters more here than on a large pool that absorbs a bad week."
+    ],
+    [
+     "Original surfaces",
+     "Plenty of these pools are still on their first plaster. We will tell you honestly when it is worn enough that chemistry alone stops being the answer."
+    ],
+    [
+     "A plan that actually fits",
+     "Small pool, modest budget, no spa, no automation. That is the entry plan doing exactly what it is for, and we will say so rather than sell up."
+    ]
+   ],
+   "price": [
+    "Greenacres pools are mostly small, which puts them squarely at the bottom of our range. That is a good thing, and we are not going to talk you out of it.",
+    "Weekly plans start at $129 a month and most pools here land right about there. If the entry plan is the right plan for your pool, that is what we will quote."
+   ],
+   "faq": [
+    [
+     "Is the cheapest plan good enough for a small pool?",
+     "For most Greenacres pools, yes. A small pool with no spa and no automation is exactly what the entry plan is built for. We will tell you if yours is an exception rather than defaulting you upward."
+    ],
+    [
+     "My pool is old. Will you still take it?",
+     "Almost certainly. Old is fine; we will just be straight with you about whether the surface has reached the point where resurfacing is the real fix."
+    ],
+    [
+     "How much is pool service in Greenacres?",
+     "Plans start at $129 a month for weekly service on a standard residential pool, and every account is subject to a price quote by a technician or at the point of sale."
+    ]
+   ],
+   "cta": "Have us look at your Greenacres pool",
+   "blurb": "Dense, mostly seventies and eighties housing. Smaller pools and owners who watch the bill."
+  },
+  "pool-service-lantana": {
+   "slug": "pool-service-lantana",
+   "name": "Lantana",
+   "title": "Pool Service in Lantana, FL | Blue Halo Pools",
+   "sub": "Old Florida cottages off Ocean Avenue and waterfront homes on the Intracoastal. A small town holding two quite different kinds of pool.",
+   "h2": "Two housing stocks, one small town",
+   "p": [
+    "Lantana still has a good number of small mid-century pools behind original cottages, and alongside them a set of substantially larger waterfront properties. The two need different things and it would be easy to treat them the same.",
+    "The waterfront pools deal with salt and wind off the Intracoastal, which pushes chemistry around between visits and works on the equipment. The older inland cottages have smaller pools with older surfaces, where the honest conversation is usually about how much life is left in the plaster. We quote both on what they are rather than on the zip code they share."
+   ],
+   "h_wrong": "What Lantana pools need",
+   "wrong": [
+    [
+     "Waterfront exposure",
+     "Salt and wind off the Intracoastal move chemistry between visits and shorten equipment life. Those pools get tested tighter and the pad gets checked every week."
+    ],
+    [
+     "Older inland surfaces",
+     "The cottage pools are small and often original. Worth being honest about what plaster has left in it before spending a year on chemicals."
+    ],
+    [
+     "A short drive from Delray and Boynton",
+     "Lantana sits between two of our busiest areas, which means midweek problems usually get seen quickly."
+    ]
+   ],
+   "price": [
+    "Lantana spans a wide range for a town this size. A small cottage pool inland and a large waterfront pool are not close to the same monthly rate.",
+    "Weekly plans start at $129 a month. Tell us roughly where the house sits and we can usually narrow it down on the phone."
+   ],
+   "faq": [
+    [
+     "Do you service the waterfront properties?",
+     "Yes. Those pools take salt and wind off the Intracoastal, so they get tighter testing and a weekly look at the equipment pad."
+    ],
+    [
+     "My pool is small and quite old. Is it worth putting on a plan?",
+     "Usually, yes. What we will be straight about is whether the surface has reached the point where resurfacing rather than chemistry is the real answer."
+    ],
+    [
+     "How much is pool service in Lantana?",
+     "Plans start at $129 a month for weekly service on a standard residential pool, and every account is subject to a price quote by a technician or at the point of sale."
+    ]
+   ],
+   "cta": "Have us look at your Lantana pool",
+   "blurb": "Old Florida cottages and Intracoastal waterfront, in one small coastal town."
+  },
+  "pool-service-riviera-beach": {
+   "slug": "pool-service-riviera-beach",
+   "name": "Riviera Beach",
+   "title": "Pool Service in Riviera Beach, FL | Blue Halo Pools",
+   "sub": "Singer Island on one side of the Intracoastal and the mainland neighborhoods on the other. Two genuinely different pool markets sharing a city line.",
+   "h2": "The bridge divides the job",
+   "p": [
+    "Singer Island pools are oceanfront: open to the sky, exposed to constant salt and wind, and often attached to buildings with their own access rules. The mainland neighborhoods are older, more modest, and inland enough that salt stops being the main variable.",
+    "Treating those as one service is how island pools end up with corroded equipment nobody warned the owner about, and how mainland customers end up paying for attention their pool does not need. We quote the two sides separately and service them differently, and the report tells you what happened at your pool specifically."
+   ],
+   "h_wrong": "What Riviera Beach pools need",
+   "wrong": [
+    [
+     "Salt exposure on the island",
+     "Oceanfront equipment corrodes years earlier than inland. We photograph the pad so you can watch it rather than hear about it once a heater fails."
+    ],
+    [
+     "Building access and scheduling",
+     "Singer Island properties often need scheduled access and building coordination. Give us the requirements up front and we work to them."
+    ],
+    [
+     "Straightforward mainland pools",
+     "The mainland neighborhoods are ordinary residential pools and should be priced like it. No reason for island economics to leak across the bridge."
+    ]
+   ],
+   "price": [
+    "Riviera Beach prices in two bands. Singer Island oceanfront pools sit higher, because salt genuinely means more dosing and closer equipment attention. Mainland pools price like any other residential pool.",
+    "Weekly plans start at $129 a month. Tell us which side of the Intracoastal you are on and we can be fairly precise on the phone."
+   ],
+   "faq": [
+    [
+     "Do you service Singer Island condo properties?",
+     "Yes. Many need scheduled access and building coordination, so tell us the building's requirements at the quote and we work to them from the first visit."
+    ],
+    [
+     "Why would an island pool cost more than a mainland one?",
+     "Constant salt and wind move the chemistry between visits and corrode equipment far faster. That is more dosing, more testing and closer attention to the pad, and it should be priced honestly rather than hidden."
+    ],
+    [
+     "How much is pool service in Riviera Beach?",
+     "Plans start at $129 a month, and every account is subject to a price quote by a technician or at the point of sale."
+    ]
+   ],
+   "cta": "Have us look at your Riviera Beach pool",
+   "blurb": "Singer Island oceanfront and the mainland neighborhoods. Two markets in one city."
+  },
+  "pool-service-palm-springs": {
+   "slug": "pool-service-palm-springs",
+   "name": "Palm Springs",
+   "title": "Pool Service in Palm Springs, FL | Blue Halo Pools",
+   "sub": "A compact inland village just west of Lake Worth. Modest homes, small pools, and no reason for pool service to be complicated.",
+   "h2": "Nothing exotic, and that is the point",
+   "p": [
+    "Palm Springs pools are small, inland, mostly older, and mostly straightforward. No salt air to fight, no acreage of tree cover, no automation to second-guess.",
+    "What that means practically is that this should be one of the cheapest places in the county to keep a pool right, and it should stay that way. The failure mode here is not a complicated pool; it is a company that shows up for six minutes and charges as though it did not. The weekly report exists precisely so that cannot happen quietly."
+   ],
+   "h_wrong": "What Palm Springs pools need",
+   "wrong": [
+    [
+     "Consistency more than complexity",
+     "Small inland pools do not need clever. They need someone who turns up every week and holds the numbers steady."
+    ],
+    [
+     "Small volume, quick swings",
+     "Less water means a dose moves the chemistry fast. Weekly consistency matters more than it would on a large pool."
+    ],
+    [
+     "Proof the visit happened",
+     "This is where short-changing a customer is easiest and hardest to catch. Readings and photos after every visit make it visible."
+    ]
+   ],
+   "price": [
+    "Palm Springs pools sit at the bottom of our range and belong there. Small, inland and uncomplicated.",
+    "Weekly plans start at $129 a month and most pools here land right at it. We can almost always quote yours on the phone."
+   ],
+   "faq": [
+    [
+     "Can you quote over the phone?",
+     "In Palm Springs, nearly always. The pools are consistent enough that a short conversation is usually enough to give you a firm number."
+    ],
+    [
+     "Is the entry plan enough for my pool?",
+     "For a small inland pool with no spa and no automation, generally yes. We will tell you if yours is an exception rather than defaulting you to a higher tier."
+    ],
+    [
+     "How much is pool service in Palm Springs?",
+     "Plans start at $129 a month for weekly service on a standard residential pool, and every account is subject to a price quote by a technician or at the point of sale."
+    ]
+   ],
+   "cta": "Have us look at your Palm Springs pool",
+   "blurb": "A compact inland village of modest homes and small, older pools."
+  },
+  "pool-service-north-palm-beach": {
+   "slug": "pool-service-north-palm-beach",
+   "name": "North Palm Beach",
+   "title": "Pool Service in North Palm Beach, FL | Blue Halo Pools",
+   "sub": "Canal-front homes, a mature tree canopy, and a village built largely in one era. North Palm pools are older than they look and generally well cared for.",
+   "h2": "Canals and canopy",
+   "p": [
+    "Most of North Palm Beach went up in the fifties and sixties, and a great many homes back onto a canal. The tree canopy that grew in over the following seventy years is now the single biggest influence on the pools underneath it.",
+    "Heavy shade and constant leaf drop mean real chlorine demand and real skimming, and canal-side lots add wind-carried debris on top. The pools themselves are often original or resurfaced once, and they are usually in better condition than their age suggests because this is a village that maintains things. We would rather keep that going than find reasons to sell you work."
+   ],
+   "h_wrong": "What North Palm pools need",
+   "wrong": [
+    [
+     "Canopy and leaf load",
+     "Seventy years of tree growth over a sixty-year-old pool is a chlorine-demand problem before it is a skimming problem. It has to be dosed against, not just netted."
+    ],
+    [
+     "Canal-side debris and wind",
+     "Backing onto water adds debris and moves chemistry around. Baskets fill faster than the pool size would suggest."
+    ],
+    [
+     "Older pools in good order",
+     "Most of these have been looked after. The job is to keep them that way, not to find reasons to replace things."
+    ]
+   ],
+   "price": [
+    "North Palm pools are mid-range on price. Modest in size, but the tree canopy adds genuine chemical demand and genuine time on site.",
+    "Weekly plans start at $129 a month. On a heavily shaded canal lot the flat-rate chemical plan is usually the better value and we will show you why at the quote."
+   ],
+   "faq": [
+    [
+     "Our pool is under heavy tree cover. Does that change the price?",
+     "Usually a little. Constant leaf drop uses chlorine faster and adds time on site. On those pools the flat-rate chemical plan normally works out better than paying for chemicals as used."
+    ],
+    [
+     "We back onto a canal. Does that matter?",
+     "It adds wind-carried debris and moves the chemistry around more than an enclosed inland lot. Nothing unusual, just a reason to test rather than assume."
+    ],
+    [
+     "How much is pool service in North Palm Beach?",
+     "Plans start at $129 a month, and every account is subject to a price quote by a technician or at the point of sale."
+    ]
+   ],
+   "cta": "Have us look at your North Palm Beach pool",
+   "blurb": "Canal-front homes under a mature tree canopy. Older pools, well kept."
+  },
+  "pool-service-palm-beach": {
+   "slug": "pool-service-palm-beach",
+   "name": "Palm Beach",
+   "title": "Pool Service in Palm Beach, FL | Blue Halo Pools",
+   "sub": "The island. Larger pools, higher standards, a town with real rules about how work happens, and salt air on every single property.",
+   "h2": "The standard is the point",
+   "p": [
+    "Palm Beach pools are held to a standard that has nothing to do with chemistry ranges. The water is expected to look right every day, not on average, and the town itself sets rules about service hours, vehicles and how contractors conduct themselves.",
+    "That suits how we already work. A written report after every visit is not a novelty here; it is the minimum a property manager or estate manager should expect, and it is what makes it possible to keep track of a pool you are not personally standing next to. Salt air does the rest of the work of making this a demanding place to keep equipment alive."
+   ],
+   "h_wrong": "What island pools need",
+   "wrong": [
+    [
+     "Salt air, constantly",
+     "Oceanfront and near-oceanfront equipment corrodes years early. The pad gets checked and photographed every visit, not seasonally."
+    ],
+    [
+     "Town rules and scheduling",
+     "Palm Beach regulates how and when contractors work. We schedule to it rather than treating it as an inconvenience."
+    ],
+    [
+     "Reporting a manager can use",
+     "Estate and property managers need a record, not reassurance. Readings, dosages, tasks and photographs after every visit, in writing."
+    ]
+   ],
+   "price": [
+    "Island pools sit at the top of our range, and for real reasons: they are larger, they carry more equipment, salt air demands closer attention, and the standard expected is genuinely higher.",
+    "Weekly plans start at $129 a month, but almost no Palm Beach property lands there. We would rather see the pool and quote it accurately than give you a number that changes later."
+   ],
+   "faq": [
+    [
+     "Do you work with property and estate managers?",
+     "Yes, and the reporting is built for it. Every visit produces a written record of readings, dosages, tasks completed and photographs, which is what a manager needs rather than a verbal assurance."
+    ],
+    [
+     "Can you work within the town's contractor rules?",
+     "Yes. Palm Beach sets requirements around service hours and vehicles. Tell us the property's requirements at the quote and we schedule to them from the first visit."
+    ],
+    [
+     "How much is pool service in Palm Beach?",
+     "Plans start at $129 a month, and every account is subject to a price quote by a technician or at the point of sale. Island properties sit well above the entry rate."
+    ]
+   ],
+   "cta": "Have us look at your Palm Beach pool",
+   "blurb": "The island. Estate pools, strict town rules, and salt air on every property."
+  }
+ }
+}
