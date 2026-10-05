@@ -59,7 +59,7 @@
         </div>
         <input class="field" id="f_phone" type="tel" required placeholder="Phone number" data-es-ph="Número de teléfono" aria-label="Phone" autocomplete="tel">
         <input class="field" id="f_email" type="email" required placeholder="Email address" data-es-ph="Correo electrónico" aria-label="Email" autocomplete="email">
-        <input id="f_co" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <input id="f_co" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
         <button class="btn btn-gold" type="submit" id="f_btn" data-es="Obtener Mi Revisión Gratuita →">Get My Free Case Review →</button>
         <p class="fine" id="f_note"><svg class="ico" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> <span data-es="100% confidencial. Enviar el formulario no crea una relación abogado-cliente.">100% confidential. No attorney-client relationship is formed by submitting.</span></p>
       </form>
@@ -214,11 +214,14 @@ document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#
   var form=document.getElementById('caseForm'); if(!form) return;
   var ENDPOINT="https://api.hsforms.com/submissions/v3/integration/submit/7690372/2860c01f-db29-45c3-bc90-567d6cc5d835";
   var note=document.getElementById('f_note'), btn=document.getElementById('f_btn');
-  var okMsg='<div style="padding:14px 0;text-align:center"><h3 style="font-family:Roboto Slab,serif;color:#0a6b78;font-size:1.4rem">Thank you.</h3><p style="color:#697079;margin-top:8px">Your request has been received. An attorney will reach out shortly. To speak with someone now, call <b>888-492-0633</b>.</p></div>';
+  function es(){return (document.documentElement.lang||'').slice(0,2)==='es';}
+  function okMsg(){return es()
+    ? '<div style="padding:14px 0;text-align:center"><h3 style="font-family:Roboto Slab,serif;color:#0a6b78;font-size:1.4rem">Gracias.</h3><p style="color:#697079;margin-top:8px">Recibimos su solicitud. Un abogado se comunicará con usted pronto. Para hablar con alguien ahora, llame al <b>888-492-0633</b>.</p></div>'
+    : '<div style="padding:14px 0;text-align:center"><h3 style="font-family:Roboto Slab,serif;color:#0a6b78;font-size:1.4rem">Thank you.</h3><p style="color:#697079;margin-top:8px">Your request has been received. An attorney will reach out shortly. To speak with someone now, call <b>888-492-0633</b>.</p></div>';}
   form.addEventListener('submit',function(e){
     e.preventDefault();
     if(document.getElementById('f_co').value){return;}
-    btn.disabled=true; btn.textContent='Sending…';
+    var label=btn.textContent; btn.disabled=true; btn.textContent=es()?'Enviando…':'Sending…';
     var payload={fields:[
       {name:"firstname",value:document.getElementById('f_first').value.trim()},
       {name:"lastname", value:document.getElementById('f_last').value.trim()},
@@ -227,8 +230,8 @@ document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#
     ],context:{pageUri:location.href,pageName:document.title}};
     fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
       .then(function(r){return r.ok?r.json():Promise.reject(r);})
-      .then(function(){ form.innerHTML=okMsg; })
-      .catch(function(){ btn.disabled=false; btn.textContent='Get My Free Case Review →'; note.innerHTML='Something went wrong. Please call <b>888-492-0633</b> and we\'ll get you taken care of.'; });
+      .then(function(){ form.innerHTML=okMsg(); })
+      .catch(function(){ btn.disabled=false; btn.textContent=label; note.innerHTML=es()?'Algo salió mal. Por favor llame al <b>888-492-0633</b> y lo atenderemos.':'Something went wrong. Please call <b>888-492-0633</b> and we\'ll get you taken care of.'; });
   });
 })();
 (function(){var els=document.querySelectorAll('.reveal');
