@@ -85,3 +85,5 @@ NOTE: confirm with Zayden whether $500 is monthly all-in or the Google service o
 - Go-live: their domain DNS is on THEIR Cloudflare (NS gerald/lucy), current site WordPress, email = Google Workspace (MX aspmx) — don't touch MX.
 - Client email drafted for Zayden asking for Cloudflare access + Google Business Profile manager access.
 - Still open: dad's notes (washed-out logo, subtle ocean bg on green sections).
+- 2026-10-05: Verified THEIR live site uses the same HubSpot portal: home = form 2860c01f (we match), contact = form 460ba517
+  with optional `message` textarea → our contact.html now posts to 460ba517 + optional message (EN/ES placeholder). Tested.
