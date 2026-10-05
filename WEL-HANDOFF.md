@@ -75,3 +75,13 @@ NOTE: confirm with Zayden whether $500 is monthly all-in or the Google service o
   signature HTML uses WebBlaze orange `#F7551F`. He was adding it in Instantly → Email Accounts → Signature.
 - Bigger WebBlaze context + all creds/pricing/agents: `WEBBLAZE-HANDOFF.md`, `LOCAL-SEO-PLAYBOOK.md`,
   `prospecting/cold-email-templates.md` (Patches' email voice rules).
+
+## 2026-10-05 — CLIENT PAID. Form routing verified
+- Both forms (index.html, contact.html) POST to HubSpot portal 7690372 form 2860c01f… with firstname/lastname/email/phone.
+  Verified: HubSpot form exists (400 REQUIRED_FIELD on probe → firstname, lastname, phone required = our names; all 4 required on our side).
+  Browser test EN+ES with request intercepted (no fake leads): payload correct, confirmation shown.
+- Fixed: honeypot f_co was off-screen (autofill could fill it → lead silently dropped) → now display:none.
+- Fixed: Spanish visitors now get Spanish confirmation / sending / error text (lang from <html lang>).
+- Go-live: their domain DNS is on THEIR Cloudflare (NS gerald/lucy), current site WordPress, email = Google Workspace (MX aspmx) — don't touch MX.
+- Client email drafted for Zayden asking for Cloudflare access + Google Business Profile manager access.
+- Still open: dad's notes (washed-out logo, subtle ocean bg on green sections).
