@@ -67,7 +67,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdro
 .hero .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
 .hero .fine{margin-top:16px;font-size:14px;color:rgba(255,255,255,.78)}.hero .fine a{color:#7fd0f5;font-weight:600}
 .glass{background:rgba(255,255,255,.96);color:var(--txt);border-radius:22px;padding:24px 26px;box-shadow:0 30px 60px rgba(0,0,0,.25)}
-.glass h3{font-size:19px}.glass .sub{font-size:13px;color:var(--mut);margin-top:2px}
+.glass .gh{font-family:'Space Grotesk';font-weight:600;color:var(--ink);font-size:19px}.glass .sub{font-size:13px;color:var(--mut);margin-top:2px}
 .checks{list-style:none;margin-top:14px}
 .checks li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
 .checks li:before{content:"";width:22px;height:22px;border-radius:50%;background:var(--sky) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d6e9e' stroke-width='3'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/13px no-repeat;margin-top:2px}
@@ -104,7 +104,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdro
 .tile em.adj{background:#fff1dc;color:#9a5b0b}
 .tile[aria-pressed=true]{border-color:var(--blue);background:var(--sky2)}
 .trend{margin-top:16px;border:1px solid var(--line);border-radius:16px;padding:16px}
-.trend h4{font-size:15px}.trend .tg{font-size:12.5px;color:var(--mut)}
+.trend .rth{font-family:'Space Grotesk';font-weight:600;color:var(--ink);font-size:15px}.trend .tg{font-size:12.5px;color:var(--mut)}
 .trend svg{width:100%;height:auto;margin-top:8px;display:block}
 .trend p{font-size:13.5px;color:var(--mut);margin-top:8px}
 .rlist{list-style:none;margin-top:14px;font-size:14px}.rlist li{padding:6px 0 6px 24px;position:relative;border-top:1px solid var(--line)}
@@ -168,7 +168,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdro
 .pcard{background:var(--navy);color:#cfdce6;border-radius:24px;padding:30px}.pcard h3{color:#fff}.pcard .badge{background:rgba(127,208,245,.18);color:#7fd0f5}
 .pcard .big{display:block;margin-top:18px;text-align:center;font-family:'Space Grotesk';font-size:24px;font-weight:600;background:var(--blue);color:#06263a;border-radius:999px;padding:14px}
 .pcard p{font-size:14px;margin-top:12px}
-.thanks{display:none;padding:26px;text-align:center;background:var(--sky2);border-radius:16px;margin-top:16px}.thanks h4{font-size:22px}
+.thanks{display:none;padding:26px;text-align:center;background:var(--sky2);border-radius:16px;margin-top:16px}.thanks .th{font-family:'Space Grotesk';font-weight:600;color:var(--ink);font-size:22px}
 @media(max-width:900px){.qgrid{grid-template-columns:1fr}}
 /* bands & page heroes */
 .band{position:relative;color:#fff;overflow:hidden;background:var(--navy2)}
@@ -206,7 +206,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdro
 footer{background:var(--navy2);color:#9fb6c6;padding:64px 0 30px;font-size:14.5px}
 footer .top{display:grid;grid-template-columns:1.4fr 1fr 1.2fr 1.2fr;gap:36px}
 footer .brand .bw b{color:#fff}footer .brand .bw span{color:#7fd0f5}
-footer h5{color:#fff;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;font-family:Poppins}
+footer .fh{color:#fff;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;font-family:Poppins}
 footer a{display:block;padding:4px 0}footer a:hover{color:#fff}
 footer .bot{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px}
 @media(max-width:900px){footer .top{grid-template-columns:1fr 1fr}}@media(max-width:560px){footer .top{grid-template-columns:1fr}}
@@ -238,7 +238,7 @@ def report():
   <div class="body">
     <p class="tapnote">Tap any reading to see its trend</p>
     <div class="tiles">%s</div>
-    <div class="trend" aria-live="polite"><h4 id="rt-h"></h4><div class="tg" id="rt-tg"></div><svg id="rt-svg" viewBox="0 0 520 170" role="img"></svg><p id="rt-n"></p></div>
+    <div class="trend" aria-live="polite"><p class="rth" id="rt-h"></p><div class="tg" id="rt-tg"></div><svg id="rt-svg" viewBox="0 0 520 170" role="img"></svg><p id="rt-n"></p></div>
     <ul class="rlist"><li>Skimmed, brushed and vacuumed</li><li>Skimmer and pump baskets emptied</li><li>Filter pressure checked — 14 psi, normal</li><li>1 lb stabilizer, 2 tabs added</li></ul>
     <div class="tech"><small>Note from your technician</small>“Stabilizer was running low so I brought it back up. Everything else looked good — nothing you need to do.”</div>
   </div>
@@ -314,7 +314,7 @@ def quote_block(r):
       <button type="submit" class="btn btn-blue" style="width:100%;margin-top:18px">Text me my quote</button>
       <p class="qnote">A real person prices it and checks your address against the route. No obligation.</p>
     </div>
-    <div class="thanks" id="qthanks"><h4>Thanks, we've got it.</h4><p style="margin-top:8px;color:var(--mut)">This is a design preview, so nothing was sent. On the live site, your quote request goes straight to Blue Halo.</p></div>
+    <div class="thanks" id="qthanks"><p class="th">Thanks, we've got it.</p><p style="margin-top:8px;color:var(--mut)">This is a design preview, so nothing was sent. On the live site, your quote request goes straight to Blue Halo.</p></div>
   </form>
   <div class="pcard reveal"><span class="badge">Right now</span><h3>Get a price on the phone</h3><p>Two or three minutes for most pools. No visit, no callback queue.</p>
     <a class="big" href="tel:""" + TEL + """">""" + PHONE + """</a>
@@ -402,9 +402,9 @@ def page(path, title, desc, body, active="", report_js=False, schema=None):
 <footer><div class="wrap">
   <div class="top">
     <div><a class="brand" href="%(r)s">%(mark)s<span class="bw"><b>Blue Halo</b><span>Pools</span></span></a><p style="margin-top:14px;max-width:320px">Weekly pool service across Palm Beach County. Chemistry logged and photographed on every visit, emailed before we leave.</p></div>
-    <div><h5>Service</h5><a href="%(r)sservices-and-plans/">Services &amp; Plans</a><a href="%(r)sabout/">About us</a><a href="%(r)squote/">Get a free quote</a><a href="%(r)scareers/">Careers</a></div>
-    <div><h5>Areas we serve</h5>%(fa)s<a href="%(r)sareas-we-serve/" style="color:#fff">All Palm Beach County →</a></div>
-    <div><h5>Get in touch</h5><a href="tel:%(tel)s">%(phone)s</a><a href="mailto:%(email)s">%(email)s</a><p style="margin-top:10px;font-size:13.5px">7 days a week, 7am–6pm. We serve customers at their homes and do not operate a walk-in location.</p></div>
+    <div><p class="fh">Service</p><a href="%(r)sservices-and-plans/">Services &amp; Plans</a><a href="%(r)sabout/">About us</a><a href="%(r)squote/">Get a free quote</a><a href="%(r)scareers/">Careers</a></div>
+    <div><p class="fh">Areas we serve</p>%(fa)s<a href="%(r)sareas-we-serve/" style="color:#fff">All Palm Beach County →</a></div>
+    <div><p class="fh">Get in touch</p><a href="tel:%(tel)s">%(phone)s</a><a href="mailto:%(email)s">%(email)s</a><p style="margin-top:10px;font-size:13.5px">7 days a week, 7am–6pm. We serve customers at their homes and do not operate a walk-in location.</p></div>
   </div>
   <div class="bot"><span>&copy; 2026 Blue Halo Pools. Serving Palm Beach County, Florida.</span><a href="%(r)sprivacy/">Privacy policy</a></div>
 </div></footer>
@@ -426,7 +426,7 @@ def home():
     <p class="lead">Every visit ends the same way: the readings we took, the chemicals we added and photos from your pool, emailed before we pull out of the driveway. You never have to wonder whether anyone came or what they did.</p>
     <div class="row"><a class="btn btn-blue" href="quote/">Get a free quote</a><a class="btn btn-ghost" href="#plans">See plans &amp; pricing</a></div>
     <p class="fine">Month to month · 30 days' notice · no cancellation fee<br>Or call <a href="tel:%s">%s</a> for an instant quote.</p></div>
-  <div class="glass reveal"><h3>Your service day</h3><div class="sub">The same list every week, whether or not you are home</div>
+  <div class="glass reveal"><p class="gh">Your service day</p><div class="sub">The same list every week, whether or not you are home</div>
     <ul class="checks"><li><span><b>Water tested and balanced</b><small>chlorine, pH, alkalinity, stabiliser</small></span></li><li><span><b>Skimmed, brushed, vacuumed</b><small>walls and tile line, as needed</small></span></li><li><span><b>Baskets emptied</b><small>skimmer and pump</small></span></li><li><span><b>Equipment checked</b><small>filter pressure, pump, timer</small></span></li><li><span><b>You get the readings</b><small>and photos taken at your pool that day</small></span></li></ul>
     <div class="foot">The same list every week, and the report lands in your inbox before we leave.</div></div>
 </div></section>
