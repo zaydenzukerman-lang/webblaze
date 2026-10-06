@@ -1,0 +1,22 @@
+{
+ "page_ready": true,
+ "_source": "free-law-guides.json (old URL 301'd to the 2021 guide; this hub lists the 3 guides with their verbatim titles + intro lines)",
+ "path": "/free-law-guides/",
+ "title": "Free Law Guides - W Employment Law",
+ "description": "Free Law Guides: California Employees - 8 New Laws You Should Know For 2021; Know Your Rights: The First Steps to Take if Your Employment Rights Have Been Violated in California; How to File a Discrimination Claim - With or Without an Attorney!",
+ "h1": "Free Law Guides",
+ "es_h1": "Guías Legales Gratuitas",
+ "eyebrow": "Free Law Guides",
+ "es_eyebrow": "Guías Legales Gratuitas",
+ "breadcrumbs": [
+  [
+   "Home",
+   "/"
+  ],
+  [
+   "Free Law Guides",
+   null
+  ]
+ ],
+ "body_html": "<section class=\"sec bl-sec\"><div class=\"wrap\">\n  <div class=\"bl-grid bl-grid-3\"><a class=\"bl-card\" href=\"{{IMG}}free-law-guides-8-new-laws-in-2021/\"><div class=\"bl-thumbw\"><img class=\"bl-thumb\" src=\"{{IMG}}img/old/Blog-8-min-scaled.webp\" srcset=\"{{IMG}}img/old/Blog-8-min-scaled-md.webp 800w, {{IMG}}img/old/Blog-8-min-scaled.webp 1600w\" sizes=\"(max-width: 700px) 100vw, 380px\" width=\"1600\" height=\"1067\" alt=\"\" loading=\"lazy\" decoding=\"async\"></div><div class=\"bl-cbody\"><h2 class=\"bl-ctitle\">California Employees - 8 New Laws You Should Know For 2021</h2><p class=\"bl-ex\">This guide will provide information on new laws and changes to laws pertaining to the following topics:</p><ul class=\"bl-ex-list\"><li>Independent Contractor Classification</li><li>The Minimum Wage in California</li><li>COVID workplace laws</li><li>COVID sick pay</li><li>The expansion of Paid Family Leave</li></ul><span class=\"bl-rd\">Download →</span></div></a><a class=\"bl-card\" href=\"{{IMG}}free-law-guides-first-steps-to-take-if-your-employment-rights-have-been-violated/\"><div class=\"bl-thumbw\"><img class=\"bl-thumb\" src=\"{{IMG}}img/old/Blog-8-min-scaled.webp\" srcset=\"{{IMG}}img/old/Blog-8-min-scaled-md.webp 800w, {{IMG}}img/old/Blog-8-min-scaled.webp 1600w\" sizes=\"(max-width: 700px) 100vw, 380px\" width=\"1600\" height=\"1067\" alt=\"\" loading=\"lazy\" decoding=\"async\"></div><div class=\"bl-cbody\"><h2 class=\"bl-ctitle\">Know Your Rights: The First Steps to Take if Your Employment Rights Have Been Violated in California</h2><p class=\"bl-ex\">As an employee in the State of California, you’re entitled to a variety of rights and protections under the law.</p><span class=\"bl-rd\">Download →</span></div></a><a class=\"bl-card\" href=\"{{IMG}}free-law-guides-how-to-file-a-discrimination-claim-with-or-without-an-attorney/\"><div class=\"bl-thumbw\"><img class=\"bl-thumb\" src=\"{{IMG}}img/old/Blog-8-min-scaled.webp\" srcset=\"{{IMG}}img/old/Blog-8-min-scaled-md.webp 800w, {{IMG}}img/old/Blog-8-min-scaled.webp 1600w\" sizes=\"(max-width: 700px) 100vw, 380px\" width=\"1600\" height=\"1067\" alt=\"\" loading=\"lazy\" decoding=\"async\"></div><div class=\"bl-cbody\"><h2 class=\"bl-ctitle\">How to File a Discrimination Claim - With or Without an Attorney!</h2><p class=\"bl-ex\">You have the right to earn a living – in a workplace free of unlawful discrimination. But what happens when your employer violates the law? Can you or should you file a discrimination claim? How can you continue to earn a living and provide for your family while your employer is discriminating against you? The situation may feel hopeless. You might feel powerless. But you’re not.</p><span class=\"bl-rd\">Download →</span></div></a></div>\n</div></section>\n<section class=\"cta\"><div class=\"cta-bg\"></div><div class=\"wrap cta-in\">\n  <h2 data-es=\"¿Aún no sabe si <em>tiene un caso?</em>\">Still not sure if you <em>have a case?</em></h2>\n  <p data-es=\"La única forma de saberlo con certeza es preguntar. Revisión de caso gratuita y confidencial, sin compromiso y sin honorarios a menos que ganemos.\">The only way to know for sure is to ask. Free, confidential case review — no obligation, and no fee unless we win.</p>\n  <div class=\"row\">\n    <a class=\"btn btn-gold\" href=\"{{CONTACT}}\" data-es=\"Obtener Mi Revisión Gratuita\">Get My Free Case Review</a>\n    <a class=\"btn btn-out\" href=\"tel:+18884920633\" data-es=\"Llamar 888-492-0633\">Call 888-492-0633</a>\n  </div>\n</div></section>"
+}

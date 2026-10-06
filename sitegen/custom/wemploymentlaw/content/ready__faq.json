@@ -1,0 +1,72 @@
+{
+ "page_ready": true,
+ "path": "/faq/",
+ "title": "FAQ",
+ "h1": "FAQ",
+ "description": "Maybe. Employment laws in California are complex and it’s important to have an experienced employment attorney review your individual case. Many factors…",
+ "breadcrumbs": [
+  [
+   "Home",
+   "/"
+  ],
+  [
+   "FAQ",
+   null
+  ]
+ ],
+ "schema": {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Do I have a case?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Maybe. Employment laws in California are complex and it’s important to have an experienced employment attorney review your individual case. Many factors may affect whether or not you have a case, and more importantly, whether or not it’s in your best interest to pursue it. After you fill out our free case evaluation form or call us, our team of attorneys will review your information to see if we can help. There is no cost or obligation to you to have us review your case. We don’t want to waste your time and only take cases we think we can help you with. Whether or not we can help, we’ll let you know your options."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Is going to trial the only way to recover compensation?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "No. Sometimes, all it takes is a simple letter to your employer. We will go over all your options with you to determine the best course of action for each individual situation. If a long-drawn out legal process isn’t in your best interest, we’ll let you know upfront."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "How much do you charge?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "0 unless we recover compensation for you. We take cases on a contingency basis, which means you don’t pay any upfront fees or costs. If we negotiate a settlement from your employer or win your case in court, our fee comes out of the recovery from the employer. If we didn’t win your case, you owe absolutely nothing."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "What if I still work for my employer?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "We may still be able to help guide you through your options, even if you still work for your employer. Call us or fill out our free case evaluation form."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Can my employer retaliate against me for hiring a lawyer to represent me with my claims?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "In California, it is illegal for an employer to retaliate against current or former employees for filing a lawsuit or complaint against them. This means the employer cannot legally terminate, demote, harass or discriminate against you for hiring an attorney to write a demand letter, filing a complaint in court, or complaining about workplace violations. If you were retaliated against, we can help fight for your rights and recover the compensation you deserve."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "I don’t live in Southern California. Can you still help with my case?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "In California, it is illegal for an employer to retaliate against current or former employees for filing a lawsuit or complaint against them. This means the employer cannot legally terminate, demote, harass or discriminate against you for hiring an attorney to write a demand letter, filing a complaint in court, or complaining about workplace violations. If you were retaliated against, we can help fight for your rights and recover the compensation you deserve."
+    }
+   }
+  ]
+ },
+ "body_html": "<section class=\"sec tm-sec\"><div class=\"wrap\">\n  <h2 class=\"tm-h2 tm-center\">Play List</h2>\n  <div class=\"tm-faqlist\">\n  <div class=\"tm-faqi\">\n    <button type=\"button\" class=\"tm-yt\" data-yt=\"C2NXCD0_XNU\" aria-label=\"Play video: Do I have a case?\"><img src=\"https://i.ytimg.com/vi/C2NXCD0_XNU/hqdefault.jpg\" alt=\"\" loading=\"lazy\" decoding=\"async\" width=\"480\" height=\"360\"><span class=\"tm-yt-play\"><svg viewBox=\"0 0 68 48\" aria-hidden=\"true\"><path class=\"tm-yt-bg\" d=\"M66.5 7.7a8.5 8.5 0 0 0-6-6C55.3.3 34 .3 34 .3s-21.3 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.7 47.7 34 47.7 34 47.7s21.3 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z\"/><path fill=\"#fff\" d=\"M45 24 27 14v20z\"/></svg></span><span class=\"tm-yt-cap\">Play Video</span></button>\n    <div class=\"tm-faqtx\"><h3>Do I have a case?</h3><span class=\"tm-dur\">0:33</span><p>Maybe. Employment laws in California are complex and it’s important to have an experienced employment attorney review your individual case. Many factors may affect whether or not you have a case, and more importantly, whether or not it’s in your best interest to pursue it. After you fill out our free case evaluation form or call us, our team of attorneys will review your information to see if we can help. There is no cost or obligation to you to have us review your case. We don’t want to waste your time and only take cases we think we can help you with. Whether or not we can help, we’ll let you know your options.</p></div>\n  </div><div class=\"tm-faqi\">\n    <button type=\"button\" class=\"tm-yt\" data-yt=\"pcu-R1N-MQc\" aria-label=\"Play video: Is going to trial the only way to recover compensation?\"><img src=\"https://i.ytimg.com/vi/pcu-R1N-MQc/hqdefault.jpg\" alt=\"\" loading=\"lazy\" decoding=\"async\" width=\"480\" height=\"360\"><span class=\"tm-yt-play\"><svg viewBox=\"0 0 68 48\" aria-hidden=\"true\"><path class=\"tm-yt-bg\" d=\"M66.5 7.7a8.5 8.5 0 0 0-6-6C55.3.3 34 .3 34 .3s-21.3 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.7 47.7 34 47.7 34 47.7s21.3 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z\"/><path fill=\"#fff\" d=\"M45 24 27 14v20z\"/></svg></span></button>\n    <div class=\"tm-faqtx\"><h3>Is going to trial the only way<br> to recover compensation?</h3><span class=\"tm-dur\">2:27</span><p>No. Sometimes, all it takes is a simple letter to your employer. We will go over all your options with you to determine the best course of action for each individual situation. If a long-drawn out legal process isn’t in your best interest, we’ll let you know upfront.</p></div>\n  </div><div class=\"tm-faqi\">\n    <button type=\"button\" class=\"tm-yt\" data-yt=\"qFhtzcjpnN4\" aria-label=\"Play video: How much do you charge?\"><img src=\"https://i.ytimg.com/vi/qFhtzcjpnN4/hqdefault.jpg\" alt=\"\" loading=\"lazy\" decoding=\"async\" width=\"480\" height=\"360\"><span class=\"tm-yt-play\"><svg viewBox=\"0 0 68 48\" aria-hidden=\"true\"><path class=\"tm-yt-bg\" d=\"M66.5 7.7a8.5 8.5 0 0 0-6-6C55.3.3 34 .3 34 .3s-21.3 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.7 47.7 34 47.7 34 47.7s21.3 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z\"/><path fill=\"#fff\" d=\"M45 24 27 14v20z\"/></svg></span></button>\n    <div class=\"tm-faqtx\"><h3>How much do you charge?</h3><span class=\"tm-dur\">0:47</span><p>0 unless we recover compensation for you. We take cases on a contingency basis, which means you don’t pay any upfront fees or costs. If we negotiate a settlement from your employer or win your case in court, our fee comes out of the recovery from the employer. If we didn’t win your case, you owe absolutely nothing.</p></div>\n  </div><div class=\"tm-faqi\">\n    <button type=\"button\" class=\"tm-yt\" data-yt=\"qtASGwhJ86A\" aria-label=\"Play video: What if I still work for my employer?\"><img src=\"https://i.ytimg.com/vi/qtASGwhJ86A/hqdefault.jpg\" alt=\"\" loading=\"lazy\" decoding=\"async\" width=\"480\" height=\"360\"><span class=\"tm-yt-play\"><svg viewBox=\"0 0 68 48\" aria-hidden=\"true\"><path class=\"tm-yt-bg\" d=\"M66.5 7.7a8.5 8.5 0 0 0-6-6C55.3.3 34 .3 34 .3s-21.3 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.7 47.7 34 47.7 34 47.7s21.3 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z\"/><path fill=\"#fff\" d=\"M45 24 27 14v20z\"/></svg></span></button>\n    <div class=\"tm-faqtx\"><h3>What if I still work for my employer?</h3><span class=\"tm-dur\">0:43</span><p>We may still be able to help guide you through your options, even if you still work for your employer. Call us or fill out our free case evaluation form.</p></div>\n  </div><div class=\"tm-faqi\">\n    <button type=\"button\" class=\"tm-yt\" data-yt=\"LufCSCW4uyU\" aria-label=\"Play video: Can my employer retaliate against me for hiring a lawyer to represent me with my claims?\"><img src=\"https://i.ytimg.com/vi/LufCSCW4uyU/hqdefault.jpg\" alt=\"\" loading=\"lazy\" decoding=\"async\" width=\"480\" height=\"360\"><span class=\"tm-yt-play\"><svg viewBox=\"0 0 68 48\" aria-hidden=\"true\"><path class=\"tm-yt-bg\" d=\"M66.5 7.7a8.5 8.5 0 0 0-6-6C55.3.3 34 .3 34 .3s-21.3 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.7 47.7 34 47.7 34 47.7s21.3 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z\"/><path fill=\"#fff\" d=\"M45 24 27 14v20z\"/></svg></span></button>\n    <div class=\"tm-faqtx\"><h3>Can my employer retaliate against me<br> for hiring a lawyer to represent me<br> with my claims?</h3><span class=\"tm-dur\">0:24</span><p>In California, it is illegal for an employer to retaliate against current or former employees for filing a lawsuit or complaint against them. This means the employer cannot legally terminate, demote, harass or discriminate against you for hiring an attorney to write a demand letter, filing a complaint in court, or complaining about workplace violations. If you were retaliated against, we can help fight for your rights and recover the compensation you deserve.</p></div>\n  </div><div class=\"tm-faqi\">\n    <button type=\"button\" class=\"tm-yt\" data-yt=\"iIasA1pEPmc\" aria-label=\"Play video: I don’t live in Southern California. Can you still help with my case?\"><img src=\"https://i.ytimg.com/vi/iIasA1pEPmc/hqdefault.jpg\" alt=\"\" loading=\"lazy\" decoding=\"async\" width=\"480\" height=\"360\"><span class=\"tm-yt-play\"><svg viewBox=\"0 0 68 48\" aria-hidden=\"true\"><path class=\"tm-yt-bg\" d=\"M66.5 7.7a8.5 8.5 0 0 0-6-6C55.3.3 34 .3 34 .3s-21.3 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.7 47.7 34 47.7 34 47.7s21.3 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z\"/><path fill=\"#fff\" d=\"M45 24 27 14v20z\"/></svg></span></button>\n    <div class=\"tm-faqtx\"><h3>I don’t live in Southern California.<br> Can you still help with my case?</h3><span class=\"tm-dur\">0:35</span><p>In California, it is illegal for an employer to retaliate against current or former employees for filing a lawsuit or complaint against them. This means the employer cannot legally terminate, demote, harass or discriminate against you for hiring an attorney to write a demand letter, filing a complaint in court, or complaining about workplace violations. If you were retaliated against, we can help fight for your rights and recover the compensation you deserve.</p></div>\n  </div>\n  </div>\n</div></section>\n<script>\n/* Click-to-load YouTube facades: only a thumbnail loads until the visitor clicks play. */\ndocument.addEventListener('click',function(e){\n  var b=e.target.closest('.tm-yt'); if(!b) return;\n  var f=document.createElement('iframe');\n  f.src='https://www.youtube-nocookie.com/embed/'+b.getAttribute('data-yt')+'?autoplay=1&rel=0';\n  f.title=b.getAttribute('aria-label')||'YouTube video';\n  f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';\n  f.allowFullscreen=true; f.className='tm-yt-frame';\n  b.replaceWith(f);\n});\n</script>\n"
+}

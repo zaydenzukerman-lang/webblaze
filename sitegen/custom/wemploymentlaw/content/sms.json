@@ -1,0 +1,42 @@
+{
+  "old_url": "https://wemploymentlaw.com/sms/",
+  "path": "sms/",
+  "type": "legal",
+  "title_tag": "W Employment Law - Vendor / operations texting - W Employment Law",
+  "meta_description": "W Employment Law (Jacob N. Whitehead, APC) may send operational text messages to existing vendors and service providers to schedule calls, confirm meeting times, and follow up on pending operational requests. This program is not marketing and is not used for mass texting or client intake. Message frequency varies. Message and data rates may apply.Reply […]",
+  "h1": null,
+  "date": null,
+  "author": null,
+  "category": null,
+  "body_html": "\n\n\n\n\n\n\n\n\n\n\n<a href=\"/\">\n<img alt=\"Logo\" src=\"img/old/W-Employment-Law-Logo.webp\"/> </a>\n\n\n\n\n\n\n\n\n\n <span>Menu</span>\n\n\n\n\n\n\n\n\n\n\n<a href=\"tel:+18884920633\">\n<span>\n\n<span>888-492-0633</span>\n</span>\n</a>\n\n\n\n\n\n<p><a href=\"tel:+18884920633\">888-492-0633</a></p> \n\n\n\n\n\n\n\n\n<a>\n<span>\n<span>Available 24/7</span>\n</span>\n</a>\n\n\n\n\n\n\n<a>\n<span>\n\n<span>Hablamos Español</span>\n</span>\n</a>\n\n\n\n\n\n\n\n\n\n\n\n",
+  "images": [
+    {
+      "orig": "https://wemploymentlaw.com/wp-content/uploads/2021/06/W-Employment-Law-Logo.png",
+      "local": "img/old/W-Employment-Law-Logo.webp",
+      "local_md": "img/old/W-Employment-Law-Logo-md.webp",
+      "w": 809,
+      "h": 402,
+      "alt": "Logo"
+    }
+  ],
+  "videos": [],
+  "forms_found": [
+    {
+      "portalId": "7690372",
+      "formId": "460ba517-6b2d-47cc-9f1d-379c4bd53ee4"
+    }
+  ],
+  "sidebar_html": null,
+  "link_notes": [
+    {
+      "orig": "https://wemploymentlaw.com",
+      "rewritten": "/"
+    }
+  ],
+  "notes": "URL not in the original required list; discovered via sitemap/nav crawl and included as real content.",
+  "_qa": {
+    "raw_wordcount": 7,
+    "body_wordcount": 7,
+    "ratio": 1.0
+  }
+}

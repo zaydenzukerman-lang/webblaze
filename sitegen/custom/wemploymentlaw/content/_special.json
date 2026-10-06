@@ -1,0 +1,854 @@
+{
+  "home_results": {
+    "source_url": "https://wemploymentlaw.com/",
+    "section_heading": "Our Latest Settlements",
+    "results": [
+      {
+        "amount": "$7,200,000",
+        "label": "for class action - unpaid wages"
+      },
+      {
+        "amount": "$1,700,000",
+        "label": "for class action - unpaid wages"
+      },
+      {
+        "amount": "$2,650,000",
+        "label": "for disability discrimination"
+      }
+    ],
+    "notes": "These are Elementor counter widgets that animate from $0 on page load; the raw static HTML shows '$ 0' for all three. Real target values recovered from each widget's data-to-value attribute (7200000 / 1700000 / 2650000). No other stats counters found on the homepage."
+  },
+  "awards": {
+    "found_on_pages": [
+      "why-choose-us/",
+      "pricing/",
+      "referrals/"
+    ],
+    "notes": "NOT present on the homepage itself (task brief expected them there) - they live in a logo-strip on /why-choose-us/, /pricing/, and /referrals/. None are hyperlinked on the live site (plain <img> in a <figure>, no <a> wrapper). Alt text on all 8 is just the filename number (e.g. alt='1'), not descriptive - labels below were identified visually from the badge artwork itself.",
+    "items": [
+      {
+        "name": "American Association for Justice (AAJ) - Member",
+        "image_orig": "https://wemploymentlaw.com/wp-content/uploads/2021/06/1.png",
+        "link": null,
+        "local": "img/old/1.webp",
+        "local_md": "img/old/1-md.webp",
+        "w": 300,
+        "h": 201
+      },
+      {
+        "name": "Premier Lawyers of America - Top 40 under 40 (2020)",
+        "image_orig": "https://wemploymentlaw.com/wp-content/uploads/2021/06/2.png",
+        "link": null,
+        "local": "img/old/2.webp",
+        "local_md": "img/old/2-md.webp",
+        "w": 150,
+        "h": 150
+      },
+      {
+        "name": "Avvo Rating 10.0 - Jacob N Whitehead - Top Attorney",
+        "image_orig": "https://wemploymentlaw.com/wp-content/uploads/2021/06/3.png",
+        "link": null,
+        "local": "img/old/3.webp",
+        "local_md": "img/old/3-md.webp",
+        "w": 150,
+        "h": 127
+      },
+      {
+        "name": "Expertise.com - Best Employment Lawyers in Irvine 2021",
+        "image_orig": "https://wemploymentlaw.com/wp-content/uploads/2021/06/4.png",
+        "link": null,
+        "local": "img/old/4.webp",
+        "local_md": "img/old/4-md.webp",
+        "w": 400,
+        "h": 320
+      },
+      {
+        "name": "America's Top 100 High Stakes Litigators",
+        "image_orig": "https://wemploymentlaw.com/wp-content/uploads/2021/06/5.png",
+        "link": null,
+        "local": "img/old/5.webp",
+        "local_md": "img/old/5-md.webp",
+        "w": 150,
+        "h": 150
+      },
+      {
+        "name": "Multi-Million Dollar Advocates Forum",
+        "image_orig": "https://wemploymentlaw.com/wp-content/uploads/2021/06/6.png",
+        "link": null,
+        "local": "img/old/6.webp",
+        "local_md": "img/old/6-md.webp",
+        "w": 150,
+        "h": 150
+      },
+      {
+        "name": "Avvo Clients' Choice Award 2021 - Jacob N Whitehead",
+        "image_orig": "https://wemploymentlaw.com/wp-content/uploads/2021/06/7-e1629995148694.png",
+        "link": null,
+        "local": "img/old/7-e1629995148694.webp",
+        "local_md": "img/old/7-e1629995148694-md.webp",
+        "w": 150,
+        "h": 139
+      },
+      {
+        "name": "Super Lawyers Rising Stars - Jacob Whitehead",
+        "image_orig": "https://wemploymentlaw.com/wp-content/uploads/2021/06/8.png",
+        "link": null,
+        "local": "img/old/8.webp",
+        "local_md": "img/old/8-md.webp",
+        "w": 150,
+        "h": 150
+      }
+    ]
+  },
+  "team": {
+    "source_url": "https://wemploymentlaw.com/our-team/",
+    "page_order_notes": "Order on page: Jacob (separate 'Our Attorneys' feature card, links to his own page) then 'Meet our legal team' grid: Gladys, Jose, Claire, Sankalp, Marjolyn, Samantha, Pamela, Yvonne.",
+    "notes": "Only first names are given for the 8 non-Jacob staff; the live site has no title/role or bio text for them, just a name + photo flip-card. Jose's and Claire's 'photos' are actually desktop screenshots (filenames 'Screen-Shot-2024-02-29...'), and Sankalp's 'photo' is literally a file named 'Voicemail-from-17146751640.png' (a voicemail screenshot, not a headshot) - this is a live-site content bug, copied here exactly as found, not fixed.",
+    "members": [
+      {
+        "name": "Jacob N. Whitehead Esq.",
+        "title": "Founder and Managing Attorney",
+        "link": "/jacob-n-whitehead/",
+        "bio": "Admitted in California and Washington D.C. Mr. Whitehead is the founder and managing attorney of W Employment Law. He is proud to fight for the rights of employees from all over California, with extensive experience in all areas of employment and labor law including wrongful termination, harassment, discrimination, retaliation, whistleblower, 2802 claims, wage and hour claims, and overtime violations, among others. He is highly experienced with both single-plaintiff employment-related cases as well as a class action and PAGA representative actions with multiple plaintiffs. Specializing in litigating employment class actions, Mr. Whitehead routinely litigates complex cases that have amassed hundreds of plaintiffs against the employer. He has recovered tens of millions of dollars for California employees. Mr. Whitehead is a lifetime member of the Multi-Million Dollar Advocates Forum, an invitation-only trial lawyers association in which only the top 1% of attorneys are admitted. He is rated a Rising Star in Super Lawyers, named in Lawyers of Distinction, and named one of America’s Top 100 High Stakes Litigators. He is an active member of organizations that fight for and protect the rights of employees and consumers, including the American Association for Justice, Consumer Attorneys of California, California Employment Lawyers Association, and Consumer Attorneys of Los Angeles. He is barred in both California and Washington D.C., and speaks fluent Spanish, having served as a missionary in Barcelona, Spain. He loves to ski, spend time at the beach, and travel with his wife and five beautiful daughters.",
+        "photo_orig": "https://wemploymentlaw.com/wp-content/uploads/2021/08/Jacob-Whitehead-1.jpg",
+        "local": "img/old/Jacob-Whitehead-1.webp",
+        "local_md": "img/old/Jacob-Whitehead-1-md.webp",
+        "w": 999,
+        "h": 1000
+      },
+      {
+        "name": "Gladys",
+        "title": null,
+        "link": null,
+        "bio": null,
+        "photo_orig": "https://wemploymentlaw.com/wp-content/uploads/2024/09/Gladys-M-scaled.jpg",
+        "local": "img/old/Gladys-M-scaled.webp",
+        "local_md": "img/old/Gladys-M-scaled-md.webp",
+        "w": 1600,
+        "h": 2400
+      },
+      {
+        "name": "Jose",
+        "title": null,
+        "link": null,
+        "bio": null,
+        "photo_orig": "https://wemploymentlaw.com/wp-content/uploads/2024/02/Screen-Shot-2024-02-29-at-6.16.10-AM.png",
+        "local": "img/old/Screen-Shot-2024-02-29-at-6.16.10-AM.webp",
+        "local_md": "img/old/Screen-Shot-2024-02-29-at-6.16.10-AM-md.webp",
+        "w": 611,
+        "h": 630
+      },
+      {
+        "name": "Claire",
+        "title": null,
+        "link": null,
+        "bio": null,
+        "photo_orig": "https://wemploymentlaw.com/wp-content/uploads/2024/02/Screen-Shot-2024-02-29-at-6.31.46-AM.png",
+        "local": "img/old/Screen-Shot-2024-02-29-at-6.31.46-AM.webp",
+        "local_md": "img/old/Screen-Shot-2024-02-29-at-6.31.46-AM-md.webp",
+        "w": 614,
+        "h": 617
+      },
+      {
+        "name": "Sankalp",
+        "title": null,
+        "link": null,
+        "bio": null,
+        "photo_orig": "https://wemploymentlaw.com/wp-content/uploads/2024/10/Voicemail-from-17146751640.png",
+        "local": "img/old/Voicemail-from-17146751640.webp",
+        "local_md": "img/old/Voicemail-from-17146751640-md.webp",
+        "w": 1168,
+        "h": 1596
+      },
+      {
+        "name": "Marjolyn",
+        "title": null,
+        "link": null,
+        "bio": null,
+        "photo_orig": "https://wemploymentlaw.com/wp-content/uploads/2024/09/Marjolyn.jpeg",
+        "local": "img/old/Marjolyn.webp",
+        "local_md": "img/old/Marjolyn-md.webp",
+        "w": 512,
+        "h": 512
+      },
+      {
+        "name": "Samantha",
+        "title": null,
+        "link": null,
+        "bio": null,
+        "photo_orig": "https://wemploymentlaw.com/wp-content/uploads/2024/02/Samantha.png",
+        "local": "img/old/Samantha.webp",
+        "local_md": "img/old/Samantha-md.webp",
+        "w": 512,
+        "h": 512
+      },
+      {
+        "name": "Pamela",
+        "title": null,
+        "link": null,
+        "bio": null,
+        "photo_orig": "https://wemploymentlaw.com/wp-content/uploads/2024/02/Pamela.png",
+        "local": "img/old/Pamela.webp",
+        "local_md": "img/old/Pamela-md.webp",
+        "w": 512,
+        "h": 512
+      },
+      {
+        "name": "Yvonne",
+        "title": null,
+        "link": null,
+        "bio": null,
+        "photo_orig": "https://wemploymentlaw.com/wp-content/uploads/2024/02/Yvonne.png",
+        "local": "img/old/Yvonne.webp",
+        "local_md": "img/old/Yvonne-md.webp",
+        "w": 512,
+        "h": 512
+      }
+    ]
+  },
+  "testimonials_videos": {
+    "source_url": "https://wemploymentlaw.com/videos/",
+    "video_count": 58,
+    "videos": [
+      {
+        "provider": "youtube",
+        "id": "k9AFBVURIyE",
+        "title": null,
+        "url": "https://youtu.be/k9AFBVURIyE"
+      },
+      {
+        "provider": "youtube",
+        "id": "xS5i5ooQVUQ",
+        "title": "Complaining to HR? Here’s how to protect yourself! #employmentlaw #employmentlawyer #employeerights",
+        "url": "https://youtu.be/xS5i5ooQVUQ",
+        "duration": "1:01"
+      },
+      {
+        "provider": "youtube",
+        "id": "9LcOvWPFtgY",
+        "title": "Does your employer owe you for expenses? #employmentlaw #californiaemploymentlaw #businessexpenses",
+        "url": "https://youtu.be/9LcOvWPFtgY",
+        "duration": "0:25"
+      },
+      {
+        "provider": "youtube",
+        "id": "Y_dLQZpsEw4",
+        "title": "Harassment case? Here’s what you need to know!",
+        "url": "https://youtu.be/Y_dLQZpsEw4",
+        "duration": "1:01"
+      },
+      {
+        "provider": "youtube",
+        "id": "E-XacOijEts",
+        "title": "What is Whistleblowing?",
+        "url": "https://youtu.be/E-XacOijEts",
+        "duration": "0:36"
+      },
+      {
+        "provider": "youtube",
+        "id": "PF0jkUkTCIo",
+        "title": "As employment lawyers, we fight to get our clients maximum compensation.",
+        "url": "https://youtu.be/PF0jkUkTCIo",
+        "duration": "0:35"
+      },
+      {
+        "provider": "youtube",
+        "id": "SBi8MSoZCwQ",
+        "title": "Can an at-will employee be fired for any reason? Employment lawyer Jacob Whitehead answers!",
+        "url": "https://youtu.be/SBi8MSoZCwQ",
+        "duration": "0:59"
+      },
+      {
+        "provider": "youtube",
+        "id": "N_h-Fkd1SFw",
+        "title": "Employers! Want to avoid a lawsuit?",
+        "url": "https://youtu.be/N_h-Fkd1SFw",
+        "duration": "2:37"
+      },
+      {
+        "provider": "youtube",
+        "id": "y6gldsi771s",
+        "title": "Suffering from Long COVID? It could be considered a disability. #shorts",
+        "url": "https://youtu.be/y6gldsi771s",
+        "duration": "1:00"
+      },
+      {
+        "provider": "youtube",
+        "id": "nXjZzZKzUiU",
+        "title": "Disabled with unpaid student loans? #shorts",
+        "url": "https://youtu.be/nXjZzZKzUiU",
+        "duration": "0:59"
+      },
+      {
+        "provider": "youtube",
+        "id": "yx_V9W4HQDo",
+        "title": "Overpaid by your California employer? #shorts",
+        "url": "https://youtu.be/yx_V9W4HQDo",
+        "duration": "0:37"
+      },
+      {
+        "provider": "youtube",
+        "id": "nzcmi8Q9OAQ",
+        "title": "What should you know if your California employer requires you to wear a mask? #shorts",
+        "url": "https://youtu.be/nzcmi8Q9OAQ",
+        "duration": "0:53"
+      },
+      {
+        "provider": "youtube",
+        "id": "EJTloumKOCI",
+        "title": "Are you being harassed at a small company? #shorts #harassment #employmentlaw",
+        "url": "https://youtu.be/EJTloumKOCI",
+        "duration": "0:52"
+      },
+      {
+        "provider": "youtube",
+        "id": "zd2AxsSTEPA",
+        "title": "Do you have to disclose your vaccination status?",
+        "url": "https://youtu.be/zd2AxsSTEPA",
+        "duration": "1:00"
+      },
+      {
+        "provider": "youtube",
+        "id": "N_h-Fkd1SFw",
+        "title": "Employers! Want to avoid a lawsuit?",
+        "url": "https://youtu.be/N_h-Fkd1SFw",
+        "duration": "2:37"
+      },
+      {
+        "provider": "youtube",
+        "id": "k9AFBVURIyE",
+        "title": "Our Story: Your California Employment Attorneys",
+        "url": "https://youtu.be/k9AFBVURIyE",
+        "duration": "2:41"
+      },
+      {
+        "provider": "youtube",
+        "id": "XlxdmlYr9CE",
+        "title": "Disciplined or fired for discussing salary?",
+        "url": "https://youtu.be/XlxdmlYr9CE",
+        "duration": "3:05"
+      },
+      {
+        "provider": "youtube",
+        "id": "kG89lM1cmbI",
+        "title": "California Employees: Have you been discriminated against because of your politics?",
+        "url": "https://youtu.be/kG89lM1cmbI",
+        "duration": "1:43"
+      },
+      {
+        "provider": "youtube",
+        "id": "ONvI8X5D_lI",
+        "title": "Sexual Harassment and Governor Cuomo",
+        "url": "https://youtu.be/ONvI8X5D_lI",
+        "duration": "11:26"
+      },
+      {
+        "provider": "youtube",
+        "id": "qF_B6f7z97w",
+        "title": "Why we fight for California employees!",
+        "url": "https://youtu.be/qF_B6f7z97w",
+        "duration": "5:37"
+      },
+      {
+        "provider": "youtube",
+        "id": "46mu23vJV3U",
+        "title": "Does your California employer require you to download apps on your personal cell phone?",
+        "url": "https://youtu.be/46mu23vJV3U",
+        "duration": "1:42"
+      },
+      {
+        "provider": "youtube",
+        "id": "23rqfiBs05Y",
+        "title": "Has your job changed due to a new supervisor? Here's what to do!",
+        "url": "https://youtu.be/23rqfiBs05Y",
+        "duration": "2:11"
+      },
+      {
+        "provider": "youtube",
+        "id": "pcu-R1N-MQc",
+        "title": "What's one thing you should request from your employer if you've been fired?",
+        "url": "https://youtu.be/pcu-R1N-MQc",
+        "duration": "0:33"
+      },
+      {
+        "provider": "youtube",
+        "id": "C2NXCD0_XNU",
+        "title": "Can your employer tell other employees about your vaccination status?",
+        "url": "https://youtu.be/C2NXCD0_XNU",
+        "duration": "2:28"
+      },
+      {
+        "provider": "youtube",
+        "id": "qFhtzcjpnN4",
+        "title": "Do you feel like you're getting set up to be fired?",
+        "url": "https://youtu.be/qFhtzcjpnN4",
+        "duration": "0:47"
+      },
+      {
+        "provider": "youtube",
+        "id": "qtASGwhJ86A",
+        "title": "What can you post on social media without getting fired?",
+        "url": "https://youtu.be/qtASGwhJ86A",
+        "duration": "0:42"
+      },
+      {
+        "provider": "youtube",
+        "id": "LufCSCW4uyU",
+        "title": "Are you owed commissions even after you've left a job or been fired?",
+        "url": "https://youtu.be/LufCSCW4uyU",
+        "duration": "0:24"
+      },
+      {
+        "provider": "youtube",
+        "id": "iIasA1pEPmc",
+        "title": "Do you work for a California accounting firm?",
+        "url": "https://youtu.be/iIasA1pEPmc",
+        "duration": "0:35"
+      },
+      {
+        "provider": "youtube",
+        "id": "RnPEi6ieCkE",
+        "title": "Can your California employer discipline you for discussing your salary with your co-workers?",
+        "url": "https://youtu.be/RnPEi6ieCkE",
+        "duration": "1:37"
+      },
+      {
+        "provider": "youtube",
+        "id": "MKocG_1ITCo",
+        "title": "3 Ways We've Seen California Employers Cheat Employees Out of Wages",
+        "url": "https://youtu.be/MKocG_1ITCo",
+        "duration": "1:21"
+      },
+      {
+        "provider": "youtube",
+        "id": "kd4vrm3G-38",
+        "title": "How to know if your California employer unlawfully fired you!",
+        "url": "https://youtu.be/kd4vrm3G-38",
+        "duration": "2:23"
+      },
+      {
+        "provider": "youtube",
+        "id": "4MMNomIBUPo",
+        "title": "Can your California employer discriminate against you because of your politics?",
+        "url": "https://youtu.be/4MMNomIBUPo",
+        "duration": "1:41"
+      },
+      {
+        "provider": "youtube",
+        "id": "bfJRLu8-3R8",
+        "title": "Lactation Breaks",
+        "url": "https://youtu.be/bfJRLu8-3R8",
+        "duration": "2:26"
+      },
+      {
+        "provider": "youtube",
+        "id": "XERxW_jxoKk",
+        "title": "Does your California employer owe you commissions after you've been fired?",
+        "url": "https://youtu.be/XERxW_jxoKk",
+        "duration": "0:49"
+      },
+      {
+        "provider": "youtube",
+        "id": "4JEbkr0fCMU",
+        "title": "California Employee! Do you have to get the COVID vaccine?",
+        "url": "https://youtu.be/4JEbkr0fCMU",
+        "duration": "1:56"
+      },
+      {
+        "provider": "youtube",
+        "id": "t6pbFLINaAg",
+        "title": "What two things should you do if you're a California employee and about to be fired?",
+        "url": "https://youtu.be/t6pbFLINaAg",
+        "duration": "2:04"
+      },
+      {
+        "provider": "youtube",
+        "id": "ihVko3fT4ec",
+        "title": "Wondering what to look for in a California employment attorney?",
+        "url": "https://youtu.be/ihVko3fT4ec",
+        "duration": "3:13"
+      },
+      {
+        "provider": "youtube",
+        "id": "lBMAWoB0lpw",
+        "title": "California Employees: What to do if you've been treated wrongfully at work!",
+        "url": "https://youtu.be/lBMAWoB0lpw",
+        "duration": "1:43"
+      },
+      {
+        "provider": "youtube",
+        "id": "WDMMGZBcVVs",
+        "title": "Should your California employer reimburse you for work-related expenses?",
+        "url": "https://youtu.be/WDMMGZBcVVs",
+        "duration": "0:38"
+      },
+      {
+        "provider": "youtube",
+        "id": "UpMShmjURtY",
+        "title": "What makes a hostile work environment?",
+        "url": "https://youtu.be/UpMShmjURtY",
+        "duration": "3:45"
+      },
+      {
+        "provider": "youtube",
+        "id": "YFETcE6GOuQ",
+        "title": "Have your California employee rights been violated?",
+        "url": "https://youtu.be/YFETcE6GOuQ",
+        "duration": "2:19"
+      },
+      {
+        "provider": "youtube",
+        "id": "kbqVkkqeufw",
+        "title": "3 questions to ask yourself if you've recently been fired and your boss blames it on COVID",
+        "url": "https://youtu.be/kbqVkkqeufw",
+        "duration": "2:06"
+      },
+      {
+        "provider": "youtube",
+        "id": "cgds9x0BlA0",
+        "title": "Are you owed commissions after being fired?",
+        "url": "https://youtu.be/cgds9x0BlA0",
+        "duration": "1:19"
+      },
+      {
+        "provider": "youtube",
+        "id": "Lb58ljijDMc",
+        "title": "Are you entitled to uninterrupted breaks?",
+        "url": "https://youtu.be/Lb58ljijDMc",
+        "duration": "1:41"
+      },
+      {
+        "provider": "youtube",
+        "id": "eJIHQKX3oPE",
+        "title": "What should you do if a California Employment Attorney refuses to take your case?",
+        "url": "https://youtu.be/eJIHQKX3oPE",
+        "duration": "2:22"
+      },
+      {
+        "provider": "youtube",
+        "id": "iDOjvYdKBSE",
+        "title": "How much does it cost to hire an employment lawyer?",
+        "url": "https://youtu.be/iDOjvYdKBSE",
+        "duration": "1:03"
+      },
+      {
+        "provider": "youtube",
+        "id": "EIYac7GhMz4",
+        "title": "Should you sign an arbitration agreement in California?",
+        "url": "https://youtu.be/EIYac7GhMz4",
+        "duration": "1:23"
+      },
+      {
+        "provider": "youtube",
+        "id": "WKpiTEojm4s",
+        "title": "If you report to work and are sent home, are you entitled to compensation?",
+        "url": "https://youtu.be/WKpiTEojm4s",
+        "duration": "1:09"
+      },
+      {
+        "provider": "youtube",
+        "id": "yzeSW3uYhpc",
+        "title": "Do you need to sign a severance agreement before receiving your final paycheck? Part 2",
+        "url": "https://youtu.be/yzeSW3uYhpc",
+        "duration": "0:43"
+      },
+      {
+        "provider": "youtube",
+        "id": "KUV5XPWHRdE",
+        "title": "Has your employer asked you to sign a severance agreement before releasing you final check?",
+        "url": "https://youtu.be/KUV5XPWHRdE",
+        "duration": "1:20"
+      },
+      {
+        "provider": "youtube",
+        "id": "Yh12odC1jTs",
+        "title": "Did your CA employer wrongfully terminate you or treat you differently because you were pregnant?",
+        "url": "https://youtu.be/Yh12odC1jTs",
+        "duration": "1:19"
+      },
+      {
+        "provider": "youtube",
+        "id": "V-IYzWy5gn4",
+        "title": "How much does it cost to hire an employment lawyer in California?",
+        "url": "https://youtu.be/V-IYzWy5gn4",
+        "duration": "1:03"
+      },
+      {
+        "provider": "youtube",
+        "id": "MWtHlfQyWAg",
+        "title": "Sick Pay to Care for Family during COVID-19",
+        "url": "https://youtu.be/MWtHlfQyWAg",
+        "duration": "1:49"
+      },
+      {
+        "provider": "youtube",
+        "id": "9Fl9tPcJRBw",
+        "title": "COVID-19: How to get paid if you have to stay at home due to school closures.",
+        "url": "https://youtu.be/9Fl9tPcJRBw",
+        "duration": "0:50"
+      },
+      {
+        "provider": "youtube",
+        "id": "-Y3Qn46bcoE",
+        "title": "Working Off the Clock",
+        "url": "https://youtu.be/-Y3Qn46bcoE",
+        "duration": "0:58"
+      },
+      {
+        "provider": "youtube",
+        "id": "xbQFvGFLYXQ",
+        "title": "Are you a CA employee who was fired or quit and are owed commissions? Your employer must pay you!",
+        "url": "https://youtu.be/xbQFvGFLYXQ",
+        "duration": "1:19"
+      },
+      {
+        "provider": "youtube",
+        "id": "GqogF8_VICA",
+        "title": "COVID-19 and CA Employees: Do you have to return to work if your workplace is opening back up?",
+        "url": "https://youtu.be/GqogF8_VICA",
+        "duration": "1:43"
+      },
+      {
+        "provider": "youtube",
+        "id": "XHFYYGF0nfg",
+        "title": "CA Employees: Your Employer Must Reimburse You For Your Cell Phone Plan If You Use It For Work!",
+        "url": "https://youtu.be/XHFYYGF0nfg",
+        "duration": "1:21"
+      }
+    ],
+    "written_testimonials_text_widget": {
+      "found_on": [
+        "home (hero/testimonials section)",
+        "sms/ (shares the same global testimonials widget)"
+      ],
+      "quotes": [
+        {
+          "quote": "I would recommend this firm to anyone in need of this type of representation. They are efficient, courteous, and very timely in their response. I dealt with a few people within the company and everyone's level of professionalism is beyond expectation. Anytime I had a question a professional was there to help. The kind of personal service they offer here is a rarity, if you're looking for a winning team, look no further. 1000% satisfied.",
+          "author": "Alberto"
+        },
+        {
+          "quote": "I’m glad I chose them to fight for me! Communication was excellent and everything was completed much quicker than I expected. Highly recommend!",
+          "author": "Nava"
+        },
+        {
+          "quote": "Mr. Whitehead was so knowledgeable about everything that I didn’t know or understand. I found him and his staff very easy to trust. I constantly called them and they always returned my calls. It was very reassuring how he kept me in the loop. He handled my case very smoothly.",
+          "author": "Shauna"
+        },
+        {
+          "quote": "I really appreciate the work Jacob did in my case. He was very knowledgeable and at times felt like a therapist helping me through a very stressful situation. I trusted his advice and his work and kept in touch with him for over a year after the case was resolved. I highly recommend him and his staff.",
+          "author": "Larry"
+        }
+      ]
+    },
+    "other_video_pages": {
+      "/video/ (singular, distinct from /videos/)": "A separate 'Clients Testimonials' / 'Words by Attorneys' / 'FAQ Videos' hub page with its own carousels (not fully itemized - same underlying video widget pattern as /videos/ and /faq/).",
+      "/faq/": "FAQ page is itself a video playlist (client questions answered on camera), separate from the homepage FAQ accordion text."
+    }
+  },
+  "social": {
+    "links_found": {
+      "homepage_section_11_follow_us": {
+        "instagram": "https://www.instagram.com/wemploymentlaw/",
+        "facebook": "https://www.facebook.com/wemploymentlaw",
+        "youtube": "https://www.youtube.com/channel/UCmUnEU5NU5jlZQTVZqrRhRQ",
+        "tiktok": "https://www.tiktok.com/@employmentattorney"
+      },
+      "sitewide_footer": {
+        "instagram": "https://www.instagram.com/w_employment_law/",
+        "facebook": "https://www.facebook.com/swemploymentlaw",
+        "youtube": "https://www.youtube.com/channel/UCmUnEU5NU5jlZQTVZqrRhRQ",
+        "linkedin": "https://www.linkedin.com/company/sw-employment-law",
+        "tiktok": "https://www.tiktok.com/@employmentattorney"
+      },
+      "client_stated_correct_linkedin": "https://www.linkedin.com/company/w-e-law"
+    },
+    "status_checks": {
+      "https://www.instagram.com/wemploymentlaw/": "200 OK - real, matches brand (homepage version)",
+      "https://www.instagram.com/w_employment_law/": "200 OK - also resolves (a second/older IG account; footer uses this one instead of the homepage's)",
+      "https://www.facebook.com/wemploymentlaw": "200 OK - real page, title 'W Employment Law | Irvine CA' (homepage version, correct)",
+      "https://www.facebook.com/swemploymentlaw": "200 response but generic 'Facebook' title/fallback - this handle does not resolve to a real page; footer link appears to be a typo (stray leading 's')",
+      "https://www.youtube.com/channel/UCmUnEU5NU5jlZQTVZqrRhRQ": "200 OK - same channel used in both locations",
+      "https://www.tiktok.com/@employmentattorney": "200 OK - same handle used in both locations",
+      "https://www.linkedin.com/company/sw-employment-law": "999 (LinkedIn bot-block / authwall) - cannot confirm programmatically; same stray-'s' typo pattern as the Facebook footer link, likely wrong",
+      "https://www.linkedin.com/company/w-e-law": "999 (LinkedIn bot-block / authwall) - this is the URL the client says is correct; blocked for bots exactly as the brief anticipated, not evidence it's broken"
+    },
+    "discrepancy_note": "The homepage's own 'Follow Us on Social Media' section and the sitewide footer link to DIFFERENT Instagram and Facebook handles (wemploymentlaw vs w_employment_law, wemploymentlaw vs swemploymentlaw). The footer's Facebook and LinkedIn handles both have a stray leading 's' and do not appear to be live/correct. Recommend using the homepage-section handles for Facebook/Instagram and the client-provided w-e-law for LinkedIn on the rebuilt site."
+  },
+  "sms_consent": {
+    "contact_form_footer_consent_text_sitewide": "By clicking submit, you are providing express consent to be contacted by SMS, possibly using automated technology to the number you provided. If at any time you wish to opt-out of communication, please reply “STOP”. Text “HELP” for help. Message frequency may vary. Message/data rates may apply. Submission of this form does not authorize the purchase of goods, services, or products. See the privacy policy / Terms and Conditions on the webpage.",
+    "dedicated_sms_page_url": "https://wemploymentlaw.com/sms/",
+    "dedicated_sms_page_title": "W Employment Law – Vendor / operations texting",
+    "dedicated_sms_page_program_description": "W Employment Law (Jacob N. Whitehead, APC) may send operational text messages to existing vendors and service providers to schedule calls, confirm meeting times, and follow up on pending operational requests. This program is not marketing and is not used for mass texting or client intake. Message frequency varies. Message and data rates may apply. Reply HELP for help. Reply STOP to cancel. Consent is not a condition of doing business with the firm. SMS opt-in information is not shared with third parties for their marketing.",
+    "dedicated_sms_page_checkbox_label": "I agree to receive operational scheduling and follow-up texts from W Employment Law at the number I provide. Consent is not required to work with the firm.",
+    "dedicated_sms_page_below_submit_text": "Reply HELP for help. Reply STOP to cancel. Message and data rates may apply.",
+    "notes": "Two distinct SMS consent surfaces exist: (1) the sitewide lead-intake contact form's small-print consent (shown under every HubSpot form on the main site, portalId 7690372), and (2) a standalone, unlinked '/sms/' page for a SEPARATE operational/vendor-texting opt-in program with its own name+mobile-number mini-form and its own HubSpot form id. Both contain STOP/HELP + message-and-data-rates language, both link to Privacy Policy / Terms of Use. Links on the sitewide form text: 'Privacy Policy' -> /privacy-policy/, 'Terms of Use' -> /terms-of-use/ (confirmed from footer).",
+    "hubspot_forms": {
+      "main_sitewide_contact_form": {
+        "portalId": "7690372",
+        "formId": "460ba517-6b2d-47cc-9f1d-379c4bd53ee4",
+        "fields": [
+          "firstname",
+          "lastname",
+          "email",
+          "phone",
+          "message"
+        ],
+        "redirectUrl": "https://wemploymentlaw.com/thank-you"
+      },
+      "homepage_hero_form": {
+        "portalId": "7690372",
+        "formId": "2860c01f-db29-45c3-bc90-567d6cc5d835"
+      },
+      "free_law_guides_download_form": {
+        "portalId": "7690372",
+        "formId": "9e8273bd-088f-4200-a44f-a84be0e1f83d",
+        "found_on": [
+          "free-law-guides-8-new-laws-in-2021/",
+          "free-law-guides-first-steps-to-take-if-your-employment-rights-have-been-violated/",
+          "free-law-guides-how-to-file-a-discrimination-claim-with-or-without-an-attorney/"
+        ]
+      },
+      "discrimination_page_form": {
+        "portalId": "7690372",
+        "formId": "d80d88d7-eefc-406d-b6a5-d52c51cc80b7",
+        "found_on": [
+          "discrimination/"
+        ]
+      },
+      "sms_vendor_ops_form": {
+        "portalId": "7690372",
+        "formId": "460ba517-6b2d-47cc-9f1d-379c4bd53ee4",
+        "note": "the /sms/ page's own name+mobile form posts through the SAME form id as the main contact form in the embed script tag, but the on-page checkbox copy is the distinct operational-texting language above - verify this isn't a copy/paste leftover when rebuilding."
+      }
+    },
+    "legalConsentOptions_in_hubspot_json": "Not present / empty ({}) in the HubSpot v3 form JSON for the main contact form - the SMS consent text is hard-coded into the page template around the embedded form, not configured as a HubSpot native legal-consent block."
+  },
+  "addresses": {
+    "current_address": {
+      "text": "7700 Irvine Center Drive Suite 800 Irvine, CA 92618",
+      "found_on": "sitewide footer (every page)"
+    },
+    "old_address_in_legal_pages": {
+      "text_exact_as_written": "jacob n. Whitehead, apc, 15615 alton pkwy., suite 175, irvine, ca 92618",
+      "found_on": "terms-of-use/ (permissions/linking clause)",
+      "notes": "Quoted EXACTLY as it appears in the live HTML, including the inconsistent/lowercase capitalization ('jacob n. Whitehead, apc' and 'alton pkwy., suite 175, irvine, ca 92618') - this is how it is written on the live site, not a transcription error on our part."
+    }
+  },
+  "tracking": {
+    "ga4_measurement_id": "G-6BN0TWE10Q",
+    "meta_pixel_id": "2130487443675029",
+    "hubspot_portal_id": "7690372",
+    "hubspot_form_ids_found": [
+      "460ba517-6b2d-47cc-9f1d-379c4bd53ee4",
+      "2860c01f-db29-45c3-bc90-567d6cc5d835",
+      "9e8273bd-088f-4200-a44f-a84be0e1f83d",
+      "d80d88d7-eefc-406d-b6a5-d52c51cc80b7"
+    ],
+    "google_ads_doubleclick": "Present - googleads.g.doubleclick.net/pagead/id requests fire on page load (Google Ads remarketing/conversion tag active); no specific AW-XXXXXXXXX conversion ID was exposed in static HTML or captured network calls, only the doubleclick collector pings.",
+    "other": "No separate Google Tag Manager (GTM-XXXXXXX) container detected - GA4 loads directly via gtag.js, not through GTM. No CallRail script detected.",
+    "method": "Confirmed via two passes: (1) static HTML grep across all fetched pages (found GA4 + HubSpot only), (2) real Chromium network-request capture via Playwright on the homepage, which additionally surfaced the Meta Pixel (connect.facebook.net/signals/config/2130487443675029) and Google Ads doubleclick calls that only fire from executed JS, not present in the raw server HTML."
+  },
+  "nav": {
+    "source": "homepage header (desktop nav, de-duplicated from the mobile dropdown copy of the same menu)",
+    "items": [
+      {
+        "label": "Why Choose Us",
+        "url": "/why-choose-us/"
+      },
+      {
+        "label": "Our Team",
+        "url": "/our-team/"
+      },
+      {
+        "label": "Pricing",
+        "url": "/pricing/"
+      },
+      {
+        "label": "Referrals",
+        "url": "/referrals/"
+      },
+      {
+        "label": "Practice Areas",
+        "url": "/practice-areas/",
+        "children": [
+          {
+            "label": "California Employee Class Action Attorneys",
+            "url": "/california-employee-class-action-attorneys/"
+          },
+          {
+            "label": "Wrongful Termination",
+            "url": "/wrongful-termination/"
+          },
+          {
+            "label": "Independent Contractors",
+            "url": "/independent-contractors/"
+          },
+          {
+            "label": "Pregnancy Discrimination",
+            "url": "/pregnancy-discrimination/"
+          },
+          {
+            "label": "Meal Breaks and Rest Breaks",
+            "url": "/meal-breaks-and-rest-breaks/"
+          },
+          {
+            "label": "Overtime Violations",
+            "url": "/overtime-violations/"
+          },
+          {
+            "label": "Sexual Harassment",
+            "url": "/sexual-harassment/"
+          },
+          {
+            "label": "Whistleblower Protection",
+            "url": "/whistleblower-protection/"
+          },
+          {
+            "label": "Medical Leave Disability",
+            "url": "/orange-county-disability-discrimination-lawyer/",
+            "note": "nav label says 'Medical Leave Disability' but links to the 'orange-county-disability-discrimination-lawyer' slug, NOT to the separate '/medical-leave-disability/' page that also exists on the site (that page is an orphan, not in any menu)"
+          },
+          {
+            "label": "Discrimination",
+            "url": "/discrimination/"
+          },
+          {
+            "label": "Work-related Reimbursements",
+            "url": "/work-related-reimbursements/"
+          }
+        ]
+      },
+      {
+        "label": "Free Law Guides",
+        "url": "#",
+        "children": [
+          {
+            "label": "California Employees – 8 New Laws You Should Know For 2021",
+            "url": "/free-law-guides-8-new-laws-in-2021/"
+          },
+          {
+            "label": "First Steps to Take If Your Employment Rights Have Been Violated",
+            "url": "/free-law-guides-first-steps-to-take-if-your-employment-rights-have-been-violated/"
+          },
+          {
+            "label": "How To File A Discrimination Claim With Or Without An Attorney",
+            "url": "/free-law-guides-how-to-file-a-discrimination-claim-with-or-without-an-attorney/"
+          }
+        ]
+      },
+      {
+        "label": "Blog",
+        "url": "/blog/"
+      },
+      {
+        "label": "Videos",
+        "url": "/videos/"
+      },
+      {
+        "label": "Contact",
+        "url": "/contact/"
+      }
+    ],
+    "phone_cta": "888-492-0633 (tel:+18884920633), shown twice in header (desktop bar + sticky CTA)"
+  }
+}

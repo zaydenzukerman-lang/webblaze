@@ -1,0 +1,52 @@
+<!-- PAGE HEAD -->
+<section class="phead"><div class="wrap">
+  <span class="eyebrow" data-es="Herramienta de salarios gratuita">Free wage tool</span>
+  <h1 data-es="Calculadora de Salarios y Horas Extra No Pagadas">Unpaid Wages &amp; Overtime Calculator</h1>
+  <p data-es="En California, la mayoría de los empleados por hora deben recibir &lt;b&gt;1.5× su tarifa regular&lt;/b&gt; por las horas que superen 8 en un día o 40 en una semana. Si su empleador no lo hizo, podrían deberle salarios atrasados. Use esta herramienta para un cálculo rápido, y luego permítanos darle el número exacto, gratis.">In California, most hourly employees must be paid <b>1.5× their regular rate</b> for hours over 8 in a day or 40 in a week. If your employer hasn't, you may be owed back wages. Use this tool for a quick estimate — then let us give you the exact number, free.</p>
+</div></section>
+
+<!-- CALCULATOR -->
+<section class="sec" style="padding-top:44px"><div class="wrap">
+  <div class="calc-wrap">
+    <div class="calc-card">
+      <h3 data-es="Los detalles de su trabajo">Your work details</h3>
+      <p style="color:var(--muted);font-size:.95rem;margin:2px 0 0" data-es="Calcule las horas extra no pagadas. Todo se mantiene privado.">Estimate unpaid overtime. Everything stays private.</p>
+      <div class="cf"><label for="wc_rate" data-es="Su tarifa regular por hora ($)">Your regular hourly rate ($)</label><input id="wc_rate" type="number" min="0" step="0.5" value="20"></div>
+      <div class="cf"><label for="wc_ot" data-es="Horas extra no pagadas por semana">Unpaid overtime hours per week</label><input id="wc_ot" type="number" min="0" step="1" value="5"></div>
+      <div class="cf"><label for="wc_weeks" data-es="¿Cuántas semanas ocurrió esto?">How many weeks did this happen?</label><input id="wc_weeks" type="number" min="0" step="1" value="26"></div>
+      <p class="calc-note" data-es="Este es un cálculo simplificado de las &lt;b&gt;horas extra&lt;/b&gt; no pagadas (1.5×). La ley de California también puede darle derecho a &lt;b&gt;tiempo doble&lt;/b&gt; (2×) por horas que superen 12 en un día, salarios regulares no pagados, pagos por descansos perdidos, intereses y multas por pago tardío, que pueden sumar mucho más. Un abogado puede calcular el monto completo gratis.">This is a simplified estimate of unpaid <b>overtime</b> (1.5×). California law may also entitle you to <b>double-time</b> (2×) for hours over 12 in a day, unpaid regular wages, missed-break premiums, interest, and waiting-time penalties — which can add up to far more. An attorney can calculate the full amount for free.</p>
+    </div>
+    <div class="calc-out">
+      <div class="lbl" data-es="Horas extra no pagadas estimadas que se le deben">Estimated unpaid overtime owed</div>
+      <div class="big" id="wc_result">$3,900</div>
+      <div class="brk" id="wc_break"></div>
+      <a class="btn btn-gold" href="{{CONTACT}}" style="width:100%;margin-top:22px" data-es="Obtener Mi Número Exacto — Gratis →">Get My Exact Number — Free →</a>
+      <div style="text-align:center;margin-top:12px;font-size:.9rem;color:#cfe8ea"><span data-es="o llame al">or call</span> <a href="tel:+18884920633" style="color:#fff;font-weight:800">888-492-0633</a></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- CTA BAND -->
+<section class="cta"><div class="cta-bg"></div><div class="wrap cta-in">
+  <h2 data-es="¿Cree que le deben <em>pagos atrasados?</em>">Think you're owed <em>back pay?</em></h2>
+  <p data-es="El robo de salarios es más común de lo que la gente cree, y hay plazos estrictos para presentar un reclamo. Obtenga una revisión gratuita y confidencial de lo que le pueden deber. Sin honorarios a menos que ganemos.">Wage theft is more common than people think — and there are strict deadlines to file. Get a free, confidential review of what you may be owed. No fee unless we win.</p>
+  <div class="row">
+    <a class="btn btn-gold" href="{{CONTACT}}" data-es="Iniciar Mi Revisión Gratuita">Start My Free Case Review</a>
+    <a class="btn btn-out" href="tel:+18884920633" data-es="Llamar 888-492-0633">Call 888-492-0633</a>
+  </div>
+</div></section>
+<script>
+(function(){function el(i){return document.getElementById(i);}
+function calc(){
+  if(!el('wc_rate'))return;
+  var rate=+el('wc_rate').value||0, ot=+el('wc_ot').value||0, wk=+el('wc_weeks').value||0;
+  var otRate=rate*1.5, total=otRate*ot*wk;
+  el('wc_result').textContent='$'+Math.round(total).toLocaleString();
+  var es=document.documentElement.lang==='es';
+  el('wc_break').innerHTML=es?('Tarifa de horas extra <b>$'+otRate.toFixed(2)+'/hr</b> (1.5×) · <b>'+ot+'</b> hrs/semana · <b>'+wk+'</b> semanas'):('Overtime rate <b>$'+otRate.toFixed(2)+'/hr</b> (1.5×) · <b>'+ot+'</b> hrs/week · <b>'+wk+'</b> weeks');
+}
+['wc_rate','wc_ot','wc_weeks'].forEach(function(i){el(i).addEventListener('input',calc);el(i).addEventListener('change',calc);});
+var _lt=document.getElementById('langtog');if(_lt)_lt.addEventListener('click',function(){setTimeout(calc,0);});
+calc();
+})();
+</script>

@@ -1,0 +1,14 @@
+# W Employment Law — redirects (Cloudflare Pages / Netlify _redirects format)
+# The new site mirrors the old WordPress URL slugs 1:1 (see WEL-HANDOFF.md URL map),
+# so none of those need a redirect here — only the OLD FLAT .html files we replaced.
+
+/about.html  /jacob-n-whitehead/  301
+/contact.html  /contact/  301
+/practice-areas.html  /practice-areas/  301
+/calculator.html  /calculator/  301
+/blog.html  /blog/  301
+
+# Old WordPress junk paths — only add these once the crawl confirms they're linked/indexed.
+# /feed/            /blog/   301
+# /category/*       /blog/   301
+# /wp-content/uploads/*   -> not redirected; those were media files, not pages.

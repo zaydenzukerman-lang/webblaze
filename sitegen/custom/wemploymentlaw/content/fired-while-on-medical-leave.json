@@ -1,0 +1,46 @@
+{
+  "old_url": "https://wemploymentlaw.com/fired-while-on-medical-leave/",
+  "path": "fired-while-on-medical-leave/",
+  "type": "blog",
+  "title_tag": "Fired while on Medical Leave? - W Employment Law",
+  "meta_description": "",
+  "h1": null,
+  "date": {
+    "published_iso": "2021-06-19T11:20:44+00:00",
+    "modified_iso": "2021-06-19T11:21:35+00:00",
+    "as_shown_on_page": null
+  },
+  "author": null,
+  "category": "Blog",
+  "body_html": "\n\n\n\n\n\n\n\n\n\n\n<a href=\"/\">\n<img alt=\"Logo\" src=\"img/old/W-Employment-Law-Logo.webp\"/> </a>\n\n\n\n\n\n\n\n\n\n <span>Menu</span>\n\n\n\n\n\n\n\n\n\n\n<a href=\"tel:+18884920633\">\n<span>\n\n<span>888-492-0633</span>\n</span>\n</a>\n\n\n\n\n\n<p><a href=\"tel:+18884920633\">888-492-0633</a></p> \n\n\n\n\n\n\n\n\n<a>\n<span>\n<span>Available 24/7</span>\n</span>\n</a>\n\n\n\n\n\n\n<a>\n<span>\n\n<span>Hablamos Español</span>\n</span>\n</a>\n\n\n\n\n\n\n\n\n\n\n\n",
+  "images": [
+    {
+      "orig": "https://wemploymentlaw.com/wp-content/uploads/2021/06/W-Employment-Law-Logo.png",
+      "local": "img/old/W-Employment-Law-Logo.webp",
+      "local_md": "img/old/W-Employment-Law-Logo-md.webp",
+      "w": 809,
+      "h": 402,
+      "alt": "Logo"
+    }
+  ],
+  "videos": [],
+  "forms_found": [
+    {
+      "portalId": "7690372",
+      "formId": "460ba517-6b2d-47cc-9f1d-379c4bd53ee4"
+    }
+  ],
+  "sidebar_html": null,
+  "link_notes": [
+    {
+      "orig": "https://wemploymentlaw.com",
+      "rewritten": "/"
+    }
+  ],
+  "notes": "URL not in the original required list; discovered via sitemap/nav crawl and included as real content. No publish date or byline is visually displayed on the live page; dates are pulled from the site's JSON-LD (Yoast SEO) schema. No author/byline shown on-page; content attributed site-wide to W Employment Law. ORPHANED/EMPTY PAGE: this is a genuine native WordPress post (postid-1174, body class single-post) that is DISTINCT from /blog/fired-while-on-medical-leave-learn-about-your-rights/ (the real, fully-populated article on the same topic). Verified by live render: the page shows only the sitewide header, a generic Testimonials widget, and the sitewide footer - no title, no article body, no unique content whatsoever. This looks like a leftover/abandoned permalink from an old post that was superseded by the newer page. Recommend NOT migrating this URL as content - either 301-redirect it to /blog/fired-while-on-medical-leave-learn-about-your-rights/ or drop it.",
+  "_qa": {
+    "raw_wordcount": 7,
+    "body_wordcount": 7,
+    "ratio": 1.0
+  }
+}

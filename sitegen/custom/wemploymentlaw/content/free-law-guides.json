@@ -1,0 +1,41 @@
+{
+  "old_url": "https://wemploymentlaw.com/free-law-guides/",
+  "path": "free-law-guides/",
+  "type": "page",
+  "title_tag": "Free Law Guides - California Employees - 8 New Laws You Should Know For 2021 - W Employment Law",
+  "meta_description": "Free Law Guides California Employees – 8 New Laws You Should Know For 2021 This guide will provide information on new laws and changes to laws pertaining to the following topics: Independent Contractor Classification The Minimum Wage in California COVID workplace laws COVID sick pay The expansion of Paid Family Leave To receive your Free […]",
+  "h1": "Free Law Guides",
+  "date": null,
+  "author": null,
+  "category": null,
+  "body_html": "\n\n\n\n\n<h2>Free Law Guides</h2> \n\n\n\n\n<img alt=\"\" src=\"img/old/Blog-8-min-scaled.webp\"/>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<h2>California Employees - 8 New Laws You Should Know For 2021</h2> \n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\tThis guide will provide information on new laws and changes to laws pertaining to the following topics:\t\t\t\t\t\t\n\n\n\n<ul>\n<li>\n\n<span>Independent Contractor Classification</span>\n</li>\n<li>\n\n<span>The Minimum Wage in California</span>\n</li>\n<li>\n\n<span>COVID workplace laws</span>\n</li>\n<li>\n\n<span>COVID sick pay</span>\n</li>\n<li>\n\n<span>The expansion of Paid Family Leave</span>\n</li>\n</ul>\n\n\n\n\n\t\t\t\t\t\t\tTo receive your Free Guide – please provide your name and email below.\n\n\t\t\t\t\t\t\n\n\n\n<!--[if lte IE 8]>\n<script charset=\"utf-8\" type=\"text/javascript\" src=\"//js.hsforms.net/forms/v2-legacy.js\"></script>\n<![endif]-->\n\n\n\n\n\n\n",
+  "images": [
+    {
+      "orig": "https://wemploymentlaw.com/wp-content/uploads/2021/09/Blog-8-min-scaled.jpg",
+      "local": "img/old/Blog-8-min-scaled.webp",
+      "local_md": "img/old/Blog-8-min-scaled-md.webp",
+      "w": 1600,
+      "h": 1067,
+      "alt": ""
+    }
+  ],
+  "videos": [],
+  "forms_found": [
+    {
+      "portalId": "7690372",
+      "formId": "9e8273bd-088f-4200-a44f-a84be0e1f83d"
+    },
+    {
+      "portalId": "7690372",
+      "formId": "460ba517-6b2d-47cc-9f1d-379c4bd53ee4"
+    }
+  ],
+  "sidebar_html": null,
+  "link_notes": [],
+  "notes": "NOTE: /free-law-guides/ is not a standalone page - it is a 301 redirect (confirmed via curl) to /free-law-guides-8-new-laws-in-2021/. The content captured here is that destination page (duplicate of free-law-guides-8-new-laws-in-2021.json). No separate guides-index page exists on the live site.",
+  "_qa": {
+    "raw_wordcount": 64,
+    "body_wordcount": 64,
+    "ratio": 1.0
+  }
+}
