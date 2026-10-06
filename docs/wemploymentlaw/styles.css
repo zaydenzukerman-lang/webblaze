@@ -278,3 +278,6 @@ footer .row-i .g{color:var(--gold);font-weight:800}
 .langtog span.active{background:var(--teal);color:#fff}
 .langtog:hover{border-color:var(--teal)}
 @media(max-width:960px){.langtog{margin-right:8px}}
+
+/* phones: one column, form full width first (fix 2026-10-06) */
+@media(max-width:960px){.hero .hero-in{grid-template-columns:1fr;min-height:0;padding:28px 18px 36px}.hero .hero-cutout{min-height:0}.hero .hero-cutout img{max-height:340px}}
