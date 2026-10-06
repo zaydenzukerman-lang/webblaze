@@ -160,6 +160,12 @@ SOCIAL = {
 GA4_ID = "G-6BN0TWE10Q"
 META_PIXEL_ID = "2130487443675029"
 HS_PORTAL = "7690372"
+# Live Google reviews (homepage). Leave blank to show the 4 verified static reviews.
+# To turn on: create a Google Cloud API key with "Places API (New)" enabled, restrict it to
+# HTTP referrers webblaze.io/* and wemploymentlaw.com/*, and paste it + the firm's Place ID here.
+GOOGLE_PLACES_API_KEY = ""
+GOOGLE_PLACE_ID = ""
+HS_GUIDE_FORM_ID = "2860c01f-db29-45c3-bc90-567d6cc5d835"  # old site's "free guide" lead-magnet form
 HS_FORM_ID = "460ba517-6b2d-47cc-9f1d-379c4bd53ee4"  # the one real form w/ message field; see WEL-HANDOFF.md
 
 # ---------------------------------------------------------------------------
@@ -182,6 +188,7 @@ PATHS = {
     "terms": "/terms-of-use/",
     "pricing": "/pricing/",
     "referrals": "/referrals/",
+    "faq": "/faq/",
     "class-action": "/california-employee-class-action-attorneys/",
     "work-reimbursements": "/work-related-reimbursements/",
     "wrongful-termination": "/wrongful-termination/",
@@ -202,7 +209,7 @@ TOKEN_MAP = {
     "PRIVACY": "privacy", "TERMS": "terms", "OUR_TEAM": "our-team",
     "WHY_US": "why-choose-us", "VIDEOS": "videos",
     "CLASS_ACTION": "class-action", "WORK_REIMBURSEMENTS": "work-reimbursements",
-    "LAW_GUIDES": "law-guides",
+    "LAW_GUIDES": "law-guides", "FAQ": "faq", "PRICING": "pricing", "REFERRALS": "referrals",
 }
 
 # Nav structure: (label, en-es pair, path-key, [children...]). Children same shape w/o grandchildren.
@@ -227,11 +234,14 @@ NAV = [
         {"label": "Our Team", "es": "Nuestro Equipo", "key": "our-team"},
         {"label": "Why Choose Us", "es": "Por Qué Elegirnos", "key": "why-choose-us"},
         {"label": "Videos", "es": "Videos", "key": "videos"},
+        {"label": "Pricing", "es": "Precios", "key": "pricing"},
+        {"label": "Referrals", "es": "Referencias", "key": "referrals"},
     ]},
     {"label": "Resources", "es": "Recursos", "key": "blog", "children": [
         {"label": "Insights", "es": "Recursos", "key": "blog"},
         {"label": "Free Law Guides", "es": "Guías Legales Gratuitas", "key": "law-guides"},
         {"label": "Wage Calculator", "es": "Calculadora de Salarios", "key": "calculator"},
+        {"label": "FAQ", "es": "Preguntas Frecuentes", "key": "faq"},
     ]},
     {"label": "Contact", "es": "Contacto", "key": "contact"},
 ]
@@ -271,6 +281,8 @@ def substitute_tokens(html, from_path):
     for token, key in TOKEN_MAP.items():
         out = out.replace("{{%s}}" % token, rel(from_path, PATHS[key]))
     out = out.replace("{{IMG}}", "../" * depth(from_path))
+    out = out.replace("{{GPLACES_KEY}}", GOOGLE_PLACES_API_KEY).replace("{{GPLACE_ID}}", GOOGLE_PLACE_ID)
+    out = out.replace("{{HS_GUIDE_FORM}}", HS_GUIDE_FORM_ID).replace("{{HS_FORM}}", HS_FORM_ID)
     return out
 
 
@@ -364,45 +376,58 @@ def render_social_band():
         for k in ("facebook", "instagram", "youtube", "tiktok", "linkedin")
     )
     return f"""<div class="f-social"><div class="wrap">
-  <h3 data-es="Síganos">Follow Us</h3>
+  <h3 data-es="Síganos en Redes Sociales">Follow Us on Social Media</h3>
   <div class="ic">{icons}</div>
 </div></div>
 """
 
 
 def render_footer(from_path):
-    practice_href = rel(from_path, PATHS["practice-areas"])
-    calc_href = rel(from_path, PATHS["calculator"])
-    blog_href = rel(from_path, PATHS["blog"])
-    about_href = rel(from_path, PATHS["about"])
-    contact_href = rel(from_path, PATHS["contact"])
-    privacy_href = rel(from_path, PATHS["privacy"])
-    terms_href = rel(from_path, PATHS["terms"])
+    """Footer mirrors the live wemploymentlaw.com layout (client request 2026-10-06):
+    black band, 4 columns = logo + socials | Contact | Quick Access | Free Case Review form."""
+    h = lambda key: rel(from_path, PATHS[key])
     img_prefix = "../" * depth(from_path)
-    return f"""<!-- FOOTER -->
+    socials = "".join(
+        f'<a href="{SOCIAL[k]}" target="_blank" rel="noopener" aria-label="{k.title()}">{SOCIAL_ICONS_SVG[k]}</a>'
+        for k in ("instagram", "facebook", "youtube", "linkedin", "tiktok")
+    )
+    quick = [("home", "Home", "Inicio"), ("about", "About", "Nosotros"), ("practice-areas", "Practice Areas", "Áreas de Práctica"),
+             ("law-guides", "Free Law Guides", "Guías Legales Gratuitas"), ("pricing", "Pricing", "Precios"),
+             ("referrals", "Referrals", "Referencias"), ("faq", "FAQ", "Preguntas Frecuentes"), ("contact", "Contact", "Contacto")]
+    quick_html = "".join(f'<a href="{h(k)}" data-es="{es}">{en}</a>' for k, en, es in quick)
+    return f"""<!-- FOOTER (layout mirrors live wemploymentlaw.com) -->
 <footer><div class="wrap">
   <div class="f-cols">
-    <div>
+    <div class="f-brand">
       <img src="{img_prefix}img/logo-white.png" alt="W Employment Law" class="brand-logo-f">
-      <p style="margin-top:16px;max-width:40ch" data-es="Defendiendo a los empleados de California contra el despido injustificado, la discriminación, el acoso y el robo de salarios. Sin Ganar, Sin Honorarios.">Standing up for California employees against wrongful termination, discrimination, harassment, and wage theft. No Win, No Fee.</p>
-      <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg></span><a href="tel:{PHONE_TEL}" style="font-weight:800;color:#fff">{PHONE_DISPLAY}</a></div>
-      <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><a href="mailto:{EMAIL}" style="color:#fff">{EMAIL}</a></div>
+      <div class="f-soc">{socials}</div>
+    </div>
+    <div><h4 data-es="Contacto">Contact</h4>
+      <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg></span><a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></div>
       <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span>{ADDRESS_HTML}</span></div>
+      <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><a href="mailto:{EMAIL}">{EMAIL}</a></div>
       <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span data-es="Disponibles 24/7 · Hablamos Español">Available 24/7 · Hablamos Español</span></div>
     </div>
-    <div><h4 data-es="Sitio">Site</h4>
-      <a href="{practice_href}" data-es="Áreas de Práctica">Practice Areas</a><a href="{calc_href}" data-es="Calculadora de Salarios">Wage Calculator</a><a href="{blog_href}" data-es="Recursos">Insights</a><a href="{about_href}" data-es="Nosotros">About</a><a href="{contact_href}" data-es="Contacto">Contact</a>
-      <a href="{privacy_href}" data-es="Política de Privacidad">Privacy Policy</a><a href="{terms_href}" data-es="Términos de Uso">Terms of Use</a>
-    </div>
-    <div><h4 data-es="Revisión Gratuita">Free Case Review</h4>
-      <p style="margin:0 0 14px;max-width:34ch" data-es="Díganos qué pasó, un abogado se comunicará con usted. Gratis y confidencial.">Tell us what happened — an attorney will reach out. Free &amp; confidential.</p>
-      <a class="btn btn-gold" href="{contact_href}" data-es="Iniciar Mi Revisión Gratuita →">Start My Free Review →</a>
+    <div class="f-quick"><h4 data-es="Acceso Rápido">Quick Access</h4>{quick_html}</div>
+    <div><h4 data-es="Revisión Gratuita de su Caso">Free Case Review</h4>
+      <form class="f-form" data-hs-form="{HS_FORM_ID}">
+        <input class="field" data-f="first" required placeholder="First name*" data-es-ph="Nombre*" aria-label="First name" autocomplete="given-name">
+        <input class="field" data-f="last" required placeholder="Last name*" data-es-ph="Apellido*" aria-label="Last name" autocomplete="family-name">
+        <input class="field" data-f="email" type="email" required placeholder="Email*" data-es-ph="Correo electrónico*" aria-label="Email" autocomplete="email">
+        <input class="field" data-f="phone" type="tel" required placeholder="Phone Number*" data-es-ph="Número de teléfono*" aria-label="Phone" autocomplete="tel">
+        <textarea class="field" data-f="msg" rows="2" placeholder="Tell Us About Your Employment Issue" data-es-ph="Cuéntenos sobre su problema laboral" aria-label="Tell us about your employment issue"></textarea>
+        <input data-f="co" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <button class="btn btn-gold" type="submit" data-f="btn" data-es="Enviar">Submit</button>
+        <p class="f-note" data-f="note"></p>
+      </form>
     </div>
   </div>
-  <div class="disc">© <span id="yr"></span> W Employment Law. <span data-es="<b>Publicidad de Abogados.</b> La información de este sitio web tiene fines informativos generales únicamente y no pretende ser, ni debe tomarse como, asesoría legal para ningún caso o situación individual. Esta información no pretende crear, y su recepción o visualización no constituye, una relación abogado-cliente. Los resultados anteriores no garantizan un resultado similar. Los testimonios reflejan experiencias individuales de clientes y no garantizan resultados futuros."><b>Attorney Advertising.</b> The information on this website is for general informational purposes only and is not intended to be, and should not be taken as, legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship. Prior results do not guarantee a similar outcome. Testimonials reflect individual client experiences and are not a guarantee of future results.</span></div>
+  <div class="disc"><span data-es="<b>Publicidad de Abogados.</b> La información de este sitio web tiene fines informativos generales únicamente y no pretende ser, ni debe tomarse como, asesoría legal para ningún caso o situación individual. Esta información no pretende crear, y su recepción o visualización no constituye, una relación abogado-cliente. Los resultados anteriores no garantizan un resultado similar. Los testimonios reflejan experiencias individuales de clientes y no garantizan resultados futuros."><b>Attorney Advertising.</b> The information on this website is for general informational purposes only and is not intended to be, and should not be taken as, legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship. Prior results do not guarantee a similar outcome. Testimonials reflect individual client experiences and are not a guarantee of future results.</span>
+    <div class="f-legal">© <span id="yr"></span> W Employment Law | <a href="{h('privacy')}" data-es="Política de Privacidad">Privacy Policy</a> | <a href="{h('terms')}" data-es="Términos de Uso">Terms of Use</a></div>
+  </div>
 </div></footer>
 
-<div class="mbar"><a class="btn btn-teal" href="tel:{PHONE_TEL}"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg> <span data-es="Llamar Ahora">Call Now</span></a><a class="btn btn-gold" href="{contact_href}"><span data-es="Revisión Gratis">Free Review</span></a></div>
+<div class="mbar"><a class="btn btn-teal" href="tel:{PHONE_TEL}"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg> <span data-es="Llamar Ahora">Call Now</span></a><a class="btn btn-gold" href="{h('contact')}"><span data-es="Revisión Gratis">Free Review</span></a></div>
 """
 
 
@@ -436,48 +461,103 @@ COMMON_SCRIPT = """
 document.getElementById('yr').textContent=new Date().getFullYear();
 document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(a)document.getElementById('nav').classList.remove('open');});
 (function(){
-  /* Shared Free Case Review form handler — works on any page with #caseForm (home + contact). */
-  var form=document.getElementById('caseForm'); if(!form) return;
-  var formId = form.getAttribute('data-hs-form') || '460ba517-6b2d-47cc-9f1d-379c4bd53ee4';
-  var ENDPOINT = "https://api.hsforms.com/submissions/v3/integration/submit/7690372/" + formId;
-  /* TODO(client): set this to the real HubSpot SMS subscription-type ID once the client's
-     HubSpot admin creates one under Settings > Communications > Subscription Types, then
-     legalConsentOptions below will actually record the opt-in on the contact's subscriptions.
-     Until then, a checked SMS box is still safely recorded as a note on the message field
-     so no opt-in is ever silently lost. */
+  /* Shared HubSpot form handler. Works for EVERY form[data-hs-form] on a page (hero/contact
+     #caseForm, the footer form, the homepage free-guide form). Fields are looked up inside
+     each form by data-f="first|last|email|phone|msg|sms|co|btn|note", falling back to the
+     older #f_first-style ids so existing practice-area pages keep working unchanged. */
+  var PORTAL = "7690372";
+  /* TODO(client): set to the real HubSpot SMS subscription-type ID once their admin creates one
+     (Settings > Communications > Subscription Types). Until then a checked SMS box is recorded
+     as a note on the message field so no opt-in is ever lost. */
   var SMS_SUBSCRIPTION_ID = null;
-  var note=document.getElementById('f_note'), btn=document.getElementById('f_btn');
   function es(){return (document.documentElement.lang||'').slice(0,2)==='es';}
   function getCookie(name){var m=document.cookie.match('(?:^|; )'+name+'=([^;]*)');return m?decodeURIComponent(m[1]):'';}
-  function okMsg(){return es()
-    ? '<div style="padding:14px 0;text-align:center"><h3 style="font-family:Roboto Slab,serif;color:#0a6b78;font-size:1.4rem">Gracias.</h3><p style="color:#697079;margin-top:8px">Recibimos su solicitud. Un abogado se comunicará con usted pronto. Para hablar con alguien ahora, llame al <b>888-492-0633</b>.</p></div>'
-    : '<div style="padding:14px 0;text-align:center"><h3 style="font-family:Roboto Slab,serif;color:#0a6b78;font-size:1.4rem">Thank you.</h3><p style="color:#697079;margin-top:8px">Your request has been received. An attorney will reach out shortly. To speak with someone now, call <b>888-492-0633</b>.</p></div>';}
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(document.getElementById('f_co').value){return;}
-    var label=btn.textContent; btn.disabled=true; btn.textContent=es()?'Enviando…':'Sending…';
-    var msgEl=document.getElementById('f_msg'), smsEl=document.getElementById('f_sms');
-    var msgVal = msgEl ? msgEl.value.trim() : '';
-    var smsChecked = !!(smsEl && smsEl.checked);
-    var fields=[
-      {name:"firstname",value:document.getElementById('f_first').value.trim()},
-      {name:"lastname", value:document.getElementById('f_last').value.trim()},
-      {name:"email",    value:document.getElementById('f_email').value.trim()},
-      {name:"phone",    value:document.getElementById('f_phone').value.trim()}
-    ];
-    if(smsEl){ msgVal = (msgVal?msgVal+'\\n\\n':'') + '[SMS opt-in: '+(smsChecked?'YES':'no')+']'; }
-    if(msgVal){ fields.push({name:"message", value: msgVal}); }
-    var payload={fields:fields, context:{pageUri:location.href,pageName:document.title}};
-    var hutk=getCookie('hubspotutk'); if(hutk) payload.context.hutk=hutk;
-    if(smsEl && SMS_SUBSCRIPTION_ID){
-      payload.legalConsentOptions={consent:{consentToProcess:true,text:"Submitted via W Employment Law website form.",
-        communications:[{value:smsChecked,subscriptionTypeId:SMS_SUBSCRIPTION_ID,text:smsEl.nextElementSibling.textContent}]}};
-    }
-    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
-      .then(function(r){return r.ok?r.json():Promise.reject(r);})
-      .then(function(){ form.innerHTML=okMsg(); if(window.welTrackLead) welTrackLead(); })
-      .catch(function(){ btn.disabled=false; btn.textContent=label; note.innerHTML=es()?'Algo salió mal. Por favor llame al <b>888-492-0633</b> y lo atenderemos.':'Something went wrong. Please call <b>888-492-0633</b> and we\\'ll get you taken care of.'; });
+  function F(form,key){return form.querySelector('[data-f="'+key+'"]')||form.querySelector('#f_'+key);}
+  function okMsg(download){
+    var dl = download ? '<a class="btn btn-gold" style="margin-top:14px" href="'+download+'" target="_blank" rel="noopener" download>'+(es()?'Descargar la guía (PDF)':'Download the guide (PDF)')+'</a>' : '';
+    return es()
+      ? '<div class="form-ok"><h3>Gracias.</h3><p>'+(download?'Su guía gratuita está lista.':'Recibimos su solicitud. Un abogado se comunicará con usted pronto. Para hablar con alguien ahora, llame al <b>888-492-0633</b>.')+'</p>'+dl+'</div>'
+      : '<div class="form-ok"><h3>Thank you.</h3><p>'+(download?'Your free guide is ready.':'Your request has been received. An attorney will reach out shortly. To speak with someone now, call <b>888-492-0633</b>.')+'</p>'+dl+'</div>';}
+  document.querySelectorAll('form[data-hs-form]').forEach(function(form){
+    var ENDPOINT = "https://api.hsforms.com/submissions/v3/integration/submit/"+PORTAL+"/"+form.getAttribute('data-hs-form');
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var hp=F(form,'co'); if(hp && hp.value){return;}
+      var btn=F(form,'btn'), note=F(form,'note');
+      var label=btn.textContent; btn.disabled=true; btn.textContent=es()?'Enviando…':'Sending…';
+      var msgEl=F(form,'msg'), smsEl=F(form,'sms');
+      var msgVal = msgEl ? msgEl.value.trim() : '';
+      var smsChecked = !!(smsEl && smsEl.checked);
+      var fields=[
+        {name:"firstname",value:F(form,'first').value.trim()},
+        {name:"lastname", value:F(form,'last').value.trim()},
+        {name:"email",    value:F(form,'email').value.trim()},
+        {name:"phone",    value:F(form,'phone').value.trim()}
+      ];
+      if(smsEl){ msgVal = (msgVal?msgVal+'\\n\\n':'') + '[SMS opt-in: '+(smsChecked?'YES':'no')+']'; }
+      if(msgVal){ fields.push({name:"message", value: msgVal}); }
+      var payload={fields:fields, context:{pageUri:location.href,pageName:document.title}};
+      var hutk=getCookie('hubspotutk'); if(hutk) payload.context.hutk=hutk;
+      if(smsEl && SMS_SUBSCRIPTION_ID){
+        payload.legalConsentOptions={consent:{consentToProcess:true,text:"Submitted via W Employment Law website form.",
+          communications:[{value:smsChecked,subscriptionTypeId:SMS_SUBSCRIPTION_ID,text:smsEl.nextElementSibling.textContent}]}};
+      }
+      fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
+        .then(function(r){return r.ok?r.json():Promise.reject(r);})
+        .then(function(){ form.innerHTML=okMsg(form.getAttribute('data-download')); if(window.welTrackLead) welTrackLead(); })
+        .catch(function(){ btn.disabled=false; btn.textContent=label; if(note) note.innerHTML=es()?'Algo salió mal. Por favor llame al <b>888-492-0633</b> y lo atenderemos.':'Something went wrong. Please call <b>888-492-0633</b> and we\\'ll get you taken care of.'; });
+    });
   });
+})();
+(function(){
+  /* Count-up for result numbers, same feel as the live site's Elementor counters.
+     The real amount is in the HTML (SEO / no-JS); JS animates from 0 when it scrolls into view. */
+  var els=document.querySelectorAll('[data-count]'); if(!els.length) return;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function fmt(n,el){return (el.getAttribute('data-prefix')||'')+Math.round(n).toLocaleString('en-US');}
+  function run(el){var to=+el.getAttribute('data-count'),t0=null,dur=1500;
+    function step(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;el.textContent=fmt(to*e,el);if(k<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);}
+  if(reduce||!('IntersectionObserver' in window)) return;
+  els.forEach(function(el){el.textContent=fmt(0,el);});
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){run(e.target);io.unobserve(e.target);}});},{threshold:.4});
+  els.forEach(function(el){io.observe(el);});
+})();
+(function(){
+  /* Click-to-play YouTube (thumbnail first, player loads only on click: keeps the page fast). */
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.yt-lite'); if(!b) return;
+    var id=b.getAttribute('data-yt'), f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1';
+    f.title=b.getAttribute('aria-label')||'Video'; f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'; f.allowFullscreen=true;
+    b.replaceWith(f);
+  });
+})();
+(function(){
+  /* Live 5-star Google reviews (Places API New). Only runs if a key + Place ID are configured
+     in build.py; otherwise the verified static reviews already in the HTML stay as they are. */
+  var box=document.getElementById('g-reviews'); if(!box) return;
+  var key=box.getAttribute('data-key'), place=box.getAttribute('data-place'); if(!key||!place) return;
+  fetch('https://places.googleapis.com/v1/places/'+encodeURIComponent(place)+'?languageCode=en',
+        {headers:{'X-Goog-Api-Key':key,'X-Goog-FieldMask':'reviews,rating,userRatingCount'}})
+    .then(function(r){return r.ok?r.json():Promise.reject(r);})
+    .then(function(d){
+      var rv=(d.reviews||[]).filter(function(x){return x.rating===5&&x.text&&x.text.text;}).slice(0,4);
+      if(!rv.length) return;
+      var gTpl=box.querySelector('.g-icon'); gTpl=gTpl&&gTpl.cloneNode(true);
+      box.innerHTML='';
+      rv.forEach(function(x){
+        var a=x.authorAttribution||{}, card=document.createElement('div'); card.className='rcard in';
+        var p=document.createElement('p'); p.textContent='"'+x.text.text+'"';
+        var who=document.createElement('div'); who.className='who';
+        if(a.photoUri){var im=document.createElement('img');im.className='av-img';im.src=a.photoUri;im.alt='';im.referrerPolicy='no-referrer';im.loading='lazy';who.appendChild(im);}
+        var nm=document.createElement(a.uri?'a':'span'); nm.textContent=a.displayName||'Google user'; if(a.uri){nm.href=a.uri;nm.target='_blank';nm.rel='noopener';}
+        who.appendChild(nm);
+        var meta=document.createElement('div'); meta.className='r-meta';
+        meta.innerHTML='<span class="stars">★★★★★</span>'; if(gTpl) meta.appendChild(gTpl.cloneNode(true));
+        card.appendChild(p); card.appendChild(who); who.appendChild(meta); box.appendChild(card);
+      });
+    }).catch(function(){});
 })();
 (function(){var els=document.querySelectorAll('.reveal');
 function showAll(){els.forEach(function(e){e.classList.add('in');});}
@@ -525,7 +605,7 @@ def page(path, title, description, body_html, *,
     canonical = BASE_URL.rstrip("/") + path
     og_img = og_image or (BASE_URL.rstrip("/") + "/img/jacob-share.jpg")
     img_prefix = "../" * depth(path)
-    styles_href = f"{img_prefix}styles.css?v=20261007"
+    styles_href = f"{img_prefix}styles.css?v=20261008"
     i18n_href = f"{img_prefix}i18n.js"
 
     schema_blocks = [json.dumps(DEFAULT_SCHEMA, ensure_ascii=False)]
@@ -554,7 +634,7 @@ def page(path, title, description, body_html, *,
 <link rel="icon" type="image/png" sizes="180x180" href="{img_prefix}img/favicon.png">
 <link rel="apple-touch-icon" href="{img_prefix}img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700;800&family=Roboto+Slab:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{styles_href}">
 {schema_html}
 {extra_head}
