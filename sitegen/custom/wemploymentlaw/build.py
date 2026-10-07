@@ -368,7 +368,11 @@ def _esc(t):
 
 def render_google_reviews():
     data = json.loads(REVIEWS_JSON.read_text(encoding="utf-8"))
-    revs = [r for r in data.get("reviews", []) if r.get("rating") == 5 and (r.get("text") or "").strip()]
+    # Skip reviews that use an old firm name (client asked for "W Employment Law" everywhere;
+    # we never edit a reviewer's words, so we just don't feature those reviews).
+    old_names = re.compile(r"W Employment Law Group|\bSW ?Employment Law|Whitehead Employment Law", re.I)
+    revs = [r for r in data.get("reviews", []) if r.get("rating") == 5 and (r.get("text") or "").strip()
+            and not old_names.search(r.get("text") or "")]
     revs = revs[:REVIEWS_SHOWN]
     if not revs:
         raise SystemExit("reviews.json has no 5-star reviews with text; refusing to render an empty section")
