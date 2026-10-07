@@ -1,0 +1,143 @@
+[
+  {
+    "name": "Jacob Whitehead",
+    "fn": "Jacob N. Whitehead",
+    "title": "Founder and Managing Attorney",
+    "vcard": null,
+    "kind": "bio",
+    "href": "jacob-n-whitehead/",
+    "photo": "img/team/v2/jacob-whitehead.webp",
+    "photo_source": "existing:jacob-cutout.png",
+    "initials": "JW"
+  },
+  {
+    "name": "Gladys Morcisa",
+    "fn": "Gladys Morcisa",
+    "title": "Sr. Executive Assistant",
+    "vcard": "https://app.swemploymentlaw.com/vcards/gladys-morcisa.vcf",
+    "kind": "vcard",
+    "photo": "img/team/v2/gladys-morcisa.webp",
+    "photo_source": "existing:gladys.webp",
+    "initials": "GM"
+  },
+  {
+    "name": "Samantha Tadena",
+    "fn": "Samantha Tadena",
+    "title": "Case Manager | Intake Manager",
+    "vcard": "https://app.swemploymentlaw.com/vcards/samantha-tadena.vcf",
+    "kind": "vcard",
+    "photo": "img/team/v2/samantha-tadena.webp",
+    "photo_source": "vcard",
+    "initials": "ST"
+  },
+  {
+    "name": "Jose Acosta",
+    "fn": "Jose Acosta",
+    "title": "Legal Assistant | Docketing Specialist",
+    "vcard": "https://app.swemploymentlaw.com/vcards/jose-acosta.vcf",
+    "kind": "vcard",
+    "photo": "img/team/v2/jose-acosta.webp",
+    "photo_source": "vcard",
+    "initials": "JA"
+  },
+  {
+    "name": "Yvonne Ongyaon",
+    "fn": "Yvonne Ongyaon",
+    "title": "Case Manager",
+    "vcard": "https://app.swemploymentlaw.com/vcards/yvonne-ongyaon.vcf",
+    "kind": "vcard",
+    "photo": "img/team/v2/yvonne-ongyaon.webp",
+    "photo_source": "vcard",
+    "initials": "YO"
+  },
+  {
+    "name": "Dave Anas",
+    "fn": "Dave Anas",
+    "title": "HubSpot Expert",
+    "vcard": "https://app.swemploymentlaw.com/vcards/dave-anas.vcf",
+    "kind": "vcard",
+    "photo": null,
+    "photo_source": null,
+    "initials": "DA"
+  },
+  {
+    "name": "Pamela Liamzon",
+    "fn": "Pamela Denise Liamzon",
+    "title": "Case Manager",
+    "vcard": "https://app.swemploymentlaw.com/vcards/pamela-denise-liamzon.vcf",
+    "kind": "vcard",
+    "photo": "img/team/v2/pamela-liamzon.webp",
+    "photo_source": "vcard",
+    "initials": "PL"
+  },
+  {
+    "name": "Marjolyn Maglayon",
+    "fn": "Marjolyn Maglayon",
+    "title": "Paralegal",
+    "vcard": "https://app.swemploymentlaw.com/vcards/marjolyn-maglayon.vcf",
+    "kind": "vcard",
+    "photo": "img/team/v2/marjolyn-maglayon.webp",
+    "photo_source": "vcard",
+    "initials": "MM"
+  },
+  {
+    "name": "Camille Johnson",
+    "fn": "Camille Johnson",
+    "title": "Law Clerk",
+    "vcard": "https://app.swemploymentlaw.com/vcards/camille-johnson.vcf",
+    "kind": "vcard",
+    "photo": "img/team/v2/camille-johnson.webp",
+    "photo_source": "vcard",
+    "initials": "CJ"
+  },
+  {
+    "name": "Claire Sandefur",
+    "fn": "Claire Sandefur",
+    "title": "Law Clerk",
+    "vcard": "https://app.swemploymentlaw.com/vcards/claire-sandefur.vcf",
+    "kind": "vcard",
+    "photo": "img/team/v2/claire-sandefur.webp",
+    "photo_source": "vcard",
+    "initials": "CS"
+  },
+  {
+    "name": "Debi Pugliese",
+    "fn": "Debi Pugliese",
+    "title": "Paralegal",
+    "vcard": "https://app.swemploymentlaw.com/vcards/debi-pugliese.vcf",
+    "kind": "vcard",
+    "photo": null,
+    "photo_source": null,
+    "initials": "DP"
+  },
+  {
+    "name": "Vikas Kheni",
+    "fn": "Vikas Kheni",
+    "title": "Legal Tech Developer",
+    "vcard": "https://app.swemploymentlaw.com/vcards/vikas-kheni.vcf",
+    "kind": "vcard",
+    "photo": null,
+    "photo_source": null,
+    "initials": "VK"
+  },
+  {
+    "name": "Felip Matienzo",
+    "fn": "Felip Matienzo",
+    "title": "Paralegal",
+    "vcard": "https://app.swemploymentlaw.com/vcards/felip-matienzo.vcf",
+    "kind": "vcard",
+    "photo": "img/team/v2/felip-matienzo.webp",
+    "photo_source": "vcard",
+    "initials": "FM"
+  },
+  {
+    "name": "Sankalp Sangar",
+    "fn": "Sankalp Sangar",
+    "title": "Paralegal | Law Clerk",
+    "vcard": "https://app.swemploymentlaw.com/vcards/sankalp-sangar.vcf",
+    "kind": "vcard",
+    "photo": "img/team/v2/sankalp-sangar.webp",
+    "photo_source": "vcard",
+    "initials": "SS"
+  }
+]

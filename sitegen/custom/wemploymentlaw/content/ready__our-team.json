@@ -1,18 +1,18 @@
 {
- "page_ready": true,
- "path": "/our-team/",
- "title": "Our Team",
- "h1": "Our Team",
- "description": "Meet the W Employment Law team: Jacob N. Whitehead Esq, Founder and Managing Attorney, admitted in California and Washington D.C., and our legal team.",
- "breadcrumbs": [
-  [
-   "Home",
-   "/"
+  "page_ready": true,
+  "path": "/our-team/",
+  "title": "Our Team",
+  "h1": "Our Team",
+  "description": "Meet the W Employment Law team: Jacob N. Whitehead, Founder and Managing Attorney, and the legal team who handle your case. Save any team member's contact card.",
+  "breadcrumbs": [
+    [
+      "Home",
+      "/"
+    ],
+    [
+      "Our Team",
+      null
+    ]
   ],
-  [
-   "Our Team",
-   null
-  ]
- ],
- "body_html": "<section class=\"sec tm-sec\"><div class=\"wrap\">\n  <h2 class=\"tm-h2 tm-center\">OUR ATTORNEYS:</h2>\n  <a class=\"tm-attorney\" href=\"{{ABOUT}}\">\n    <div class=\"tm-photo\"><img src=\"{{IMG}}img/team/jacob.webp\" alt=\"Jacob N. Whitehead Esq\" decoding=\"async\" width=\"480\" height=\"600\"></div>\n    <div class=\"tm-attorney-tx\">\n      <h3>Jacob N. Whitehead Esq</h3>\n      <p class=\"tm-role\">Founder and Managing Attorney</p>\n      <p>Admitted in California and Washington D.C.</p>\n      <span class=\"tm-more\" aria-hidden=\"true\">→</span>\n    </div>\n  </a>\n</div></section>\n\n<section class=\"sec tm-sec tm-soft\"><div class=\"wrap\">\n  <h2 class=\"tm-h2 tm-center\">Meet our legal team</h2>\n  <div class=\"tm-team\">\n    <figure class=\"tm-member\">\n      <div class=\"tm-photo\"><img src=\"{{IMG}}img/team/gladys.webp\" alt=\"Gladys\" loading=\"lazy\" decoding=\"async\" width=\"480\" height=\"600\"></div>\n      <figcaption><h3>Gladys</h3></figcaption>\n    </figure><figure class=\"tm-member\">\n      <div class=\"tm-photo\"><img src=\"{{IMG}}img/team/jose.webp\" alt=\"Jose\" loading=\"lazy\" decoding=\"async\" width=\"480\" height=\"600\"></div>\n      <figcaption><h3>Jose</h3></figcaption>\n    </figure><figure class=\"tm-member\">\n      <div class=\"tm-photo\"><img src=\"{{IMG}}img/team/claire.webp\" alt=\"Claire\" loading=\"lazy\" decoding=\"async\" width=\"480\" height=\"600\"></div>\n      <figcaption><h3>Claire</h3></figcaption>\n    </figure><figure class=\"tm-member\">\n      <div class=\"tm-photo\"><img src=\"{{IMG}}img/team/sankalp.webp\" alt=\"Sankalp\" loading=\"lazy\" decoding=\"async\" width=\"480\" height=\"600\"></div>\n      <figcaption><h3>Sankalp</h3></figcaption>\n    </figure><figure class=\"tm-member\">\n      <div class=\"tm-photo\"><img src=\"{{IMG}}img/team/marjolyn.webp\" alt=\"Marjolyn\" loading=\"lazy\" decoding=\"async\" width=\"480\" height=\"600\"></div>\n      <figcaption><h3>Marjolyn</h3></figcaption>\n    </figure><figure class=\"tm-member\">\n      <div class=\"tm-photo\"><img src=\"{{IMG}}img/team/samantha.webp\" alt=\"Samantha\" loading=\"lazy\" decoding=\"async\" width=\"480\" height=\"600\"></div>\n      <figcaption><h3>Samantha</h3></figcaption>\n    </figure><figure class=\"tm-member\">\n      <div class=\"tm-photo\"><img src=\"{{IMG}}img/team/pamela.webp\" alt=\"Pamela\" loading=\"lazy\" decoding=\"async\" width=\"480\" height=\"600\"></div>\n      <figcaption><h3>Pamela</h3></figcaption>\n    </figure><figure class=\"tm-member\">\n      <div class=\"tm-photo\"><img src=\"{{IMG}}img/team/yvonne.webp\" alt=\"Yvonne\" loading=\"lazy\" decoding=\"async\" width=\"480\" height=\"600\"></div>\n      <figcaption><h3>Yvonne</h3></figcaption>\n    </figure>\n  </div>\n</div></section>\n"
+  "body_html": "<section class=\"tg-sec\" aria-labelledby=\"tg-h\">\n  <div class=\"wrap tm-center tg-intro\">\n    <h2 class=\"tm-h2\" id=\"tg-h\" data-es=\"Conozca a Nuestro Equipo Legal\">Meet Our Legal Team</h2>\n    <p data-es=\"Toque a Jacob para ver su biografía completa. Toque a cualquier otro miembro del equipo para guardar su tarjeta de contacto (vCard).\">Select Jacob to read his full bio. Select any other team member to save their contact card (vCard).</p>\n  </div>\n  {{TEAM_GRID}}\n</section>\n"
 }

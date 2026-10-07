@@ -611,11 +611,6 @@ h1,h2,h3,.sec-h{letter-spacing:0}
 .rcard p{margin:0;font-size:.98rem;color:#555}
 .rcard .who{margin-top:18px;display:flex;align-items:center;gap:12px;font-weight:600;color:#222}
 .rcard .who .stars{margin-left:auto;font-size:1rem}
-.g-icon{width:34px;height:34px;flex:0 0 34px;background:#fff;border-radius:50%;padding:5px;box-shadow:0 1px 4px rgba(0,0,0,.18)}
-.rcard .av-img{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:0 0 40px}
-.rcard .who a{color:#222}
-.rcard .r-meta{margin-left:auto;display:flex;align-items:center;gap:8px}
-.rcard .r-meta .g-icon{width:26px;height:26px;flex-basis:26px;padding:3px}
 
 /* meet our managing attorney (live layout) */
 .meet .sec-h{margin:0 0 26px}
@@ -675,3 +670,172 @@ footer .row-i .g{color:var(--olive)}
  .tvids{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}
 }
 @media(max-width:560px){.f-cols{grid-template-columns:1fr}.guide-form .fc-row{grid-template-columns:1fr}.map-frame iframe{height:320px}}
+
+/* ===== round 3 (2026-10-07) ===== */
+/* B: homepage hero photo was oversized on desktop (112% of the column, cropped at the bottom).
+   Desktop only: smaller, bottom-anchored to the hero edge, right-aligned in its column. Mobile untouched. */
+@media(min-width:961px){
+  .hero .hero-cutout img{top:auto;bottom:-30px;right:2%;height:min(84%,720px)}
+  .hero .hero-cutout:before{left:60%;top:52%;width:64%;height:96%}
+  .hero-namecard{left:auto;right:calc(50% - 600px + 330px);bottom:30px}
+}
+@media(min-width:961px) and (max-width:1279px){.hero-namecard{right:calc(2% + 300px)}}
+
+/* F: footer matched to live wemploymentlaw.com (measured 2026-10-07 at 1440 + 390):
+   full-bleed #000, section padding 72px 3% 0, 4 equal 25% columns (10px column padding),
+   Roboto 28.8px/400 white headings, Didact Gothic 17.28px/500 white text, olive icons,
+   HubSpot-style fields (#F5F8FA, 1px #CBD6E2, 3px radius, 40px tall, 18px apart),
+   #ECD62B submit in Poppins 700 25px #444, 1px white rule, Karla 17.28px #CBCBCB disclaimer. */
+footer{background:#000;color:#fff;font-size:17.28px;line-height:1.5;width:100%}
+footer .f-wrap{padding:72px 3% 0;max-width:none;margin:0}
+footer .f-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:0 0 64px}
+footer .f-cols>div{padding:10px}
+footer h4{font-family:Roboto,system-ui,sans-serif;font-size:28.8px;font-weight:400;line-height:1;color:#fff;text-transform:none;letter-spacing:0;margin:0 0 20px}
+footer .row-i,footer .f-quick a{font-family:"Didact Gothic",Roboto,system-ui,sans-serif;font-size:17.28px;font-weight:500;line-height:25.92px;color:#fff}
+footer .row-i{gap:12px;margin-bottom:10px}
+footer .row-i a,footer .row-i span{color:#fff}
+footer .row-i .g{color:var(--olive);flex:0 0 20px}
+footer .row-i .ico{width:20px;height:20px}
+footer .f-quick a{display:block;margin:0 0 10px}
+footer a:hover{color:var(--gold)}
+footer .brand-logo-f{width:213px;height:auto;max-width:100%;margin:0 0 4px}
+footer .f-soc{gap:10px;margin-top:16px}
+footer .f-soc a{width:40px;height:40px}
+footer .f-soc svg{width:20px;height:20px}
+footer .f-form .field{display:block;width:100%;height:40px;margin:0 0 18px;padding:0 15px;background:#F5F8FA;border:1px solid #CBD6E2;border-radius:3px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;color:#33475B;box-shadow:none}
+footer .f-form .field::placeholder{color:#a3a9b1}
+footer .f-form textarea.field{height:66px;min-height:66px;padding:10px 15px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px}
+footer .f-form .field:focus{border-color:var(--teal);outline:0;box-shadow:0 0 0 2px rgba(15,130,145,.35)}
+footer .f-form .btn{display:flex;margin:32px auto 0;padding:12px 24px;background:#ECD62B;border:1px solid #ECD62B;border-radius:3px;font-family:Poppins,Roboto,sans-serif;font-weight:700;font-size:25px;line-height:1.08;color:#444;letter-spacing:0}
+footer .f-form .btn:hover{background:#d9c31a;border-color:#d9c31a;color:#333}
+footer .f-note{color:#cbcbcb;font-size:.9rem}
+footer .disc{border-top:1px solid #fff;padding:40px 10px 36px;margin:0 10px;font-family:Karla,Roboto,system-ui,sans-serif;font-size:17.28px;line-height:25.92px;color:#cbcbcb}
+footer .disc>span{display:block;max-width:80%}
+footer .disc b{color:#cbcbcb}
+footer .f-legal{margin-top:14px;color:#cbcbcb}
+footer .f-legal a{display:inline;margin:0;color:#ECD62B;text-decoration:underline}
+footer .f-legal a.f-home{color:#fff}
+@media(max-width:1024px){footer .f-cols{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}}
+@media(max-width:767px){
+  footer .f-wrap{padding:19.5px 5% 0}
+  footer .f-cols{grid-template-columns:1fr;row-gap:22px;padding-bottom:40px}
+  footer .f-cols>div{padding:0}
+  footer h4{font-size:30px}
+  footer .disc{margin:0;padding:12px 0 90px;font-size:14px;line-height:21px}
+  footer .disc>span{max-width:none}
+}
+footer .row-i .ico-f{width:18px;height:18px;fill:currentColor;display:block;margin-top:4px}
+
+/* C: "Recognized by" awards marquee, modelled on haelaw.com's logo strip (measured 2026-10-07:
+   full-bleed dark band, ~100px-tall badges, ~60px spacing, linear ~29px/s, monochrome on dark,
+   no edge fade). Track = 4 copies of the set, animated -50% (2 copies per half) = seamless. */
+.badges-band{background:var(--teal-dd);border:0;padding:34px 0 38px;text-align:center;overflow:hidden}
+.badges-band .eyebrow{display:block;margin:0 0 22px;color:var(--gold)}
+.aw-marquee{width:100%;overflow:hidden}
+.aw-track{display:flex;width:max-content;animation:aw-scroll 100s linear infinite;will-change:transform}
+.aw-marquee:hover .aw-track,.aw-marquee:focus-within .aw-track{animation-play-state:paused}
+.aw-set{display:flex;align-items:center;gap:64px;margin:0;padding:0 64px 0 0;list-style:none}
+.aw-set li{flex:0 0 auto;display:flex;align-items:center}
+.aw-set img{height:104px;width:auto;max-width:none;object-fit:contain;filter:grayscale(1) brightness(1.05);opacity:.92;transition:filter .3s ease,opacity .3s ease}
+.aw-set li:hover img{filter:none;opacity:1}
+@keyframes aw-scroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@media(max-width:767px){
+  .badges-band{padding:26px 0 30px}
+  .aw-set{gap:40px;padding-right:40px}
+  .aw-set img{height:72px}
+  .aw-track{animation-duration:70s}
+}
+@media(prefers-reduced-motion:reduce){
+  .aw-track{animation:none;width:auto;justify-content:center}
+  .aw-set{flex-wrap:wrap;justify-content:center;gap:28px 40px;padding:0 22px}
+  .aw-set[aria-hidden="true"]{display:none}
+  .aw-set img{height:84px}
+}
+.aw-set .aw-inv img,.aw-set .aw-inv:hover img{filter:grayscale(1) brightness(0) invert(1);opacity:.92}
+
+/* D: Google reviews, layout modelled on frontierlawcenter.com/los-angeles-employment-lawyer/
+   ("What Our Clients Are Saying"): G logo top-left, quote, round Google photo + bold name at the
+   bottom, 3 cards per view on desktop / 1 on phones, dots, then the Google rating summary. */
+.grev{padding:72px 0 64px;background:#fff}
+.grev-head{text-align:center;margin-bottom:34px}
+.grev-head .sec-h{margin-top:8px}
+.grev-track{list-style:none;margin:0;padding:4px 2px 10px;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 2*26px)/3);gap:26px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.grev-track::-webkit-scrollbar{display:none}
+.grev-track:focus-visible{outline:3px solid var(--teal);outline-offset:4px;border-radius:16px}
+.grev-card{scroll-snap-align:start;display:flex}
+.grev-card article{display:flex;flex-direction:column;width:100%;background:#fff;border:1px solid #e3e7ea;border-radius:16px;padding:30px 30px 28px;box-shadow:0 10px 28px rgba(8,63,71,.07)}
+.grev-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.grev-g{width:30px;height:30px;flex:0 0 30px}
+.grev-stars{color:#FBBC05;letter-spacing:2px;font-size:1.08rem;line-height:1}
+.grev-text{margin-top:22px;color:#4a4f57;font-size:1.04rem;line-height:1.7;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:8;overflow:hidden}
+.grev-text p{margin:0}.grev-text p+p{margin-top:10px}
+.grev-card.open .grev-text{display:block;-webkit-line-clamp:unset}
+.grev-more{align-self:flex-start;margin-top:10px;padding:0;background:none;border:0;color:var(--teal);font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.grev-more[hidden]{display:none}
+.grev-who{margin-top:auto;padding-top:24px;display:flex;align-items:center;gap:14px}
+.grev-av{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:0 0 52px;background:var(--soft)}
+.grev-av-i{display:grid;place-items:center;background:var(--teal);color:#fff;font-weight:700;font-size:1.3rem}
+.grev-who b{display:block;font-size:1.12rem;color:#1f2328;font-weight:700;line-height:1.25}
+.grev-who small{display:block;color:#70757a;font-size:.84rem;margin-top:2px}
+.grev-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:22px}
+.grev-dots{display:flex;gap:8px}
+.grev-dot{width:18px;height:6px;border-radius:99px;border:0;padding:0;background:#cfd6da;cursor:pointer;transition:width .25s,background .25s}
+.grev-dot.on{width:34px;background:var(--teal)}
+.grev-arrow{width:40px;height:40px;border-radius:50%;border:1px solid #d5dbde;background:#fff;color:var(--teal-dd);font-size:1.5rem;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 3px}
+.grev-arrow:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+.grev-static .grev-nav{display:none}
+.grev-summary{display:flex;align-items:center;justify-content:center;gap:18px;margin:34px auto 0;width:max-content;max-width:100%;padding:14px 26px;border-radius:14px;color:#1f2328;flex-wrap:wrap}
+.grev-summary:hover{background:var(--soft)}
+.grev-wordmark{font-family:Roboto,system-ui,sans-serif;font-weight:500;font-size:2.4rem;letter-spacing:-.02em;line-height:1}
+.grev-wordmark i{font-style:normal}
+.grev-sum-r{display:flex;flex-direction:column;gap:6px}
+.grev-sum-r .grev-stars{font-size:1.35rem}
+.grev-sum-t{font-size:1.15rem;font-weight:600}
+@media(max-width:1024px){.grev-track{grid-auto-columns:calc((100% - 22px)/2);gap:22px}}
+@media(max-width:700px){
+  .grev{padding:52px 0 48px}
+  .grev-track{grid-auto-columns:88%;gap:14px}
+  .grev-card article{padding:24px 22px 22px}
+  .grev-wordmark{font-size:2rem}
+}
+.grev-track{padding:6px 6px 30px;margin:-6px -6px -20px;scroll-padding-left:6px}
+
+/* E: team page — full-bleed photo grid (haelaw.com "Meet Alreen and Team" + frontierlawcenter.com/about/):
+   no gutters at any width, B&W -> colour on hover AND keyboard focus (0.35s, slight zoom like haelaw),
+   name + title always on the photo, action line revealed on hover/focus.
+   Columns: 7 (>=1600, 2 exact rows of 14) / 5 (1100-1599) / 3 (700-1099) / 2 (phones); a short
+   last row is centred on the dark band. Touch screens (hover:none): stay B&W like haelaw on mobile,
+   colour while tapped/focused, action line always shown. */
+.tg-sec{padding:56px 0 0;background:#0b1416}
+.tg-intro{color:#cfd8da;padding-bottom:30px}
+.tg-intro .tm-h2{color:#fff}
+.tg-intro p{margin:10px auto 0;max-width:62ch;font-size:1.02rem}
+.tg-grid{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;width:100%;background:#0b1416}
+.tg-grid>li{flex:0 0 calc(100%/7);max-width:calc(100%/7)}
+.tg-card{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:#1a2426;color:#fff;outline:0}
+.tg-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04);transform:scale(1);transition:filter .35s ease-in-out,transform .6s cubic-bezier(.05,.2,.1,1)}
+.tg-card:hover img,.tg-card:focus-visible img{filter:none;transform:scale(1.05)}
+.tg-card:focus-visible{box-shadow:inset 0 0 0 4px var(--gold);z-index:1}
+.tg-card:after{content:"";position:absolute;inset:auto 0 0 0;height:58%;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.82));pointer-events:none}
+.tg-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 16px 16px;text-align:left}
+.tg-cap b{display:block;font-family:Roboto,system-ui,sans-serif;font-size:1.12rem;font-weight:700;line-height:1.2;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.tg-title{display:block;margin-top:4px;color:var(--gold);font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.35}
+.tg-act{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:.82rem;font-weight:600;color:#fff;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+.tg-act svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.tg-card:hover .tg-act,.tg-card:focus-visible .tg-act{opacity:1;transform:none}
+.tg-initials{position:absolute;inset:0;display:grid;place-items:center;padding-bottom:22%;background:linear-gradient(160deg,#1d2c2f,#0f1a1c);font-family:Roboto,system-ui,sans-serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:300;letter-spacing:.06em;color:rgba(255,255,255,.78);transition:background .35s}
+.tg-noimg:hover .tg-initials,.tg-noimg:focus-visible .tg-initials{background:linear-gradient(160deg,var(--teal),var(--teal-dd))}
+/* 14 people = 2 full rows of 7, then 7 rows of 2 on small screens: no empty gaps */
+@media(max-width:899px){.tg-grid>li{flex-basis:50%;max-width:50%}}
+@media(max-width:699px){
+  .tg-sec{padding-top:40px}
+  .tg-grid>li{flex-basis:50%;max-width:50%}
+  .tg-cap{padding:0 12px 12px}
+  .tg-cap b{font-size:1rem}
+  .tg-title{font-size:.66rem}
+}
+@media(hover:none){
+  .tg-act{opacity:1;transform:none}
+  .tg-card:active img,.tg-card:focus img{filter:none}
+}
+@media(prefers-reduced-motion:reduce){.tg-card img,.tg-act{transition:none}.tg-card:hover img,.tg-card:focus-visible img{transform:none}}

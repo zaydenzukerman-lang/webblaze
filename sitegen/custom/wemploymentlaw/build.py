@@ -160,11 +160,10 @@ SOCIAL = {
 GA4_ID = "G-6BN0TWE10Q"
 META_PIXEL_ID = "2130487443675029"
 HS_PORTAL = "7690372"
-# Live Google reviews (homepage). Leave blank to show the 4 verified static reviews.
-# To turn on: create a Google Cloud API key with "Places API (New)" enabled, restrict it to
-# HTTP referrers webblaze.io/* and wemploymentlaw.com/*, and paste it + the firm's Place ID here.
-GOOGLE_PLACES_API_KEY = ""
-GOOGLE_PLACE_ID = ""
+# Google reviews (homepage) are rendered at BUILD time from reviews.json, which
+# fetch_reviews.py scrapes from the firm's Google Maps listing. See WEL-HANDOFF.md.
+REVIEWS_JSON = pathlib.Path(__file__).resolve().parent / "reviews.json"
+TEAM_JSON = pathlib.Path(__file__).resolve().parent / "team.json"
 HS_GUIDE_FORM_ID = "2860c01f-db29-45c3-bc90-567d6cc5d835"  # old site's "free guide" lead-magnet form
 HS_FORM_ID = "460ba517-6b2d-47cc-9f1d-379c4bd53ee4"  # the one real form w/ message field; see WEL-HANDOFF.md
 
@@ -281,9 +280,21 @@ def substitute_tokens(html, from_path):
     for token, key in TOKEN_MAP.items():
         out = out.replace("{{%s}}" % token, rel(from_path, PATHS[key]))
     out = out.replace("{{IMG}}", "../" * depth(from_path))
-    out = out.replace("{{GPLACES_KEY}}", GOOGLE_PLACES_API_KEY).replace("{{GPLACE_ID}}", GOOGLE_PLACE_ID)
+    if "{{AWARDS_MARQUEE}}" in out:
+        out = out.replace("{{AWARDS_MARQUEE}}", render_awards_marquee()).replace("{{IMG}}", "../" * depth(from_path))
+    for token, fn in (("{{GOOGLE_REVIEWS}}", render_google_reviews), ("{{TEAM_GRID}}", render_team_grid)):
+        if token in out:
+            out = out.replace(token, fn()).replace("{{IMG}}", "../" * depth(from_path))
+            out = substitute_paths_only(out, from_path)
     out = out.replace("{{HS_GUIDE_FORM}}", HS_GUIDE_FORM_ID).replace("{{HS_FORM}}", HS_FORM_ID)
     return out
+
+
+def substitute_paths_only(html, from_path):
+    """Re-run the {{TOKEN}} -> relative path swap (for HTML generated after the first pass)."""
+    for token, key in TOKEN_MAP.items():
+        html = html.replace("{{%s}}" % token, rel(from_path, PATHS[key]))
+    return html
 
 
 def load_fragment(name):
@@ -300,6 +311,156 @@ SOCIAL_ICONS_SVG = {
     "tiktok": '<svg viewBox="0 0 24 24"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07"/></svg>',
     "linkedin": '<svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13M7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0"/></svg>',
 }
+
+# ---------------------------------------------------------------------------
+# "Recognized by" awards marquee (homepage). Client round 3: bigger badges in a continuous
+# horizontal scroll like haelaw.com. Pure CSS: the set is rendered 4x inside a track that
+# translates -50% forever (2 copies per half, so one half is always wider than a 1920px
+# screen = seamless loop). Only the first copy is exposed to screen readers. Pauses on
+# hover/focus; prefers-reduced-motion shows one static wrapped row instead.
+# ---------------------------------------------------------------------------
+AWARD_BADGES = [
+    ("avvo-rating-10.webp", 150, 122, "Avvo Rating 10.0 — Jacob N Whitehead, Top Attorney"),
+    ("super-lawyers-rising-stars.webp", 150, 141, "Super Lawyers Rising Stars — Jacob Whitehead"),
+    ("americas-top-100.webp", 150, 150, "America's Top 100 High Stakes Litigators"),
+    ("multi-million-dollar-advocates.webp", 148, 149, "Multi-Million Dollar Advocates Forum"),
+    ("aaj-member.webp", 284, 134, "American Association for Justice — Member"),
+    ("expertise-best-2021.webp", 400, 320, "Expertise.com — Best Employment Lawyers in Irvine 2021"),
+    ("avvo-clients-choice.webp", 150, 123, "Avvo Clients' Choice Award 2021 — Jacob N Whitehead"),
+    ("top40-under40.webp", 150, 150, "Premier Lawyers Top 40 Under 40 of America 2020"),
+]
+
+# Dark artwork on a transparent background: rendered white on the dark band so it stays legible.
+AWARD_INVERT = {"aaj-member.webp"}
+
+
+def render_awards_marquee():
+    def one_set(hidden):
+        items = "".join(
+            f'<li{" class=aw-inv" if f in AWARD_INVERT else ""}><img src="{{{{IMG}}}}img/{f}" width="{w}" height="{h}" alt="{"" if hidden else alt}" decoding="async"></li>'
+            for f, w, h, alt in AWARD_BADGES
+        )
+        aria = ' aria-hidden="true"' if hidden else ""
+        return f'<ul class="aw-set"{aria}>{items}</ul>'
+    sets = one_set(False) + one_set(True) * 3
+    return (f'<div class="aw-marquee" role="region" aria-label="Awards and recognition">'
+            f'<div class="aw-track">{sets}</div></div>')
+
+
+# ---------------------------------------------------------------------------
+# Google reviews section (homepage token {{GOOGLE_REVIEWS}}). Layout modelled on
+# frontierlawcenter.com/los-angeles-employment-lawyer/ "What Our Clients Are Saying":
+# Google "G" on each card, quote, client's Google photo + name, swipeable row of cards with
+# dots, then a "Google Reviews ★★★★★ 4.x (N reviews)" summary linking to the listing.
+# Data: reviews.json (real reviews only, written by fetch_reviews.py; never hand-written).
+# ---------------------------------------------------------------------------
+REVIEWS_SHOWN = 5
+G_ICON_SVG = ('<svg class="grev-g" viewBox="0 0 48 48" aria-hidden="true">'
+    '<path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.5z"/>'
+    '<path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>'
+    '<path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/>'
+    '<path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.5z"/></svg>')
+
+
+def _esc(t):
+    return (str(t).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;"))
+
+
+def render_google_reviews():
+    data = json.loads(REVIEWS_JSON.read_text(encoding="utf-8"))
+    revs = [r for r in data.get("reviews", []) if r.get("rating") == 5 and (r.get("text") or "").strip()]
+    revs = revs[:REVIEWS_SHOWN]
+    if not revs:
+        raise SystemExit("reviews.json has no 5-star reviews with text; refusing to render an empty section")
+    cards = []
+    for i, r in enumerate(revs):
+        name = _esc(r["name"])
+        paras = "".join(f"<p>{_esc(x.strip())}</p>" for x in r["text"].split("\n") if x.strip())
+        if r.get("photo"):
+            av = f'<img class="grev-av" src="{{{{IMG}}}}{_esc(r["photo"])}" width="52" height="52" alt="" loading="lazy" decoding="async">'
+        else:
+            av = f'<span class="grev-av grev-av-i" aria-hidden="true">{_esc(r["name"][:1].upper())}</span>'
+        cards.append(
+            f'<li class="grev-card" id="grev-{i+1}"><article aria-label="Google review by {name}">'
+            f'<div class="grev-top">{G_ICON_SVG}<span class="grev-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span></div>'
+            f'<div class="grev-text">{paras}</div>'
+            f'<button class="grev-more" type="button" aria-expanded="false" hidden data-es="Leer más">Read more</button>'
+            f'<div class="grev-who">{av}<span><b>{name}</b><small data-es="Reseña de Google">Google review</small></span></div>'
+            f'</article></li>')
+    dots = "".join(f'<button type="button" class="grev-dot" aria-label="Show review {i+1}" data-i="{i}"></button>' for i in range(len(revs)))
+    rating = data.get("rating")
+    total = data.get("total_reviews")
+    listing = _esc(data.get("listing_url") or "")
+    rating_txt = f"{rating:.1f}" if isinstance(rating, (int, float)) else ""
+    total_txt = f" ({total} reviews)" if total else ""
+    total_es = f" ({total} reseñas)" if total else ""
+    summary = (f'<a class="grev-summary" href="{listing}" target="_blank" rel="noopener">'
+               f'<span class="grev-wordmark" aria-hidden="true"><i style="color:#4285F4">G</i><i style="color:#EA4335">o</i><i style="color:#FBBC05">o</i><i style="color:#4285F4">g</i><i style="color:#34A853">l</i><i style="color:#EA4335">e</i></span>'
+               f'<span class="grev-sum-r"><span class="grev-stars" aria-hidden="true">★★★★★</span>'
+               f'<span class="grev-sum-t" data-es="{rating_txt}{total_es} en Google">{rating_txt}{total_txt} on Google</span></span></a>')
+    return f"""<section class="grev" id="google-reviews" aria-labelledby="grev-h"><div class="wrap">
+  <div class="grev-head"><span class="eyebrow" data-es="Reseñas de Google">Google Reviews</span>
+    <h2 class="sec-h" id="grev-h" data-es="Lo Que Dicen Nuestros Clientes">What Our Clients Are Saying</h2></div>
+  <ul class="grev-track" tabindex="0" aria-label="Latest 5-star Google reviews (scroll sideways for more)">{''.join(cards)}</ul>
+  <div class="grev-nav"><button type="button" class="grev-arrow" data-dir="-1" aria-label="Previous reviews">‹</button><div class="grev-dots">{dots}</div><button type="button" class="grev-arrow" data-dir="1" aria-label="Next reviews">›</button></div>
+  {summary}
+</div></section>
+<script>
+(function(){{
+  var sec=document.getElementById('google-reviews'); if(!sec) return;
+  var track=sec.querySelector('.grev-track'), cards=[].slice.call(track.children), dots=[].slice.call(sec.querySelectorAll('.grev-dot'));
+  /* "Read more" only on cards whose text is actually clamped */
+  cards.forEach(function(c){{var t=c.querySelector('.grev-text'),b=c.querySelector('.grev-more');
+    if(t.scrollHeight>t.clientHeight+4){{b.hidden=false;}}
+    b.addEventListener('click',function(){{var o=c.classList.toggle('open');b.setAttribute('aria-expanded',o);
+      var es=(document.documentElement.lang||'').slice(0,2)==='es';b.textContent=o?(es?'Leer menos':'Read less'):(es?'Leer más':'Read more');}});}});
+  function step(){{return cards.length>1?cards[1].offsetLeft-cards[0].offsetLeft:track.clientWidth;}}
+  function cur(){{return Math.round(track.scrollLeft/step());}}
+  function go(i){{i=Math.max(0,Math.min(cards.length-1,i));track.scrollTo({{left:i*step(),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}});}}
+  sec.querySelectorAll('.grev-arrow').forEach(function(b){{b.addEventListener('click',function(){{go(cur()+(+b.getAttribute('data-dir')));}});}});
+  dots.forEach(function(d,i){{d.addEventListener('click',function(){{go(i);}});}});
+  function sync(){{var i=cur(),vis=Math.max(1,Math.round(track.clientWidth/step())),max=track.scrollWidth-track.clientWidth;
+    if(track.scrollLeft>=max-4) i=cards.length-vis;
+    dots.forEach(function(d,k){{d.classList.toggle('on',k>=i&&k<i+vis);d.hidden=false;}});
+    sec.classList.toggle('grev-static',max<=4);}}
+  track.addEventListener('scroll',function(){{window.requestAnimationFrame(sync);}},{{passive:true}});
+  window.addEventListener('resize',sync); sync();
+}})();
+</script>
+"""
+
+
+# ---------------------------------------------------------------------------
+# Team grid (our-team page token {{TEAM_GRID}}). Client round 3: full-bleed photo grid like
+# haelaw.com "Meet Alreen and Team" + frontierlawcenter.com/about/: no gutters, photos black &
+# white -> colour on hover/keyboard focus, name + title on the photo. Jacob opens his bio page;
+# every other tile links to that person's vCard (.vcf, served by app.swemploymentlaw.com).
+# Data: team.json (order, vCard TITLE, photo per person; see WEL-HANDOFF.md).
+# ---------------------------------------------------------------------------
+def render_team_grid():
+    team = json.loads(TEAM_JSON.read_text(encoding="utf-8"))
+    tiles = []
+    for m in team:
+        name = _esc(m["name"]); title = _esc(m.get("title") or "")
+        if m.get("kind") == "bio":
+            href = "{{ABOUT}}"; extra = ""
+            label = f"{name}, {title}: view full bio" if title else f"{name}: view full bio"
+            act = '<span class="tg-act" data-es="Ver biografía →">View bio →</span>'
+        else:
+            href = _esc(m["vcard"]); fname = _esc(m["vcard"].rsplit("/", 1)[-1])
+            extra = f' download="{fname}" type="text/vcard"'
+            label = f"Download vCard for {name}"
+            act = '<span class="tg-act"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg> <span data-es="Descargar vCard">Download vCard</span></span>'
+        if m.get("photo"):
+            media = f'<img src="{{{{IMG}}}}{_esc(m["photo"])}" width="640" height="800" alt="" loading="lazy" decoding="async">'
+        else:
+            media = f'<span class="tg-initials" aria-hidden="true">{_esc(m.get("initials") or name[:2].upper())}</span>'
+        tiles.append(
+            f'<li><a class="tg-card{" tg-noimg" if not m.get("photo") else ""}" href="{href}"{extra} aria-label="{label}">'
+            f'{media}<span class="tg-cap"><b>{name}</b>'
+            f'{f"<span class=tg-title>{title}</span>" if title else ""}{act}</span></a></li>')
+    return f'<ul class="tg-grid" role="list">{"".join(tiles)}</ul>'
+
 
 PHEAD_TMPL = """<section class="phead"><div class="wrap">
   {breadcrumbs}<span class="eyebrow"{eyebrow_es}>{eyebrow}</span>
@@ -383,8 +544,11 @@ def render_social_band():
 
 
 def render_footer(from_path):
-    """Footer mirrors the live wemploymentlaw.com layout (client request 2026-10-06):
-    black band, 4 columns = logo + socials | Contact | Quick Access | Free Case Review form."""
+    """Footer mirrors the live wemploymentlaw.com layout (client requests 2026-10-06 + 2026-10-07):
+    full-bleed black band (no side gutters: 3% padding like the live Elementor section), 4 equal
+    columns = logo + socials | Contact | Quick Access | Free Case Review form, form fields styled
+    like the live HubSpot embed (#F5F8FA fields, #ECD62B Poppins submit). Still posts via our
+    shared HubSpot handler (form[data-hs-form])."""
     h = lambda key: rel(from_path, PATHS[key])
     img_prefix = "../" * depth(from_path)
     socials = "".join(
@@ -395,18 +559,18 @@ def render_footer(from_path):
              ("law-guides", "Free Law Guides", "Guías Legales Gratuitas"), ("pricing", "Pricing", "Precios"),
              ("referrals", "Referrals", "Referencias"), ("faq", "FAQ", "Preguntas Frecuentes"), ("contact", "Contact", "Contacto")]
     quick_html = "".join(f'<a href="{h(k)}" data-es="{es}">{en}</a>' for k, en, es in quick)
-    return f"""<!-- FOOTER (layout mirrors live wemploymentlaw.com) -->
-<footer><div class="wrap">
+    return f"""<!-- FOOTER (layout mirrors live wemploymentlaw.com: full-bleed black, 4 equal columns, HubSpot-style form) -->
+<footer><div class="f-wrap">
   <div class="f-cols">
     <div class="f-brand">
       <img src="{img_prefix}img/logo-white.png" alt="W Employment Law" class="brand-logo-f">
       <div class="f-soc">{socials}</div>
     </div>
     <div><h4 data-es="Contacto">Contact</h4>
-      <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg></span><a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></div>
-      <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span>{ADDRESS_HTML}</span></div>
-      <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><a href="mailto:{EMAIL}">{EMAIL}</a></div>
-      <div class="row-i"><span class="g"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span data-es="Disponibles 24/7 · Hablamos Español">Available 24/7 · Hablamos Español</span></div>
+      <div class="row-i"><span class="g"><svg class="ico-f" viewBox="0 0 512 512" aria-hidden="true"><path d="M497.4 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.7 370.7 0 0 1 130.6 204.1l60.6-49.6a23.9 23.9 0 0 0 6.9-28l-48-112A24.2 24.2 0 0 0 122.6.6l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.3 24.3 0 0 0-14-27.6z"/></svg></span><a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></div>
+      <div class="row-i"><span class="g"><svg class="ico-f" viewBox="0 0 384 512" aria-hidden="true"><path d="M172.3 501.7C27 291 0 269.4 0 192 0 86 86 0 192 0s192 86 192 192c0 77.4-27 99-172.3 309.7a24 24 0 0 1-39.5 0zM192 272a80 80 0 1 0 0-160 80 80 0 0 0 0 160z"/></svg></span><span>{ADDRESS_HTML}</span></div>
+      <div class="row-i"><span class="g"><svg class="ico-f" viewBox="0 0 512 512" aria-hidden="true"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg></span><a href="mailto:{EMAIL}">{EMAIL}</a></div>
+      <div class="row-i"><span class="g"><svg class="ico-f" viewBox="0 0 512 512" aria-hidden="true"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm57.1 350.1L224.9 294c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h48c6.6 0 12 5.4 12 12v137.7l63.5 46.2c5.4 3.9 6.5 11.4 2.6 16.8l-28.2 38.8c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg></span><span data-es="Disponibles 24/7 · Hablamos Español">Available 24/7 · Hablamos Español</span></div>
     </div>
     <div class="f-quick"><h4 data-es="Acceso Rápido">Quick Access</h4>{quick_html}</div>
     <div><h4 data-es="Revisión Gratuita de su Caso">Free Case Review</h4>
@@ -423,7 +587,7 @@ def render_footer(from_path):
     </div>
   </div>
   <div class="disc"><span data-es="<b>Publicidad de Abogados.</b> La información de este sitio web tiene fines informativos generales únicamente y no pretende ser, ni debe tomarse como, asesoría legal para ningún caso o situación individual. Esta información no pretende crear, y su recepción o visualización no constituye, una relación abogado-cliente. Los resultados anteriores no garantizan un resultado similar. Los testimonios reflejan experiencias individuales de clientes y no garantizan resultados futuros."><b>Attorney Advertising.</b> The information on this website is for general informational purposes only and is not intended to be, and should not be taken as, legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship. Prior results do not guarantee a similar outcome. Testimonials reflect individual client experiences and are not a guarantee of future results.</span>
-    <div class="f-legal">© <span id="yr"></span> W Employment Law | <a href="{h('privacy')}" data-es="Política de Privacidad">Privacy Policy</a> | <a href="{h('terms')}" data-es="Términos de Uso">Terms of Use</a></div>
+    <div class="f-legal">© <span id="yr"></span> <a class="f-home" href="{h('home')}">W Employment Law</a> | <a href="{h('privacy')}" data-es="Política de Privacidad">Privacy Policy</a> | <a href="{h('terms')}" data-es="Términos de Uso">Terms of Use</a></div>
   </div>
 </div></footer>
 
@@ -533,32 +697,6 @@ document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#
     b.replaceWith(f);
   });
 })();
-(function(){
-  /* Live 5-star Google reviews (Places API New). Only runs if a key + Place ID are configured
-     in build.py; otherwise the verified static reviews already in the HTML stay as they are. */
-  var box=document.getElementById('g-reviews'); if(!box) return;
-  var key=box.getAttribute('data-key'), place=box.getAttribute('data-place'); if(!key||!place) return;
-  fetch('https://places.googleapis.com/v1/places/'+encodeURIComponent(place)+'?languageCode=en',
-        {headers:{'X-Goog-Api-Key':key,'X-Goog-FieldMask':'reviews,rating,userRatingCount'}})
-    .then(function(r){return r.ok?r.json():Promise.reject(r);})
-    .then(function(d){
-      var rv=(d.reviews||[]).filter(function(x){return x.rating===5&&x.text&&x.text.text;}).slice(0,4);
-      if(!rv.length) return;
-      var gTpl=box.querySelector('.g-icon'); gTpl=gTpl&&gTpl.cloneNode(true);
-      box.innerHTML='';
-      rv.forEach(function(x){
-        var a=x.authorAttribution||{}, card=document.createElement('div'); card.className='rcard in';
-        var p=document.createElement('p'); p.textContent='"'+x.text.text+'"';
-        var who=document.createElement('div'); who.className='who';
-        if(a.photoUri){var im=document.createElement('img');im.className='av-img';im.src=a.photoUri;im.alt='';im.referrerPolicy='no-referrer';im.loading='lazy';who.appendChild(im);}
-        var nm=document.createElement(a.uri?'a':'span'); nm.textContent=a.displayName||'Google user'; if(a.uri){nm.href=a.uri;nm.target='_blank';nm.rel='noopener';}
-        who.appendChild(nm);
-        var meta=document.createElement('div'); meta.className='r-meta';
-        meta.innerHTML='<span class="stars">★★★★★</span>'; if(gTpl) meta.appendChild(gTpl.cloneNode(true));
-        card.appendChild(p); card.appendChild(who); who.appendChild(meta); box.appendChild(card);
-      });
-    }).catch(function(){});
-})();
 (function(){var els=document.querySelectorAll('.reveal');
 function showAll(){els.forEach(function(e){e.classList.add('in');});}
 if(!('IntersectionObserver' in window)){showAll();return;}
@@ -605,7 +743,7 @@ def page(path, title, description, body_html, *,
     canonical = BASE_URL.rstrip("/") + path
     og_img = og_image or (BASE_URL.rstrip("/") + "/img/jacob-share.jpg")
     img_prefix = "../" * depth(path)
-    styles_href = f"{img_prefix}styles.css?v=20261008"
+    styles_href = f"{img_prefix}styles.css?v=20261009"
     i18n_href = f"{img_prefix}i18n.js"
 
     schema_blocks = [json.dumps(DEFAULT_SCHEMA, ensure_ascii=False)]
@@ -634,7 +772,7 @@ def page(path, title, description, body_html, *,
 <link rel="icon" type="image/png" sizes="180x180" href="{img_prefix}img/favicon.png">
 <link rel="apple-touch-icon" href="{img_prefix}img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&family=Didact+Gothic&family=Karla:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{styles_href}">
 {schema_html}
 {extra_head}

@@ -1,5 +1,52 @@
 # W Employment Law site — handoff state (read this first)
 
+## 2026-10-07 — ROUND 3 client feedback (names, hero photo, awards marquee, Google reviews, team grid, footer)
+
+Rebuild as always: `cd ~/webblaze && python3 sitegen/custom/wemploymentlaw/build.py && python3 sitegen/custom/wemploymentlaw/pages_extra.py`
+(styles.css cache-bust is now `?v=20261009`).
+
+- **A. Brand name.** Every published source (content/ready__*.json, pages/*.html, build.py) now says
+  "W Employment Law". Replaced: "W Employment Law Group" (13, Terms of Use), "Whitehead Employment Law" (4),
+  "SWemploymentlaw" as visible link text (6), standalone "W Law"/"W law" (8), "W Employment Law,," (5).
+  Left alone on purpose: URLs/emails, app.swemploymentlaw.com vCard links, "Jacob N. Whitehead, APC",
+  links to the old whiteheademploymentlaw.com domain inside one practice page (URLs, not text), and the
+  raw crawl dumps in content/*.json without the ready__ prefix (never published). One Google review on
+  the homepage quotes "W Employment Law Group" verbatim; reviews are never edited.
+  Check: `grep -rniE "SW Employment Law|Whitehead Employment Law|W Employment Law Group|W Employment Law,,|\bW Law\b|>\s*SWemploymentlaw" public/wemploymentlaw --include=index.html`
+- **B. Hero photo.** Desktop only (`@media(min-width:961px)` round-3 block at the end of styles.css): image
+  `height:min(84%,720px)`, bottom-anchored. Mobile is unchanged.
+- **C. Awards.** `{{AWARDS_MARQUEE}}` token -> `build.py render_awards_marquee()` (list = `AWARD_BADGES`).
+  The CSS marquee renders the set 4 times and translates the track -50%, so the loop is seamless. It pauses on hover/focus.
+  With prefers-reduced-motion it shows one static wrapped row. The band is dark teal with monochrome badges, like haelaw.com.
+  To add a badge, put the webp in img/ and append it to `AWARD_BADGES`. Dark artwork on a transparent background goes in `AWARD_INVERT`.
+- **D. Google reviews.** The data is REAL. `sitegen/custom/wemploymentlaw/fetch_reviews.py` (Playwright) scrapes the
+  Google Maps listing (Newest, 5-star with text, expanded) into `reviews.json` and saves avatars to
+  `public/wemploymentlaw/img/reviews/*.webp`. `build.py render_google_reviews()` renders the newest 5
+  (`REVIEWS_SHOWN`) at build time through the `{{GOOGLE_REVIEWS}}` token on home.html. It also renders the rating summary, which links to
+  `listing_url`. **To refresh reviews:** run `python3 sitegen/custom/wemploymentlaw/fetch_reviews.py`, then rebuild, then deploy.
+  The script sometimes hits Google's sign-in popup. It retries (up to 8 fresh browsers). If every try fails it exits non-zero
+  and leaves the old reviews.json untouched. NEVER hand-write or edit a review in reviews.json.
+  The old static 4 cards (Alberto/Nava/Shauna/Larry) were removed from the homepage. They are still on the Jacob page.
+  The never-configured Places-API "live reviews loader" (JS + GOOGLE_PLACES_API_KEY config + CSS) was deleted.
+- **E. Team page** (/our-team/). `{{TEAM_GRID}}` -> `build.py render_team_grid()` from `team.json`. Each entry has
+  name, vCard FN + TITLE, vcard URL, photo and initials. The order in team.json is the order on the page.
+  Jacob's tile links to /jacob-n-whitehead/. Every other tile is `<a href="https://app.swemploymentlaw.com/vcards/<slug>.vcf" download>`
+  with aria-label "Download vCard for X". Photos are 640x800 4:5 crops in `img/team/v2/`.
+  The grid is full-bleed: 7 columns at 1600px+, 5 from 1100px, 3 from 700px, 2 on phones; a short last row is centred.
+  Photos are B&W and turn colour on hover/focus. Touch devices stay B&W and show colour while tapped.
+  A person with no photo gets a dark initials tile.
+  **To add/update a person:** download their vCard, use the vCard TITLE, crop the photo to 4:5, then edit team.json and rebuild.
+  Photo sources: vCard PHOTO for most people (420px originals, so the crops are 220-548px wide).
+  Gladys uses the existing gladys.webp because it is sharper. Jacob uses jacob-cutout.png.
+  **No photo anywhere (initials tiles): Dave Anas, Debi Pugliese, Vikas Kheni.** Their vCards have no PHOTO.
+  Pamela's crop is the smallest (220x275). The server sends .vcf as `text/vcard` with `Content-Disposition: inline`.
+  Because the vCard host is cross-origin, browsers ignore our `download` attribute. Phones will usually offer "Add to Contacts".
+  For a forced download everywhere, the server would need to send `attachment`.
+- **F. Footer** now matches the live site (measured with Playwright). Full-bleed #000, 3% side padding, 4 equal columns,
+  Roboto 28.8px/400 headings, Didact Gothic contact/links with filled olive icons, HubSpot-style fields
+  (#F5F8FA / #CBD6E2 / 3px / 40px tall), and a #ECD62B Poppins "Submit". There is a white rule, then a Karla #CBCBCB disclaimer.
+  It still posts through our shared HubSpot handler (form 460ba517). Fonts were added to the Google Fonts link in page().
+
 ## 2026-10-06 — RESTRUCTURE: generator + folder URLs + results/badges/forms/tracking (READ FIRST)
 
 The site is now **generated**, not hand-edited HTML. Source of truth moved to
