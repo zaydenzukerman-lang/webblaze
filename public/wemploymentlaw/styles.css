@@ -839,3 +839,189 @@ footer .row-i .ico-f{width:18px;height:18px;fill:currentColor;display:block;marg
   .tg-card:active img,.tg-card:focus img{filter:none}
 }
 @media(prefers-reduced-motion:reduce){.tg-card img,.tg-act{transition:none}.tg-card:hover img,.tg-card:focus-visible img{transform:none}}
+
+/* =====================================================================
+   ROUND 4 (2026-10-08) client feedback — sections rebuilt to mirror the
+   live wemploymentlaw.com (measured with Playwright) / frontierlawcenter.com
+   ===================================================================== */
+/* ---- 10. Main menu: normal weight like live (Roboto 400, 1.5vw = 21.6px @1440), animated dropdown ---- */
+@media(min-width:961px){
+  .nav-in{max-width:none;padding:0 3%}
+  .nav-links{gap:clamp(14px,1.6vw,28px);font-weight:400;font-size:clamp(16px,1.5vw,21.6px);color:var(--teal)}
+  .nav-links>.nav-item>a{padding:13px 3px;position:relative;transition:color .25s}
+  .nav-links>.nav-item>a:after{content:"";position:absolute;left:3px;right:3px;bottom:6px;height:2px;background:var(--olive);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+  .nav-links>.nav-item>a:hover:after,.nav-item.open>a:after,.nav-links>.nav-item>a:focus-visible:after{transform:scaleX(1)}
+  .nav-links a:hover{color:#0a5e69}
+  .nav-item .car{width:.62em;height:.62em;margin-left:2px;opacity:.8;transition:transform .3s cubic-bezier(.2,.7,.3,1)}
+  .nav-item.open .car,.nav-item:focus-within .car{transform:rotate(180deg)}
+  .nav-drop{display:block;visibility:hidden;opacity:0;transform:translateY(10px) scale(.98);transform-origin:top left;pointer-events:none;
+    transition:opacity .22s ease,transform .28s cubic-bezier(.2,.7,.3,1),visibility 0s linear .28s;
+    top:calc(100% + 4px);border:0;border-radius:12px;padding:8px;min-width:270px;box-shadow:0 22px 48px rgba(8,63,71,.18),0 2px 6px rgba(0,0,0,.06);border-top:3px solid var(--teal)}
+  .nav-drop:before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
+  .nav-item.open .nav-drop,.nav-item:focus-within .nav-drop{visibility:visible;opacity:1;transform:none;pointer-events:auto;transition:opacity .22s ease,transform .28s cubic-bezier(.2,.7,.3,1),visibility 0s}
+  .nav-drop a{font-weight:400;font-size:17px;color:var(--ink);padding:10px 14px;border-radius:8px;position:relative;transition:background .2s,color .2s,padding-left .2s}
+  .nav-drop a:hover,.nav-drop a:focus-visible{background:#eef6f7;color:var(--teal);padding-left:20px;outline:0}
+  .nav-drop a:before{content:"";position:absolute;left:8px;top:50%;width:4px;height:4px;margin-top:-2px;border-radius:50%;background:var(--olive);opacity:0;transition:opacity .2s}
+  .nav-drop a:hover:before,.nav-drop a:focus-visible:before{opacity:1}
+  .nav-item.open .nav-drop a,.nav-item:focus-within .nav-drop a{animation:navIn .32s cubic-bezier(.2,.7,.3,1) both}
+  .nav-drop a:nth-child(2){animation-delay:.02s!important}.nav-drop a:nth-child(3){animation-delay:.04s!important}.nav-drop a:nth-child(4){animation-delay:.06s!important}
+  .nav-drop a:nth-child(5){animation-delay:.08s!important}.nav-drop a:nth-child(6){animation-delay:.1s!important}.nav-drop a:nth-child(n+7){animation-delay:.12s!important}
+}
+@keyframes navIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+@media(max-width:960px){
+  .nav-links{font-weight:400}.nav-item>a{font-size:1.05rem;color:var(--teal)}
+  .nav-item .car{width:.6em;height:.6em;margin-left:4px}
+  .nav-drop a{font-weight:400}
+}
+@media(prefers-reduced-motion:reduce){.nav-drop,.nav-drop a,.nav-item .car,.nav-links>.nav-item>a:after{transition:none!important;animation:none!important}}
+
+/* ---- 8. "We Can Help": no boxes, wide (live: 5% side padding, 1/3 video + 2/3 text) ---- */
+.wch{padding:58px 5% 64px;background:#fff}
+.wch-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:34px;align-items:start}
+.wch-vid .yt-lite{border-radius:0;aspect-ratio:16/9}
+.wch-vid iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.wch-tx h2{font-family:Roboto,system-ui,sans-serif;font-weight:500;font-size:clamp(1.45rem,2.2vw,2rem);line-height:1.15;color:#262626}
+.wch-list{list-style:none;margin:24px 0 0;padding:0}
+.wch-list li{display:flex;gap:15px;align-items:flex-start;padding-bottom:7.5px;margin-bottom:8px;font-family:"Didact Gothic",Roboto,sans-serif;font-size:clamp(1rem,1.3vw,1.17rem);line-height:1.5;color:#000}
+.wch-ic{flex:0 0 38px;width:38px;height:30px;color:#C2BD41;margin-top:2px}
+.wch-feat{margin-top:22px}
+.wch-feat span{display:block;font-family:"Didact Gothic",Roboto,sans-serif;font-weight:700;font-size:clamp(1.2rem,1.8vw,1.62rem);color:#333}
+.wch-feat img{width:320px;max-width:100%;height:auto;margin-top:14px}
+@media(max-width:767px){.wch{padding:40px 5% 44px}.wch-in{grid-template-columns:1fr;gap:22px}}
+
+/* ---- 13. How It Works (frontier-style steps; client copy) ---- */
+.hw{padding:20px 2% 40px;background:#fff}
+.hw-panel{max-width:1380px;margin:0 auto;border-radius:24px;overflow:hidden;color:#fff;
+  background:linear-gradient(180deg,#0d4f58 0%,#0a2a30 38%,#071a1e 60%,#071a1e 100%);padding:96px 6% 110px}
+.hw-head{text-align:center;max-width:620px;margin:0 auto}
+.hw-head h2{font-family:Poppins,Roboto,sans-serif;font-weight:600;font-size:clamp(2rem,3.4vw,3rem);line-height:1.15;color:#fff}
+.hw-head p{margin:28px auto 0;color:#a9bfc2;font-family:Poppins,Roboto,sans-serif;font-size:1rem}
+.hw-wrap{position:relative;max-width:1000px;margin:64px auto 0}
+.hw-lines{position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
+.hw-list{list-style:none;margin:0;padding:0;position:relative}
+.hw-step{width:50%;min-height:200px;padding:0 4% 0 0}
+.hw-step.hw-r{margin-left:50%}
+.hw-badge{position:relative;z-index:1;width:54px;height:54px;border-radius:50%;border:1px solid #2fa3b2;background:#0a2a30;color:#fff;display:grid;place-items:center;font-family:Poppins,Roboto,sans-serif;font-size:15px;transition:background .5s,color .5s,border-color .5s}
+.hw-step h3{margin-top:28px;font-family:Poppins,Roboto,sans-serif;font-weight:600;font-size:clamp(1.25rem,1.7vw,1.55rem);color:#fff}
+.hw-step p{margin:22px 0 0;max-width:430px;color:#a9bfc2;font-family:Poppins,Roboto,sans-serif;font-size:1rem;line-height:1.5}
+.hw-live .hw-step{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.hw-live .hw-step.in{opacity:1;transform:none}
+.hw-step.on .hw-badge{background:#ECD62B;border-color:#ECD62B;color:#0a2a30}
+@media(max-width:767px){
+  .hw{padding:12px 8px 28px}.hw-panel{padding:44px 20px 50px;border-radius:20px}
+  .hw-head{text-align:left}.hw-head p{margin-top:18px;text-align:center}
+  .hw-lines{display:none}.hw-wrap{margin-top:30px}
+  .hw-step,.hw-step.hw-r{width:auto;margin-left:0;min-height:0;padding:0 0 26px}
+  .hw-badge{width:40px;height:40px}.hw-step h3{margin-top:18px}.hw-step p{margin-top:14px}
+}
+@media(prefers-reduced-motion:reduce){.hw-step{opacity:1!important;transform:none!important;transition:none!important}.hw-badge{transition:none}}
+
+/* ---- 6. Why Hire (live: real photo, 75% black overlay, framed gold circles, teal on hover, fadeIn) ---- */
+.wh{position:relative;background:#EDEDED url('img/why-hire-bg.webp') center/cover no-repeat;padding:7% 5%;color:#fff;text-align:center}
+.wh:before{content:"";position:absolute;inset:0;background:#000;opacity:.75}
+.wh-in{position:relative}
+.wh h2{font-family:Roboto,system-ui,sans-serif;font-weight:500;font-size:clamp(25px,3.5vw,50.4px);line-height:1;color:#fff;padding:10px 10px 0}
+.wh-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin-top:20px}
+.wh-box{padding:10.6px;padding-left:5%;padding-right:5%}
+.wh-ic{display:inline-flex;align-items:center;justify-content:center;width:106px;height:106px;padding:25px;border:3px solid #C2BD41;border-radius:50%;color:#C2BD41;transition:color .3s,border-color .3s,transform .3s}
+.wh-ic svg{width:50px;height:50px}
+.wh-box:hover .wh-ic{color:#0F8291;border-color:#0F8291;transform:translateY(-4px)}
+.wh-box h3{margin-top:15px;font-family:Roboto,system-ui,sans-serif;font-weight:400;font-size:clamp(17px,2vw,28.8px);line-height:1.2;color:#fff}
+html.js .wh-anim .wh-box{opacity:0;transform:translateY(16px);transition:opacity 1.25s ease,transform 1.25s cubic-bezier(.2,.7,.3,1);transition-delay:calc(300ms + var(--d,0ms))}
+html.js .wh-anim.in .wh-box{opacity:1;transform:none}
+@media(max-width:767px){.wh{padding:10% 5% 5%}.wh-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.wh-ic{width:76px;height:76px;padding:18px}.wh-ic svg{width:35px;height:35px}}
+@media(prefers-reduced-motion:reduce){html.js .wh-anim .wh-box{opacity:1;transform:none;transition:none}}
+
+/* ---- 5/12. Testimonials (live: #EDEDED, "Testimonials" + gold divider, full-bleed videos, no border/radius) ---- */
+.tv{background:#EDEDED;padding:72px 0 40px;text-align:center}
+.tv h2{font-family:Roboto,system-ui,sans-serif;font-weight:500;font-size:clamp(25px,3.5vw,50.4px);line-height:1;color:#000}
+.tv-div{display:block;width:48px;height:4px;background:#C2BD41;margin:20px auto 12px}
+.tv-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;width:100%}
+.tv-row .yt-lite{border-radius:0;aspect-ratio:2/1;border:0;box-shadow:none}
+.tv-row iframe{width:100%;aspect-ratio:2/1;border:0;border-radius:0;display:block}
+@media(max-width:767px){.tv{padding:48px 0 32px}.tv-row{grid-template-columns:1fr;gap:10px}}
+
+/* ---- 3. Google reviews heading (eyebrow removed) ---- */
+.grev-head .sec-h{margin-top:0}
+
+/* ---- 2. Meet our Managing Attorney (live flip-box) ---- */
+.mt{padding:6% 8%;text-align:center;background:#fff}
+.mt h2{font-family:Roboto,system-ui,sans-serif;font-weight:500;font-size:clamp(28px,3.5vw,50.4px);line-height:1;color:#000}
+.mt-card{position:relative;display:block;width:387px;max-width:100%;height:450px;margin:44px auto 0;overflow:hidden;border-bottom:4px solid #D3B574;box-shadow:0 10px 30px rgba(0,0,0,.18);color:#fff}
+.mt-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;transition:transform .6s ease-in-out}
+.mt-ov{position:absolute;inset:0;background:rgba(0,0,0,.55);transition:background .6s ease-in-out}
+.mt-cap{position:absolute;left:35px;right:35px;bottom:44px;text-align:center;transition:opacity .6s ease-in-out}
+.mt-cap b{display:block;font-family:Roboto,system-ui,sans-serif;font-weight:400;font-size:clamp(24px,2.1vw,30.24px);line-height:1}
+.mt-cap span{display:block;margin-top:15px;font-family:"Didact Gothic",Roboto,sans-serif;font-size:clamp(17px,1.4vw,20.16px);line-height:1.5}
+.mt-card:hover .mt-ov,.mt-card:focus-visible .mt-ov{background:rgba(33,31,64,.3)}
+.mt-card:hover .mt-cap,.mt-card:focus-visible .mt-cap{opacity:0}
+.mt-card:hover img,.mt-card:focus-visible img{transform:scale(1.03)}
+.mt-card:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
+.mt-all{display:inline-flex;align-items:center;gap:15px;margin-top:24px;padding-top:10px;border-top:3px solid #0F8291;color:#0F8291;font-family:"Didact Gothic",Roboto,sans-serif;font-size:clamp(17px,1.5vw,21.6px);line-height:1;text-transform:uppercase;transition:color .3s,border-color .3s}
+.mt-all:hover{color:#0a5e69;border-color:#C2BD41}
+.mt-arw{width:19px;height:22px;transition:transform .3s}.mt-all:hover .mt-arw{transform:translateX(4px)}
+@media(max-width:767px){.mt{padding:40px 5%}.mt-card{width:351px;height:351px;margin-top:24px}}
+
+/* ---- 7. First Steps / Your Employee Rights Attorneys (full-bleed, live measurements) ---- */
+.gd{display:grid;grid-template-columns:1fr 1fr}
+.gd-l{background:#EDEDED;padding:58px 8% 64px}
+.gd-r{background:#0F8291;color:#fff;padding:58px 8% 64px;text-align:center}
+.gd h2{font-family:Roboto,system-ui,sans-serif;font-weight:500;font-size:clamp(25px,2.3vw,33.12px);line-height:1;color:#000}
+.gd-r h2{font-weight:600;font-size:clamp(28px,2.6vw,37.44px);color:#fff}
+.gd-box{list-style:none;margin:21px 0 0;padding:30px;border:1px solid #000;border-radius:5px}
+.gd-box li{display:flex;gap:15px;align-items:flex-start;padding-bottom:20px;font-family:"Didact Gothic",Roboto,sans-serif;font-size:clamp(15px,1.3vw,18.72px);line-height:1.3;color:#000}
+.gd-box li:last-child{padding-bottom:0}
+.gd-ic{flex:0 0 31px;width:31px;height:25px;color:#D1BD22;margin-top:2px}
+.gd-sub{font-family:"Didact Gothic",Roboto,sans-serif;font-size:clamp(17px,1.5vw,21.6px);line-height:2;margin:6px 0 4px}
+.gd-form{text-align:left;max-width:581px;margin:0 auto}
+.gd-form label{display:block;margin:0 0 4px;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;font-weight:500;color:#fff}
+.gd-form label i{font-style:normal;color:#f00;margin-left:2px}
+.gd-in{display:block;width:100%;height:40px;margin:0 0 18px;padding:0 15px;background:#F5F8FA;border:1px solid #CBD6E2;border-radius:3px;font:16px/22px "Helvetica Neue",Helvetica,Arial,sans-serif;color:#33475B}
+.gd-in:focus{outline:0;border-color:rgba(82,168,236,.8);box-shadow:0 0 4px 1px rgba(82,168,236,.8)}
+.gd-btn{margin-top:17px;padding:12px 24px;background:#00909B;border:1px solid #00909B;border-radius:3px;color:#fff;font:700 12px/12px Roboto,Helvetica,Arial,sans-serif;cursor:pointer;transition:background .2s}
+.gd-btn:hover{background:#007a84}.gd-btn:disabled{opacity:.7;cursor:wait}
+.gd .f-note{color:#fff;font-size:.9rem;margin-top:10px}
+.gd .form-ok{color:#fff;text-align:center}
+@media(max-width:767px){.gd{grid-template-columns:1fr}.gd-l,.gd-r{padding:40px 5% 44px}.gd-l h2{text-align:center}.gd-box{padding:22px 18px}}
+
+/* ---- 11. FAQ accordion (frontierlawcenter.com style) ---- */
+.fq{position:relative;overflow:hidden;background:#071a1e;padding:96px 4% 70px;color:#a9bfc2;font-family:Poppins,Roboto,sans-serif}
+.fq:before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(7,26,30,0) 30%,rgba(15,130,145,.55) 46%,rgba(15,130,145,.18) 60%,rgba(7,26,30,0) 80%);pointer-events:none}
+.fq-in{position:relative;max-width:1325px;margin:0 auto}
+.fq h2{max-width:640px;margin:0 auto 60px;text-align:center;font-family:Poppins,Roboto,sans-serif;font-weight:600;font-size:clamp(1.9rem,3.4vw,3rem);line-height:1.12;color:#fff}
+.fq-item{border:1px solid rgba(169,191,194,.22);border-radius:12px;margin-bottom:30px;padding:10px 30px;position:relative;overflow:hidden;transition:border-color .15s,background-color .35s}
+.fq-item:hover{border-color:rgba(169,191,194,.45)}
+.fq-item:after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:#0F8291;transform:scaleY(0);transform-origin:bottom;transition:transform .35s}
+.fq-item.open{background:#11292e;border-color:transparent}
+.fq-item.open:after{transform:none}
+.fq-t{margin:0;font-size:inherit}
+.fq-btn{display:flex;width:100%;align-items:center;justify-content:space-between;gap:24px;padding:30px 0;background:none;border:0;color:#fff;text-align:left;cursor:pointer;font-family:Poppins,Roboto,sans-serif;font-size:clamp(1rem,1.4vw,1.25rem);line-height:1.2;font-weight:400;transition:color .15s}
+.fq-item.open .fq-btn{font-weight:600}
+.fq-btn:focus-visible{outline:2px solid #ECD62B;outline-offset:4px;border-radius:6px}
+.fq-ic{position:relative;flex:0 0 30px;width:30px;height:30px}
+.fq-ic:before,.fq-ic:after{content:"";position:absolute;left:8px;top:14px;width:14px;height:2px;background:#a9bfc2;transition:transform .35s,background .2s}
+.fq-ic:after{transform:rotate(90deg)}
+.fq-item.open .fq-ic:before,.fq-item.open .fq-ic:after{background:#fff}
+.fq-item.open .fq-ic:after{transform:rotate(0)}
+.fq-p{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s ease}
+.fq-item.open .fq-p{grid-template-rows:1fr}
+.fq-pi{overflow:hidden}
+.fq-pi p{margin:0;padding:0 0 30px;font-size:1rem;line-height:1.5;color:#a9bfc2}
+@media(max-width:767px){.fq{padding:56px 6% 40px}.fq h2{margin-bottom:36px}.fq-item{padding:4px 22px;margin-bottom:22px}.fq-btn{padding:22px 0;font-size:.95rem;line-height:1.55}}
+@media(prefers-reduced-motion:reduce){.fq-p,.fq-ic:before,.fq-ic:after,.fq-item:after{transition:none}}
+
+/* ---- 9. Awards marquee: full colour on a light band (still scrolling) ---- */
+.badges-band{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.badges-band .eyebrow{color:var(--teal)}
+.aw-set img,.aw-set li:hover img,.aw-set .aw-inv img,.aw-set .aw-inv:hover img{filter:none;opacity:1}
+.aw-set li img{transition:transform .3s}.aw-set li:hover img{transform:scale(1.05)}
+.badges-row img{filter:none}
+
+/* ---- 1. Team grid: Jacob alone on row 1, then rows of 5 (tile = 1/5 row), last 3 centred ---- */
+.tg-grid>li{flex:0 0 20%;max-width:20%}
+.tg-grid>li.tg-lead{margin:0 40%}
+@media(max-width:899px){.tg-grid>li{flex-basis:33.3333%;max-width:33.3333%}.tg-grid>li.tg-lead{margin:0 33.3333%}}
+@media(max-width:699px){.tg-grid>li{flex-basis:50%;max-width:50%}.tg-grid>li.tg-lead{margin:0 25%}}
+@media(min-width:961px){.nav-item.esc .nav-drop{visibility:hidden!important;opacity:0!important;transform:translateY(10px) scale(.98)!important;pointer-events:none!important}.nav-item.esc .car{transform:none!important}}
+@media(min-width:961px){.nav-links a,.nav-r .ph,.nav-r .btn{white-space:nowrap}.nav-in{gap:16px}}
+@media(min-width:961px) and (max-width:1199px){.nav-r .ph{display:none}.nav-r .btn{padding:12px 16px}}

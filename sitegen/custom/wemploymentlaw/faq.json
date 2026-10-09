@@ -1,0 +1,38 @@
+[
+ {
+  "q": "Do I have a case?",
+  "q_es": "¿Tengo un caso?",
+  "a": "The best way to find out is a free case review. Tell us what happened by phone or through our form, and we'll go over your options with you at no cost and no obligation.",
+  "a_es": "La mejor manera de saberlo es una revisión de caso gratuita. Díganos qué pasó por teléfono o mediante nuestro formulario, y repasaremos sus opciones con usted sin costo ni compromiso."
+ },
+ {
+  "q": "Is going to trial the only way to recover compensation?",
+  "q_es": "¿Ir a juicio es la única forma de recuperar una compensación?",
+  "a": "No. Sometimes, all it takes is a simple letter to your employer. We will go over all your options with you to determine the best course of action for each individual situation. If a long-drawn out legal process isn't in your best interest, we'll let you know upfront.",
+  "a_es": "No. A veces, basta con una simple carta a su empleador. Repasaremos todas sus opciones con usted para determinar el mejor curso de acción para cada situación. Si un proceso legal largo no le conviene, se lo diremos desde el principio."
+ },
+ {
+  "q": "How much do you charge?",
+  "q_es": "¿Cuánto cobran?",
+  "a": "$0 unless we recover compensation for you. We take cases on a contingency basis, which means you don't pay any upfront fees or costs. If we negotiate a settlement from your employer or win your case in court, our fee comes out of the recovery from the employer. If we didn't win your case, you owe absolutely nothing.",
+  "a_es": "$0 a menos que recuperemos una compensación para usted. Tomamos los casos por contingencia, lo que significa que no paga honorarios ni costos por adelantado. Si negociamos un acuerdo con su empleador o ganamos su caso en la corte, nuestros honorarios salen de lo recuperado del empleador. Si no ganamos su caso, no debe absolutamente nada."
+ },
+ {
+  "q": "What if I still work for my employer?",
+  "q_es": "¿Qué pasa si todavía trabajo para mi empleador?",
+  "a": "We may still be able to help guide you through your options, even if you still work for your employer. Call us or fill out our free case evaluation form.",
+  "a_es": "Aún podemos ayudarle a guiarle por sus opciones, incluso si todavía trabaja para su empleador. Llámenos o complete nuestro formulario de evaluación gratuita."
+ },
+ {
+  "q": "Can my employer retaliate against me for hiring a lawyer to represent me with my claims?",
+  "q_es": "¿Puede mi empleador tomar represalias por contratar a un abogado para representarme?",
+  "a": "In California, it is illegal for an employer to retaliate against current or former employees for filing a lawsuit or complaint against them. This means the employer cannot legally terminate, demote, harass or discriminate against you for hiring an attorney to write a demand letter, filing a complaint in court, or complaining about workplace violations. If you were retaliated against, we can help fight for your rights and recover the compensation you deserve.",
+  "a_es": "En California, es ilegal que un empleador tome represalias contra empleados actuales o anteriores por presentar una demanda o queja en su contra. Esto significa que el empleador no puede legalmente despedirle, degradarle, acosarle ni discriminarle por contratar a un abogado para escribir una carta de demanda, presentar una queja en la corte o denunciar violaciones en el trabajo. Si sufrió represalias, podemos ayudar a luchar por sus derechos y recuperar la compensación que merece."
+ },
+ {
+  "q": "I don't live in Southern California. Can you still help with my case?",
+  "q_es": "No vivo en el sur de California. ¿Aún pueden ayudar con mi caso?",
+  "a": "As long as you worked for a California employer, we can help. The majority of our clients never need to come into our office in person. We consult most of our clients over the phone, email, and via video conference call. Of course, if you'd like to meet us in person, you're welcome to stop by!",
+  "a_es": "Siempre que haya trabajado para un empleador de California, podemos ayudar. La mayoría de nuestros clientes nunca necesitan venir a nuestra oficina en persona. Consultamos a la mayoría de nuestros clientes por teléfono, correo electrónico y videoconferencia. Por supuesto, si desea conocernos en persona, es bienvenido a visitarnos."
+ }
+]

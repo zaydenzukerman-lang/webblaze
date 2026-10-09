@@ -282,7 +282,7 @@ def substitute_tokens(html, from_path):
     out = out.replace("{{IMG}}", "../" * depth(from_path))
     if "{{AWARDS_MARQUEE}}" in out:
         out = out.replace("{{AWARDS_MARQUEE}}", render_awards_marquee()).replace("{{IMG}}", "../" * depth(from_path))
-    for token, fn in (("{{GOOGLE_REVIEWS}}", render_google_reviews), ("{{TEAM_GRID}}", render_team_grid)):
+    for token, fn in (("{{GOOGLE_REVIEWS}}", render_google_reviews), ("{{TEAM_GRID}}", render_team_grid)) + ROUND4_TOKENS:
         if token in out:
             out = out.replace(token, fn()).replace("{{IMG}}", "../" * depth(from_path))
             out = substitute_paths_only(out, from_path)
@@ -331,7 +331,7 @@ AWARD_BADGES = [
 ]
 
 # Dark artwork on a transparent background: rendered white on the dark band so it stays legible.
-AWARD_INVERT = {"aaj-member.webp"}
+AWARD_INVERT = set()  # round 4: badges shown in full colour on a light band, nothing inverted
 
 
 def render_awards_marquee():
@@ -403,7 +403,7 @@ def render_google_reviews():
                f'<span class="grev-sum-r"><span class="grev-stars" aria-hidden="true">★★★★★</span>'
                f'<span class="grev-sum-t" data-es="{rating_txt}{total_es} en Google">{rating_txt}{total_txt} on Google</span></span></a>')
     return f"""<section class="grev" id="google-reviews" aria-labelledby="grev-h"><div class="wrap">
-  <div class="grev-head"><span class="eyebrow" data-es="Reseñas de Google">Google Reviews</span>
+  <div class="grev-head">
     <h2 class="sec-h" id="grev-h" data-es="Lo Que Dicen Nuestros Clientes">What Our Clients Are Saying</h2></div>
   <ul class="grev-track" tabindex="0" aria-label="Latest 5-star Google reviews (scroll sideways for more)">{''.join(cards)}</ul>
   <div class="grev-nav"><button type="button" class="grev-arrow" data-dir="-1" aria-label="Previous reviews">‹</button><div class="grev-dots">{dots}</div><button type="button" class="grev-arrow" data-dir="1" aria-label="Next reviews">›</button></div>
@@ -456,14 +456,117 @@ def render_team_grid():
             label = f"Download vCard for {name}"
             act = '<span class="tg-act"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg> <span data-es="Descargar vCard">Download vCard</span></span>'
         if m.get("photo"):
-            media = f'<img src="{{{{IMG}}}}{_esc(m["photo"])}" width="640" height="800" alt="" loading="lazy" decoding="async">'
+            ph = m["photo"]; md = ph.replace(".webp", "-md.webp")
+            srcset = (f' srcset="{{{{IMG}}}}{_esc(md)} 640w, {{{{IMG}}}}{_esc(ph)} 1280w" sizes="(min-width:900px) 20vw, (min-width:700px) 34vw, 50vw"'
+                      if (OUT / md).exists() else "")
+            media = f'<img src="{{{{IMG}}}}{_esc(md if srcset else ph)}"{srcset} width="640" height="800" alt="" loading="lazy" decoding="async">'
         else:
             media = f'<span class="tg-initials" aria-hidden="true">{_esc(m.get("initials") or name[:2].upper())}</span>'
         tiles.append(
-            f'<li><a class="tg-card{" tg-noimg" if not m.get("photo") else ""}" href="{href}"{extra} aria-label="{label}">'
+            f'<li{" class=tg-lead" if m.get("kind") == "bio" else ""}><a class="tg-card{" tg-noimg" if not m.get("photo") else ""}" href="{href}"{extra} aria-label="{label}">'
             f'{media}<span class="tg-cap"><b>{name}</b>'
             f'{f"<span class=tg-title>{title}</span>" if title else ""}{act}</span></a></li>')
     return f'<ul class="tg-grid" role="list">{"".join(tiles)}</ul>'
+
+
+# ---------------------------------------------------------------------------
+# ROUND 4 shared components (client round-4 feedback, 2026-10-08). Each is a {{TOKEN}}
+# so the homepage and the Jacob page render the exact same markup.
+# ---------------------------------------------------------------------------
+FA = json.loads((ROOT / "fa_icons.json").read_text(encoding="utf-8"))  # Font Awesome 5 solid (same icons as live site)
+FAQ_JSON = ROOT / "faq.json"
+
+
+def fa(name, cls=""):
+    vb, d = FA[name]
+    return f'<svg class="{cls}" viewBox="{vb}" aria-hidden="true" focusable="false"><path fill="currentColor" d="{d}"/></svg>'
+
+
+def render_why_hire():
+    """'Why Hire W Employment Law?' — mirrors the live site: real office photo under a 75% black
+    overlay, 6 framed gold circles (Font Awesome icons the live site uses), live wording only,
+    icon turns teal on hover (live hover), row fades in on scroll with a 300ms delay (live fadeIn)."""
+    items = [("balance-scale", "Free Legal Advice", "Asesoría Legal Gratuita"),
+             ("money-check-alt", "No Win No Fees", "Sin Ganar, Sin Honorarios"),
+             ("university", "Power &amp; Resources", "Poder y Recursos"),
+             ("user-tie", "Vast Experience", "Amplia Experiencia"),
+             ("hands-helping", "Proven Results", "Resultados Comprobados"),
+             ("eye-slash", "Confidential Advice", "Asesoría Confidencial")]
+    boxes = "".join(
+        f'<div class="wh-box" style="--d:{i*90}ms"><span class="wh-ic">{fa(ic)}</span><h3 data-es="{es}">{en}</h3></div>'
+        for i, (ic, en, es) in enumerate(items))
+    return (f'<section class="wh" id="why"><div class="wh-in">'
+            f'<h2 data-es="¿Por Qué Contratar a W Employment Law?">Why Hire W Employment Law?</h2>'
+            f'<div class="wh-grid wh-anim">{boxes}</div></div></section>')
+
+
+TESTIMONIAL_VIDEOS = [("-D92OtPtzRc", "testimonial-zhubin.webp", "Zhubin", "meal &amp; rest break violations"),
+                      ("Vi-P5Tldse8", "testimonial-caila.webp", "Caila", "wrongful termination"),
+                      ("tHGyjLnjqx4", "testimonial-daniel.webp", "Daniel", "employment case")]
+
+
+def render_testimonial_videos():
+    """Video testimonials — mirrors live: #EDEDED band, 'Testimonials' + short gold divider,
+    full-bleed row of videos (no side space, no border, no rounded corners)."""
+    vids = "".join(
+        f'<button class="yt-lite tvid" type="button" data-yt="{yt}" aria-label="Play video testimonial from {n}">'
+        f'<img src="{{{{IMG}}}}img/{img}" width="960" height="480" alt="{n}, client video testimonial ({what})" loading="lazy">'
+        f'<span class="yt-play" aria-hidden="true"></span></button>' for yt, img, n, what in TESTIMONIAL_VIDEOS)
+    return (f'<section class="tv" id="reviews"><h2 data-es="Testimonios">Testimonials</h2>'
+            f'<span class="tv-div" aria-hidden="true"></span><div class="tv-row">{vids}</div></section>')
+
+
+def render_faq_accordion():
+    """'California Employment Law FAQ' — accordion styled after frontierlawcenter.com
+    (dark band, full-width bordered cards, +/− icon, open card highlighted with an accent bar,
+    smooth height animation, one open at a time, first open by default). W Employment Law's
+    own FAQ text from faq.json."""
+    items = json.loads(FAQ_JSON.read_text(encoding="utf-8"))
+    cards = []
+    for i, it in enumerate(items):
+        op = i == 0
+        cards.append(
+            f'<div class="fq-item{" open" if op else ""}"><h3 class="fq-t"><button type="button" class="fq-btn" id="fq-b{i}" '
+            f'aria-expanded="{"true" if op else "false"}" aria-controls="fq-p{i}"><span data-es="{_esc(it["q_es"])}">{it["q"]}</span>'
+            f'<span class="fq-ic" aria-hidden="true"></span></button></h3>'
+            f'<div class="fq-p" id="fq-p{i}" role="region" aria-labelledby="fq-b{i}"><div class="fq-pi">'
+            f'<p data-es="{_esc(it["a_es"])}">{it["a"]}</p></div></div></div>')
+    return (f'<section class="fq" id="faq"><div class="fq-in">'
+            f'<h2 data-es="Preguntas Frecuentes sobre el Derecho Laboral de California">California Employment Law FAQ</h2>'
+            f'<div class="fq-list">{"".join(cards)}</div></div></section>')
+
+
+HOW_STEPS = [
+    ("Tell Us What Happened", "Call or send the form. It is free, confidential, and takes a few minutes.",
+     "Cuéntenos Qué Pasó", "Llame o envíe el formulario. Es gratis, confidencial y toma solo unos minutos."),
+    ("We Review Your Case", "An employment attorney reads what happened and walks you through your options.",
+     "Revisamos Su Caso", "Un abogado laboral lee lo que pasó y le explica sus opciones."),
+    ("We Take It From There", "If we take the case, we deal with your employer. You do not have to worry.",
+     "Nosotros Nos Encargamos", "Si tomamos el caso, nosotros tratamos con su empleador. Usted no tiene que preocuparse."),
+    ("No Win, No Fee", "You pay nothing unless we recover compensation for you.",
+     "Sin Ganar, Sin Honorarios", "No paga nada a menos que recuperemos una compensación para usted."),
+]
+
+
+def render_how_it_works():
+    """'How It Works' — layout/animation modelled on the steps section of
+    frontierlawcenter.com/los-angeles-employment-lawyer/: dark rounded panel, zig-zag numbered
+    steps, a dashed gradient curve drawn between consecutive steps as you scroll (scrubbed),
+    number badge fills when the step reaches 70% of the viewport, each step fades up into view.
+    Client-supplied copy (exact). prefers-reduced-motion: everything shown, no animation."""
+    steps = "".join(
+        f'<li class="hw-step hw-{"l" if i % 2 == 0 else "r"}"><span class="hw-badge">{i+1}</span>'
+        f'<h3 data-es="{tes}">{t}</h3><p data-es="{xes}">{x}</p></li>'
+        for i, (t, x, tes, xes) in enumerate(HOW_STEPS))
+    return (f'<section class="hw" id="how-it-works"><div class="hw-panel">'
+            f'<div class="hw-head"><h2 data-es="Cómo W Employment Law Lucha Por Usted">How W Employment Law Fights For You</h2>'
+            f'<p data-es="Nosotros nos encargamos del caso para que usted pueda seguir adelante.">We handle the case so you can focus on moving forward.</p></div>'
+            f'<div class="hw-wrap"><svg class="hw-lines" aria-hidden="true" focusable="false"></svg><ol class="hw-list">{steps}</ol></div>'
+            f'</div></section>')
+
+
+ROUND4_TOKENS = (("{{WHY_HIRE}}", render_why_hire), ("{{TESTIMONIAL_VIDEOS}}", render_testimonial_videos),
+                 ("{{FAQ_ACCORDION}}", render_faq_accordion), ("{{HOW_IT_WORKS}}", render_how_it_works))
 
 
 PHEAD_TMPL = """<section class="phead"><div class="wrap">
@@ -504,8 +607,8 @@ def render_nav(from_path):
                 for c in item["children"]
             )
             items.append(
-                f'<div class="nav-item has-drop"><a href="{href}" data-es="{item["es"]}" '
-                f'aria-haspopup="true">{item["label"]} <span class="car">▾</span></a>'
+                f'<div class="nav-item has-drop"><a href="{href}" '
+                f'aria-haspopup="true" aria-expanded="false"><span data-es="{item["es"]}">{item["label"]}</span> <svg class="car" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>'
                 f'<div class="nav-drop" role="menu">{kids}</div></div>'
             )
         else:
@@ -672,7 +775,9 @@ document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#
       }
       fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
         .then(function(r){return r.ok?r.json():Promise.reject(r);})
-        .then(function(){ form.innerHTML=okMsg(form.getAttribute('data-download')); if(window.welTrackLead) welTrackLead(); })
+        .then(function(){ var dl=form.getAttribute('data-download'); form.innerHTML=okMsg(dl); if(window.welTrackLead) welTrackLead();
+          /* live site's guide form redirects straight to the PDF after submit (HubSpot redirectUrl) */
+          if(dl && form.hasAttribute('data-redirect')){ setTimeout(function(){ location.href=dl; },600); } })
         .catch(function(){ btn.disabled=false; btn.textContent=label; if(note) note.innerHTML=es()?'Algo salió mal. Por favor llame al <b>888-492-0633</b> y lo atenderemos.':'Something went wrong. Please call <b>888-492-0633</b> and we\\'ll get you taken care of.'; });
     });
   });
@@ -700,6 +805,81 @@ document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#
     f.title=b.getAttribute('aria-label')||'Video'; f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'; f.allowFullscreen=true;
     b.replaceWith(f);
   });
+})();
+(function(){
+  /* ROUND 4 — nav dropdowns: aria-expanded, Escape to close, tap-to-open on touch (CSS does the animation) */
+  var items=[].slice.call(document.querySelectorAll('.nav-item.has-drop'));
+  function setOpen(it,o){it.classList.toggle('open',o);var a=it.querySelector(':scope>a');if(a)a.setAttribute('aria-expanded',o?'true':'false');}
+  items.forEach(function(it){
+    var a=it.querySelector(':scope>a');
+    it.addEventListener('mouseenter',function(){it.classList.remove('esc');setOpen(it,true);});
+    it.addEventListener('mouseleave',function(){setOpen(it,false);});
+    it.addEventListener('focusin',function(){if(!it.classList.contains('esc'))setOpen(it,true);});
+    it.addEventListener('focusout',function(e){if(!it.contains(e.relatedTarget)){it.classList.remove('esc');setOpen(it,false);}});
+    it.addEventListener('keydown',function(e){if(e.key==='Escape'){it.classList.add('esc');setOpen(it,false);a.focus();}else if(e.key==='ArrowDown'&&e.target===a){e.preventDefault();it.classList.remove('esc');setOpen(it,true);var f=it.querySelector('.nav-drop a');if(f)f.focus();}});
+    a.addEventListener('click',function(e){ /* first tap on a touch screen opens the menu instead of navigating */
+      if(matchMedia('(hover: none)').matches && matchMedia('(min-width: 961px)').matches && !it.classList.contains('open')){e.preventDefault();items.forEach(function(o){setOpen(o,o===it);});}
+    });
+  });
+  document.addEventListener('click',function(e){items.forEach(function(it){if(!it.contains(e.target))setOpen(it,false);});});
+})();
+(function(){
+  /* ROUND 4 — FAQ accordion (frontierlawcenter style): one open at a time, height animated in CSS */
+  document.querySelectorAll('.fq-list').forEach(function(list){
+    list.addEventListener('click',function(e){
+      var b=e.target.closest('.fq-btn'); if(!b) return;
+      var it=b.closest('.fq-item'), open=!it.classList.contains('open');
+      list.querySelectorAll('.fq-item').forEach(function(o){o.classList.remove('open');o.querySelector('.fq-btn').setAttribute('aria-expanded','false');});
+      if(open){it.classList.add('open');b.setAttribute('aria-expanded','true');}
+    });
+  });
+})();
+(function(){
+  /* ROUND 4 — "Why Hire" icons fade in once (live: Elementor fadeIn, 300ms delay) */
+  var g=document.querySelectorAll('.wh-anim'); if(!g.length) return;
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){g.forEach(function(x){x.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.2});
+  g.forEach(function(x){io.observe(x);});
+})();
+(function(){
+  /* ROUND 4 — How It Works (modelled on frontierlawcenter.com steps): dashed gold curve between
+     consecutive badges drawn as you scroll (scrubbed), badge fills at 70% of the viewport,
+     each step fades up into view. Reduced motion: all visible, lines fully drawn, no animation. */
+  var sec=document.querySelector('.hw'); if(!sec) return;
+  var wrap=sec.querySelector('.hw-wrap'), svg=sec.querySelector('.hw-lines'), steps=[].slice.call(sec.querySelectorAll('.hw-step'));
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, NS='http://www.w3.org/2000/svg', segs=[];
+  sec.classList.add(reduce?'hw-static':'hw-live');
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  function draw(){
+    while(svg.firstChild) svg.removeChild(svg.firstChild); segs=[];
+    var wr=wrap.getBoundingClientRect(); svg.setAttribute('width',wr.width); svg.setAttribute('height',wr.height); svg.setAttribute('viewBox','0 0 '+wr.width+' '+wr.height);
+    if(getComputedStyle(svg).display==='none') return;
+    var defs=el('defs',{}); svg.appendChild(defs);
+    for(var i=0;i<steps.length-1;i++){
+      var a=steps[i].querySelector('.hw-badge').getBoundingClientRect(), b=steps[i+1].querySelector('.hw-badge').getBoundingClientRect();
+      var x1=a.left-wr.left+a.width/2, y1=a.top-wr.top+a.height/2, x2=b.left-wr.left+b.width/2, y2=b.top-wr.top+b.height/2, dx=x2-x1, dy=y2-y1, d;
+      if(dx>0){ x1-=a.width*1.2; d='M'+x1+' '+(y1+4)+' C'+(x1+.27*(x2-x1))+' '+(y1-.2*dy)+' '+(x1+.78*(x2-x1))+' '+(y1+.15*dy)+' '+x2+' '+(y2-b.height/2); }
+      else { d='M'+(x1+a.width*1.1)+' '+(y1+a.height/2)+' C'+(x1+.15*dx)+' '+(y1+.62*dy)+' '+(x1+.55*dx)+' '+(y1+1.12*dy)+' '+x2+' '+(y2-2); }
+      var gid='hwg'+i, mid='hwm'+i;
+      var g=el('linearGradient',{id:gid,gradientUnits:'userSpaceOnUse',x1:dx>0?x1:x1+a.width,y1:y1,x2:x2,y2:y2});
+      g.appendChild(el('stop',{'stop-color':'#ECD62B','stop-opacity':'0'})); g.appendChild(el('stop',{offset:'1','stop-color':'#ECD62B'})); defs.appendChild(g);
+      var m=el('mask',{id:mid,maskUnits:'userSpaceOnUse',x:0,y:0,width:wr.width,height:wr.height}); var mp=el('path',{d:d,stroke:'#fff','stroke-width':'8',fill:'none'}); m.appendChild(mp); defs.appendChild(m);
+      var p=el('path',{d:d,stroke:'url(#'+gid+')','stroke-width':'3','stroke-dasharray':'6 6',fill:'none',mask:'url(#'+mid+')'}); svg.appendChild(p);
+      var L=mp.getTotalLength(); mp.style.strokeDasharray=L; mp.style.strokeDashoffset=reduce?0:L; segs.push({m:mp,L:L,box:steps[i]});
+    }
+    tick();
+  }
+  function tick(){
+    if(reduce) return; var vh=innerHeight;
+    segs.forEach(function(s){ /* 0 when this badge is at 80% of the viewport, 1 when the next badge reaches 60% */
+      var sT=s.box.querySelector('.hw-badge').getBoundingClientRect().top, nT=s.box.nextElementSibling.querySelector('.hw-badge').getBoundingClientRect().top;
+      var k=Math.max(0,Math.min(1,(vh*.8-sT)/((nT-sT)+vh*.2))); s.m.style.strokeDashoffset=s.L*(1-k);});
+    steps.forEach(function(st){var t=st.getBoundingClientRect().top; if(t<vh*.88) st.classList.add('in'); st.classList.toggle('on',t<vh*.7);});
+  }
+  if(reduce){steps.forEach(function(st){st.classList.add('in','on');});}
+  var raf=0; addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(function(){raf=0;tick();});},{passive:true});
+  var rt; addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(draw,120);});
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(draw); addEventListener('load',draw); draw();
 })();
 (function(){var els=document.querySelectorAll('.reveal');
 function showAll(){els.forEach(function(e){e.classList.add('in');});}
@@ -747,7 +927,7 @@ def page(path, title, description, body_html, *,
     canonical = BASE_URL.rstrip("/") + path
     og_img = og_image or (BASE_URL.rstrip("/") + "/img/jacob-share.jpg")
     img_prefix = "../" * depth(path)
-    styles_href = f"{img_prefix}styles.css?v=20261009"
+    styles_href = f"{img_prefix}styles.css?v=20261010"
     i18n_href = f"{img_prefix}i18n.js"
 
     schema_blocks = [json.dumps(DEFAULT_SCHEMA, ensure_ascii=False)]
@@ -776,7 +956,7 @@ def page(path, title, description, body_html, *,
 <link rel="icon" type="image/png" sizes="180x180" href="{img_prefix}img/favicon.png">
 <link rel="apple-touch-icon" href="{img_prefix}img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&family=Didact+Gothic&family=Karla:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&family=Didact+Gothic&family=Karla:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{styles_href}">
 {schema_html}
 {extra_head}

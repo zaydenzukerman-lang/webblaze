@@ -14,5 +14,5 @@
       null
     ]
   ],
-  "body_html": "<section class=\"tg-sec\" aria-labelledby=\"tg-h\">\n  <div class=\"wrap tm-center tg-intro\">\n    <h2 class=\"tm-h2\" id=\"tg-h\" data-es=\"Conozca a Nuestro Equipo Legal\">Meet Our Legal Team</h2>\n    <p data-es=\"Toque a Jacob para ver su biografía completa. Toque a cualquier otro miembro del equipo para guardar su tarjeta de contacto (vCard).\">Select Jacob to read his full bio. Select any other team member to save their contact card (vCard).</p>\n  </div>\n  {{TEAM_GRID}}\n</section>\n"
+  "body_html": "<section class=\"tg-sec\" aria-labelledby=\"tg-h\">\n  <div class=\"wrap tm-center tg-intro\">\n    <h2 class=\"tm-h2\" id=\"tg-h\" data-es=\"Conozca a Nuestro Equipo Legal\">Meet Our Legal Team</h2>\n  </div>\n  {{TEAM_GRID}}\n</section>\n"
 }

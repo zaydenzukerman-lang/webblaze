@@ -1,5 +1,57 @@
 # W Employment Law site — handoff state (read this first)
 
+## 2026-10-08 — ROUND 4 client feedback (Vikas items 1-13, Gladys 14-15)
+
+Rebuild: `cd ~/webblaze && python3 sitegen/custom/wemploymentlaw/build.py && python3 sitegen/custom/wemploymentlaw/pages_extra.py`
+(styles.css cache-bust now `?v=20261010`). All round-4 CSS is one block at the END of styles.css ("ROUND 4").
+Verification screenshots (after + live/reference): scratchpad `r4/itemNN-after.png` / `itemNN-ref.png`.
+Not deployed, not committed.
+
+New shared components (build.py tokens, so homepage + Jacob page render identical markup):
+`{{WHY_HIRE}}` render_why_hire, `{{TESTIMONIAL_VIDEOS}}` render_testimonial_videos,
+`{{FAQ_ACCORDION}}` render_faq_accordion (data: `faq.json`), `{{HOW_IT_WORKS}}` render_how_it_works (copy: `HOW_STEPS`).
+Icons are the same Font Awesome 5 solid icons the live site uses, inlined from `fa_icons.json` via `fa(name)`.
+
+1. **Team page**: Jacob alone centred on row 1 (`li.tg-lead`, margin 0 40%), then 5 / 5 / 3 (centred), tile = 20% of row.
+   700-899px: 3-up (Jacob alone centred). <700px: 2-up, Jacob alone centred (25% margins), last person centred.
+   Jacob photo = `img/team/v3/jacob-whitehead-real.webp` (+ `-md`), cropped from Downloads/@faveofJW..jpg (studio, arms crossed).
+2. **Meet our Managing Attorney**: rebuilt as the live flip-box (387x450 card, 55% black overlay, Roboto name / Didact Gothic
+   title, 4px #D3B574 bottom border, hover fades overlay + caption like live). "View All Team Members" = Didact Gothic uppercase
+   with 3px teal top rule + arrow. Photo `img/jacob-meet.webp` (+ `-md`) from the same real studio original.
+3. **Google reviews**: "Google Reviews" eyebrow removed (EN + ES); heading is just "What Our Clients Are Saying". Only the homepage has this section.
+4. **/practice-areas/**: removed the yellow `.tagg` label from all 11 cards (title shows once).
+5. **Testimonials**: "Real Clients. Real Outcomes." removed; live layout: #EDEDED band, "Testimonials" + 48x4 gold divider,
+   full-bleed 3-video row (10px gaps like live), no border, no radius. Phones: stacked full-width.
+6. **Why Hire**: live photo `img/why-hire-bg.webp` (downloaded from live 10-min-copy.jpg) under 75% black, live wording only
+   (no sub-lines, no button), 6 framed gold circles; hover turns icon teal (#0F8291, live hover) + small lift; boxes fade up on scroll
+   (live fadeIn, 300ms delay, staggered). Also on the Jacob page.
+7. **First Steps / Your Employee Rights Attorneys**: full-bleed 50/50 (gray / teal), live sizes; form replicates the live HubSpot
+   embed (stacked labels with red *, #F5F8FA fields, #00909B Download). Posts to the live block's form **2860c01f** and then
+   redirects to `guides/Know-Your-Rights.pdf` (live form's redirectUrl is the same PDF). Tested with the request intercepted.
+8. **We Can Help**: boxes removed; live layout (1/3 video, 2/3 text, 5% side padding like live), live heading + 3 gold-icon
+   paragraphs (live text; "form below" changed to "the form" since the form is above), Featured on. CTA buttons removed (not on live).
+9. **Awards**: still scrolling; badges now full colour on a white band (AWARD_INVERT emptied; grayscale filter removed).
+10. **Menu**: Roboto 400, 1.5vw (21.6px @1440) teal like live; dropdown fades/slides in, items stagger, hover tint + gold dot,
+    caret rotates, underline grows on hover. JS sets aria-expanded, Escape closes, ArrowDown enters menu, first tap opens on touch
+    desktops. 961-1199px hides the header phone (still in the utility bar) so nothing wraps. Mobile hamburger unchanged (lists expanded).
+11. **FAQ**: frontierlawcenter-style accordion (dark band with teal glow, bordered 12px cards, +/− icon, open card tinted with
+    8px teal bar, grid-rows height animation, one open at a time, first open). Used on the homepage (added — live homepage has
+    this section) and /contact/. **/faq/ is a video playlist (different component) and was left as is.**
+12. **Jacob page**: old 4 static reviews + "Real Clients. Real Outcomes." removed; heading "Testimonials"; content = the same
+    video testimonials component as the homepage.
+13. **How It Works**: rebuilt like frontier's steps (dark rounded panel, zig-zag numbered steps, dashed gradient curve drawn
+    between badges as you scroll, badge fills at 70% viewport, steps fade up). Client's exact copy. prefers-reduced-motion: all
+    steps shown, lines fully drawn. Phones: single column, no curves (frontier does the same).
+14. Team page intro line ("Select Jacob to read his full bio...") removed.
+15. **Jacob photo audit** — every place he appears now uses a real photo: home hero `jacob-hero.webp`; home Meet card
+    `jacob-meet.webp`; team tile `team/v3/jacob-whitehead-real.webp`; Jacob page `jacob-about.webp`; og/twitter/JSON-LD image on
+    all pages `jacob-share.jpg`; video stills `intro-video.webp` (home) and `old/Capture22.webp` (/videos/) are frames of his real
+    video; Why Hire background is the live site's office photo. **Deleted** (AI or unverified): `img/team/v2/jacob-whitehead.webp`
+    (AI), `img/jacob.png` (AI-enhanced), `img/jacob-cutout.png`, `img/team/jacob.webp`, `img/old/Jacob-Whitehead*.webp`.
+    Raw crawl JSONs in content/ (unpublished) still mention old filenames; harmless.
+
+Verified: Playwright crawl of all 54 pages at 1440 and 390: 0 console errors, 0 local 4xx/failed requests, 0 horizontal overflow.
+
 ## 2026-10-07 — ROUND 3 client feedback (names, hero photo, awards marquee, Google reviews, team grid, footer)
 
 Rebuild as always: `cd ~/webblaze && python3 sitegen/custom/wemploymentlaw/build.py && python3 sitegen/custom/wemploymentlaw/pages_extra.py`
