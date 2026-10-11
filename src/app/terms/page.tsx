@@ -26,7 +26,7 @@ export default function Terms() {
 
             <h2>Our services</h2>
             <p>
-              We design and build websites for small businesses for a <strong>$300 flat fee</strong>.
+              We design and build websites for small businesses for <strong>$629 per year</strong>, which includes hosting and updates.
               We may also offer optional growth services (such as local SEO and lead generation) —
               these are always quoted and agreed separately, never bundled into the website fee.
             </p>
@@ -34,10 +34,17 @@ export default function Terms() {
             <h2>Build-first model &amp; payment</h2>
             <ul>
               <li>We build your website <strong>first</strong>, with no deposit and no contract.</li>
-              <li>You pay the <strong>$300 flat fee only if you approve</strong> the finished site.</li>
+              <li>You pay <strong>only once your site is live and you have approved it</strong>.</li>
               <li>If you decide not to proceed, you owe us nothing and there is no obligation.</li>
-              <li>Payment is made once, by invoice. There are no recurring or hidden fees for the website itself.</li>
+              <li>Payment is made by invoice, once a year. There are no hidden fees for the website itself.</li>
             </ul>
+
+            <h2>30-day money-back guarantee</h2>
+            <p>
+              If you are not happy within 30 days of your payment, tell us and we will refund the full
+              amount to your original payment method, no questions asked. After a refund, we take the
+              website offline.
+            </p>
 
             <h2>Revisions</h2>
             <p>
@@ -48,7 +55,7 @@ export default function Terms() {
 
             <h2>Ownership &amp; intellectual property</h2>
             <ul>
-              <li>Once the $300 fee is paid in full, the website and the assets we created for it are <strong>yours</strong>.</li>
+              <li>Once your yearly fee is paid in full, the website and the assets we created for it are <strong>yours</strong>.</li>
               <li>You are responsible for ensuring you have the rights to any content you provide (logos, photos, text).</li>
               <li>We may feature the work in our portfolio unless you ask us not to.</li>
             </ul>
@@ -82,7 +89,7 @@ export default function Terms() {
             <h2>Ending the engagement</h2>
             <p>
               Because we build first, either side can walk away before payment with no cost or
-              obligation. After payment, the completed site is yours to keep.
+              obligation. After payment, you have 30 days to request a full refund (see above).
             </p>
 
             <h2>Changes to these terms</h2>

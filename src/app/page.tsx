@@ -32,12 +32,12 @@ const WORK = [
 const STEPS = [
   { n: "01", t: "We build it first", d: "No deposit, no risk. We design and build your real site using your real business info — before you pay a cent." },
   { n: "02", t: "You shape it", d: "Photos, copy, colors, prices — tell us what to change and we refine it. As many rounds as it takes to make it yours." },
-  { n: "03", t: "Pay only if you love it", d: "Just $300 a year — hosting, free updates, and reports all included. Don't love it? You owe nothing and walk away." },
+  { n: "03", t: "Pay only if you love it", d: "$629 a year, with hosting, free updates and reports included. You pay only once it's live. Don't love it? You owe nothing. And if you change your mind in the first 30 days, you get every dollar back." },
 ];
 
 const FAQS = [
-  { q: "Why is it only $300 a year?", a: "We're lean, with no agency overhead — and we'd rather earn your trust with a fair price than oversell you. The $300 covers your whole site for the year: hosting, updates, and reports. Most clients grow with us from there." },
-  { q: "What does the $300 a year include?", a: "Everything to keep your site live and current: hosting, unlimited small updates whenever you need them, a fast mobile-friendly build, and a simple monthly report on your traffic. No hidden fees, no contract — cancel anytime." },
+  { q: "What if I pay and change my mind?", a: "You have 30 days. Tell us and we refund the full $629 to your card, no questions asked. And you never pay anything until your site is live and you've approved it." },
+  { q: "What does the $629 a year include?", a: "Everything to keep your site live and current: hosting, unlimited small updates whenever you need them, a fast mobile-friendly build, and a simple monthly report on your traffic. No hidden fees, no contract — cancel anytime." },
   { q: "What if I want changes after it's live?", a: "Small updates — a new number, a price change, a fresh photo — are free anytime, included in your yearly fee. Just ask. Larger redesigns are quoted separately." },
   { q: "Do you help me get more customers, not just a site?", a: "Yes — that's the real value. Once your site's live, we can get you ranking higher on Google Maps and pulling in more reviews so more local customers actually find you. It's a separate monthly service, never bundled or pushy." },
 ];
@@ -87,8 +87,8 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            We design and build your website first — you only pay once you love it. Just $300 a year,
-            hosting and updates included. Then, when you're ready, we get you found on Google and booked more often.
+            We design and build your website first — you only pay once you love it. Just $629 a year,
+            hosting and updates included, with a 30-day money-back guarantee. Then, when you're ready, we get you found on Google and booked more often.
           </motion.p>
           <motion.div
             className="mt-10 flex flex-wrap items-center gap-4"
@@ -102,14 +102,14 @@ export default function Home() {
             <a href="#work" className="btn btn-ghost-noir">See our work</a>
           </motion.div>
         </div>
-        <Marquee items={["$300 a year", "Built before you pay", "Hosting included", "Free updates", "Cancel anytime", "Google ranking", "More reviews"]} />
+        <Marquee items={["$629 a year", "Built before you pay", "30-day money-back guarantee", "Hosting included", "Free updates", "Cancel anytime", "Google ranking", "More reviews"]} />
       </header>
 
       {/* ============ STATS ============ */}
       <section className="relative isolate bg-[var(--noir-2)] text-[var(--on-noir)] grain">
         <div className="relative z-10 mx-auto grid max-w-[1180px] grid-cols-2 gap-x-6 gap-y-12 px-6 py-20 md:grid-cols-4">
           {[
-            { v: 300, prefix: "$", suffix: "/yr", label: "All-in. Nothing hidden." },
+            { v: 629, prefix: "$", suffix: "/yr", label: "All-in. Nothing hidden." },
             { v: 0, label: "Upfront. Pay only if you love it." },
             { v: 3, suffix: "-day", label: "First draft in your inbox." },
             { v: 100, suffix: "%", label: "Custom. Never a template." },
@@ -233,7 +233,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 max-w-[42ch] text-[var(--ink-soft)] text-[length:var(--fs-body)]">
-                Start with a website that makes you look legit for $300 a year. Then, when you&apos;re
+                Start with a website that makes you look legit for $629 a year. Then, when you&apos;re
                 ready, we get you found on Google Maps and booked more often. Growth is added only once
                 your site&apos;s live — never bundled, never pushy.
               </p>
@@ -247,11 +247,11 @@ export default function Home() {
                 <div className="relative z-10">
                   <span className="eyebrow text-[var(--flame)]">Website</span>
                   <div className="mt-3 flex items-end gap-2">
-                    <span className="font-[family-name:var(--font-space-grotesk)] text-6xl font-bold tracking-tight">$300</span>
+                    <span className="font-[family-name:var(--font-space-grotesk)] text-6xl font-bold tracking-tight">$629</span>
                     <span className="mb-2 text-sm text-[var(--ink-soft)]">/ year</span>
                   </div>
                   <ul className="mt-7 space-y-3 text-[0.97rem] text-[var(--ink-soft)]">
-                    {["Custom site, built for your business","Fast, mobile-first design","Hosting + free updates included","Built first — pay only if you love it","Cancel anytime, no contract"].map((f) => (
+                    {["Custom site, built for your business","Fast, mobile-first design","Hosting + free updates included","Built first — pay only if you love it","30-day money-back guarantee","Cancel anytime, no contract"].map((f) => (
                       <li key={f} className="flex items-start gap-3">
                         <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full flame-bg text-[11px] text-white">✓</span>
                         {f}
