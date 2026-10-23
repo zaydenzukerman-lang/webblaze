@@ -1,0 +1,2 @@
+function pvSubmit(f){f.querySelector('.ok').hidden=false;return false}
+document.querySelectorAll('.chip').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');var m=document.getElementById('msg');if(m)m.value=b.dataset.sit;var f=document.getElementById('form');if(f)f.scrollIntoView({behavior:'smooth',block:'center'})})});
