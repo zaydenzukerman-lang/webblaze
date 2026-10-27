@@ -39,6 +39,7 @@ const FAQS = [
   { q: "What if I pay and change my mind?", a: "You have 30 days. Tell us and we refund the full $629 to your card, no questions asked. And you never pay anything until your site is live and you've approved it." },
   { q: "What does the $629 a year include?", a: "Everything to keep your site live and current: hosting, unlimited small updates whenever you need them, a fast mobile-friendly build, and a simple monthly report on your traffic. No hidden fees, no contract — cancel anytime." },
   { q: "What if I want changes after it's live?", a: "Small updates — a new number, a price change, a fresh photo — are free anytime, included in your yearly fee. Just ask. Larger redesigns are quoted separately." },
+  { q: "What do you do for SEO?", a: "We make your website easy for Google to understand and trust: every page gets the right title and description, fast loading, and the code Google reads. Then every month we publish new blog posts answering what your customers search for, earn backlinks from trusted local websites, grow your Google reviews, and keep your Google Business Profile active. You get a report every month showing what we did and how your rankings moved." },
   { q: "Do you help me get more customers, not just a site?", a: "Yes — that's the real value. Once your site's live, we can get you ranking higher on Google Maps and pulling in more reviews so more local customers actually find you. It's a separate monthly service, never bundled or pushy." },
 ];
 
@@ -266,15 +267,16 @@ export default function Home() {
               {/* Google Growth */}
               <div className="relative overflow-hidden rounded-[24px] border border-[var(--noir-line)] bg-[var(--noir)] p-9 text-[var(--on-noir)]">
                 <div className="flex items-center justify-between gap-3">
-                  <span className="eyebrow text-[var(--ember)]">Google Growth</span>
+                  <span className="eyebrow text-[var(--ember)]">SEO &amp; Google Growth</span>
                   <span className="rounded-full bg-[rgba(234,88,12,.16)] px-3 py-1 text-xs font-semibold text-[var(--ember)]">$200 off month one</span>
                 </div>
                 <div className="mt-3 flex items-end gap-2">
+                  <span className="mb-2 text-sm text-[var(--on-noir-soft)]">from</span>
                   <span className="font-[family-name:var(--font-space-grotesk)] text-5xl font-bold tracking-tight">$500</span>
                   <span className="mb-1.5 text-sm text-[var(--on-noir-soft)]">/ month</span>
                 </div>
                 <ul className="mt-6 grid gap-2.5 text-[0.95rem] text-[var(--on-noir-soft)]">
-                  {["Rank higher on Google Maps","Get more 5-star reviews","Weekly Google posts","Monthly ranking report","Cancel anytime"].map((f) => (
+                  {["Rank higher on Google search + Maps","Website SEO: titles, descriptions, speed, schema","4 new SEO blog posts every month","Backlinks from trusted local sites","More 5-star reviews + weekly Google posts","Monthly ranking report"].map((f) => (
                     <li key={f} className="flex items-start gap-3">
                       <span className="mt-0.5 grid h-5 w-5 flex-none place-items-center rounded-full bg-[var(--ember)] text-[11px] text-[var(--noir)]">✓</span>
                       {f}

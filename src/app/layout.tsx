@@ -15,9 +15,18 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "WebBlaze — Websites & Google Growth for Local Businesses",
+  metadataBase: new URL("https://webblaze.io"),
+  title: "WebBlaze | Websites & SEO for Local Businesses in Miami",
   description:
-    "WebBlaze builds your website first — you only pay if you love it. Just $629 a year, hosting and updates included, with a 30-day money-back guarantee. Then we get you found on Google Maps and booked more often.",
+    "WebBlaze builds your website first — you only pay if you love it. Just $629 a year, hosting and updates included, with a 30-day money-back guarantee. Then SEO, blog posts and backlinks get you found on Google and Google Maps.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "WebBlaze | Websites & SEO for Local Businesses in Miami",
+    description: "We build your website first, you only pay if you love it. Then we get you found on Google with SEO, blog posts and backlinks.",
+    url: "https://webblaze.io", siteName: "WebBlaze", locale: "en_US", type: "website",
+    images: [{ url: "/logo-wordmark.png" }],
+  },
+  robots: { index: true, follow: true },
   icons: {
     icon: [
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
