@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StateShield — Home Membership &amp; Maintenance for South Florida</title>
+<meta name="description" content="One membership for your whole home: an annual Home Health Assessment, a Home Health Score, priority service and upfront, itemized pricing. Plans from $39/mo. Serving South Florida.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2A4A; --navy-900:#0A1A32; --navy-800:#0C1F3D; --navy-600:#36496E; --navy-400:#5F739B; --navy-300:#9AA9C6;
+  --teal:#00B5A5; --teal-600:#00897C; --teal-300:#7FDED4; --teal-50:#E6F8F6; --teal-100:#C2EEE9;
+  --bg:#F4F6FA; --line:#E6EAF2; --gold:#FBBF24; --red:#EF4444; --red-50:#FEF2F2;
+  --r:16px; --shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.06);
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--navy);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.5}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+h1,h2,h3{margin:0;letter-spacing:-.025em;line-height:1.1}
+h2{font-size:clamp(30px,4vw,44px);font-weight:700}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-600);background:var(--teal-50);border:1px solid var(--teal-100);padding:5px 12px;border-radius:999px;margin-bottom:16px}
+.tag.dark{color:var(--teal-300);background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15)}
+.lead{font-size:18px;color:var(--navy-400);max-width:620px;margin:14px auto 0}
+.center{text-align:center}
+section{padding:96px 0}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;border-radius:10px;padding:13px 22px;border:1px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s;font-family:inherit}
+.btn:hover{transform:translateY(-1px)}
+.btn-teal{background:var(--teal);color:#fff;box-shadow:0 8px 20px rgba(0,181,165,.28)}.btn-teal:hover{background:#00a596}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.04)}
+.btn-line{border-color:var(--line);background:#fff;color:var(--navy)}
+.arrow{width:16px;height:16px}
+
+/* preview ribbon */
+.ribbon{background:var(--navy-900);color:var(--navy-300);font-size:12.5px;text-align:center;padding:7px 12px}
+.ribbon b{color:var(--teal-300);font-weight:600}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:28px;height:72px}
+.logo{display:flex;align-items:center;gap:10px}.logo svg{height:40px;width:auto}
+.logo .wm{font-weight:700;font-size:20px;letter-spacing:-.02em;line-height:1}.logo .wm span{color:var(--teal)}
+.logo .tl{display:block;font-size:8px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--navy-400);margin-top:4px}
+.links{display:flex;gap:26px;font-size:15px;margin-left:auto}.links a:hover{color:var(--teal-600)}
+.nav .call{font-weight:600;font-size:15px;display:flex;align-items:center;gap:6px}
+.nav .btn{padding:10px 16px;font-size:14px}
+@media(max-width:1020px){.links{display:none}.nav .call{margin-left:auto}}
+@media(max-width:640px){.nav .call span{display:none}.nav .login{display:none}}
+
+/* hero */
+.hero{position:relative;background:var(--navy-900);color:#fff;overflow:hidden;padding:72px 0 0}
+.hero .bg{position:absolute;inset:0;background:url(img/hero.webp) center 30%/cover}
+.hero .bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,26,50,.96) 0%,rgba(10,26,50,.82) 38%,rgba(10,26,50,.25) 70%,rgba(10,26,50,.35) 100%),linear-gradient(0deg,rgba(10,26,50,.9),transparent 30%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end;min-height:640px}
+.hero-copy{padding-bottom:64px;align-self:center}
+.pill{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 14px;background:rgba(255,255,255,.05)}
+.hero h1{font-size:clamp(40px,5.4vw,66px);font-weight:700;letter-spacing:-.02em;margin:24px 0 18px}
+.hero h1 em{font-style:normal;color:var(--teal-300)}
+.hero p.sub{font-size:21px;color:rgba(255,255,255,.85);margin:0 0 30px;max-width:520px}
+.perks{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.perks span{font-size:13.5px;display:flex;gap:7px;align-items:center;color:rgba(255,255,255,.9);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:7px 12px;border-radius:999px}
+.perks svg{width:15px;height:15px;color:var(--teal-300)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.proof{display:flex;align-items:center;gap:10px;margin-top:26px;font-size:14px;color:rgba(255,255,255,.8)}
+.stars{color:var(--gold);letter-spacing:2px;font-size:15px}
+.proof a{text-decoration:underline;text-underline-offset:3px}
+.hero-art{position:relative;align-self:stretch;min-height:560px}
+.hero-art .trio{position:absolute;right:170px;bottom:0;width:500px;height:auto;max-width:none;z-index:1;filter:drop-shadow(0 20px 40px rgba(0,0,0,.35))}
+
+/* score card */
+.score{position:absolute;right:-10px;top:-24px;width:320px;background:rgba(12,31,61,.88);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:20px;box-shadow:0 30px 60px rgba(0,0,0,.35);z-index:3}
+.score h4{margin:0 0 14px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);display:flex;justify-content:space-between;align-items:center}
+.score h4 small{letter-spacing:0;text-transform:none;font-weight:500;color:var(--teal-300);font-size:11px}
+.ring-row{display:flex;gap:16px;align-items:center;margin-bottom:14px}
+.ring{position:relative;width:86px;height:86px;flex:none}
+.ring svg{transform:rotate(-90deg)}
+.ring .n{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font-weight:700;font-size:28px;line-height:1}
+.ring .n small{display:block;font-size:10px;color:var(--navy-300);font-weight:500;margin-top:2px}
+.verdict b{display:block;color:var(--teal-300);font-size:19px}.verdict span{font-size:13px;color:rgba(255,255,255,.75)}
+.bars{display:grid;gap:9px}
+.bar{display:grid;grid-template-columns:78px 1fr 26px;gap:10px;align-items:center;font-size:12.5px;color:rgba(255,255,255,.8)}
+.bar i{height:6px;border-radius:9px;background:rgba(255,255,255,.12);overflow:hidden;display:block}
+.bar i b{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--teal),var(--teal-300));transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.bar i b.warn{background:linear-gradient(90deg,#F59E0B,var(--gold))}.bar i b.bad{background:linear-gradient(90deg,#EF4444,#F87171)}
+.bar em{font-style:normal;text-align:right;font-weight:600;color:#fff}
+.score .go{margin-top:16px;width:100%;justify-content:center}
+.quiz{display:none}.score.q .quiz{display:block}.score.q .result{display:none}
+.qstep{font-size:12px;color:var(--navy-300);margin-bottom:6px}
+.qq{font-weight:600;font-size:16px;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opts button{font:inherit;font-size:13.5px;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:11px 8px;cursor:pointer;transition:.15s}
+.opts button:hover{border-color:var(--teal);background:rgba(0,181,165,.15)}
+.qbar{height:4px;background:rgba(255,255,255,.1);border-radius:9px;margin:14px 0 0;overflow:hidden}.qbar b{display:block;height:100%;background:var(--teal);transition:width .3s}
+.rec{margin-top:14px;padding:12px;border-radius:12px;background:rgba(0,181,165,.12);border:1px solid rgba(0,181,165,.35);font-size:13px;color:rgba(255,255,255,.9);display:none}
+.rec b{color:var(--teal-300)}
+.fine{font-size:11px;color:var(--navy-300);margin-top:10px;line-height:1.4}
+.again{background:none;border:0;color:var(--teal-300);font:inherit;font-size:12px;cursor:pointer;padding:0;text-decoration:underline}
+
+/* trust bar */
+.trust{position:relative;z-index:4;margin-top:-1px;background:var(--navy-800);border-top:1px solid rgba(255,255,255,.08)}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.trust div{display:flex;gap:12px;align-items:center;padding:22px 18px;color:#fff;font-size:14.5px;border-left:1px solid rgba(255,255,255,.08)}
+.trust div:first-child{border-left:0;padding-left:0}
+.trust svg{width:26px;height:26px;flex:none;color:var(--teal-300)}
+@media(max-width:900px){.trust .wrap{grid-template-columns:1fr 1fr}.trust div{border-left:0;padding-left:0}}
+
+/* problem/solution */
+.ps{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:52px}
+.prob{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:30px}
+.prob h3,.sol h3{font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px}
+.prob h3{color:#B45309}.sol h3{color:var(--teal-300)}
+.prob li,.sol li{list-style:none;display:grid;grid-template-columns:22px 1fr;gap:12px;padding:13px 0;border-top:1px solid var(--line)}
+.prob li:first-child,.sol li:first-child{border-top:0}
+.prob ul,.sol ul{margin:0;padding:0}
+.prob b,.sol b{display:block;font-size:16px;margin-bottom:3px}
+.prob p,.sol p{margin:0;font-size:14.5px;color:var(--navy-400)}
+.prob svg{color:#F59E0B;width:20px;height:20px;margin-top:2px}
+.sol{background:var(--navy);color:#fff;border-radius:20px;padding:30px;position:relative;overflow:hidden}
+.sol:before{content:"";position:absolute;width:420px;height:420px;right:-160px;top:-160px;background:radial-gradient(circle,rgba(0,181,165,.28),transparent 65%)}
+.sol li{border-color:rgba(255,255,255,.1)}.sol p{color:rgba(255,255,255,.72)}
+.sol svg{color:var(--teal-300);width:20px;height:20px;margin-top:2px}
+@media(max-width:860px){.ps{grid-template-columns:1fr}}
+
+/* steps */
+.steps-sec{background:var(--bg)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:50px;counter-reset:s}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px;box-shadow:var(--shadow);position:relative}
+.step .num{position:absolute;right:20px;top:16px;font-size:30px;font-weight:800;color:var(--line)}
+.ico{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--teal-50);color:var(--teal-600);margin-bottom:18px}
+.ico svg{width:20px;height:20px}
+.step h3{font-size:17px;margin-bottom:8px}.step p{margin:0;font-size:14.5px;color:var(--navy-400)}
+.step .meta{display:inline-block;margin-top:12px;font-size:12px;font-weight:600;color:var(--teal-600);background:var(--teal-50);padding:3px 9px;border-radius:999px}
+@media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}@media(max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* pricing */
+.toggle{display:inline-flex;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px;margin-top:26px}
+.toggle button{font:inherit;font-size:14px;font-weight:600;border:0;background:none;color:var(--navy-400);padding:9px 18px;border-radius:999px;cursor:pointer}
+.toggle button.on{background:#fff;color:var(--navy);box-shadow:0 2px 6px rgba(16,24,40,.1)}
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px;align-items:stretch}
+.plan{border:1px solid var(--line);border-radius:20px;padding:26px 22px;background:#fff;display:flex;flex-direction:column;position:relative;box-shadow:var(--shadow);transition:box-shadow .2s,border-color .2s,transform .2s}
+.plan.pop{border:2px solid var(--teal)}
+.plan.match{transform:translateY(-6px);box-shadow:0 0 0 4px rgba(0,181,165,.25),var(--shadow)}
+.plan .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-size:11.5px;font-weight:700;padding:4px 12px;border-radius:999px;white-space:nowrap}
+.plan .badge.m{background:var(--navy)}
+.plan h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.price{display:flex;align-items:baseline;gap:4px;margin:14px 0 6px}
+.price b{font-size:44px;font-weight:800;letter-spacing:-.03em}.price span{color:var(--navy-400);font-size:15px}
+.eff{font-size:12.5px;color:var(--teal-600);font-weight:600;min-height:18px}
+.plan .desc{color:var(--navy-400);font-size:14.5px;margin:8px 0 18px}
+.plan ul{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:11px;font-size:14.5px}
+.plan li{display:grid;grid-template-columns:18px 1fr;gap:10px}
+.plan li svg{width:18px;height:18px;color:var(--teal);margin-top:1px}
+.plan li small{display:block;color:var(--navy-400);font-size:12.5px}
+.plan .btn{margin-top:auto;justify-content:center}
+.plan.black{background:var(--navy);color:#fff;border-color:var(--navy)}
+.plan.black h3{color:var(--teal-300)}.plan.black .desc,.plan.black .price span{color:rgba(255,255,255,.7)}
+.plan.black li svg{color:var(--teal-300)}
+.pnote{text-align:center;font-size:13.5px;color:var(--navy-400);margin-top:22px}
+@media(max-width:1020px){.plans{grid-template-columns:1fr 1fr}}@media(max-width:560px){.plans{grid-template-columns:1fr}}
+
+/* repair */
+.repair{background:var(--bg)}
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.tabs button{font:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--navy);padding:10px 16px;border-radius:999px;cursor:pointer;display:flex;gap:7px;align-items:center}
+.tabs button.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.tabs svg{width:16px;height:16px}
+.job{text-align:center;font-size:14px;color:var(--navy-400);margin:18px 0 26px}.job b{color:var(--navy)}
+.versus{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:900px;margin:0 auto}
+.side{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+.side.me{border:2px solid var(--teal)}
+.side header{position:static;background:none;backdrop-filter:none;border:0;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.side header b{font-size:16px}
+.chip{font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--teal);color:#fff}.chip.g{background:var(--line);color:var(--navy-600)}
+.line{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-top:1px solid var(--line);font-size:14.5px}
+.line small{display:block;color:var(--navy-400);font-size:12px}
+.line .v{font-weight:700}.them .line .v{color:var(--red)}
+.tot{margin-top:12px;border-radius:12px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+.me .tot{background:var(--navy);color:#fff}.them .tot{background:var(--bg)}
+.tot b{font-size:26px;font-weight:800}
+.save{max-width:900px;margin:22px auto 0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.save .row{display:grid;grid-template-columns:120px 1fr 80px;gap:12px;align-items:center;font-size:13.5px;margin:6px 0}
+.save .row i{display:block;height:14px;border-radius:9px;background:var(--bg);overflow:hidden}.save .row i b{display:block;height:100%;border-radius:9px;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.save .row .v{text-align:right;font-weight:700}
+.save p{margin:10px 0 0;text-align:center;font-weight:700;color:var(--teal-600)}
+@media(max-width:700px){.versus{grid-template-columns:1fr}.save .row{grid-template-columns:90px 1fr 64px}}
+
+/* compare table */
+.cmp{max-width:900px;margin:44px auto 0;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.cmp table{width:100%;border-collapse:collapse;font-size:14.5px}
+.cmp th{background:var(--navy);color:#fff;padding:14px 16px;text-align:left;font-weight:600}
+.cmp th.ss{background:var(--teal)}
+.cmp td{padding:14px 16px;border-top:1px solid var(--line);vertical-align:top}
+.cmp td:first-child{font-weight:600;width:22%}
+.cmp td.no{color:var(--navy-400)}.cmp td.yes{background:#F3FBFA}
+.cmp tr:nth-child(even) td:not(.yes){background:#FAFBFD}
+@media(max-width:600px){.cmp td:first-child{display:none}.cmp th:first-child{display:none}}
+
+/* films */
+.films{background:var(--navy-900);color:#fff;position:relative;overflow:hidden}
+.films:before{content:"";position:absolute;width:700px;height:700px;left:50%;top:-300px;transform:translateX(-50%);background:radial-gradient(circle,rgba(0,181,165,.16),transparent 60%)}
+.reel{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:46px;position:relative}
+.film{border-radius:18px;overflow:hidden;background:#0d2240;border:1px solid rgba(255,255,255,.1);position:relative;aspect-ratio:9/14;cursor:pointer}
+.film img,.film video{width:100%;height:100%;object-fit:cover}
+.film .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.4);transition:transform .2s}
+.film:hover .play{transform:translate(-50%,-50%) scale(1.08)}
+.film .play svg{width:22px;height:22px;color:var(--navy);margin-left:3px}
+.film .cap{position:absolute;left:0;right:0;bottom:0;padding:40px 18px 16px;background:linear-gradient(0deg,rgba(10,26,50,.95),transparent);font-weight:600}
+.film .cap small{display:block;font-weight:400;color:rgba(255,255,255,.7);font-size:13px;margin-top:3px}
+@media(max-width:760px){.reel{grid-template-columns:1fr;max-width:380px;margin-left:auto;margin-right:auto}}
+
+/* reviews */
+.revs{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:960px;margin:46px auto 0}
+.rev{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--shadow)}
+.rev .stars{color:#00B67A;font-size:17px}
+.rev h3{font-size:17px;margin:10px 0 8px}
+.rev p{margin:0;color:var(--navy-600);font-size:15px}
+.rev .who{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:14px}
+.av{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
+.who small{display:block;color:var(--navy-400);font-size:12.5px}
+.tp{text-align:center;margin-top:22px;font-size:14px;color:var(--navy-400)}.tp a{color:var(--teal-600);font-weight:600}
+@media(max-width:760px){.revs{grid-template-columns:1fr}}
+
+/* about */
+.about{background:var(--bg)}
+.ab{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+.ab .ph{aspect-ratio:4/5;border-radius:22px;border:2px dashed var(--navy-300);background:repeating-linear-gradient(45deg,#EEF1F7 0 14px,#F6F8FB 14px 28px);display:grid;place-items:center;text-align:center;color:var(--navy-400);font-size:14px;padding:30px}
+.ab .ph b{display:block;color:var(--navy);font-size:16px;margin-bottom:6px}
+.ab h2{margin-bottom:16px}
+.ab p{color:var(--navy-600);font-size:16.5px;margin:0 0 14px}
+.note{display:inline-flex;gap:8px;align-items:flex-start;background:#FFF8E6;border:1px solid #FCE3A3;color:#8A5A00;font-size:13px;padding:10px 12px;border-radius:10px;margin:6px 0 18px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+.facts div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:14px}
+.facts b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--navy-400);margin-bottom:3px}
+@media(max-width:860px){.ab{grid-template-columns:1fr}.ab .ph{aspect-ratio:16/9}}
+
+/* faq */
+.faqbox{max-width:800px;margin:40px auto 0}
+.search{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:0 14px;background:#fff;box-shadow:var(--shadow);margin-bottom:18px}
+.search svg{width:18px;height:18px;color:var(--navy-400)}
+.search input{border:0;outline:0;font:inherit;font-size:15px;padding:14px 0;width:100%;color:var(--navy)}
+.cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.cats button{font:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 13px;cursor:pointer;color:var(--navy-600)}
+.cats button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+details{border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:10px;transition:border-color .2s}
+details[open]{border-color:var(--teal-100);box-shadow:var(--shadow)}
+summary{list-style:none;cursor:pointer;padding:17px 20px;font-weight:600;font-size:15.5px;display:flex;justify-content:space-between;gap:14px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";flex:none;width:26px;height:26px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-weight:500;font-size:18px;color:var(--navy-600);transition:transform .2s}
+details[open] summary:after{transform:rotate(45deg);background:var(--teal-50);color:var(--teal-600)}
+details p{margin:0;padding:0 20px 18px;color:var(--navy-600);font-size:15px}
+.nores{display:none;text-align:center;color:var(--navy-400);padding:20px}
+.ask{text-align:center;margin-top:22px;color:var(--navy-400);font-size:15px}.ask a{color:var(--teal-600);font-weight:600}
+
+/* final cta */
+.final{padding:0 0 96px}
+.band{background:var(--navy);border-radius:28px;color:#fff;text-align:center;padding:64px 28px;position:relative;overflow:hidden}
+.band:before{content:"";position:absolute;width:520px;height:520px;right:-140px;top:-200px;background:radial-gradient(circle,rgba(0,181,165,.3),transparent 62%)}
+.band h2{position:relative}.band h2 em{font-style:normal;color:var(--teal-300)}
+.band p{position:relative;color:rgba(255,255,255,.8);font-size:18px;max-width:560px;margin:16px auto 28px}
+.band .ctas{justify-content:center;position:relative}
+.band .ticks{position:relative;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:24px;font-size:14px;color:rgba(255,255,255,.85)}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:56px 0 30px;background:#fff}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px}
+.fgrid h5{margin:0 0 14px;font-size:14px}
+.fgrid a{display:block;color:var(--navy-400);font-size:14px;margin-bottom:9px}.fgrid a:hover{color:var(--teal-600)}
+.fgrid p{color:var(--navy-400);font-size:14px;max-width:300px}
+.legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line);margin-top:34px;padding-top:20px;font-size:13px;color:var(--navy-400)}
+.legal a{margin-left:18px}
+@media(max-width:800px){.fgrid{grid-template-columns:1fr 1fr}}
+
+/* sticky mobile */
+.mbar{display:none}
+@media(max-width:760px){
+  .mbar{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
+  .mbar .btn{justify-content:center;padding:12px}
+  body{padding-bottom:74px}
+}
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;min-height:0}
+  .hero-copy{padding-bottom:28px}
+  .hero-art{min-height:0}
+  .hero-art .trio{display:none}
+  .score{position:relative;width:100%;max-width:420px;margin:0 0 36px}
+}
+
+@media(max-width:640px){
+  .nav{gap:12px;height:64px}.logo svg{height:34px}.logo .wm{font-size:18px}.logo .tl{display:none}
+  .nav .btn-teal{white-space:nowrap;padding:9px 12px;font-size:13px}
+  .perks{display:none}.hero{padding-top:44px}.hero p.sub{font-size:18px}
+  .trust .wrap{grid-template-columns:1fr}.trust div{padding:12px 0;font-size:14px}
+  section{padding:72px 0}.ribbon{font-size:11.5px}
+}
+section,.wrap{overflow-wrap:break-word}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}*{transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14l4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+  <symbol id="i-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s7 7.3 7 12.3a7 7 0 0 1-14 0c0-5 7-12.3 7-12.3z"/></symbol>
+  <symbol id="i-temp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></symbol>
+</svg>
+
+<div class="ribbon">Preview of a redesigned stateshield.app, made by <b>WebBlaze</b> for StateShield. Same brand, same content, built to turn more visitors into members.</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="StateShield home"><svg viewBox="482.82 235.09 423.68 480.12" fill="none" aria-hidden="true"><path d="M820.3 569.75L836.55 595.97C808.88 635.8 771.87 666.44 730.88 691.11C718.527 698.537 705.803 705.077 692.71 710.73C691.197 711.383 689.737 711.38 688.33 710.72C675.36 704.68 665.56 700.13 653.84 693.2C649.393 690.573 643.103 686.767 634.97 681.78C626.363 676.5 615.763 668.863 603.17 658.87C572.777 634.743 547.997 606.613 528.83 574.48C510.11 543.11 498.81 509.76 492.34 471.75C488.18 447.4 486.71 420.3 486.88 390.99C486.96 376.237 486.94 355.157 486.82 327.75C486.813 326.85 486.877 325.093 487.01 322.48C487.022 322.249 487.107 322.028 487.252 321.847C487.398 321.666 487.596 321.534 487.82 321.47C547.46 304.67 604.67 283.33 660.3 255.83C670.173 250.95 680.16 245.407 690.26 239.2C690.365 239.133 690.486 239.097 690.61 239.095C690.734 239.094 690.855 239.126 690.96 239.19C699.96 244.597 709.763 249.99 720.37 255.37C767.69 279.37 818.8 298.52 868.81 313.71C881.62 317.6 887.08 319.5 895.62 321.61C895.752 321.641 895.869 321.715 895.954 321.82C896.039 321.925 896.087 322.055 896.09 322.19C896.17 353.003 896.043 379.833 895.71 402.68C895.61 409.547 895.27 416.25 894.69 422.79C893.54 435.84 892.92 446.19 890.93 457.71C890.397 460.783 889.633 465.7 888.64 472.46C888.626 472.543 888.59 472.621 888.537 472.686C888.483 472.751 888.413 472.801 888.334 472.831C888.255 472.86 888.169 472.868 888.086 472.854C888.003 472.84 887.925 472.804 887.86 472.75L864.76 453.35C864.389 453.037 864.102 452.636 863.926 452.183C863.749 451.731 863.689 451.242 863.75 450.76C868.37 415.81 867.96 380.51 867.27 344.1C867.267 343.911 867.202 343.729 867.087 343.579C866.972 343.43 866.812 343.321 866.63 343.27C834.157 334.077 801.917 322.997 769.91 310.03C742.83 299.06 716.75 286.91 692.23 273.27C691.75 273.004 691.209 272.864 690.66 272.864C690.111 272.864 689.571 273.004 689.09 273.27C665.85 286.143 641.88 297.603 617.18 307.65C586.35 320.19 558.81 329.79 529.01 339.22C524.55 340.633 520.293 341.837 516.24 342.83C516.031 342.881 515.845 343 515.711 343.168C515.577 343.337 515.503 343.545 515.5 343.76C515.32 360.173 515.283 378.753 515.39 399.5C515.57 431.48 518.57 463.83 526.79 494.52C532.103 514.387 539.247 532.993 548.22 550.34C549.167 552.173 552.087 557.223 556.98 565.49C559.84 570.323 562.297 574.037 564.35 576.63C568.06 581.3 570.71 585.85 574.69 590.76C587.577 606.673 600.913 620.35 614.7 631.79C628.293 643.063 643.853 654.143 661.38 665.03C670.94 670.97 679.64 674.94 689.44 679.98C689.859 680.195 690.326 680.304 690.8 680.297C691.274 680.29 691.741 680.168 692.16 679.94C700.55 675.34 709.73 671.04 718.96 665.52C752.447 645.487 781.42 620.25 805.88 589.81C810.85 583.63 815.64 576.54 820.3 569.75Z" fill="#0FA4B2"></path><path d="M902.27 562.39C902.248 562.422 902.22 562.45 902.187 562.471C902.154 562.491 902.117 562.505 902.078 562.511C902.04 562.516 902 562.514 901.963 562.503C901.925 562.493 901.89 562.475 901.86 562.45C830.31 504 760.14 446.71 691.05 391.72C690.91 391.611 690.739 391.552 690.563 391.552C690.387 391.552 690.217 391.611 690.08 391.72L551.73 500.77C551.687 500.805 551.637 500.828 551.583 500.837C551.529 500.847 551.473 500.842 551.421 500.824C551.368 500.807 551.32 500.776 551.282 500.735C551.243 500.694 551.215 500.644 551.2 500.59L541.49 462.18C541.452 462.037 541.457 461.886 541.505 461.746C541.553 461.605 541.642 461.482 541.76 461.39L690.03 346.3C690.19 346.175 690.387 346.107 690.59 346.107C690.793 346.107 690.99 346.175 691.15 346.3L783.28 419.52C783.364 419.586 783.466 419.628 783.573 419.64C783.68 419.652 783.788 419.634 783.884 419.588C783.98 419.542 784.061 419.47 784.117 419.38C784.173 419.29 784.202 419.186 784.2 419.08V398.18C784.2 398.026 784.26 397.879 784.367 397.77C784.474 397.661 784.619 397.6 784.77 397.6H822.04C822.184 397.6 822.322 397.658 822.425 397.761C822.528 397.863 822.587 398.003 822.59 398.15C822.623 408.63 822.613 425.817 822.56 449.71C822.55 451.28 823.81 452.23 825.02 453.22C861.773 483.073 887.467 504.003 902.1 516.01C902.209 516.097 902.297 516.208 902.358 516.334C902.418 516.461 902.45 516.599 902.45 516.74C902.517 537.167 902.517 552.167 902.45 561.74C902.45 562.02 902.39 562.237 902.27 562.39Z" fill="#071B34"></path><path d="M684.45 488.85H653.29C652.832 488.85 652.46 489.222 652.46 489.68V519.82C652.46 520.278 652.832 520.65 653.29 520.65H684.45C684.908 520.65 685.28 520.278 685.28 519.82V489.68C685.28 489.222 684.908 488.85 684.45 488.85Z" fill="#071B34"></path><path d="M727.318 488.877L696.098 488.823C695.711 488.822 695.397 489.135 695.396 489.522L695.343 519.942C695.343 520.328 695.656 520.642 696.042 520.643L727.262 520.697C727.649 520.698 727.963 520.385 727.963 519.998L728.016 489.578C728.017 489.192 727.704 488.878 727.318 488.877Z" fill="#071B34"></path><path d="M684.55 529.94H653.17C652.817 529.94 652.53 530.227 652.53 530.58V561.96C652.53 562.313 652.817 562.6 653.17 562.6H684.55C684.903 562.6 685.19 562.313 685.19 561.96V530.58C685.19 530.227 684.903 529.94 684.55 529.94Z" fill="#071B34"></path><path d="M727.258 530.087L696.138 530.033C695.752 530.032 695.438 530.345 695.437 530.732L695.383 561.852C695.382 562.238 695.695 562.552 696.082 562.553L727.202 562.607C727.588 562.608 727.902 562.295 727.903 561.908L727.957 530.788C727.958 530.402 727.645 530.088 727.258 530.087Z" fill="#071B34"></path></svg><span><span class="wm">STATE<span>SHIELD</span></span><span class="tl">Protecting What Matters Most</span></span></a>
+    <nav class="links"><a href="#how">How It Works</a><a href="#plans">Plans</a><a href="#repairs">Real Prices</a><a href="#about">About Us</a><a href="#faq">FAQ</a></nav>
+    <a class="call" href="tel:+17868631969"><svg width="18" height="18"><use href="#i-phone"/></svg><span>(786) 863-1969</span></a>
+    <a class="btn btn-line login" href="https://portal.stateshield.app/c/auth/login">Login</a>
+    <a class="btn btn-teal" href="https://portal.stateshield.app/c/auth/signup">Become a Member</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="bg"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="pill"><svg width="13" height="13"><use href="#i-pin"/></svg>Home Membership · South Florida</span>
+      <h1>Everything Your<br>Home Needs.<br><em>One Membership.</em></h1>
+      <p class="sub">Complete peace of mind for your biggest investment. Plans from $39/mo, no contracts.</p>
+      <div class="perks">
+        <span><svg><use href="#i-clip"/></svg>Annual Home Health Assessment</span>
+        <span><svg><use href="#i-gauge"/></svg>Home Health Score</span>
+        <span><svg><use href="#i-bolt"/></svg>Priority Service</span>
+        <span><svg><use href="#i-shield"/></svg>Transparent Pricing Guarantee</span>
+        <span><svg><use href="#i-gift"/></svg>Monthly Home Credits</span>
+      </div>
+      <div class="ctas">
+        <a class="btn btn-teal" href="#plans">See Plans &amp; Pricing <svg class="arrow"><use href="#i-arrow"/></svg></a>
+        <button class="btn btn-ghost" type="button" onclick="startQuiz(true)"><svg class="arrow"><use href="#i-gauge"/></svg> Estimate My Home's Score</button>
+      </div>
+      <div class="proof"><span class="stars">★★★★★</span><span>5-star reviews from members on <a href="https://www.trustpilot.com/review/stateshield.app" target="_blank" rel="noopener">Trustpilot</a></span></div>
+    </div>
+    <div class="hero-art">
+      <div class="score" id="score">
+        <div class="result">
+          <h4>Your Home Health Score <small id="scoreLabel">Example home</small></h4>
+          <div class="ring-row">
+            <div class="ring"><svg width="86" height="86"><circle cx="43" cy="43" r="37" stroke="rgba(255,255,255,.12)" stroke-width="7" fill="none"/><circle id="arc" cx="43" cy="43" r="37" stroke="url(#g)" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="232.5" stroke-dashoffset="18.6" style="transition:stroke-dashoffset .8s cubic-bezier(.2,.8,.2,1)"/><defs><linearGradient id="g"><stop offset="0" stop-color="#00B5A5"/><stop offset="1" stop-color="#7FDED4"/></linearGradient></defs></svg><div class="n"><span><span id="num">92</span><small>/100</small></span></div></div>
+            <div class="verdict"><b id="vt">Excellent</b><span id="vs">Your home is in excellent shape!</span></div>
+          </div>
+          <div class="bars" id="bars"></div>
+          <div class="rec" id="rec"></div>
+          <button class="btn btn-teal go" type="button" id="goBtn" onclick="startQuiz()">What's my home's score? <svg class="arrow"><use href="#i-arrow"/></svg></button>
+          <div class="fine" id="fine">4 quick questions. A rough estimate, not your official score, which comes from your in-home assessment.</div>
+        </div>
+        <div class="quiz">
+          <h4>Estimate your score <small id="qcount">1 of 4</small></h4>
+          <div class="qq" id="qq"></div>
+          <div class="opts" id="opts"></div>
+          <div class="qbar"><b id="qprog" style="width:25%"></b></div>
+        </div>
+      </div>
+      <img class="trio" src="img/trio.webp" alt="StateShield technician reviewing a Home Health Score with homeowners" width="1500" height="1172">
+    </div>
+  </div>
+</section>
+<div class="trust">
+  <div class="wrap">
+    <div><svg><use href="#i-shield"/></svg><span>No hidden markups. Honest pricing and service you can trust.</span></div>
+    <div><svg><use href="#i-badge"/></svg><span>Licensed &amp; Insured Professionals</span></div>
+    <div><svg><use href="#i-pin"/></svg><span>Local Experts You Can Trust</span></div>
+    <div><svg><use href="#i-home"/></svg><span>Serving South Florida Homes</span></div>
+  </div>
+</div>
+
+<section id="problem">
+  <div class="wrap">
+    <div class="center reveal"><span class="tag">The Problem → The Solution</span><h2>Homeownership Shouldn't<br>Feel Like Guesswork</h2>
+    <p class="lead">In South Florida, heat, humidity, and storms put your home under constant stress. Yet most maintenance only happens after something breaks.</p></div>
+    <div class="ps">
+      <div class="prob reveal"><h3>Without StateShield</h3><ul>
+        <li><svg><use href="#i-warn"/></svg><div><b>You don't know who to call</b><p>A different contractor for every system, a different price, and a different level of trust each time.</p></div></li>
+        <li><svg><use href="#i-warn"/></svg><div><b>Pricing feels like a gamble</b><p>Quotes swing wildly between companies, and it's nearly impossible to know whether you're being charged fairly.</p></div></li>
+        <li><svg><use href="#i-warn"/></svg><div><b>Small issues become big bills</b><p>Without regular check-ups, a minor leak or worn part quietly turns into a five-figure emergency repair.</p></div></li>
+        <li><svg><use href="#i-warn"/></svg><div><b>No record of what's been done</b><p>Maintenance history lives in a drawer of crumpled receipts, if it exists at all.</p></div></li>
+      </ul></div>
+      <div class="sol reveal"><h3>With StateShield</h3><ul>
+        <li><svg><use href="#i-check"/></svg><div><b>One Membership</b><p>Every major system in your home covered under a single, predictable plan, with no juggling vendors or contracts.</p></div></li>
+        <li><svg><use href="#i-check"/></svg><div><b>One Company</b><p>A single trusted partner accountable for your whole home, from the roof down to the plumbing.</p></div></li>
+        <li><svg><use href="#i-check"/></svg><div><b>One Standard</b><p>The same vetted pros, the same Transparent Pricing Guarantee, and the same service standard every single visit.</p></div></li>
+        <li><svg><use href="#i-check"/></svg><div><b>Digital Home Records</b><p>Every inspection, repair, and receipt stored in one place, ready for insurance claims, warranties, or resale.</p></div></li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="steps-sec" id="how">
+  <div class="wrap">
+    <div class="center reveal"><span class="tag">How It Works</span><h2>Four Simple Steps<br>to a Protected Home</h2>
+    <p class="lead">From sign-up to service, StateShield makes caring for your home effortless and predictable.</p></div>
+    <div class="steps">
+      <div class="step reveal"><span class="num">01</span><div class="ico"><svg><use href="#i-shield"/></svg></div><h3>Join StateShield</h3><p>Become a member in minutes. One plan covers every major system in your home, with no per-service contracts.</p></div>
+      <div class="step reveal"><span class="num">02</span><div class="ico"><svg><use href="#i-clip"/></svg></div><h3>Get Your Home Inspected</h3><p>A vetted pro performs a comprehensive annual inspection of your roof, HVAC, plumbing, electrical, and more.</p><span class="meta">Takes about 45–60 min</span></div>
+      <div class="step reveal"><span class="num">03</span><div class="ico"><svg><use href="#i-gauge"/></svg></div><h3>Receive Your Home Health Score</h3><p>A clear breakdown of your home's condition: what needs attention now, and what to plan for next.</p><span class="meta">Includes photos + report</span></div>
+      <div class="step reveal"><span class="num">04</span><div class="ico"><svg><use href="#i-phone"/></svg></div><h3>Get Priority Service</h3><p>When something needs work, members are scheduled first, with transparent, upfront pricing every time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="plans">
+  <div class="wrap">
+    <div class="center reveal"><span class="tag">Pricing</span><h2>Simple Membership,<br>Built for Your Home</h2>
+    <p class="lead">Pick the level of coverage that fits your home. No contracts, no hidden fees. Cancel anytime.</p>
+    <div class="toggle" role="tablist"><button class="on" type="button" data-m="list">Monthly price</button><button type="button" data-m="eff">After your credits</button></div></div>
+    <div class="plans">
+      <div class="plan reveal" data-plan="core"><h3>Core</h3><div class="price"><b data-list="39" data-eff="30.67">$39</b><span>/mo</span></div><div class="eff"></div><p class="desc">Essential protection for your home's systems.</p>
+        <ul><li><svg><use href="#i-check"/></svg>Annual Home Health Assessment</li><li><svg><use href="#i-check"/></svg>Priority Scheduling</li><li><svg><use href="#i-check"/></svg>Transparent Pricing Guarantee</li><li><svg><use href="#i-check"/></svg>$100 Annual Wallet Credit</li></ul>
+        <a class="btn btn-navy" href="https://portal.stateshield.app/c/auth/signup">Become a Member <svg class="arrow"><use href="#i-arrow"/></svg></a></div>
+      <div class="plan pop reveal" data-plan="plus"><span class="badge">Most Popular</span><h3>Plus</h3><div class="price"><b data-list="59" data-eff="38.17">$59</b><span>/mo</span></div><div class="eff"></div><p class="desc">More visits, more coverage, more value.</p>
+        <ul><li><svg><use href="#i-check"/></svg>Everything in Core</li><li><svg><use href="#i-check"/></svg><span>1 Diagnostic + Service Visit<small>Diagnosis + first 60 min. of labor included</small></span></li><li><svg><use href="#i-check"/></svg>Emergency Priority Scheduling</li><li><svg><use href="#i-check"/></svg>$250 Annual Wallet Credit</li></ul>
+        <a class="btn btn-teal" href="https://portal.stateshield.app/c/auth/signup">Become a Member <svg class="arrow"><use href="#i-arrow"/></svg></a></div>
+      <div class="plan reveal" data-plan="elite"><h3>Elite</h3><div class="price"><b data-list="99" data-eff="57.33">$99</b><span>/mo</span></div><div class="eff"></div><p class="desc">Maximum coverage and fastest response.</p>
+        <ul><li><svg><use href="#i-check"/></svg>Everything in Plus</li><li><svg><use href="#i-check"/></svg>2 Diagnostic Visits</li><li><svg><use href="#i-check"/></svg>Same-Day Emergency Response</li><li><svg><use href="#i-check"/></svg>$500 Annual Wallet Credit</li></ul>
+        <a class="btn btn-navy" href="https://portal.stateshield.app/c/auth/signup">Become a Member <svg class="arrow"><use href="#i-arrow"/></svg></a></div>
+      <div class="plan black reveal" data-plan="black"><h3>Black</h3><div class="price"><b data-list="199" data-eff="199">$199</b><span>/mo</span></div><div class="eff"></div><p class="desc">Hands-off, white-glove monthly care for your home.</p>
+        <ul><li><svg><use href="#i-check"/></svg>Monthly system checkup</li><li><svg><use href="#i-check"/></svg>Filter replacement</li><li><svg><use href="#i-check"/></svg>Monthly flushing of condensate drain lines</li><li><svg><use href="#i-check"/></svg>Thermostat battery inspection and replacement, if needed</li><li><svg><use href="#i-check"/></svg>Water leak detection monitoring, up to 4 detectors</li><li><svg><use href="#i-check"/></svg>Monthly plumbing monitoring and maintenance</li><li><svg><use href="#i-check"/></svg>Priority emergency service calls</li></ul>
+        <a class="btn btn-teal" href="https://portal.stateshield.app/c/auth/signup">Become a Member <svg class="arrow"><use href="#i-arrow"/></svg></a></div>
+    </div>
+    <p class="pnote">Credits accrue monthly and may be used toward diagnostics, materials, repairs, and projects. Not sure which plan fits? <a href="#top" onclick="startQuiz(true);return false" style="color:var(--teal-600);font-weight:600">Estimate your score</a> and we'll suggest one.</p>
+  </div>
+</section>
+
+<section class="repair" id="repairs">
+  <div class="wrap">
+    <div class="center reveal"><span class="tag">Real Repair Examples</span><h2>See the Difference. Know the Value.</h2>
+    <p class="lead">The same repair, side by side. Members get an itemized supplier invoice and fixed labor rates. Non-members get marked-up parts and a number they can't check.</p></div>
+    <div class="tabs" id="tabs">
+      <button class="on" type="button" data-k="roof"><svg><use href="#i-home"/></svg>Roof Repair</button>
+      <button type="button" data-k="plumb"><svg><use href="#i-drop"/></svg>Plumbing Repair</button>
+      <button type="button" data-k="hvac"><svg><use href="#i-temp"/></svg>HVAC Repair</button>
+    </div>
+    <div class="job" id="job"></div>
+    <div class="versus">
+      <div class="side me"><header><b>StateShield Member</b><span class="chip">Itemized</span></header>
+        <div class="line"><span>Materials<small>Supplier invoice</small></span><span class="v" id="mM"></span></div>
+        <div class="line"><span>Labor<small>Fixed member rate</small></span><span class="v" id="mL"></span></div>
+        <div class="tot"><span>Your total</span><b id="mT"></b></div></div>
+      <div class="side them"><header><b>Non-Member</b><span class="chip g">Typical contractor</span></header>
+        <div class="line"><span>Materials<small>Marked up</small></span><span class="v" id="tM"></span></div>
+        <div class="line"><span>Labor<small>Unknown rate</small></span><span class="v" id="tL"></span></div>
+        <div class="tot"><span>Their total</span><b id="tT"></b></div></div>
+    </div>
+    <div class="save">
+      <div class="row"><span>Member</span><i><b id="bM" style="background:var(--teal)"></b></i><span class="v" id="bMv"></span></div>
+      <div class="row"><span>Non-member</span><i><b id="bT" style="background:#F87171"></b></i><span class="v" id="bTv"></span></div>
+      <p id="saveTxt"></p>
+    </div>
+    <div class="cmp reveal">
+      <table>
+        <tr><th></th><th>Traditional Contractor</th><th class="ss">StateShield</th></tr>
+        <tr><td>Pricing</td><td class="no">Quotes vary wildly; fees revealed at the end</td><td class="yes">Flat, itemized pricing quoted upfront</td></tr>
+        <tr><td>Maintenance</td><td class="no">Reactive: you call only when it breaks</td><td class="yes">Proactive annual inspections built in</td></tr>
+        <tr><td>Scheduling</td><td class="no">Wait days or weeks for an opening</td><td class="yes">Priority scheduling for members</td></tr>
+        <tr><td>Accountability</td><td class="no">A different company for every system</td><td class="yes">One company accountable for your whole home</td></tr>
+        <tr><td>Quality</td><td class="no">Depends on who shows up that day</td><td class="yes">Vetted pros held to Service Standards</td></tr>
+        <tr><td>Records</td><td class="no">Scattered receipts, if any</td><td class="yes">Digital home records, always accessible</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="films">
+  <div class="wrap">
+    <div class="center reveal"><span class="tag dark">Watch</span><h2>See StateShield in Action</h2>
+    <p class="lead" style="color:rgba(255,255,255,.7)">Three short films: how a repair works, who we are, and how to get started.</p></div>
+    <div class="reel">
+      <div class="film reveal" data-v="https://stateshield.app/stateshield-repair.mp4"><img src="img/repair-md.webp" alt="Request a Repair, Step by Step" loading="lazy"><span class="play"><svg><use href="#i-play"/></svg></span><div class="cap">Request a Repair<small>Follow one repair from request to finished job, with every step and cost shown up front.</small></div></div>
+      <div class="film reveal" data-v="https://stateshield.app/stateshield-film.mp4"><img src="img/film-md.webp" alt="Discover StateShield" loading="lazy"><span class="play"><svg><use href="#i-play"/></svg></span><div class="cap">Discover StateShield<small>See how we're changing the way homeowners protect and manage their homes.</small></div></div>
+      <div class="film reveal" data-v="https://stateshield.app/stateshield-promo.mp4"><img src="img/promo-md.webp" alt="Getting Started with StateShield" loading="lazy"><span class="play"><svg><use href="#i-play"/></svg></span><div class="cap">Getting Started<small>See how simple it is to activate your membership and set up your home.</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="center reveal"><span class="tag">Member Reviews</span><h2>What Members Are Saying</h2><p class="lead">Real reviews from verified StateShield members on Trustpilot.</p></div>
+    <div class="revs">
+      <div class="rev reveal"><span class="stars">★★★★★</span><h3>"Took care of it right on the spot"</h3><p>"They came to my home for the Home Health Assessment and while they were there, they discovered an issue with my washing machine. What really impressed me was that they were able to take care of it right on the spot. I also really like the membership concept. Part of my monthly payment builds up as credits in my StateShield Wallet that I can use toward future repairs and home upgrades."</p><div class="who"><span class="av">SE</span><span>Sharon Eli<small>Trustpilot · Oct 16, 2026</small></span></div></div>
+      <div class="rev reveal"><span class="stars">★★★★★</span><h3>"Simple and stress-free"</h3><p>"The team was professional, knowledgeable, and very thorough when checking my home. They took the time to explain everything clearly and made the entire process simple and stress-free. It's a great feeling knowing I have a reliable company I can count on when it comes to my home. I would definitely recommend StateShield!"</p><div class="who"><span class="av">OS</span><span>Oscar<small>Trustpilot · Sep 11, 2026</small></span></div></div>
+    </div>
+    <p class="tp">Read every review on <a href="https://www.trustpilot.com/review/stateshield.app" target="_blank" rel="noopener">Trustpilot →</a></p>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap ab">
+    <div class="ph reveal"><span><b>Your team photo here</b>Homeowners let you into their house. A real face is the strongest trust signal a membership can have.</span></div>
+    <div class="reveal">
+      <span class="tag">About Us</span>
+      <h2>A Local Team That Treats Your Home Like Its Own</h2>
+      <div class="note">✏️ <span><b>Preview note:</b> this section is for your story: who started StateShield, why, and your license numbers. We'd write it with you.</span></div>
+      <p>StateShield was built around one simple belief: homeowners deserve honest guidance, transparent pricing, and a trusted partner, not sales pressure. Our mission is to help you understand, maintain, and improve the health of your home.</p>
+      <p>Our technicians are trained to educate, not pressure. We explain what we find and provide transparent pricing. The decision is always yours.</p>
+      <div class="facts">
+        <div><b>Based in</b>Hallandale Beach, FL</div>
+        <div><b>Serving</b>Homes across South Florida</div>
+        <div><b>Call us</b><a href="tel:+17868631969">(786) 863-1969</a></div>
+        <div><b>Email</b><a href="mailto:admin@stateshield.app">admin@stateshield.app</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="center reveal"><span class="tag">FAQ</span><h2>StateShield Homeowner Questions</h2><p class="lead">Clear answers, honest communication, and complete transparency.</p></div>
+    <div class="faqbox">
+      <label class="search"><svg><use href="#i-search"/></svg><input id="q" type="search" placeholder="Search questions, e.g. cancel, credits, warranty"></label>
+      <div class="cats" id="cats"><button class="on" type="button" data-c="all">All</button><button type="button" data-c="m">Membership</button><button type="button" data-c="a">The Assessment</button><button type="button" data-c="p">Pricing &amp; Credits</button></div>
+      <div id="faqs">
+        <details data-c="m" open><summary>What is StateShield?</summary><p>StateShield is a proactive home maintenance membership designed to help homeowners understand, maintain, and improve the health of their home. Instead of waiting until something breaks, we help identify maintenance opportunities early, provide professional guidance, and help homeowners make smarter decisions.</p></details>
+        <details data-c="m"><summary>Is StateShield a Home Warranty?</summary><p>No. StateShield is not a home warranty and is not an insurance policy. We focus on prevention, education, maintenance, transparency, and helping homeowners avoid expensive surprises whenever possible.</p></details>
+        <details data-c="m"><summary>What Do I Receive As a Member?</summary><p>Annual Home Health Assessment, Home Health Score, Home Health Report, Priority Scheduling, Transparent Labor Pricing, StateShield Credits, and Access to Trusted Home Professionals. Additional benefits may vary depending on your membership plan.</p></details>
+        <details data-c="a"><summary>What Is the Home Health Assessment?</summary><p>A comprehensive visual inspection of your home's major systems and visible components, including roofing, windows, HVAC, plumbing, electrical, solar (if applicable), exterior, and safety.</p></details>
+        <details data-c="a"><summary>What Is the Home Health Score?</summary><p>A proprietary 0–100 scoring system that helps homeowners understand the overall visible condition of their home and track it year after year.</p></details>
+        <details data-c="p"><summary>Will You Try to Sell Me Repairs?</summary><p>No. Our technicians are trained to educate, not pressure. We explain what we find and provide transparent pricing. The decision is always yours.</p></details>
+        <details data-c="m"><summary>Do I Have To Use StateShield For Repairs?</summary><p>No. You are never required to hire StateShield. If you choose us, you'll receive the benefits available through your membership.</p></details>
+        <details data-c="p"><summary>What Are StateShield Credits?</summary><p>Every successful membership payment (Plus and Elite plans only) earns StateShield Credits. Credits accumulate while your membership remains active and can be applied toward eligible labor charges on qualifying services.</p></details>
+        <details data-c="p"><summary>How Does Transparent Labor Pricing Work?</summary><p>You'll receive a clear labor estimate before work begins. Materials are billed separately at cost whenever applicable, with documentation provided. No hidden labor charges. No surprise invoices.</p></details>
+        <details data-c="a"><summary>How Long Does the Home Health Assessment Take?</summary><p>Most assessments take approximately 45–60 minutes, depending on the size, age, and condition of the home.</p></details>
+        <details data-c="a"><summary>Do I Need To Be Home?</summary><p>Yes. An adult homeowner or authorized representative should be present so the technician can review findings and answer questions.</p></details>
+        <details data-c="a"><summary>What Happens After the Assessment?</summary><p>You'll receive your personalized Home Health Report including your Home Health Score, inspection photos, maintenance recommendations, priority items, estimated Labor Guide pricing, and available StateShield Credits.</p></details>
+        <details data-c="m"><summary>Can I Cancel My Membership?</summary><p>Yes. You may cancel according to your Membership Agreement. Our goal is to earn your business every year, not keep you because you're locked into a contract.</p></details>
+        <details data-c="m"><summary>Why Should I Join Instead of Calling a Contractor Only When Something Breaks?</summary><p>Waiting until something fails is usually the most expensive option. Preventative maintenance helps identify issues early and reduce unexpected repair costs.</p></details>
+        <details data-c="m"><summary>Why Is StateShield Different?</summary><p>StateShield was built around one simple belief: homeowners deserve honest guidance, transparent pricing, and a trusted partner, not sales pressure. Our mission is to help you understand, maintain, and improve the health of your home.</p></details>
+      </div>
+      <div class="nores" id="nores">No matching questions. Call us at <a href="tel:+17868631969" style="color:var(--teal-600);font-weight:600">(786) 863-1969</a>.</div>
+      <p class="ask">Still have questions? <a href="tel:+17868631969">Call (786) 863-1969</a> or <a href="mailto:admin@stateshield.app">email our team →</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap"><div class="band reveal">
+    <h2>Your Home Is One Of<br>Your <em>Biggest Investments</em></h2>
+    <p>Protect it the way it deserves. Join StateShield and turn home maintenance from a source of stress into a source of confidence.</p>
+    <div class="ctas"><a class="btn btn-teal" href="https://portal.stateshield.app/c/auth/signup">Become a Member <svg class="arrow"><use href="#i-arrow"/></svg></a><a class="btn btn-ghost" href="tel:+17868631969"><svg class="arrow"><use href="#i-phone"/></svg> (786) 863-1969</a></div>
+    <div class="ticks"><span>✓ No long-term contracts</span><span>✓ Cancel anytime</span><span>✓ Serving all of South Florida</span></div>
+  </div></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a class="logo" href="#top" style="margin-bottom:14px"><svg viewBox="482.82 235.09 423.68 480.12" fill="none" aria-hidden="true"><path d="M820.3 569.75L836.55 595.97C808.88 635.8 771.87 666.44 730.88 691.11C718.527 698.537 705.803 705.077 692.71 710.73C691.197 711.383 689.737 711.38 688.33 710.72C675.36 704.68 665.56 700.13 653.84 693.2C649.393 690.573 643.103 686.767 634.97 681.78C626.363 676.5 615.763 668.863 603.17 658.87C572.777 634.743 547.997 606.613 528.83 574.48C510.11 543.11 498.81 509.76 492.34 471.75C488.18 447.4 486.71 420.3 486.88 390.99C486.96 376.237 486.94 355.157 486.82 327.75C486.813 326.85 486.877 325.093 487.01 322.48C487.022 322.249 487.107 322.028 487.252 321.847C487.398 321.666 487.596 321.534 487.82 321.47C547.46 304.67 604.67 283.33 660.3 255.83C670.173 250.95 680.16 245.407 690.26 239.2C690.365 239.133 690.486 239.097 690.61 239.095C690.734 239.094 690.855 239.126 690.96 239.19C699.96 244.597 709.763 249.99 720.37 255.37C767.69 279.37 818.8 298.52 868.81 313.71C881.62 317.6 887.08 319.5 895.62 321.61C895.752 321.641 895.869 321.715 895.954 321.82C896.039 321.925 896.087 322.055 896.09 322.19C896.17 353.003 896.043 379.833 895.71 402.68C895.61 409.547 895.27 416.25 894.69 422.79C893.54 435.84 892.92 446.19 890.93 457.71C890.397 460.783 889.633 465.7 888.64 472.46C888.626 472.543 888.59 472.621 888.537 472.686C888.483 472.751 888.413 472.801 888.334 472.831C888.255 472.86 888.169 472.868 888.086 472.854C888.003 472.84 887.925 472.804 887.86 472.75L864.76 453.35C864.389 453.037 864.102 452.636 863.926 452.183C863.749 451.731 863.689 451.242 863.75 450.76C868.37 415.81 867.96 380.51 867.27 344.1C867.267 343.911 867.202 343.729 867.087 343.579C866.972 343.43 866.812 343.321 866.63 343.27C834.157 334.077 801.917 322.997 769.91 310.03C742.83 299.06 716.75 286.91 692.23 273.27C691.75 273.004 691.209 272.864 690.66 272.864C690.111 272.864 689.571 273.004 689.09 273.27C665.85 286.143 641.88 297.603 617.18 307.65C586.35 320.19 558.81 329.79 529.01 339.22C524.55 340.633 520.293 341.837 516.24 342.83C516.031 342.881 515.845 343 515.711 343.168C515.577 343.337 515.503 343.545 515.5 343.76C515.32 360.173 515.283 378.753 515.39 399.5C515.57 431.48 518.57 463.83 526.79 494.52C532.103 514.387 539.247 532.993 548.22 550.34C549.167 552.173 552.087 557.223 556.98 565.49C559.84 570.323 562.297 574.037 564.35 576.63C568.06 581.3 570.71 585.85 574.69 590.76C587.577 606.673 600.913 620.35 614.7 631.79C628.293 643.063 643.853 654.143 661.38 665.03C670.94 670.97 679.64 674.94 689.44 679.98C689.859 680.195 690.326 680.304 690.8 680.297C691.274 680.29 691.741 680.168 692.16 679.94C700.55 675.34 709.73 671.04 718.96 665.52C752.447 645.487 781.42 620.25 805.88 589.81C810.85 583.63 815.64 576.54 820.3 569.75Z" fill="#0FA4B2"></path><path d="M902.27 562.39C902.248 562.422 902.22 562.45 902.187 562.471C902.154 562.491 902.117 562.505 902.078 562.511C902.04 562.516 902 562.514 901.963 562.503C901.925 562.493 901.89 562.475 901.86 562.45C830.31 504 760.14 446.71 691.05 391.72C690.91 391.611 690.739 391.552 690.563 391.552C690.387 391.552 690.217 391.611 690.08 391.72L551.73 500.77C551.687 500.805 551.637 500.828 551.583 500.837C551.529 500.847 551.473 500.842 551.421 500.824C551.368 500.807 551.32 500.776 551.282 500.735C551.243 500.694 551.215 500.644 551.2 500.59L541.49 462.18C541.452 462.037 541.457 461.886 541.505 461.746C541.553 461.605 541.642 461.482 541.76 461.39L690.03 346.3C690.19 346.175 690.387 346.107 690.59 346.107C690.793 346.107 690.99 346.175 691.15 346.3L783.28 419.52C783.364 419.586 783.466 419.628 783.573 419.64C783.68 419.652 783.788 419.634 783.884 419.588C783.98 419.542 784.061 419.47 784.117 419.38C784.173 419.29 784.202 419.186 784.2 419.08V398.18C784.2 398.026 784.26 397.879 784.367 397.77C784.474 397.661 784.619 397.6 784.77 397.6H822.04C822.184 397.6 822.322 397.658 822.425 397.761C822.528 397.863 822.587 398.003 822.59 398.15C822.623 408.63 822.613 425.817 822.56 449.71C822.55 451.28 823.81 452.23 825.02 453.22C861.773 483.073 887.467 504.003 902.1 516.01C902.209 516.097 902.297 516.208 902.358 516.334C902.418 516.461 902.45 516.599 902.45 516.74C902.517 537.167 902.517 552.167 902.45 561.74C902.45 562.02 902.39 562.237 902.27 562.39Z" fill="#071B34"></path><path d="M684.45 488.85H653.29C652.832 488.85 652.46 489.222 652.46 489.68V519.82C652.46 520.278 652.832 520.65 653.29 520.65H684.45C684.908 520.65 685.28 520.278 685.28 519.82V489.68C685.28 489.222 684.908 488.85 684.45 488.85Z" fill="#071B34"></path><path d="M727.318 488.877L696.098 488.823C695.711 488.822 695.397 489.135 695.396 489.522L695.343 519.942C695.343 520.328 695.656 520.642 696.042 520.643L727.262 520.697C727.649 520.698 727.963 520.385 727.963 519.998L728.016 489.578C728.017 489.192 727.704 488.878 727.318 488.877Z" fill="#071B34"></path><path d="M684.55 529.94H653.17C652.817 529.94 652.53 530.227 652.53 530.58V561.96C652.53 562.313 652.817 562.6 653.17 562.6H684.55C684.903 562.6 685.19 562.313 685.19 561.96V530.58C685.19 530.227 684.903 529.94 684.55 529.94Z" fill="#071B34"></path><path d="M727.258 530.087L696.138 530.033C695.752 530.032 695.438 530.345 695.437 530.732L695.383 561.852C695.382 562.238 695.695 562.552 696.082 562.553L727.202 562.607C727.588 562.608 727.902 562.295 727.903 561.908L727.957 530.788C727.958 530.402 727.645 530.088 727.258 530.087Z" fill="#071B34"></path></svg><span><span class="wm">STATE<span>SHIELD</span></span><span class="tl">Protecting What Matters Most</span></span></a>
+        <p>The home membership program for South Florida: one company, one standard, total peace of mind.</p>
+        <a href="tel:+17868631969">(786) 863-1969</a><a href="mailto:admin@stateshield.app">admin@stateshield.app</a></div>
+      <div><h5>Membership</h5><a href="#how">How It Works</a><a href="#plans">Plans &amp; Pricing</a><a href="#repairs">Real Repair Prices</a><a href="https://portal.stateshield.app/c/auth/signup">Become a Member</a></div>
+      <div><h5>Your Home</h5><a href="#top" onclick="startQuiz(true);return false">Estimate Your Score</a><a href="#faq">What's Assessed</a><a href="#reviews">Member Reviews</a><a href="https://portal.stateshield.app/c/auth/login">Member Login</a></div>
+      <div><h5>Company</h5><a href="#about">About StateShield</a><a href="#faq">FAQ</a><a href="tel:+17868631969">Contact Us</a></div>
+    </div>
+    <div class="legal"><span>© 2026 StateShield LLC · Hallandale Beach, FL</span><span><a href="https://stateshield.app/privacy">Privacy Policy</a><a href="https://stateshield.app/terms">Terms of Use</a><a href="https://stateshield.app/sms-consent">SMS Terms</a></span></div>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn btn-line" href="tel:+17868631969"><svg class="arrow"><use href="#i-phone"/></svg> Call</a><a class="btn btn-teal" href="#plans">See Plans</a></div>
+
+<script>
+/* ---------- Home Health Score estimator ---------- */
+const SYS=[["Roof","roof"],["HVAC","hvac"],["Plumbing","plumb"],["Electrical","elec"],["Windows","win"],["Exterior","ext"]];
+const QS=[
+ {k:"home",q:"When was your home built?",o:[["After 2015",0],["2000–2015",1],["1980–1999",2],["Before 1980",3]]},
+ {k:"roof",q:"How old is your roof?",o:[["Under 5 years",0],["5–12 years",1],["12–18 years",2],["18+ / not sure",3]]},
+ {k:"hvac",q:"How old is your AC system?",o:[["Under 5 years",0],["5–10 years",1],["10–15 years",2],["15+ / not sure",3]]},
+ {k:"last",q:"Last professional home check-up?",o:[["This year",0],["1–3 years ago",1],["3+ years ago",2],["Never / not sure",3]]}
+];
+let ans={},qi=0;const $=id=>document.getElementById(id);
+function render(vals,score,label){
+  $("bars").innerHTML=SYS.map(([n,k])=>{const v=vals[k],c=v<70?"bad":v<82?"warn":"";return `<div class="bar"><span>${n}</span><i><b class="${c}" style="width:0%" data-w="${v}"></b></i><em>${v}</em></div>`}).join("");
+  requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelectorAll("#bars b").forEach(b=>b.style.width=b.dataset.w+"%")));
+  $("arc").style.strokeDashoffset=232.5*(1-score/100);
+  let n=0;const t=setInterval(()=>{n+=Math.ceil((score-n)/6)||1;if(n>=score){n=score;clearInterval(t)}$("num").textContent=n},30);
+  const v=score>=85?["Excellent","Your home is in excellent shape!"]:score>=72?["Good","A few systems are worth watching."]:score>=58?["Needs attention","Some systems are due for a closer look."]:["At risk","Several systems are past their typical lifespan."];
+  $("vt").textContent=v[0];$("vs").textContent=v[1];$("scoreLabel").textContent=label;
+  $("vt").style.color=score>=72?"var(--teal-300)":score>=58?"#FBBF24":"#F87171";
+}
+render({roof:95,hvac:90,plumb:92,elec:88,win:93,ext:90},92,"Example home");
+function startQuiz(scroll){ans={};qi=0;$("score").classList.add("q");showQ();if(scroll)document.getElementById("score").scrollIntoView({behavior:"smooth",block:"center"})}
+function showQ(){const Q=QS[qi];$("qq").textContent=Q.q;$("qcount").textContent=`${qi+1} of 4`;$("qprog").style.width=((qi+1)/4*100)+"%";
+  $("opts").innerHTML=Q.o.map(([t,v])=>`<button type="button" data-v="${v}">${t}</button>`).join("");
+  $("opts").querySelectorAll("button").forEach(b=>b.onclick=()=>{ans[Q.k]=+b.dataset.v;qi++;qi<QS.length?showQ():finish()})}
+function finish(){
+  const h=ans.home,r=ans.roof,a=ans.hvac,l=ans.last,cl=x=>Math.max(38,Math.min(97,Math.round(x)));
+  const vals={roof:cl(96-[0,9,22,34][r]-h*2),hvac:cl(95-[0,8,20,33][a]-l*2),plumb:cl(95-h*8-l*3),elec:cl(94-h*7-l*2),win:cl(95-h*7),ext:cl(94-h*5-l*3)};
+  const score=Math.round(Object.values(vals).reduce((s,v)=>s+v,0)/6);
+  $("score").classList.remove("q");render(vals,score,"Your estimate");
+  const plan=score>=85?["core","Core","$39/mo","keeps a healthy home that way with a yearly assessment and priority scheduling."]:score>=72?["plus","Plus","$59/mo","adds a diagnostic + service visit to get ahead of the systems you're watching."]:["elite","Elite","$99/mo","gives you 2 diagnostic visits and same-day emergency response while older systems are at risk."];
+  $("rec").style.display="block";$("rec").innerHTML=`Suggested plan: <b>${plan[1]} (${plan[2]})</b>, which ${plan[3]}`;
+  $("goBtn").innerHTML=`See the ${plan[1]} plan <svg class="arrow"><use href="#i-arrow"/></svg>`;
+  $("goBtn").onclick=()=>{document.querySelectorAll(".plan").forEach(p=>p.classList.toggle("match",p.dataset.plan===plan[0]));const m=document.querySelector(`.plan[data-plan="${plan[0]}"]`);m.classList.add("in");m.scrollIntoView({behavior:"smooth",block:"center"})};
+  $("fine").innerHTML=`A rough estimate from 4 answers, not your official score, which comes from your in-home assessment. <button class="again" onclick="startQuiz()">Start over</button>`;
+}
+/* ---------- pricing toggle ---------- */
+document.querySelectorAll(".toggle button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll(".toggle button").forEach(x=>x.classList.toggle("on",x===b));const eff=b.dataset.m==="eff";
+  document.querySelectorAll(".plan").forEach(p=>{const pr=p.querySelector(".price b"),e=p.querySelector(".eff");
+    if(eff&&pr.dataset.eff!==pr.dataset.list){pr.textContent="$"+Math.round(+pr.dataset.eff);e.textContent=`$${pr.dataset.list}/mo minus your annual credit`}
+    else{pr.textContent="$"+pr.dataset.list;e.textContent=eff?"Monthly care, no wallet credit":""}})});
+/* ---------- repair examples ---------- */
+const R={roof:["Roof Repair","Shingle Replacement · 10×10",190,500,370,775],plumb:["Plumbing Repair","Water Leak & Pipe Replacement",90,470,225,725],hvac:["HVAC Repair","Capacitor & Refrigerant Recharge",185,155,410,539]};
+const f=n=>"$"+n.toLocaleString();
+function rep(k){const[t,j,mm,ml,tm,tl]=R[k],mt=mm+ml,tt=tm+tl;
+  $("job").innerHTML=`<b>${t}</b> · ${j}`;$("mM").textContent=f(mm);$("mL").textContent=f(ml);$("mT").textContent=f(mt);
+  $("tM").textContent=f(tm);$("tL").textContent=f(tl);$("tT").textContent=f(tt)+"+";
+  $("bM").style.width=(mt/tt*100)+"%";$("bT").style.width="100%";$("bMv").textContent=f(mt);$("bTv").textContent=f(tt)+"+";
+  $("saveTxt").textContent=`Members save ${f(tt-mt)}+ on this repair (${Math.round((tt-mt)/tt*100)}% less)`}
+document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("on",x===b));rep(b.dataset.k)});
+rep("roof");
+/* ---------- films ---------- */
+document.querySelectorAll(".film").forEach(el=>el.onclick=()=>{if(el.querySelector("video"))return;el.innerHTML=`<video src="${el.dataset.v}" controls autoplay playsinline></video>`});
+/* ---------- FAQ search ---------- */
+let cat="all";function ff(){const q=$("q").value.trim().toLowerCase();let n=0;
+  document.querySelectorAll("#faqs details").forEach(d=>{const ok=(cat==="all"||d.dataset.c===cat)&&(!q||d.textContent.toLowerCase().includes(q));d.style.display=ok?"":"none";if(ok)n++;if(q&&ok)d.open=true});
+  $("nores").style.display=n?"none":"block"}
+$("q").oninput=ff;document.querySelectorAll("#cats button").forEach(b=>b.onclick=()=>{cat=b.dataset.c;document.querySelectorAll("#cats button").forEach(x=>x.classList.toggle("on",x===b));ff()});
+/* ---------- reveal ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -40px"});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"StateShield","url":"https://stateshield.app","telephone":"+1-786-863-1969","email":"admin@stateshield.app","address":{"@type":"PostalAddress","streetAddress":"600 Silks Run 1260","addressLocality":"Hallandale Beach","addressRegion":"FL","postalCode":"33009","addressCountry":"US"},"areaServed":"South Florida"}</script>
+</body>
+</html>
