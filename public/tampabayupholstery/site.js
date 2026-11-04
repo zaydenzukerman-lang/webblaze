@@ -15,6 +15,7 @@ document.getElementById('quote-form').scrollIntoView({behavior:'smooth',block:'c
 })});
 sel.addEventListener('change',function(){opts.forEach(function(b){b.setAttribute('aria-pressed',T[b.dataset.k][0]===sel.value?'true':'false')})});
 document.querySelectorAll('form').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault();f.querySelector('.thanks').classList.add('show')})});
+var ph=document.getElementById('photos');ph.addEventListener('change',function(){document.getElementById('fl').textContent=[].map.call(ph.files,function(f){return f.name}).join(', ')});
 var fs=document.querySelectorAll('.f'),figs=document.querySelectorAll('.grid figure');
 fs.forEach(function(b){b.addEventListener('click',function(){
 fs.forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');
