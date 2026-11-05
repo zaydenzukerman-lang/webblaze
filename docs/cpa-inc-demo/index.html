@@ -9,161 +9,232 @@
 <link rel="icon" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&display=swap">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&display=swap"></noscript>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Poppins:wght@400;500;600&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Poppins:wght@400;500;600&display=swap"></noscript>
 <style>
 :root{
-  --maroon:#7f1d1d;--maroon-2:#991b1b;--maroon-ink:#140a0a;
-  --gold:#b0894f;--gold-2:#cda35f;--gold-soft:#f3e7cf;
-  --ink:#1a1512;--ink-soft:#413a36;--muted:#6b625c;
-  --cream:#fbf9f6;--cream-2:#f6efe8;--paper:#ffffff;--line:#eadfd6;
-  --radius:16px;--maxw:1140px;
+  --maroon:#7f1d1d;--maroon-2:#991b1b;--maroon-deep:#4d1111;--maroon-ink:#140a0a;
+  --gold:#a8814a;--gold-2:#c6a063;--gold-soft:#ece0c9;
+  --ink:#1c1613;--ink-soft:#4a413b;--muted:#776c63;
+  --paper:#f7f2ea;--paper-2:#efe7d8;--card:#fffdf9;--line:#e4d8c6;--line-gold:rgba(168,129,74,.42);
+  --maxw:1180px;
   --sans:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   --serif:'Fraunces',Georgia,'Times New Roman',serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:var(--sans);color:var(--ink-soft);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:var(--sans);color:var(--ink-soft);background:var(--paper);line-height:1.62;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(rgba(120,100,70,.045) 1px,transparent 1px);background-size:4px 4px}
 img{max-width:100%;height:auto;display:block}
-h1,h2,h3{font-family:var(--serif);color:var(--ink);line-height:1.12;margin:0;font-weight:600}
-a{color:inherit}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:1rem;padding:14px 26px;border-radius:10px;cursor:pointer;border:none;text-decoration:none;transition:transform .22s,box-shadow .22s,background .22s}
-.btn-primary{background:var(--maroon);color:#fff;box-shadow:0 10px 26px -8px rgba(127,29,29,.5)}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 36px -10px rgba(127,29,29,.6)}
-.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
-.btn-ghost:hover{transform:translateY(-3px);border-color:var(--maroon);color:var(--maroon)}
-.btn-ghost-light{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.3)}
-.btn-ghost-light:hover{background:rgba(255,255,255,.16)}
-.eyebrow{font-family:var(--sans);text-transform:uppercase;letter-spacing:.15em;font-size:.76rem;font-weight:600;color:var(--maroon)}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--ink);margin:0;font-weight:600;line-height:1.08;letter-spacing:-.012em}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
 
-.demobar{background:var(--maroon-ink);color:#efe2d9;font-size:.82rem;text-align:center;padding:9px 16px;font-family:var(--sans)}
-.demobar b{color:var(--gold-2)}
+/* ---- shared editorial devices ---- */
+.kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:.72rem;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--maroon)}
+.kicker::before{content:"";width:26px;height:1px;background:var(--gold);display:inline-block}
+.rule{height:1px;background:var(--line-gold);width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sans);font-weight:600;
+  font-size:.95rem;padding:15px 30px;border-radius:2px;cursor:pointer;border:1px solid transparent;transition:.28s}
+.btn svg{transition:transform .28s}
+.btn:hover svg{transform:translateX(4px)}
+.btn-primary{background:var(--maroon);color:#fff}
+.btn-primary:hover{background:var(--maroon-deep)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-gold)}
+.btn-ghost:hover{border-color:var(--maroon);color:var(--maroon)}
+.btn-gold{background:transparent;color:#f3e6cf;border-color:rgba(198,160,99,.5)}
+.btn-gold:hover{background:rgba(198,160,99,.14)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 
-header.nav{position:sticky;top:0;z-index:40;background:rgba(251,249,246,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 20px;max-width:var(--maxw);margin:0 auto}
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
-.brand .mk{width:40px;height:40px;border-radius:9px;background:var(--maroon);color:#fff;display:grid;place-items:center;font-family:var(--sans);font-weight:700;font-size:.82rem;letter-spacing:.03em}
-.brand .nm{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:1.18rem;line-height:1}
-.brand .nm small{display:block;font-family:var(--sans);font-weight:500;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-top:3px}
-.nav-right{display:flex;align-items:center;gap:18px}
-.nav-ph{font-family:var(--sans);font-weight:600;color:var(--ink);font-size:.95rem;text-decoration:none;white-space:nowrap;text-align:right}
-.nav-ph small{display:block;font-weight:500;font-size:.66rem;color:var(--muted)}
-@media(max-width:860px){.nav-ph{display:none}}
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.rv{opacity:1!important;transform:none!important;transition:none!important}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 
-.hero{background:radial-gradient(1100px 480px at 82% -12%,rgba(127,29,29,.09),transparent 60%),linear-gradient(180deg,var(--cream),var(--cream-2))}
-.hero-in{display:grid;grid-template-columns:1.12fr .88fr;gap:46px;align-items:center;padding:66px 20px 74px;max-width:var(--maxw);margin:0 auto}
-.hero h1{font-size:clamp(2.1rem,1.3rem+3.1vw,3.4rem);font-weight:600;letter-spacing:-.01em}
-.hero h1 .hl{color:var(--maroon)}
-.hero p.lead{font-size:1.1rem;color:var(--ink-soft);max-width:48ch;margin:22px 0 0}
-.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.chip{font-family:var(--sans);font-size:.82rem;font-weight:500;color:var(--ink-soft);background:#fff;border:1px solid var(--line);padding:7px 13px;border-radius:999px}
-.chip b{color:var(--maroon);font-weight:600}
-.portrait{position:relative}
-.portrait .ph{border-radius:18px;width:100%;box-shadow:0 30px 70px -30px rgba(26,21,18,.5);border:1px solid var(--line)}
-.portrait .cap{position:absolute;left:14px;bottom:14px;right:14px;background:rgba(20,10,10,.8);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14);border-radius:13px;padding:12px 14px}
-.portrait .cap b{font-family:var(--serif);color:#fff;font-size:1.02rem}
-.portrait .cap span{display:block;font-size:.78rem;color:var(--gold-2);font-weight:600;margin-top:2px}
-.portrait .creds{display:flex;gap:7px;margin-top:9px;flex-wrap:wrap}
-.portrait .creds i{font-style:normal;font-size:.7rem;color:#eadfd6;background:rgba(255,255,255,.1);border-radius:6px;padding:3px 7px}
+/* ---- top meta + nav ---- */
+.demobar{background:var(--maroon-ink);color:#e9dccf;font-size:.74rem;letter-spacing:.04em;text-align:center;padding:8px 16px;font-family:var(--sans)}
+.demobar b{color:var(--gold-2);font-weight:600}
+header.nav{position:sticky;top:0;z-index:40;background:rgba(247,242,234,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;max-width:var(--maxw);margin:0 auto;padding:15px 28px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand .mono{width:44px;height:44px;border:1px solid var(--line-gold);display:grid;place-items:center;position:relative}
+.brand .mono b{font-family:var(--serif);font-weight:600;font-size:1.05rem;color:var(--maroon);letter-spacing:.02em}
+.brand .mono::after{content:"";position:absolute;inset:4px;border:1px solid rgba(168,129,74,.25)}
+.brand .nm{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:1.16rem;line-height:1}
+.brand .nm small{display:block;font-family:var(--sans);font-weight:500;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+.nav-links{display:flex;gap:30px;font-family:var(--sans);font-size:.82rem;font-weight:500;letter-spacing:.02em}
+.nav-links a{color:var(--ink-soft);position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--maroon);transition:width .3s}
+.nav-links a:hover{color:var(--maroon)}.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-ph{font-family:var(--sans);font-weight:600;font-size:.9rem;color:var(--ink);text-align:right;white-space:nowrap}
+.nav-ph small{display:block;font-weight:500;font-size:.62rem;letter-spacing:.08em;color:var(--muted)}
+@media(max-width:1000px){.nav-links{display:none}}
+@media(max-width:600px){.nav-ph{display:none}}
 
-.local{background:#fff;border-bottom:1px solid var(--line)}
-.local-in{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:var(--maxw);margin:0 auto;padding:22px 20px}
-.local .it{display:flex;gap:12px;align-items:flex-start}
-.local .it .ic{flex:none;width:38px;height:38px;border-radius:10px;background:var(--cream);border:1px solid var(--line);display:grid;place-items:center;color:var(--maroon);font-size:1.05rem}
-.local .it h4{margin:0 0 2px;font-family:var(--sans);font-weight:700;color:var(--ink);font-size:.95rem}
-.local .it p{margin:0;font-size:.9rem;color:var(--muted)}
-.local .it .ph-prop{color:var(--maroon);font-weight:600}
-.local .it a{color:var(--ink-soft);text-decoration:none}
+/* ---- hero ---- */
+.hero{position:relative;overflow:hidden}
+.hero-in{display:grid;grid-template-columns:1.08fr .92fr;gap:0;max-width:var(--maxw);margin:0 auto;align-items:stretch;min-height:clamp(560px,76vh,760px)}
+.hero-copy{padding:70px 48px 70px 28px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero-meta{display:flex;gap:22px;font-family:var(--sans);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:30px}
+.hero-meta b{color:var(--maroon);font-weight:600}
+.hero h1{font-size:clamp(2.6rem,1.9rem+3.4vw,4.6rem);font-weight:500;letter-spacing:-.02em;color:var(--ink)}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--maroon)}
+.hero h1 .amp{font-style:italic;color:var(--gold)}
+.hero .lead{font-size:1.1rem;color:var(--ink-soft);max-width:44ch;margin:26px 0 0}
+.hero .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:36px}
+.hero .since{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:.95rem}
+.hero-fig{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--paper-2),#e5d8c3)}
+.hero-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.hero-fig::before{content:"";position:absolute;inset:18px;border:1px solid var(--line-gold);z-index:2;pointer-events:none}
+.hero-fig .vlabel{position:absolute;right:26px;top:50%;transform:translateY(-50%) rotate(90deg);transform-origin:right center;
+  font-family:var(--sans);font-size:.66rem;letter-spacing:.34em;text-transform:uppercase;color:#f3e6cf;z-index:3;mix-blend-mode:difference}
+.hero-fig figcaption{position:absolute;left:30px;bottom:30px;right:30px;z-index:3;background:linear-gradient(180deg,rgba(20,10,10,0),rgba(20,10,10,.82));
+  padding:40px 20px 18px;margin:-40px -20px -18px}
+.hero-fig figcaption b{font-family:var(--serif);color:#fff;font-size:1.1rem;display:block}
+.hero-fig figcaption span{font-family:var(--sans);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2);font-weight:600}
+@media(max-width:860px){
+  .hero-in{grid-template-columns:1fr;min-height:0}
+  .hero-copy{order:2;padding:44px 28px 48px}
+  .hero-fig{order:1;height:60vh;min-height:380px}
+  .hero-fig img{position:static;height:100%}
+}
 
-section{padding:70px 0}
-.sec-head{max-width:640px;margin:0 auto 44px;text-align:center}
-.sec-head h2{font-size:clamp(1.7rem,1.2rem+2vw,2.4rem)}
-.sec-head p{margin:14px 0 0;color:var(--muted);font-size:1.05rem}
+/* ---- credential band ---- */
+.creds{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card)}
+.creds-in{display:grid;grid-template-columns:repeat(4,1fr);max-width:var(--maxw);margin:0 auto}
+.creds .c{padding:26px 28px;border-left:1px solid var(--line)}
+.creds .c:first-child{border-left:0}
+.creds .c .n{font-family:var(--serif);font-size:1.5rem;color:var(--maroon);font-weight:600;line-height:1}
+.creds .c .l{font-family:var(--sans);font-size:.74rem;letter-spacing:.05em;color:var(--muted);margin-top:7px}
+@media(max-width:760px){.creds-in{grid-template-columns:1fr 1fr}.creds .c:nth-child(3){border-left:0}.creds .c:nth-child(3),.creds .c:nth-child(4){border-top:1px solid var(--line)}}
 
-.grid-sv{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.sv{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:transform .22s,box-shadow .22s,border-color .22s}
-.sv:hover{transform:translateY(-4px);box-shadow:0 22px 46px -30px rgba(26,21,18,.5);border-color:var(--gold-soft)}
-.sv .ic{width:46px;height:46px;border-radius:11px;background:var(--cream-2);color:var(--maroon);display:grid;place-items:center;font-size:1.3rem;margin-bottom:16px}
-.sv h3{font-size:1.18rem;margin-bottom:8px}
-.sv p{margin:0;font-size:.93rem;color:var(--muted)}
-.sv .angle{display:inline-block;margin-top:12px;font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--maroon);background:var(--gold-soft);border-radius:6px;padding:3px 8px}
+/* ---- section scaffolding ---- */
+section{padding:92px 0}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:end;margin-bottom:54px}
+.sec-num{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.4rem);font-weight:500;color:transparent;-webkit-text-stroke:1px var(--gold);line-height:.8}
+.sec-head h2{font-size:clamp(1.9rem,1.3rem+2.4vw,2.9rem);font-weight:500}
+.sec-head .sub{font-family:var(--sans);color:var(--muted);font-size:1.02rem;margin-top:12px;max-width:52ch}
 
-.about{background:var(--cream-2)}
-.about-in{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center;max-width:var(--maxw);margin:0 auto;padding:0 20px}
-.about img{border-radius:16px;box-shadow:0 24px 56px -34px rgba(26,21,18,.6)}
-.about h2{font-size:clamp(1.7rem,1.2rem+2vw,2.3rem);margin-bottom:18px}
-.about p{margin:0 0 16px}
-.about .lang{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-.about .lang span{font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px}
+/* ---- services: editorial list ---- */
+.svc-list{border-top:1px solid var(--line)}
+.svc{display:grid;grid-template-columns:48px 1fr auto;gap:28px;align-items:center;padding:30px 8px;border-bottom:1px solid var(--line);
+  transition:background .3s,padding .3s;position:relative}
+.svc::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--maroon);transition:width .3s}
+.svc:hover{background:linear-gradient(90deg,rgba(168,129,74,.07),transparent);padding-left:22px}
+.svc:hover::before{width:3px}
+.svc .ic{color:var(--maroon)}
+.svc .body h3{font-size:1.32rem;font-weight:600;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.svc .body h3 .tag{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);border:1px solid var(--line-gold);padding:3px 8px;border-radius:2px}
+.svc .body p{margin:7px 0 0;font-size:.95rem;color:var(--muted);max-width:62ch}
+.svc .forms{font-family:var(--serif);font-style:italic;color:var(--maroon);font-size:1.05rem;white-space:nowrap;opacity:.85}
+@media(max-width:700px){.svc{grid-template-columns:34px 1fr;gap:16px}.svc .forms{display:none}}
 
-.rev-top{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:32px}
-.stars{color:var(--gold);font-size:1.5rem;letter-spacing:3px}
-.rev-top .score{font-family:var(--serif);font-size:1.25rem;color:var(--ink);font-weight:700}
-.grid-rev{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:32px}
-.rev{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
-.rev .stars{font-size:1rem;letter-spacing:2px}
-.rev p{font-size:.94rem;color:var(--ink-soft);margin:12px 0 16px}
-.rev .ph-slot{color:var(--muted);font-style:italic}
-.rev .who{font-family:var(--sans);font-weight:600;color:var(--ink);font-size:.9rem}
-.rev-cta{text-align:center}
-.note{font-size:.82rem;color:var(--muted);margin-top:12px;max-width:62ch;margin-left:auto;margin-right:auto}
+/* ---- statement band ---- */
+.statement{background:var(--maroon-ink);color:#f0e4d6;position:relative;overflow:hidden;padding:104px 0}
+.statement::before{content:"\201C";position:absolute;left:4%;top:-30px;font-family:var(--serif);font-size:20rem;color:rgba(198,160,99,.12);line-height:1}
+.statement .wrap{position:relative}
+.statement .kicker{color:var(--gold-2)}.statement .kicker::before{background:var(--gold-2)}
+.statement q{quotes:none;display:block;font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,1.1rem+2.7vw,3.1rem);
+  line-height:1.2;letter-spacing:-.015em;color:#fbf1e4;max-width:20ch;margin:24px 0 0}
+.statement q em{font-style:italic;color:var(--gold-2)}
+.statement .sig{margin-top:34px;font-family:var(--sans);font-size:.82rem;letter-spacing:.06em;color:#cbb9a7}
+.statement .sig b{color:#fff;font-weight:600}
 
-.contact{background:linear-gradient(180deg,var(--maroon-ink),#2a1212);color:#efe2d9}
-.contact-in{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start;max-width:var(--maxw);margin:0 auto;padding:0 20px}
-.contact h2{color:#fff;font-size:clamp(1.7rem,1.2rem+2vw,2.3rem)}
-.contact p.sub{color:#d8c6bb;margin-top:14px}
-.contact .map{margin-top:22px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.14);height:258px}
-.contact .map iframe{width:100%;height:100%;border:0;filter:grayscale(.15)}
-form{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:26px}
-.fld{margin-bottom:14px}
-.fld label{display:block;font-family:var(--sans);font-size:.82rem;font-weight:600;color:#e3d2c7;margin-bottom:6px}
-.fld input,.fld select,.fld textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:#fff;font-family:var(--sans);font-size:16px}
-.fld input::placeholder,.fld textarea::placeholder{color:#b49c90}
-#msg{display:none;margin-top:12px;color:var(--gold-2);font-size:.9rem;font-weight:600}
+/* ---- about ---- */
+.about{background:var(--paper-2)}
+.about-in{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:center;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.about-fig{position:relative}
+.about-fig img{width:100%;filter:grayscale(.1) contrast(1.02)}
+.about-fig::after{content:"";position:absolute;left:-16px;top:-16px;width:80px;height:80px;border-top:1px solid var(--gold);border-left:1px solid var(--gold)}
+.about-fig .stamp{position:absolute;right:-14px;bottom:-14px;width:110px;height:110px;border-radius:50%;background:var(--maroon);
+  color:#f3e6cf;display:grid;place-items:center;text-align:center;font-family:var(--sans);font-size:.6rem;letter-spacing:.14em;
+  text-transform:uppercase;line-height:1.5;font-weight:600;transform:rotate(-8deg)}
+.about-copy h2{font-size:clamp(1.8rem,1.3rem+2vw,2.6rem);font-weight:500;margin-bottom:22px}
+.about-copy p{margin:0 0 16px;color:var(--ink-soft)}
+.about-copy p.intro::first-letter{font-family:var(--serif);font-size:3.4rem;font-weight:600;float:left;line-height:.72;
+  margin:8px 12px 0 0;color:var(--maroon)}
+.about-copy .langs{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.about-copy .langs span{font-family:var(--sans);font-size:.8rem;font-weight:500;color:var(--ink);
+  border:1px solid var(--line-gold);border-radius:2px;padding:8px 14px}
+@media(max-width:820px){.about-in{grid-template-columns:1fr;gap:40px}.about-fig{max-width:340px}.about-fig .stamp{width:92px;height:92px}}
 
-footer{background:#120a08;color:#b6a79d;font-size:.88rem}
-.foot-in{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;max-width:var(--maxw);margin:0 auto;padding:50px 20px 28px}
-footer h5{font-family:var(--sans);text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;color:#8a7a70;margin:0 0 14px}
-footer a{color:#b6a79d;text-decoration:none}footer a:hover{color:#fff}
-.foot-brand .nm{font-family:var(--serif);color:#fff;font-size:1.2rem;font-weight:700}
-.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding:16px 20px;text-align:center;font-size:.78rem;color:#80736a;max-width:var(--maxw);margin:0 auto}
+/* ---- reputation ---- */
+.rep-in{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.rep-stat{text-align:center;border:1px solid var(--line-gold);padding:48px 30px;background:var(--card);position:relative}
+.rep-stat::before,.rep-stat::after{content:"";position:absolute;width:14px;height:14px;border:1px solid var(--gold)}
+.rep-stat::before{left:10px;top:10px;border-right:0;border-bottom:0}
+.rep-stat::after{right:10px;bottom:10px;border-left:0;border-top:0}
+.rep-stat .stars{color:var(--gold);letter-spacing:5px;font-size:1.3rem}
+.rep-stat .big{font-family:var(--serif);font-size:4.6rem;font-weight:600;color:var(--maroon);line-height:1;margin:10px 0 4px}
+.rep-stat .cap{font-family:var(--sans);font-size:.82rem;letter-spacing:.04em;color:var(--muted)}
+.rep-copy h2{font-size:clamp(1.7rem,1.2rem+2vw,2.5rem);font-weight:500;margin-bottom:16px}
+.rep-copy p{color:var(--ink-soft);margin:0 0 18px}
+.rep-copy .note{font-size:.82rem;color:var(--muted);border-left:2px solid var(--line-gold);padding-left:14px}
+@media(max-width:820px){.rep-in{grid-template-columns:1fr;gap:34px}}
+
+/* ---- contact ---- */
+.contact{background:linear-gradient(180deg,var(--maroon-ink),#2b1414);color:#efe2d9}
+.contact-in{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+.contact .kicker{color:var(--gold-2)}.contact .kicker::before{background:var(--gold-2)}
+.contact h2{color:#fff;font-size:clamp(1.8rem,1.3rem+2vw,2.7rem);font-weight:500;margin:18px 0 14px}
+.contact .sub{color:#d6c4b6;margin-bottom:26px;max-width:44ch}
+.contact .lines{display:grid;gap:2px;margin-bottom:26px}
+.contact .lines a,.contact .lines div{display:flex;gap:14px;align-items:baseline;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.96rem}
+.contact .lines .lab{font-family:var(--sans);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2);min-width:88px;font-weight:600}
+.contact .lines a:hover{color:#fff}
+.map{border:1px solid rgba(198,160,99,.3);height:200px;overflow:hidden}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.3)}
+form{background:rgba(255,255,255,.04);border:1px solid rgba(198,160,99,.28);padding:30px}
+.fld{margin-bottom:16px}
+.fld label{display:block;font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#e3d2c7;margin-bottom:7px}
+.fld input,.fld select,.fld textarea{width:100%;padding:13px 14px;border-radius:2px;border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);color:#fff;font-family:var(--sans);font-size:16px}
+.fld input::placeholder,.fld textarea::placeholder{color:#a8958a}
+#msg{display:none;margin-top:14px;color:var(--gold-2);font-size:.9rem;font-weight:600}
+@media(max-width:820px){.contact-in{grid-template-columns:1fr;gap:34px}}
+
+/* ---- footer ---- */
+footer{background:var(--maroon-ink);color:#b7a899;font-size:.86rem;border-top:1px solid rgba(198,160,99,.22)}
+.foot-in{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:34px;max-width:var(--maxw);margin:0 auto;padding:56px 28px 30px}
+footer h5{font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;font-size:.68rem;color:var(--gold);margin:0 0 15px}
+footer a{color:#b7a899}footer a:hover{color:#fff}
+.foot-brand .nm{font-family:var(--serif);color:#fff;font-size:1.3rem;font-weight:600}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);text-align:center;font-size:.76rem;color:#8a7c70;padding:16px;max-width:var(--maxw);margin:0 auto}
 .foot-bottom b{color:var(--gold-2)}
 
+/* ---- mobile call bar ---- */
 .callbar{display:none}
-@media(max-width:760px){
-  .hero-in{grid-template-columns:1fr;gap:32px;padding:48px 20px 54px}
-  .portrait{order:-1;max-width:350px;margin:0 auto}
-  .local-in{grid-template-columns:1fr;gap:16px}
-  .grid-sv,.grid-rev{grid-template-columns:1fr}
-  .about-in{grid-template-columns:1fr;gap:26px}
-  .about img{max-width:300px;margin:0 auto}
-  .contact-in{grid-template-columns:1fr;gap:26px}
-  body{padding-bottom:64px}
-  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50}
-  .callbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:15px;font-family:var(--sans);font-weight:700;font-size:.95rem;text-decoration:none}
+@media(max-width:600px){
+  body{padding-bottom:60px}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;border-top:1px solid rgba(198,160,99,.4)}
+  .callbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:15px;font-family:var(--sans);font-weight:600;font-size:.9rem}
   .callbar .c1{background:var(--maroon);color:#fff}
   .callbar .c2{background:var(--gold);color:#241a06}
 }
-/* keyboard focus visibility (WCAG 2.4.7) */
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold-2);outline-offset:2px;border-radius:4px}
-/* respect reduced-motion preference (WCAG 2.3.3) */
-@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
 </style>
 </head>
 <body>
 
-<div class="demobar">Redesign concept for <b>CPA Inc.</b> — prepared by WebBlaze. Not the official site. &nbsp;·&nbsp; Same real credentials, repositioned for Fort Myers local search.</div>
+<div class="demobar">A redesign concept for <b>CPA Inc.</b>, prepared by WebBlaze &mdash; same real credentials, repositioned for Fort Myers. Not the live site.</div>
 
 <header class="nav">
   <div class="nav-in">
     <a class="brand" href="#top">
-      <span class="mk">CPA</span>
+      <span class="mono"><b>CI</b></span>
       <span class="nm">CPA Inc.<small>Timur Knyazev, CPA</small></span>
     </a>
+    <nav class="nav-links">
+      <a href="#practice">Practice</a>
+      <a href="#about">About</a>
+      <a href="#standing">Standing</a>
+      <a href="#contact">Contact</a>
+    </nav>
     <div class="nav-right">
-      <a class="nav-ph" href="tel:+12123169944">(212) 316-9944<small>Current line · NYC</small></a>
+      <a class="nav-ph" href="tel:+12123169944">(212) 316-9944<small>Current line &middot; NYC</small></a>
       <a class="btn btn-primary" href="#contact">Book a consult</a>
     </div>
   </div>
@@ -172,132 +243,153 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <a id="top"></a>
 <section class="hero" style="padding:0">
   <div class="hero-in">
-    <div>
-      <p class="eyebrow">Fort Myers, Florida · International Tax Boutique</p>
-      <h1>Fort Myers CPA for <span class="hl">international &amp; cross-border tax.</span></h1>
-      <p class="lead">Big-4-trained (EY &amp; PwC), licensed Florida CPA firm handling FIRPTA, FBAR/FATCA, expats and foreign-owned US companies — now serving Southwest Florida. Fluent in Russian &amp; Spanish.</p>
-      <div class="ctas">
-        <a class="btn btn-primary" href="#contact">Book a consult</a>
-        <a class="btn btn-ghost" href="#services">See our services</a>
-      </div>
-      <div class="chips">
-        <span class="chip">Licensed FL CPA firm · <b>#AD71493</b></span>
-        <span class="chip">Est. <b>2017</b></span>
-        <span class="chip"><b>5.0 ★</b> on Google</span>
-        <span class="chip">Ex-<b>EY</b> · Ex-<b>PwC</b></span>
+    <div class="hero-copy">
+      <div class="hero-meta rv"><span>Fort Myers, <b>Florida</b></span><span>Established <b>2017</b></span><span>Intl &amp; Cross-Border</span></div>
+      <h1 class="rv">International tax,<br>handled with <em>intent</em>.</h1>
+      <p class="lead rv">A boutique cross-border practice for Southwest Florida&rsquo;s foreign investors, expats and global families &mdash; the complex returns most local firms quietly pass on.</p>
+      <div class="cta-row rv">
+        <a class="btn btn-primary" href="#contact">Book a consult <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 6h13M9 1l5 5-5 5"/></svg></a>
+        <a class="btn btn-ghost" href="#practice">The practice</a>
+        <span class="since">EY &amp; PwC trained &middot; MS Taxation, Baruch</span>
       </div>
     </div>
-    <div class="portrait">
-      <img class="ph" src="img/founder.webp" width="560" height="840" alt="Timur Knyazev, CPA — founder of CPA Inc." fetchpriority="high">
-      <div class="cap">
-        <b>Timur Knyazev, CPA</b>
-        <span>Founder · International Tax Advisor</span>
-        <div class="creds"><i>MS Tax · Baruch</i><i>Ex-EY · PwC</i><i>IRS e-file provider</i></div>
-      </div>
-    </div>
+    <figure class="hero-fig rv">
+      <img src="img/founder.webp" width="560" height="840" alt="Timur Knyazev, CPA — founder of CPA Inc." fetchpriority="high">
+      <span class="vlabel">International Tax &middot; Est. 2017</span>
+      <figcaption><b>Timur Knyazev, CPA</b><span>Founder</span></figcaption>
+    </figure>
   </div>
 </section>
 
-<div class="local">
-  <div class="local-in">
-    <div class="it">
-      <div class="ic">📍</div>
-      <div><h4>Fort Myers office</h4><p>2256 First St #170<br>Fort Myers, FL 33901</p></div>
-    </div>
-    <div class="it">
-      <div class="ic">📞</div>
-      <div><h4>Local line</h4><p class="ph-prop">(239) •••-•••• <span style="color:var(--muted);font-weight:500">— proposed local number</span></p><p style="margin-top:3px"><a href="tel:+12123169944">Current: (212) 316-9944 · NYC</a></p></div>
-    </div>
-    <div class="it">
-      <div class="ic">🕒</div>
-      <div><h4>Hours</h4><p>Mon–Fri · 9:00 AM–5:00 PM<br>Extended tax-season hours</p></div>
-    </div>
+<div class="creds">
+  <div class="creds-in">
+    <div class="c rv"><div class="n">#AD71493</div><div class="l">Licensed Florida CPA firm</div></div>
+    <div class="c rv"><div class="n">5.0&#9733;</div><div class="l">Google rating, his practice</div></div>
+    <div class="c rv"><div class="n">EY &middot; PwC</div><div class="l">Big-Four tax background</div></div>
+    <div class="c rv"><div class="n">EN&middot;RU&middot;ES</div><div class="l">English, Russian &amp; Spanish</div></div>
   </div>
 </div>
 
-<section id="services">
+<section id="practice">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">What we do</p>
-      <h2>Specialist international &amp; cross-border tax</h2>
-      <p>A boutique practice focused on the complex returns most local firms don't handle — now with a Fort Myers home base.</p>
+    <div class="sec-head rv">
+      <div class="sec-num">01</div>
+      <div>
+        <p class="kicker">The practice</p>
+        <h2>Work most local firms don&rsquo;t touch</h2>
+        <p class="sub">Southwest Florida is full of foreign buyers, snowbirds and global families. Cross-border tax isn&rsquo;t a side service here &mdash; it&rsquo;s the whole practice.</p>
+      </div>
     </div>
-    <div class="grid-sv">
-      <div class="sv"><div class="ic">🌐</div><h3>International &amp; cross-border tax</h3><p>CFCs (Form 5471), 5472, GILTI, FDII, Subpart F, foreign tax credits, treaty &amp; residency positions (Form 8833).</p></div>
-      <div class="sv"><div class="ic">✈️</div><h3>Expats &amp; US persons abroad</h3><p>Foreign-earned income (Form 2555), digital nomads, US pre-residency planning and US exit tax (Form 8854).</p></div>
-      <div class="sv"><div class="ic">🏠</div><h3>FIRPTA</h3><p>Foreign sellers of US real estate — withholding and 8288/8288-B filings and refunds. A natural fit for SW Florida property.</p><span class="angle">Strong Fort Myers angle</span></div>
-      <div class="sv"><div class="ic">🏦</div><h3>FBAR &amp; FATCA reporting</h3><p>Foreign-account disclosure done right — FinCEN 114 (FBAR) and Form 8938, plus foreign-gift reporting (Form 3520).</p></div>
-      <div class="sv"><div class="ic">🏢</div><h3>Foreign-owned US companies</h3><p>Foreign-owned single-member LLC reporting, transfer pricing, withholding and structuring for inbound businesses.</p></div>
-      <div class="sv"><div class="ic">🗣️</div><h3>Russian- &amp; Spanish-speaking clients</h3><p>Full service in English, Russian and Spanish — individual (1040 / 1040NR), business (1120, 1120F, 1065) and crypto.</p></div>
-    </div>
-    <div style="text-align:center;margin-top:26px">
-      <span class="sv" style="display:inline-block;padding:16px 22px;border-style:dashed"><b style="font-family:var(--serif);color:var(--ink);font-size:1.05rem">Canadian snowbird &amp; cross-border planning</b> &nbsp;<span class="angle">Suggested SW-FL angle</span></span>
+    <div class="svc-list">
+      <div class="svc rv">
+        <span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 4 3 14 0 18M12 3c-3 4-3 14 0 18"/></svg></span>
+        <div class="body"><h3>International &amp; cross-border tax</h3><p>CFCs, GILTI, FDII, Subpart F, foreign tax credits, treaty &amp; residency positions.</p></div>
+        <div class="forms">5471 &middot; 8833</div>
+      </div>
+      <div class="svc rv">
+        <span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></span>
+        <div class="body"><h3>FIRPTA <span class="tag">SW-FL strength</span></h3><p>Foreign sellers of US real estate &mdash; withholding, certificates and refunds. A natural fit for the Gulf Coast property market.</p></div>
+        <div class="forms">8288 &middot; 8288-B</div>
+      </div>
+      <div class="svc rv">
+        <span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 20l9-16 9 16M7 20l5-9 5 9"/></svg></span>
+        <div class="body"><h3>Expats &amp; US persons abroad</h3><p>Foreign-earned income, digital nomads, pre-residency planning and US exit tax.</p></div>
+        <div class="forms">2555 &middot; 8854</div>
+      </div>
+      <div class="svc rv">
+        <span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 10h18M8 15h4"/></svg></span>
+        <div class="body"><h3>FBAR &amp; FATCA reporting</h3><p>Foreign-account disclosure done right &mdash; FinCEN 114, Form 8938 and foreign-gift reporting.</p></div>
+        <div class="forms">114 &middot; 8938</div>
+      </div>
+      <div class="svc rv">
+        <span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 21V7l8-4 8 4v14M9 21v-7h6v7M4 11h16"/></svg></span>
+        <div class="body"><h3>Foreign-owned US companies</h3><p>Single-member LLC reporting, transfer pricing, withholding and inbound structuring.</p></div>
+        <div class="forms">5472 &middot; 1120-F</div>
+      </div>
+      <div class="svc rv">
+        <span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM8 11l2.5 2.5L16 8"/></svg></span>
+        <div class="body"><h3>Served in three languages</h3><p>Individual, business and crypto filings &mdash; in English, Russian and Spanish.</p></div>
+        <div class="forms">1040 &middot; 1040-NR</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="about">
+<section class="statement">
+  <div class="wrap">
+    <p class="kicker rv">The difference</p>
+    <q class="rv">Most firms see an international return once a year. For this practice, it&rsquo;s <em>the only kind there is</em>.</q>
+    <p class="sig rv">&mdash; <b>Timur Knyazev, CPA</b>, Founder of CPA Inc.</p>
+  </div>
+</section>
+
+<section id="about" class="about">
   <div class="about-in">
-    <img src="img/founder-sq.webp" width="480" height="480" alt="Timur Knyazev, CPA" loading="lazy">
-    <div>
-      <p class="eyebrow">Who you're working with</p>
-      <h2>Big-4 pedigree. Boutique attention.</h2>
-      <p>Timur Knyazev is a licensed CPA (Florida firm #AD71493) and the founder of CPA Inc., established 2017. He trained at <b>EY</b> and <b>PwC</b> and holds an <b>MS in Taxation</b> from CUNY Baruch's Zicklin School of Business.</p>
-      <p>The practice is a modern, digitally-run tax boutique: securely share documents, e-sign, e-file, and reach your CPA directly — no call center, no bloated firm. The focus is high-exposure international and cross-border matters, handled with precision.</p>
-      <div class="lang"><span>🇺🇸 English</span><span>🇷🇺 Russian</span><span>🇪🇸 Spanish</span><span>Authorized IRS e-file provider</span></div>
+    <figure class="about-fig rv">
+      <img src="img/founder-sq.webp" width="480" height="480" alt="Timur Knyazev, CPA" loading="lazy">
+      <div class="stamp">Licensed<br>FL CPA<br>#AD71493</div>
+    </figure>
+    <div class="about-copy rv">
+      <p class="kicker">Who you work with</p>
+      <h2>Big-Four pedigree, boutique attention</h2>
+      <p class="intro">Timur Knyazev is a licensed CPA and the founder of CPA Inc., established 2017. He trained in international tax at EY and PwC and holds an MS in Taxation from CUNY Baruch&rsquo;s Zicklin School of Business.</p>
+      <p>The practice runs like a modern boutique: share documents securely, e-sign, e-file, and reach your CPA directly &mdash; no call center, no bloat. The focus stays on high-exposure, cross-border matters, handled with precision.</p>
+      <div class="langs"><span>&#127482;&#127480; English</span><span>&#127479;&#127482; Russian</span><span>&#127466;&#127480; Spanish</span><span>Authorized IRS e-file provider</span></div>
     </div>
   </div>
 </section>
 
-<section id="reviews">
+<section id="standing">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Reputation</p>
-      <h2>Rated 5.0 by clients</h2>
-    </div>
-    <div class="rev-top">
-      <div class="stars">★★★★★</div>
-      <div class="score">5.0 on Google</div>
-    </div>
-    <div class="grid-rev">
-      <div class="rev"><div class="stars">★★★★★</div><p class="ph-slot">“Your real Google reviews appear here.” As we grow your review count, verified client quotes fill these cards automatically.</p><div class="who">Review spotlight</div></div>
-      <div class="rev"><div class="stars">★★★★★</div><p class="ph-slot">A dedicated review-request flow invites happy clients to share their experience right after filing season.</p><div class="who">Review spotlight</div></div>
-      <div class="rev"><div class="stars">★★★★★</div><p class="ph-slot">Every new 5-star review strengthens your Fort Myers Google Maps ranking.</p><div class="who">Review spotlight</div></div>
-    </div>
-    <div class="rev-cta">
-      <a class="btn btn-ghost" href="https://g.page/taxtimur" target="_blank" rel="noopener noreferrer">★ Leave us a Google review</a>
-      <p class="note">Demo note: review cards are placeholders — we never invent reviews. This shows the review engine that closes the biggest ranking gap (top competitors have 60–147 reviews).</p>
+    <div class="rep-in">
+      <div class="rep-stat rv">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="big">5.0</div>
+        <div class="cap">Google rating across Timur&rsquo;s practice</div>
+      </div>
+      <div class="rep-copy rv">
+        <p class="kicker">Standing</p>
+        <h2>A reputation to carry into Fort Myers</h2>
+        <p>The work already earns a perfect Google rating. The opportunity in Southwest Florida is to build the <em>local</em> review base to match &mdash; the single biggest lever on Google Maps rank, where the top Fort Myers firms sit on 60&ndash;147 reviews.</p>
+        <p class="note">Concept note: this section pairs Timur&rsquo;s real 5.0 rating with a built-in review-request flow for new local clients. We never invent reviews &mdash; real client quotes would populate here as the Fort Myers base grows.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="contact" id="contact">
-  <div class="contact-in">
-    <div>
-      <p class="eyebrow" style="color:var(--gold-2)">Start a conversation</p>
-      <h2>Tell us about your tax situation.</h2>
-      <p class="sub">Cross-border move, foreign property sale, expat filing or a foreign-owned company — send a few details and we'll tell you exactly how we can help. Prefer to talk? Call the current line while the local Fort Myers number is set up.</p>
-      <div class="map">
-        <iframe title="CPA Inc. — Fort Myers office map" loading="lazy" src="https://www.google.com/maps?q=2256%20First%20St%20%23170%2C%20Fort%20Myers%2C%20FL%2033901&output=embed"></iframe>
+  <div class="wrap">
+    <div class="contact-in">
+      <div class="rv">
+        <p class="kicker">Start a conversation</p>
+        <h2>Tell us about your tax situation</h2>
+        <p class="sub">A cross-border move, a foreign property sale, an expat filing or a foreign-owned company &mdash; send a few details and we&rsquo;ll tell you exactly how we can help.</p>
+        <div class="lines">
+          <a href="tel:+12123169944"><span class="lab">Phone</span><span>(212) 316-9944 &middot; current line, NYC</span></a>
+          <a href="mailto:cpa@cpa.inc"><span class="lab">Email</span><span>cpa@cpa.inc</span></a>
+          <div><span class="lab">Office</span><span>2256 First St #170, Fort Myers, FL 33901 &middot; proposed local base</span></div>
+          <div><span class="lab">Hours</span><span>Mon&ndash;Fri, 9&ndash;5 &middot; extended in tax season</span></div>
+        </div>
+        <div class="map"><iframe title="CPA Inc. — Fort Myers map" loading="lazy" src="https://www.google.com/maps?q=2256%20First%20St%20%23170%2C%20Fort%20Myers%2C%20FL%2033901&output=embed"></iframe></div>
       </div>
+      <form onsubmit="return cpaDemo(event)" class="rv">
+        <div class="fld"><label for="f-name">Name</label><input id="f-name" name="name" type="text" placeholder="Your name" autocomplete="name" required></div>
+        <div class="fld"><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" required></div>
+        <div class="fld"><label for="f-need">What do you need help with?</label>
+          <select id="f-need" name="need">
+            <option>International / cross-border tax</option>
+            <option>FIRPTA — selling US real estate</option>
+            <option>Expat / US person abroad</option>
+            <option>FBAR / FATCA reporting</option>
+            <option>Foreign-owned US company</option>
+            <option>Personal or business tax</option>
+          </select>
+        </div>
+        <div class="fld"><label for="f-details">Details</label><textarea id="f-details" name="details" rows="4" placeholder="A few lines about your situation"></textarea></div>
+        <button class="btn btn-gold" type="submit" style="width:100%">Request a consult <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 6h13M9 1l5 5-5 5"/></svg></button>
+        <div id="msg">Thank you &mdash; this is a design concept, so nothing was actually sent.</div>
+      </form>
     </div>
-    <form onsubmit="return cpaDemo(event)">
-      <div class="fld"><label for="f-name">Name</label><input id="f-name" name="name" type="text" placeholder="Your name" autocomplete="name" required></div>
-      <div class="fld"><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" required></div>
-      <div class="fld"><label for="f-need">What do you need help with?</label>
-        <select id="f-need" name="need">
-          <option>International / cross-border tax</option>
-          <option>FIRPTA — selling US real estate</option>
-          <option>Expat / US person abroad</option>
-          <option>FBAR / FATCA reporting</option>
-          <option>Foreign-owned US company</option>
-          <option>Personal or business tax</option>
-        </select>
-      </div>
-      <div class="fld"><label for="f-details">Details</label><textarea id="f-details" name="details" rows="4" placeholder="A few lines about your situation"></textarea></div>
-      <button class="btn btn-primary" type="submit" style="width:100%">Request a consult</button>
-      <div id="msg">Thanks! This is a design concept, so nothing was actually sent.</div>
-    </form>
   </div>
 </section>
 
@@ -305,39 +397,35 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <div class="foot-in">
     <div class="foot-brand">
       <div class="nm">CPA Inc.</div>
-      <p style="margin:12px 0 0;max-width:34ch">Licensed Florida CPA firm (#AD71493), established 2017. International &amp; cross-border tax, now serving Fort Myers and Southwest Florida.</p>
-      <p style="margin:10px 0 0"><a href="mailto:cpa@cpa.inc">cpa@cpa.inc</a></p>
+      <p style="margin:13px 0 0;max-width:36ch">Licensed Florida CPA firm (#AD71493), established 2017. International &amp; cross-border tax, now serving Fort Myers and Southwest Florida.</p>
+      <p style="margin:12px 0 0"><a href="mailto:cpa@cpa.inc">cpa@cpa.inc</a></p>
     </div>
     <div>
       <h5>Office</h5>
       <p>2256 First St #170<br>Fort Myers, FL 33901</p>
-      <p style="margin-top:10px">Mon–Fri · 9–5<br>Extended tax-season hours</p>
+      <p style="margin-top:10px">Mon&ndash;Fri &middot; 9&ndash;5<br>Extended tax-season hours</p>
     </div>
     <div>
       <h5>Contact</h5>
-      <p class="ph-prop" style="color:var(--gold-2)">(239) •••-•••• <span style="color:#80736a">proposed local</span></p>
-      <p><a href="tel:+12123169944">(212) 316-9944 · current (NYC)</a></p>
+      <p><a href="tel:+12123169944">(212) 316-9944 &middot; current (NYC)</a></p>
+      <p style="margin-top:8px">Proposed local 239 line &mdash; to be set up</p>
       <p style="margin-top:10px"><a href="#contact">Book a consult</a></p>
     </div>
   </div>
-  <div class="foot-bottom">Redesign concept prepared by <b>WebBlaze</b> for CPA Inc. — not the official website. Credentials and facts are real; the Fort Myers local signals (address block, local number, hours, reviews) are the proposed additions. © 2026 CPA Inc.</div>
+  <div class="foot-bottom">Redesign concept prepared by <b>WebBlaze</b> for CPA Inc. &mdash; not the official website. Credentials and facts are real; Fort Myers local signals (address, local number, hours, reviews) are proposed additions. &copy; 2026 CPA Inc.</div>
 </footer>
 
 <div class="callbar">
-  <a class="c1" href="tel:+12123169944">📞 Call now</a>
-  <a class="c2" href="#contact">✎ Book a consult</a>
+  <a class="c1" href="tel:+12123169944">Call now</a>
+  <a class="c2" href="#contact">Book a consult</a>
 </div>
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"AccountingService",
+  "@context":"https://schema.org","@type":"AccountingService",
   "name":"CPA Inc. — Timur Knyazev, CPA",
   "description":"Fort Myers CPA for international and cross-border tax: FIRPTA, FBAR/FATCA, expats, foreign-owned US companies. Russian and Spanish spoken.",
-  "image":"https://webblaze.io/cpa-inc-demo/img/founder-sq.webp",
-  "email":"cpa@cpa.inc",
-  "telephone":"+1-212-316-9944",
-  "foundingDate":"2017",
+  "image":"https://webblaze.io/cpa-inc-demo/img/founder-sq.webp","email":"cpa@cpa.inc","telephone":"+1-212-316-9944","foundingDate":"2017",
   "address":{"@type":"PostalAddress","streetAddress":"2256 First St #170","addressLocality":"Fort Myers","addressRegion":"FL","postalCode":"33901","addressCountry":"US"},
   "areaServed":["Fort Myers","Cape Coral","Naples","Southwest Florida"],
   "knowsLanguage":["English","Russian","Spanish"],
@@ -347,7 +435,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 </script>
 <script>
-function cpaDemo(e){e.preventDefault();document.getElementById('msg').style.display='block';e.target.querySelector('button').textContent='Sent (demo)';return false;}
+function cpaDemo(e){e.preventDefault();document.getElementById('msg').style.display='block';e.target.querySelector('button').innerHTML='Sent (demo)';return false;}
+// tasteful scroll reveals — IntersectionObserver, respects reduced-motion
+(function(){
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(rm||!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(ents){ents.forEach(function(en){
+    if(en.isIntersecting){var el=en.target;var sibs=[].slice.call(el.parentNode.querySelectorAll(':scope > .rv'));
+      var i=sibs.indexOf(el);el.style.transitionDelay=(i>0?Math.min(i*70,350):0)+'ms';el.classList.add('in');io.unobserve(el);}
+  })},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(el){io.observe(el)});
+})();
 </script>
 </body>
 </html>
