@@ -30,11 +30,9 @@ h1,h2,h3,h4{font-family:var(--serif);color:var(--ink);margin:0;font-weight:600;l
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
 
-/* ---- shared editorial devices ---- */
 .kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:.72rem;font-weight:600;
   letter-spacing:.22em;text-transform:uppercase;color:var(--maroon)}
 .kicker::before{content:"";width:26px;height:1px;background:var(--gold);display:inline-block}
-.rule{height:1px;background:var(--line-gold);width:100%}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sans);font-weight:600;
   font-size:.95rem;padding:15px 30px;border-radius:2px;cursor:pointer;border:1px solid transparent;transition:.28s}
 .btn svg{transition:transform .28s}
@@ -45,17 +43,13 @@ a{color:inherit;text-decoration:none}
 .btn-ghost:hover{border-color:var(--maroon);color:var(--maroon)}
 .btn-gold{background:transparent;color:#f3e6cf;border-color:rgba(198,160,99,.5)}
 .btn-gold:hover{background:rgba(198,160,99,.14)}
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 
-/* reveal — progressive enhancement: hidden state only applies once JS adds .reveal-on,
-   so content is always visible if JS is disabled, errors, or hasn't run yet */
 .rv{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .reveal-on .rv{opacity:0;transform:translateY(22px)}
 .reveal-on .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.rv,.reveal-on .rv{opacity:1!important;transform:none!important;transition:none!important}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 
-/* ---- top meta + nav ---- */
 .demobar{background:var(--maroon-ink);color:#e9dccf;font-size:.74rem;letter-spacing:.04em;text-align:center;padding:8px 16px;font-family:var(--sans)}
 .demobar b{color:var(--gold-2);font-weight:600}
 header.nav{position:sticky;top:0;z-index:40;background:rgba(247,242,234,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
@@ -70,13 +64,16 @@ header.nav{position:sticky;top:0;z-index:40;background:rgba(247,242,234,.86);bac
 .nav-links a{color:var(--ink-soft);position:relative;padding:4px 0}
 .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--maroon);transition:width .3s}
 .nav-links a:hover{color:var(--maroon)}.nav-links a:hover::after{width:100%}
-.nav-right{display:flex;align-items:center;gap:20px}
+.nav-right{display:flex;align-items:center;gap:16px}
 .nav-ph{font-family:var(--sans);font-weight:600;font-size:.9rem;color:var(--ink);text-align:right;white-space:nowrap}
 .nav-ph small{display:block;font-weight:500;font-size:.62rem;letter-spacing:.08em;color:var(--muted)}
+.lang-tog{font-family:var(--sans);font-size:.74rem;font-weight:600;letter-spacing:.06em;color:var(--ink);background:transparent;
+  border:1px solid var(--line-gold);border-radius:2px;padding:9px 12px;cursor:pointer;transition:.25s;display:flex;align-items:center;gap:7px}
+.lang-tog:hover{border-color:var(--maroon);color:var(--maroon)}
+.lang-tog svg{width:14px;height:14px}
 @media(max-width:1000px){.nav-links{display:none}}
 @media(max-width:600px){.nav-ph{display:none}}
 
-/* ---- hero ---- */
 .hero{position:relative;overflow:hidden}
 .hero-in{display:grid;grid-template-columns:1.08fr .92fr;gap:0;max-width:var(--maxw);margin:0 auto;align-items:stretch;min-height:clamp(560px,76vh,760px)}
 .hero-copy{padding:70px 48px 70px 28px;display:flex;flex-direction:column;justify-content:center;position:relative}
@@ -84,7 +81,6 @@ header.nav{position:sticky;top:0;z-index:40;background:rgba(247,242,234,.86);bac
 .hero-meta b{color:var(--maroon);font-weight:600}
 .hero h1{font-size:clamp(2.6rem,1.9rem+3.4vw,4.6rem);font-weight:500;letter-spacing:-.02em;color:var(--ink)}
 .hero h1 em{font-style:italic;font-weight:500;color:var(--maroon)}
-.hero h1 .amp{font-style:italic;color:var(--gold)}
 .hero .lead{font-size:1.1rem;color:var(--ink-soft);max-width:44ch;margin:26px 0 0}
 .hero .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:36px}
 .hero .since{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:.95rem}
@@ -104,7 +100,6 @@ header.nav{position:sticky;top:0;z-index:40;background:rgba(247,242,234,.86);bac
   .hero-fig img{position:static;height:100%}
 }
 
-/* ---- credential band ---- */
 .creds{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card)}
 .creds-in{display:grid;grid-template-columns:repeat(4,1fr);max-width:var(--maxw);margin:0 auto}
 .creds .c{padding:26px 28px;border-left:1px solid var(--line)}
@@ -113,14 +108,12 @@ header.nav{position:sticky;top:0;z-index:40;background:rgba(247,242,234,.86);bac
 .creds .c .l{font-family:var(--sans);font-size:.74rem;letter-spacing:.05em;color:var(--muted);margin-top:7px}
 @media(max-width:760px){.creds-in{grid-template-columns:1fr 1fr}.creds .c:nth-child(3){border-left:0}.creds .c:nth-child(3),.creds .c:nth-child(4){border-top:1px solid var(--line)}}
 
-/* ---- section scaffolding ---- */
 section{padding:92px 0}
 .sec-head{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:end;margin-bottom:54px}
 .sec-num{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.4rem);font-weight:500;color:transparent;-webkit-text-stroke:1px var(--gold);line-height:.8}
 .sec-head h2{font-size:clamp(1.9rem,1.3rem+2.4vw,2.9rem);font-weight:500}
 .sec-head .sub{font-family:var(--sans);color:var(--muted);font-size:1.02rem;margin-top:12px;max-width:52ch}
 
-/* ---- services: editorial list ---- */
 .svc-list{border-top:1px solid var(--line)}
 .svc{display:grid;grid-template-columns:48px 1fr auto;gap:28px;align-items:center;padding:30px 8px;border-bottom:1px solid var(--line);
   transition:background .3s,padding .3s;position:relative}
@@ -135,18 +128,16 @@ section{padding:92px 0}
 .svc .forms{font-family:var(--serif);font-style:italic;color:var(--maroon);font-size:1.05rem;white-space:nowrap;opacity:.85}
 @media(max-width:700px){.svc{grid-template-columns:34px 1fr;gap:16px}.svc .forms{display:none}}
 
-/* ---- statement band ---- */
 .statement{background:var(--maroon-ink);color:#f0e4d6;position:relative;overflow:hidden;padding:104px 0}
 .statement::before{content:"\201C";position:absolute;left:4%;top:-30px;font-family:var(--serif);font-size:20rem;color:rgba(198,160,99,.12);line-height:1}
 .statement .wrap{position:relative}
 .statement .kicker{color:var(--gold-2)}.statement .kicker::before{background:var(--gold-2)}
 .statement q{quotes:none;display:block;font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,1.1rem+2.7vw,3.1rem);
-  line-height:1.2;letter-spacing:-.015em;color:#fbf1e4;max-width:20ch;margin:24px 0 0}
+  line-height:1.2;letter-spacing:-.015em;color:#fbf1e4;max-width:22ch;margin:24px 0 0}
 .statement q em{font-style:italic;color:var(--gold-2)}
 .statement .sig{margin-top:34px;font-family:var(--sans);font-size:.82rem;letter-spacing:.06em;color:#cbb9a7}
 .statement .sig b{color:#fff;font-weight:600}
 
-/* ---- about ---- */
 .about{background:var(--paper-2)}
 .about-in{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:center;max-width:var(--maxw);margin:0 auto;padding:0 28px}
 .about-fig{position:relative}
@@ -164,7 +155,6 @@ section{padding:92px 0}
   border:1px solid var(--line-gold);border-radius:2px;padding:8px 14px}
 @media(max-width:820px){.about-in{grid-template-columns:1fr;gap:40px}.about-fig{max-width:340px}.about-fig .stamp{width:92px;height:92px}}
 
-/* ---- reputation ---- */
 .rep-in{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
 .rep-stat{text-align:center;border:1px solid var(--line-gold);padding:48px 30px;background:var(--card);position:relative}
 .rep-stat::before,.rep-stat::after{content:"";position:absolute;width:14px;height:14px;border:1px solid var(--gold)}
@@ -178,7 +168,6 @@ section{padding:92px 0}
 .rep-copy .note{font-size:.82rem;color:var(--muted);border-left:2px solid var(--line-gold);padding-left:14px}
 @media(max-width:820px){.rep-in{grid-template-columns:1fr;gap:34px}}
 
-/* ---- contact ---- */
 .contact{background:linear-gradient(180deg,var(--maroon-ink),#2b1414);color:#efe2d9}
 .contact-in{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
 .contact .kicker{color:var(--gold-2)}.contact .kicker::before{background:var(--gold-2)}
@@ -199,7 +188,6 @@ form{background:rgba(255,255,255,.04);border:1px solid rgba(198,160,99,.28);padd
 #msg{display:none;margin-top:14px;color:var(--gold-2);font-size:.9rem;font-weight:600}
 @media(max-width:820px){.contact-in{grid-template-columns:1fr;gap:34px}}
 
-/* ---- footer ---- */
 footer{background:var(--maroon-ink);color:#b7a899;font-size:.86rem;border-top:1px solid rgba(198,160,99,.22)}
 .foot-in{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:34px;max-width:var(--maxw);margin:0 auto;padding:56px 28px 30px}
 footer h5{font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;font-size:.68rem;color:var(--gold);margin:0 0 15px}
@@ -208,7 +196,8 @@ footer a{color:#b7a899}footer a:hover{color:#fff}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.08);text-align:center;font-size:.76rem;color:#8a7c70;padding:16px;max-width:var(--maxw);margin:0 auto}
 .foot-bottom b{color:var(--gold-2)}
 
-/* ---- mobile call bar ---- */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
 .callbar{display:none}
 @media(max-width:600px){
   body{padding-bottom:60px}
@@ -221,7 +210,7 @@ footer a{color:#b7a899}footer a:hover{color:#fff}
 </head>
 <body>
 
-<div class="demobar">A redesign concept for <b>CPA Inc.</b>, prepared by WebBlaze &mdash; same real credentials, repositioned for Fort Myers. Not the live site.</div>
+<div class="demobar" data-es="Un concepto de rediseño para <b>CPA Inc.</b>, preparado por WebBlaze &mdash; las mismas credenciales reales, reposicionadas para Fort Myers. No es el sitio oficial.">A redesign concept for <b>CPA Inc.</b>, prepared by WebBlaze &mdash; same real credentials, repositioned for Fort Myers. Not the live site.</div>
 
 <header class="nav">
   <div class="nav-in">
@@ -230,14 +219,15 @@ footer a{color:#b7a899}footer a:hover{color:#fff}
       <span class="nm">CPA Inc.<small>Timur Knyazev, CPA</small></span>
     </a>
     <nav class="nav-links">
-      <a href="#practice">Practice</a>
-      <a href="#about">About</a>
-      <a href="#standing">Standing</a>
-      <a href="#contact">Contact</a>
+      <a href="#practice" data-es="Pr&aacute;ctica">Practice</a>
+      <a href="#about" data-es="Perfil">About</a>
+      <a href="#standing" data-es="Reputaci&oacute;n">Standing</a>
+      <a href="#contact" data-es="Contacto">Contact</a>
     </nav>
     <div class="nav-right">
-      <a class="nav-ph" href="tel:+12123169944">(212) 316-9944<small>Current line &middot; NYC</small></a>
-      <a class="btn btn-primary" href="#contact">Book a consult</a>
+      <button id="langTog" class="lang-tog" type="button" aria-label="Cambiar a Espa&ntilde;ol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 4 3 14 0 18M12 3c-3 4-3 14 0 18"/></svg>ES</button>
+      <a class="nav-ph" href="tel:+12123169944">(212) 316-9944<small data-es="L&iacute;nea actual &middot; NYC">Current line &middot; NYC</small></a>
+      <a class="btn btn-primary" href="#contact" data-es="Agenda una consulta">Book a consult</a>
     </div>
   </div>
 </header>
@@ -246,29 +236,29 @@ footer a{color:#b7a899}footer a:hover{color:#fff}
 <section class="hero" style="padding:0">
   <div class="hero-in">
     <div class="hero-copy">
-      <div class="hero-meta rv"><span>Fort Myers, <b>Florida</b></span><span>Established <b>2017</b></span><span>Intl &amp; Cross-Border</span></div>
-      <h1 class="rv">International tax,<br>handled with <em>intent</em>.</h1>
-      <p class="lead rv">A boutique cross-border practice for Southwest Florida&rsquo;s foreign investors, expats and global families &mdash; the complex returns most local firms quietly pass on.</p>
+      <div class="hero-meta rv"><span data-es="Fort Myers, <b>Florida</b>">Fort Myers, <b>Florida</b></span><span data-es="Establecida en <b>2017</b>">Established <b>2017</b></span><span data-es="Intl. y Transfronteriza">Intl &amp; Cross-Border</span></div>
+      <h1 class="rv" data-es="Impuestos internacionales,<br>manejados con <em>intenci&oacute;n</em>.">International tax,<br>handled with <em>intent</em>.</h1>
+      <p class="lead rv" data-es="Una pr&aacute;ctica boutique transfronteriza para los inversionistas extranjeros, expatriados y familias globales del suroeste de Florida &mdash; las declaraciones complejas que la mayor&iacute;a de las firmas locales prefiere no tomar.">A boutique cross-border practice for Southwest Florida&rsquo;s foreign investors, expats and global families &mdash; the complex returns most local firms quietly pass on.</p>
       <div class="cta-row rv">
-        <a class="btn btn-primary" href="#contact">Book a consult <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 6h13M9 1l5 5-5 5"/></svg></a>
-        <a class="btn btn-ghost" href="#practice">The practice</a>
-        <span class="since">EY &amp; PwC trained &middot; MS Taxation, Baruch</span>
+        <a class="btn btn-primary" href="#contact" data-es="Agenda una consulta">Book a consult <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 6h13M9 1l5 5-5 5"/></svg></a>
+        <a class="btn btn-ghost" href="#practice" data-es="La pr&aacute;ctica">The practice</a>
+        <span class="since" data-es="Formado en EY y PwC &middot; M&aacute;ster en Fiscalidad, Baruch">EY &amp; PwC trained &middot; MS Taxation, Baruch</span>
       </div>
     </div>
     <figure class="hero-fig rv">
       <img src="img/founder.webp" width="560" height="840" alt="Timur Knyazev, CPA — founder of CPA Inc." fetchpriority="high">
-      <span class="vlabel">International Tax &middot; Est. 2017</span>
-      <figcaption><b>Timur Knyazev, CPA</b><span>Founder</span></figcaption>
+      <span class="vlabel" data-es="Impuestos Internacionales &middot; Est. 2017">International Tax &middot; Est. 2017</span>
+      <figcaption><b>Timur Knyazev, CPA</b><span data-es="Fundador">Founder</span></figcaption>
     </figure>
   </div>
 </section>
 
 <div class="creds">
   <div class="creds-in">
-    <div class="c rv"><div class="n">#AD71493</div><div class="l">Licensed Florida CPA firm</div></div>
-    <div class="c rv"><div class="n">5.0&#9733;</div><div class="l">Google rating, his practice</div></div>
-    <div class="c rv"><div class="n">EY &middot; PwC</div><div class="l">Big-Four tax background</div></div>
-    <div class="c rv"><div class="n">EN&middot;RU&middot;ES</div><div class="l">English, Russian &amp; Spanish</div></div>
+    <div class="c rv"><div class="n">#AD71493</div><div class="l" data-es="Firma de CPA con licencia en Florida">Licensed Florida CPA firm</div></div>
+    <div class="c rv"><div class="n">5.0&#9733;</div><div class="l" data-es="Calificaci&oacute;n Google, su pr&aacute;ctica">Google rating, his practice</div></div>
+    <div class="c rv"><div class="n">EY &middot; PwC</div><div class="l" data-es="Experiencia fiscal Big Four">Big-Four tax background</div></div>
+    <div class="c rv"><div class="n">EN&middot;RU&middot;ES</div><div class="l" data-es="Ingl&eacute;s, Ruso y Espa&ntilde;ol">English, Russian &amp; Spanish</div></div>
   </div>
 </div>
 
@@ -277,40 +267,40 @@ footer a{color:#b7a899}footer a:hover{color:#fff}
     <div class="sec-head rv">
       <div class="sec-num">01</div>
       <div>
-        <p class="kicker">The practice</p>
-        <h2>Work most local firms don&rsquo;t touch</h2>
-        <p class="sub">Southwest Florida is full of foreign buyers, snowbirds and global families. Cross-border tax isn&rsquo;t a side service here &mdash; it&rsquo;s the whole practice.</p>
+        <p class="kicker" data-es="La pr&aacute;ctica">The practice</p>
+        <h2 data-es="El trabajo que la mayor&iacute;a de las firmas locales no realiza">Work most local firms don&rsquo;t touch</h2>
+        <p class="sub" data-es="El suroeste de Florida est&aacute; lleno de compradores extranjeros, &lsquo;snowbirds&rsquo; y familias globales. Aqu&iacute; la fiscalidad transfronteriza no es un servicio secundario &mdash; es toda la pr&aacute;ctica.">Southwest Florida is full of foreign buyers, snowbirds and global families. Cross-border tax isn&rsquo;t a side service here &mdash; it&rsquo;s the whole practice.</p>
       </div>
     </div>
     <div class="svc-list">
       <div class="svc rv">
         <span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 4 3 14 0 18M12 3c-3 4-3 14 0 18"/></svg></span>
-        <div class="body"><h3>International &amp; cross-border tax</h3><p>CFCs, GILTI, FDII, Subpart F, foreign tax credits, treaty &amp; residency positions.</p></div>
+        <div class="body"><h3 data-es="Impuestos internacionales y transfronterizos">International &amp; cross-border tax</h3><p data-es="CFC, GILTI, FDII, Subparte F, cr&eacute;ditos fiscales extranjeros, tratados y posiciones de residencia.">CFCs, GILTI, FDII, Subpart F, foreign tax credits, treaty &amp; residency positions.</p></div>
         <div class="forms">5471 &middot; 8833</div>
       </div>
       <div class="svc rv">
         <span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></span>
-        <div class="body"><h3>FIRPTA <span class="tag">SW-FL strength</span></h3><p>Foreign sellers of US real estate &mdash; withholding, certificates and refunds. A natural fit for the Gulf Coast property market.</p></div>
+        <div class="body"><h3>FIRPTA <span class="tag" data-es="Fuerte en el SO de FL">SW-FL strength</span></h3><p data-es="Vendedores extranjeros de bienes ra&iacute;ces en EE. UU. &mdash; retenci&oacute;n, certificados y reembolsos. Un ajuste natural para el mercado inmobiliario de la Costa del Golfo.">Foreign sellers of US real estate &mdash; withholding, certificates and refunds. A natural fit for the Gulf Coast property market.</p></div>
         <div class="forms">8288 &middot; 8288-B</div>
       </div>
       <div class="svc rv">
         <span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 20l9-16 9 16M7 20l5-9 5 9"/></svg></span>
-        <div class="body"><h3>Expats &amp; US persons abroad</h3><p>Foreign-earned income, digital nomads, pre-residency planning and US exit tax.</p></div>
+        <div class="body"><h3 data-es="Expatriados y personas de EE. UU. en el exterior">Expats &amp; US persons abroad</h3><p data-es="Ingresos obtenidos en el exterior, n&oacute;madas digitales, planificaci&oacute;n previa a la residencia e impuesto de salida de EE. UU.">Foreign-earned income, digital nomads, pre-residency planning and US exit tax.</p></div>
         <div class="forms">2555 &middot; 8854</div>
       </div>
       <div class="svc rv">
         <span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 10h18M8 15h4"/></svg></span>
-        <div class="body"><h3>FBAR &amp; FATCA reporting</h3><p>Foreign-account disclosure done right &mdash; FinCEN 114, Form 8938 and foreign-gift reporting.</p></div>
+        <div class="body"><h3 data-es="Reportes FBAR y FATCA">FBAR &amp; FATCA reporting</h3><p data-es="Divulgaci&oacute;n de cuentas extranjeras bien hecha &mdash; FinCEN 114, Formulario 8938 y reporte de donaciones del exterior.">Foreign-account disclosure done right &mdash; FinCEN 114, Form 8938 and foreign-gift reporting.</p></div>
         <div class="forms">114 &middot; 8938</div>
       </div>
       <div class="svc rv">
         <span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 21V7l8-4 8 4v14M9 21v-7h6v7M4 11h16"/></svg></span>
-        <div class="body"><h3>Foreign-owned US companies</h3><p>Single-member LLC reporting, transfer pricing, withholding and inbound structuring.</p></div>
+        <div class="body"><h3 data-es="Empresas estadounidenses de propiedad extranjera">Foreign-owned US companies</h3><p data-es="Reportes de LLC de un solo miembro, precios de transferencia, retenci&oacute;n y estructuraci&oacute;n de entrada.">Single-member LLC reporting, transfer pricing, withholding and inbound structuring.</p></div>
         <div class="forms">5472 &middot; 1120-F</div>
       </div>
       <div class="svc rv">
         <span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM8 11l2.5 2.5L16 8"/></svg></span>
-        <div class="body"><h3>Served in three languages</h3><p>Individual, business and crypto filings &mdash; in English, Russian and Spanish.</p></div>
+        <div class="body"><h3 data-es="Atenci&oacute;n en tres idiomas">Served in three languages</h3><p data-es="Declaraciones individuales, empresariales y de cripto &mdash; en ingl&eacute;s, ruso y espa&ntilde;ol.">Individual, business and crypto filings &mdash; in English, Russian and Spanish.</p></div>
         <div class="forms">1040 &middot; 1040-NR</div>
       </div>
     </div>
@@ -319,9 +309,9 @@ footer a{color:#b7a899}footer a:hover{color:#fff}
 
 <section class="statement">
   <div class="wrap">
-    <p class="kicker rv">The difference</p>
-    <q class="rv">Most firms see an international return once a year. For this practice, it&rsquo;s <em>the only kind there is</em>.</q>
-    <p class="sig rv">&mdash; <b>Timur Knyazev, CPA</b>, Founder of CPA Inc.</p>
+    <p class="kicker rv" data-es="La diferencia">The difference</p>
+    <q class="rv" data-es="La mayor&iacute;a de las firmas ve una declaraci&oacute;n internacional una vez al a&ntilde;o. Para esta pr&aacute;ctica, es <em>el &uacute;nico tipo que existe</em>.">Most firms see an international return once a year. For this practice, it&rsquo;s <em>the only kind there is</em>.</q>
+    <p class="sig rv" data-es="&mdash; <b>Timur Knyazev, CPA</b>, Fundador de CPA Inc.">&mdash; <b>Timur Knyazev, CPA</b>, Founder of CPA Inc.</p>
   </div>
 </section>
 
@@ -329,14 +319,14 @@ footer a{color:#b7a899}footer a:hover{color:#fff}
   <div class="about-in">
     <figure class="about-fig rv">
       <img src="img/founder-sq.webp" width="480" height="480" alt="Timur Knyazev, CPA" loading="lazy">
-      <div class="stamp">Licensed<br>FL CPA<br>#AD71493</div>
+      <div class="stamp" data-es="CPA con<br>licencia FL<br>#AD71493">Licensed<br>FL CPA<br>#AD71493</div>
     </figure>
     <div class="about-copy rv">
-      <p class="kicker">Who you work with</p>
-      <h2>Big-Four pedigree, boutique attention</h2>
-      <p class="intro">Timur Knyazev is a licensed CPA and the founder of CPA Inc., established 2017. He trained in international tax at EY and PwC and holds an MS in Taxation from CUNY Baruch&rsquo;s Zicklin School of Business.</p>
-      <p>The practice runs like a modern boutique: share documents securely, e-sign, e-file, and reach your CPA directly &mdash; no call center, no bloat. The focus stays on high-exposure, cross-border matters, handled with precision.</p>
-      <div class="langs"><span>&#127482;&#127480; English</span><span>&#127479;&#127482; Russian</span><span>&#127466;&#127480; Spanish</span><span>Authorized IRS e-file provider</span></div>
+      <p class="kicker" data-es="Con qui&eacute;n trabaja">Who you work with</p>
+      <h2 data-es="Pedigr&iacute; Big Four, atenci&oacute;n boutique">Big-Four pedigree, boutique attention</h2>
+      <p class="intro" data-es="Timur Knyazev es un CPA con licencia y el fundador de CPA Inc., establecida en 2017. Se form&oacute; en fiscalidad internacional en EY y PwC y posee un M&aacute;ster en Fiscalidad de la Zicklin School of Business de CUNY Baruch.">Timur Knyazev is a licensed CPA and the founder of CPA Inc., established 2017. He trained in international tax at EY and PwC and holds an MS in Taxation from CUNY Baruch&rsquo;s Zicklin School of Business.</p>
+      <p data-es="La pr&aacute;ctica funciona como un boutique moderno: comparta documentos de forma segura, firme y presente electr&oacute;nicamente, y comun&iacute;quese directamente con su CPA &mdash; sin centro de llamadas, sin burocracia. El enfoque se mantiene en asuntos transfronterizos de alta exposici&oacute;n, tratados con precisi&oacute;n.">The practice runs like a modern boutique: share documents securely, e-sign, e-file, and reach your CPA directly &mdash; no call center, no bloat. The focus stays on high-exposure, cross-border matters, handled with precision.</p>
+      <div class="langs"><span>&#127482;&#127480; <span data-es="Ingl&eacute;s">English</span></span><span>&#127479;&#127482; <span data-es="Ruso">Russian</span></span><span>&#127466;&#127480; <span data-es="Espa&ntilde;ol">Spanish</span></span><span data-es="Proveedor autorizado de e-file del IRS">Authorized IRS e-file provider</span></div>
     </div>
   </div>
 </section>
@@ -347,13 +337,13 @@ footer a{color:#b7a899}footer a:hover{color:#fff}
       <div class="rep-stat rv">
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <div class="big">5.0</div>
-        <div class="cap">Google rating across Timur&rsquo;s practice</div>
+        <div class="cap" data-es="Calificaci&oacute;n Google en la pr&aacute;ctica de Timur">Google rating across Timur&rsquo;s practice</div>
       </div>
       <div class="rep-copy rv">
-        <p class="kicker">Standing</p>
-        <h2>A reputation to carry into Fort Myers</h2>
-        <p>The work already earns a perfect Google rating. The opportunity in Southwest Florida is to build the <em>local</em> review base to match &mdash; the single biggest lever on Google Maps rank, where the top Fort Myers firms sit on 60&ndash;147 reviews.</p>
-        <p class="note">Concept note: this section pairs Timur&rsquo;s real 5.0 rating with a built-in review-request flow for new local clients. We never invent reviews &mdash; real client quotes would populate here as the Fort Myers base grows.</p>
+        <p class="kicker" data-es="Reputaci&oacute;n">Standing</p>
+        <h2 data-es="Una reputaci&oacute;n para llevar a Fort Myers">A reputation to carry into Fort Myers</h2>
+        <p data-es="El trabajo ya obtiene una calificaci&oacute;n perfecta en Google. La oportunidad en el suroeste de Florida es construir la base de rese&ntilde;as <em>locales</em> que la acompa&ntilde;e &mdash; la mayor palanca en el ranking de Google Maps, donde las principales firmas de Fort Myers tienen entre 60 y 147 rese&ntilde;as.">The work already earns a perfect Google rating. The opportunity in Southwest Florida is to build the <em>local</em> review base to match &mdash; the single biggest lever on Google Maps rank, where the top Fort Myers firms sit on 60&ndash;147 reviews.</p>
+        <p class="note" data-es="Nota del concepto: esta secci&oacute;n combina la calificaci&oacute;n real de 5.0 de Timur con un flujo integrado de solicitud de rese&ntilde;as para nuevos clientes locales. Nunca inventamos rese&ntilde;as &mdash; las citas reales de clientes aparecer&iacute;an aqu&iacute; a medida que crezca la base en Fort Myers.">Concept note: this section pairs Timur&rsquo;s real 5.0 rating with a built-in review-request flow for new local clients. We never invent reviews &mdash; real client quotes would populate here as the Fort Myers base grows.</p>
       </div>
     </div>
   </div>
@@ -363,33 +353,33 @@ footer a{color:#b7a899}footer a:hover{color:#fff}
   <div class="wrap">
     <div class="contact-in">
       <div class="rv">
-        <p class="kicker">Start a conversation</p>
-        <h2>Tell us about your tax situation</h2>
-        <p class="sub">A cross-border move, a foreign property sale, an expat filing or a foreign-owned company &mdash; send a few details and we&rsquo;ll tell you exactly how we can help.</p>
+        <p class="kicker" data-es="Inicie una conversaci&oacute;n">Start a conversation</p>
+        <h2 data-es="Cu&eacute;ntenos su situaci&oacute;n fiscal">Tell us about your tax situation</h2>
+        <p class="sub" data-es="Una mudanza transfronteriza, la venta de una propiedad extranjera, una declaraci&oacute;n de expatriado o una empresa de propiedad extranjera &mdash; env&iacute;e algunos detalles y le diremos exactamente c&oacute;mo podemos ayudar.">A cross-border move, a foreign property sale, an expat filing or a foreign-owned company &mdash; send a few details and we&rsquo;ll tell you exactly how we can help.</p>
         <div class="lines">
-          <a href="tel:+12123169944"><span class="lab">Phone</span><span>(212) 316-9944 &middot; current line, NYC</span></a>
-          <a href="mailto:cpa@cpa.inc"><span class="lab">Email</span><span>cpa@cpa.inc</span></a>
-          <div><span class="lab">Office</span><span>2256 First St #170, Fort Myers, FL 33901 &middot; proposed local base</span></div>
-          <div><span class="lab">Hours</span><span>Mon&ndash;Fri, 9&ndash;5 &middot; extended in tax season</span></div>
+          <a href="tel:+12123169944"><span class="lab">Phone</span><span data-es="(212) 316-9944 &middot; l&iacute;nea actual, NYC">(212) 316-9944 &middot; current line, NYC</span></a>
+          <a href="mailto:cpa@cpa.inc"><span class="lab" data-es="Correo">Email</span><span>cpa@cpa.inc</span></a>
+          <div><span class="lab" data-es="Oficina">Office</span><span data-es="2256 First St #170, Fort Myers, FL 33901 &middot; base local propuesta">2256 First St #170, Fort Myers, FL 33901 &middot; proposed local base</span></div>
+          <div><span class="lab" data-es="Horario">Hours</span><span data-es="Lun&ndash;Vie, 9&ndash;5 &middot; ampliado en temporada fiscal">Mon&ndash;Fri, 9&ndash;5 &middot; extended in tax season</span></div>
         </div>
         <div class="map"><iframe title="CPA Inc. — Fort Myers map" loading="lazy" src="https://www.google.com/maps?q=2256%20First%20St%20%23170%2C%20Fort%20Myers%2C%20FL%2033901&output=embed"></iframe></div>
       </div>
       <form onsubmit="return cpaDemo(event)" class="rv">
-        <div class="fld"><label for="f-name">Name</label><input id="f-name" name="name" type="text" placeholder="Your name" autocomplete="name" required></div>
-        <div class="fld"><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" required></div>
-        <div class="fld"><label for="f-need">What do you need help with?</label>
+        <div class="fld"><label for="f-name" data-es="Nombre">Name</label><input id="f-name" name="name" type="text" placeholder="Your name" data-es-ph="Su nombre" autocomplete="name" required></div>
+        <div class="fld"><label for="f-email" data-es="Correo">Email</label><input id="f-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" required></div>
+        <div class="fld"><label for="f-need" data-es="&iquest;En qu&eacute; necesita ayuda?">What do you need help with?</label>
           <select id="f-need" name="need">
-            <option>International / cross-border tax</option>
-            <option>FIRPTA — selling US real estate</option>
-            <option>Expat / US person abroad</option>
-            <option>FBAR / FATCA reporting</option>
-            <option>Foreign-owned US company</option>
-            <option>Personal or business tax</option>
+            <option data-es="Impuestos internacionales / transfronterizos">International / cross-border tax</option>
+            <option data-es="FIRPTA &mdash; venta de bienes ra&iacute;ces en EE. UU.">FIRPTA — selling US real estate</option>
+            <option data-es="Expatriado / persona de EE. UU. en el exterior">Expat / US person abroad</option>
+            <option data-es="Reportes FBAR / FATCA">FBAR / FATCA reporting</option>
+            <option data-es="Empresa estadounidense de propiedad extranjera">Foreign-owned US company</option>
+            <option data-es="Impuestos personales o empresariales">Personal or business tax</option>
           </select>
         </div>
-        <div class="fld"><label for="f-details">Details</label><textarea id="f-details" name="details" rows="4" placeholder="A few lines about your situation"></textarea></div>
-        <button class="btn btn-gold" type="submit" style="width:100%">Request a consult <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 6h13M9 1l5 5-5 5"/></svg></button>
-        <div id="msg">Thank you &mdash; this is a design concept, so nothing was actually sent.</div>
+        <div class="fld"><label for="f-details" data-es="Detalles">Details</label><textarea id="f-details" name="details" rows="4" placeholder="A few lines about your situation" data-es-ph="Unas l&iacute;neas sobre su situaci&oacute;n"></textarea></div>
+        <button class="btn btn-gold" type="submit" style="width:100%" data-es="Solicitar una consulta">Request a consult <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 6h13M9 1l5 5-5 5"/></svg></button>
+        <div id="msg" data-es="Gracias &mdash; esto es un concepto de dise&ntilde;o, as&iacute; que no se envi&oacute; nada.">Thank you &mdash; this is a design concept, so nothing was actually sent.</div>
       </form>
     </div>
   </div>
@@ -399,27 +389,27 @@ footer a{color:#b7a899}footer a:hover{color:#fff}
   <div class="foot-in">
     <div class="foot-brand">
       <div class="nm">CPA Inc.</div>
-      <p style="margin:13px 0 0;max-width:36ch">Licensed Florida CPA firm (#AD71493), established 2017. International &amp; cross-border tax, now serving Fort Myers and Southwest Florida.</p>
+      <p style="margin:13px 0 0;max-width:36ch" data-es="Firma de CPA con licencia en Florida (#AD71493), establecida en 2017. Impuestos internacionales y transfronterizos, ahora al servicio de Fort Myers y el suroeste de Florida.">Licensed Florida CPA firm (#AD71493), established 2017. International &amp; cross-border tax, now serving Fort Myers and Southwest Florida.</p>
       <p style="margin:12px 0 0"><a href="mailto:cpa@cpa.inc">cpa@cpa.inc</a></p>
     </div>
     <div>
-      <h5>Office</h5>
+      <h5 data-es="Oficina">Office</h5>
       <p>2256 First St #170<br>Fort Myers, FL 33901</p>
-      <p style="margin-top:10px">Mon&ndash;Fri &middot; 9&ndash;5<br>Extended tax-season hours</p>
+      <p style="margin-top:10px" data-es="Lun&ndash;Vie &middot; 9&ndash;5<br>Horario ampliado en temporada fiscal">Mon&ndash;Fri &middot; 9&ndash;5<br>Extended tax-season hours</p>
     </div>
     <div>
-      <h5>Contact</h5>
-      <p><a href="tel:+12123169944">(212) 316-9944 &middot; current (NYC)</a></p>
-      <p style="margin-top:8px">Proposed local 239 line &mdash; to be set up</p>
-      <p style="margin-top:10px"><a href="#contact">Book a consult</a></p>
+      <h5 data-es="Contacto">Contact</h5>
+      <p><a href="tel:+12123169944" data-es="(212) 316-9944 &middot; actual (NYC)">(212) 316-9944 &middot; current (NYC)</a></p>
+      <p style="margin-top:8px" data-es="L&iacute;nea local 239 propuesta &mdash; por configurar">Proposed local 239 line &mdash; to be set up</p>
+      <p style="margin-top:10px"><a href="#contact" data-es="Agenda una consulta">Book a consult</a></p>
     </div>
   </div>
-  <div class="foot-bottom">Redesign concept prepared by <b>WebBlaze</b> for CPA Inc. &mdash; not the official website. Credentials and facts are real; Fort Myers local signals (address, local number, hours, reviews) are proposed additions. &copy; 2026 CPA Inc.</div>
+  <div class="foot-bottom" data-es="Concepto de rediseño preparado por <b>WebBlaze</b> para CPA Inc. &mdash; no es el sitio oficial. Las credenciales y los datos son reales; las se&ntilde;ales locales de Fort Myers (direcci&oacute;n, n&uacute;mero local, horario, rese&ntilde;as) son adiciones propuestas. &copy; 2026 CPA Inc.">Redesign concept prepared by <b>WebBlaze</b> for CPA Inc. &mdash; not the official website. Credentials and facts are real; Fort Myers local signals (address, local number, hours, reviews) are proposed additions. &copy; 2026 CPA Inc.</div>
 </footer>
 
 <div class="callbar">
-  <a class="c1" href="tel:+12123169944">Call now</a>
-  <a class="c2" href="#contact">Book a consult</a>
+  <a class="c1" href="tel:+12123169944" data-es="Llamar ahora">Call now</a>
+  <a class="c2" href="#contact" data-es="Agenda una consulta">Book a consult</a>
 </div>
 
 <script type="application/ld+json">
@@ -438,7 +428,30 @@ footer a{color:#b7a899}footer a:hover{color:#fff}
 </script>
 <script>
 function cpaDemo(e){e.preventDefault();document.getElementById('msg').style.display='block';e.target.querySelector('button').innerHTML='Sent (demo)';return false;}
-// tasteful scroll reveals — IntersectionObserver, respects reduced-motion
+// EN/ES translator toggle — English is the no-JS default; Spanish is a faithful mirror
+(function(){
+  var KEY='cpaLang',btn=document.getElementById('langTog');
+  function apply(lang){
+    var es=lang==='es';
+    document.documentElement.setAttribute('lang',es?'es':'en');
+    [].forEach.call(document.querySelectorAll('[data-es]'),function(el){
+      if(!el.hasAttribute('data-en'))el.setAttribute('data-en',el.innerHTML);
+      el.innerHTML=es?el.getAttribute('data-es'):el.getAttribute('data-en');
+    });
+    [].forEach.call(document.querySelectorAll('[data-es-ph]'),function(el){
+      if(!el.hasAttribute('data-en-ph'))el.setAttribute('data-en-ph',el.getAttribute('placeholder')||'');
+      el.setAttribute('placeholder',es?el.getAttribute('data-es-ph'):el.getAttribute('data-en-ph'));
+    });
+    if(btn){btn.lastChild.textContent=es?'EN':'ES';btn.setAttribute('aria-label',es?'Switch to English':'Cambiar a Español');}
+    try{localStorage.setItem(KEY,lang);}catch(e){}
+  }
+  var saved='en';try{saved=localStorage.getItem(KEY)||'en';}catch(e){}
+  if(saved==='es')apply('es');
+  if(btn)btn.addEventListener('click',function(){
+    apply(document.documentElement.getAttribute('lang')==='es'?'en':'es');
+  });
+})();
+// tasteful scroll reveals — IntersectionObserver, progressive enhancement, respects reduced-motion
 (function(){
   var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var els=[].slice.call(document.querySelectorAll('.rv'));
