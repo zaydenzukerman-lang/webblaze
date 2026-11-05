@@ -54,8 +54,16 @@ export function Stat({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
-  const [n, setN] = useState(0);
+  // Start at the real value so SSR / no-JS / screenshots / first paint show the
+  // actual number (e.g. "3-day"), never a broken-looking "0-day".
+  const [n, setN] = useState(value);
   const reduce = useReducedMotion();
+  // On the client (motion allowed), reset to 0 once mounted so the count-up still
+  // plays. Stats sit below the fold on load, so this reset happens off-screen —
+  // the viewer sees the real number until they scroll down, then it counts up.
+  useEffect(() => {
+    if (!reduce) setN(0);
+  }, [reduce]);
   useEffect(() => {
     if (!inView) return;
     if (reduce) {

@@ -100,6 +100,7 @@ export default function Home() {
             <Magnetic>
               <a href="#contact" className="btn btn-flame">Get your free build →</a>
             </Magnetic>
+            <a href="https://calendly.com/zayden-webblaze/30min" target="_blank" rel="noopener noreferrer" className="btn btn-ghost-noir">📅 Book a free 15-min call</a>
             <a href="#work" className="btn btn-ghost-noir">See our work</a>
           </motion.div>
         </div>
@@ -148,6 +149,12 @@ export default function Home() {
                 online as they are in person. When you email me, you get me, not a call center or a sales
                 team. I&apos;ll build your new site before you pay a cent, so you can see exactly what you&apos;re getting.
               </p>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <div className="mt-6 inline-flex items-center gap-2.5 rounded-full border border-[var(--line)] bg-[var(--paper-2)] px-4 py-2.5 text-sm font-semibold text-[var(--ink)]">
+                <span className="grid h-5 w-5 flex-none place-items-center rounded-full flame-bg text-[11px] text-white">✓</span>
+                30-day money-back guarantee — you only pay if you love it.
+              </div>
             </Reveal>
           </div>
         </div>
@@ -323,12 +330,15 @@ export default function Home() {
             <Reveal delay={0.1}>
               <p className="mt-5 max-w-[42ch] text-[var(--on-noir-soft)] text-[length:var(--fs-body)]">
                 Tell us about your business and we&apos;ll start building — free, no obligation.
-                You only pay if you love it.
+                You only pay if you love it. Prefer to talk first? Grab a time below.
               </p>
             </Reveal>
+            <Reveal delay={0.13}>
+              <a href="https://calendly.com/zayden-webblaze/30min" target="_blank" rel="noopener noreferrer" className="btn btn-flame mt-6">📅 Book a free 15-min call</a>
+            </Reveal>
             <Reveal delay={0.15}>
-              <a href="mailto:zayden@webblaze.io" className="mt-6 inline-block font-[family-name:var(--font-space-grotesk)] text-lg text-[var(--ember)] hover:text-[var(--flame-2)]">
-                zayden@webblaze.io
+              <a href="mailto:zayden@webblaze.io" className="mt-5 inline-block font-[family-name:var(--font-space-grotesk)] text-lg text-[var(--ember)] hover:text-[var(--flame-2)]">
+                Or email zayden@webblaze.io
               </a>
             </Reveal>
           </div>
