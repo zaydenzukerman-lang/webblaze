@@ -119,7 +119,7 @@ section{padding:70px 0}
 form{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:26px}
 .fld{margin-bottom:14px}
 .fld label{display:block;font-family:var(--sans);font-size:.82rem;font-weight:600;color:#e3d2c7;margin-bottom:6px}
-.fld input,.fld select,.fld textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:#fff;font-family:var(--sans);font-size:.95rem}
+.fld input,.fld select,.fld textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:#fff;font-family:var(--sans);font-size:16px}
 .fld input::placeholder,.fld textarea::placeholder{color:#b49c90}
 #msg{display:none;margin-top:12px;color:var(--gold-2);font-size:.9rem;font-weight:600}
 
@@ -146,6 +146,10 @@ footer a{color:#b6a79d;text-decoration:none}footer a:hover{color:#fff}
   .callbar .c1{background:var(--maroon);color:#fff}
   .callbar .c2{background:var(--gold);color:#241a06}
 }
+/* keyboard focus visibility (WCAG 2.4.7) */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold-2);outline-offset:2px;border-radius:4px}
+/* respect reduced-motion preference (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
 </style>
 </head>
 <body>
@@ -278,10 +282,10 @@ footer a{color:#b6a79d;text-decoration:none}footer a:hover{color:#fff}
       </div>
     </div>
     <form onsubmit="return cpaDemo(event)">
-      <div class="fld"><label>Name</label><input type="text" placeholder="Your name" required></div>
-      <div class="fld"><label>Email</label><input type="email" placeholder="you@email.com" required></div>
-      <div class="fld"><label>What do you need help with?</label>
-        <select>
+      <div class="fld"><label for="f-name">Name</label><input id="f-name" name="name" type="text" placeholder="Your name" autocomplete="name" required></div>
+      <div class="fld"><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" required></div>
+      <div class="fld"><label for="f-need">What do you need help with?</label>
+        <select id="f-need" name="need">
           <option>International / cross-border tax</option>
           <option>FIRPTA — selling US real estate</option>
           <option>Expat / US person abroad</option>
@@ -290,7 +294,7 @@ footer a{color:#b6a79d;text-decoration:none}footer a:hover{color:#fff}
           <option>Personal or business tax</option>
         </select>
       </div>
-      <div class="fld"><label>Details</label><textarea rows="4" placeholder="A few lines about your situation"></textarea></div>
+      <div class="fld"><label for="f-details">Details</label><textarea id="f-details" name="details" rows="4" placeholder="A few lines about your situation"></textarea></div>
       <button class="btn btn-primary" type="submit" style="width:100%">Request a consult</button>
       <div id="msg">Thanks! This is a design concept, so nothing was actually sent.</div>
     </form>
