@@ -63,6 +63,7 @@ h1,h2,h3{font-family:var(--serif);color:var(--maroon);margin:0;font-weight:600;l
 .lang-tog svg{width:13px;height:13px}
 @media(max-width:1000px){.nav .links{display:none}}
 @media(max-width:820px){.nav .ph{display:none}}
+@media(max-width:600px){.nav .cta{display:none}}/* bottom call bar covers the CTA on mobile */
 
 /* ===== HERO — type-led, no photo ===== */
 .hero{position:relative;padding:clamp(48px,9vw,120px) 0 clamp(60px,10vw,130px)}
