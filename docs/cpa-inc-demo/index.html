@@ -47,10 +47,12 @@ a{color:inherit;text-decoration:none}
 .btn-gold:hover{background:rgba(198,160,99,.14)}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 
-/* reveal */
-.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
-.rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){.rv{opacity:1!important;transform:none!important;transition:none!important}
+/* reveal — progressive enhancement: hidden state only applies once JS adds .reveal-on,
+   so content is always visible if JS is disabled, errors, or hasn't run yet */
+.rv{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal-on .rv{opacity:0;transform:translateY(22px)}
+.reveal-on .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.rv,.reveal-on .rv{opacity:1!important;transform:none!important;transition:none!important}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 
 /* ---- top meta + nav ---- */
@@ -440,6 +442,7 @@ function cpaDemo(e){e.preventDefault();document.getElementById('msg').style.disp
 (function(){
   var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var els=[].slice.call(document.querySelectorAll('.rv'));
+  document.documentElement.classList.add('reveal-on');
   if(rm||!('IntersectionObserver'in window)){els.forEach(function(el){el.classList.add('in')});return;}
   var io=new IntersectionObserver(function(ents){ents.forEach(function(en){
     if(en.isIntersecting){var el=en.target;var sibs=[].slice.call(el.parentNode.querySelectorAll(':scope > .rv'));
