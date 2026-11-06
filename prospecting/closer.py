@@ -11,7 +11,7 @@ Runs statelessly-safe: remembers what it already processed in .closer_seen.json 
 Usage:  python3 closer.py         (one pass)
 Cron:   */30 * * * *  (every 30 min) — see install note at bottom.
 """
-import json, os, time, hashlib, urllib.request, urllib.error
+import json, os, re, time, hashlib, urllib.request, urllib.error
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 KEY  = open(os.path.expanduser("~/.instantly-key")).read().strip()
@@ -112,6 +112,43 @@ def classify(sender, subject, text):
     if any(k in low for k in AUTO_SOFT): return "auto"
     return "ambiguous"
 
+# 2026-11-05 (Hermes): we have ZERO testimonials, so any real praise in a reply matters. These are
+# deliberately multi-word (an adjective attached to "looks"/"love"/"work"/"this/it"), not bare
+# positive words, so "no thanks, great day" doesn't false-positive and sarcasm like "at least mine
+# loads" (no phrase here matches it) doesn't either. Additive only -- never changes the normal
+# negative/positive/ambiguous handling, just also tags + logs a candidate quote.
+PRAISE_PHRASES = ["looks great", "looks amazing", "looks good", "looks awesome", "love it", "love this",
+    "really like it", "really like this", "better than mine", "nice work", "great work", "amazing work",
+    "impressive", "that's awesome", "thats awesome", "this is awesome", "wow"]
+TESTIMONIALS = os.path.join(HERE, "TESTIMONIALS.txt")
+
+
+def extract_praise(text):
+    """Returns (matched_phrase, the_sentence_it_was_in) or (None, None). Operates on the same
+    quote-stripped text classify() uses, so a praise line quoted FROM our own old email never
+    counts -- only something the lead actually just wrote."""
+    reply = strip_quote(text)
+    low = reply.lower()
+    for phrase in PRAISE_PHRASES:
+        if phrase not in low: continue
+        parts = re.split(r"(?<=[.!?])\s+|\n+", reply)
+        line = next((p.strip() for p in parts if phrase in p.lower()), reply.strip())
+        return phrase, line[:300]
+    return None, None
+
+
+def log_testimonial(sender, e, phrase, line):
+    biz = ""
+    try:
+        biz = ((e.get("from_address_json") or [{}])[0].get("name") or "").strip()
+    except Exception:
+        pass
+    if not biz and "@" in sender: biz = sender.split("@")[-1]
+    with open(TESTIMONIALS, "a", encoding="utf-8") as f:
+        f.write("[%s] %s | %s | matched \"%s\"\n  \"%s\"\n\n" % (
+            time.strftime("%Y-%m-%d %H:%M"), sender, biz or "(unknown)", phrase, line))
+
+
 def load_seen():
     try: return set(json.load(open(SEEN)))
     except Exception: return set()
@@ -152,6 +189,10 @@ def main():
         seen.add(key); processed += 1
         kind = classify(sender, subject, text)
         snippet = " ".join(text.split())[:200]
+        phrase, praise_line = extract_praise(text)       # additive -- doesn't touch kind/handling below
+        if phrase:
+            log_testimonial(sender, e, phrase, praise_line)
+            log("PRAISE -> TESTIMONIALS.txt: %s (matched \"%s\")" % (sender, phrase))
         if kind == "negative":
             remove_lead(sender)
             lead_addr = (e.get("lead") or "").strip()
