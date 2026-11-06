@@ -61,9 +61,11 @@ AUTO_STRONG = ["automatic reply","auto reply","auto-reply","autoreply","out of o
         "thank you for contacting","thank you for choosing","we received your message","we've received your message","regular office hours","messages received outside","thanks for emailing","we have received your","we will respond to your email","respond to your email within",
         "has been received and is being reviewed","your request (","type your reply above this line","reply above this line",
         "i am currently checking and responding","within one business day","within 24 hours",
-        "no longer with","please send all e-mails to","please send all emails to"]
+        "no longer with","please send all e-mails to","please send all emails to",
+        "this inbox is not closely monitored"]
 # Soft bot phrases — checked AFTER positive (so a real "yes, thanks for reaching out" still counts)
 AUTO_SOFT = ["thank you for contacting","thanks for reaching out","thanks for contacting","we will get back",
+        "thank you for reaching out","thank you for emailing","we appreciate you contacting","get back in touch with you soon",
         "someone will reach out","we'll get back to you","will get back to you as soon"]
 AUTO_DOMAINS = ["intercom-mail.com","intercom.io","mailer-daemon","postmaster","noreply","no-reply"]
 
