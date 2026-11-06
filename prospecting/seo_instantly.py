@@ -121,6 +121,27 @@ def ok_lead(L, email):
     return True
 
 
+def rank_clause(pos, comps):
+    """2026-11-05 (Cornifer accuracy audit): past-tense rank claim, not a present-tense promise that
+    rots as rankings drift (his one live re-check moved #13->#17 in a day; 72% of already-emailed
+    claims were from a snapshot 7+ days old). Also: naming just 3 names above #15 is literally true
+    but misleading when there are a dozen+ others above too -- say "not in the top 20" instead.
+    ok_lead() already guarantees 4 <= pos <= 20 and len(comps)==3 before this is called, so the
+    pos==1 / <3-competitors case Cornifer flagged can't reach here -- the guard lives upstream."""
+    if pos > 15:
+        return "#%d, not in the top 20 for that search" % pos
+    return "#%d, below %s, %s and %s" % (pos, comps[0], comps[1], comps[2])
+
+
+def searched_date_label(iso_date):
+    """'2026-10-27' -> 'Oct 27' for a natural-sounding, dated claim."""
+    try:
+        from datetime import datetime
+        return datetime.strptime(iso_date, "%Y-%m-%d").strftime("%b %-d")
+    except Exception:
+        return iso_date or ""
+
+
 def run():
     leads = json.load(open(os.path.join(HERE, "seo", "leads.json")))
     loaded = set(json.load(open(LOADED))) if os.path.exists(LOADED) else set()
@@ -146,7 +167,8 @@ def run():
         body = {"campaign": SEO, "email": email, "first_name": first, "company_name": biz, "website": "https://" + L["domain"],
                 "skip_if_in_workspace": False,
                 "custom_variables": {"greeting": ("Hi %s," % first) if first else "Hi,", "maps_query": ascii(L["query"]), "maps_pos": str(L["pos"]),
-                                     "biz_name": biz, "comp1": comps[0], "comp2": comps[1], "comp3": comps[2]}}
+                                     "biz_name": biz, "comp1": comps[0], "comp2": comps[1], "comp3": comps[2],
+                                     "rank_clause": rank_clause(L["pos"], comps), "searched_date": searched_date_label(L.get("searched"))}}
         d = api("leads", "POST", body)
         if d.get("_error"): print("add failed", email, d); continue
         loaded.add(email); added += 1
