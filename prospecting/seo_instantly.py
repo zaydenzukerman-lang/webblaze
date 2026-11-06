@@ -118,6 +118,13 @@ def ok_lead(L, email):
     if dom in BIG_BRANDS or email.split("@")[-1] in BIG_BRANDS or ROLE_BAD.match(email): return False
     name = re.sub(r"[^a-z ]", "", (L.get("maps_name") or L.get("name") or "").lower()).strip()
     if len(name.split()) < 2: return False                     # "Dental", "Insurance": a category, not a business name
+    # 2026-11-06 (Mimir, from REVIEW.txt): seofinder.py's Maps scraper has no category field -- a
+    # business's "niche" is just whichever search query it happened to surface under, so a general
+    # dentist can get tagged "orthodontist" (Google Maps blends related categories in results).
+    # Two real replies ("we aren't an orthodontist") confirmed this. Real fix is scraper-side (needs
+    # a category check Cornifer owns); this is the narrow guard for the one niche with confirmed
+    # evidence -- skip an "orthodontist" lead whose name doesn't actually say so.
+    if L.get("niche") == "orthodontist" and "ortho" not in name: return False
     return True
 
 
