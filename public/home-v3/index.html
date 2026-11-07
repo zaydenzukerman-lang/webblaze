@@ -80,18 +80,31 @@ section{padding:clamp(64px,8vw,104px) 0}
 .dash-bar{display:flex;align-items:center;gap:7px;padding:13px 16px;border-bottom:1px solid var(--panel-line);background:rgba(255,255,255,.02)}
 .dash-bar i{width:10px;height:10px;border-radius:50%;background:#2c3850;display:inline-block}
 .dash-bar .q{margin-left:10px;font-size:.78rem;color:var(--on-panel-soft);font-family:var(--mono);letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.map{position:absolute;inset:44px 0 0 0;
+.map{position:absolute;inset:44px 0 0 0;overflow:hidden;
   background-image:
-   linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
-   linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
-  background-size:34px 34px;background-position:center}
-.map .road{position:absolute;background:rgba(255,255,255,.07);border-radius:4px}
-.road.r1{width:150%;height:10px;top:38%;left:-25%;transform:rotate(-18deg)}
-.road.r2{width:10px;height:150%;left:58%;top:-25%;transform:rotate(12deg)}
-.road.r3{width:130%;height:7px;top:70%;left:-15%;transform:rotate(6deg);background:rgba(255,255,255,.05)}
-.gpin{position:absolute;width:12px;height:12px;border-radius:50% 50% 50% 0;background:#3a4761;transform:rotate(-45deg);border:1.5px solid #4a5874}
+   radial-gradient(130% 100% at 50% 42%,rgba(28,38,58,.25),rgba(7,11,19,.6) 85%),
+   linear-gradient(rgba(255,255,255,.06) 1.2px,transparent 1.2px),
+   linear-gradient(90deg,rgba(255,255,255,.06) 1.2px,transparent 1.2px),
+   linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+   linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:cover,84px 84px,84px 84px,21px 21px,21px 21px;background-position:center}
+.map .road{position:absolute;background:rgba(255,255,255,.09);border-radius:4px}
+.road.r1{width:170%;height:11px;top:36%;left:-35%;transform:rotate(-18deg)}
+.road.r2{width:11px;height:170%;left:58%;top:-35%;transform:rotate(12deg)}
+.road.r3{width:150%;height:8px;top:70%;left:-25%;transform:rotate(6deg);background:rgba(255,255,255,.06)}
+.road.r4{width:150%;height:6px;top:18%;left:-25%;transform:rotate(9deg);background:rgba(255,255,255,.05)}
+.road.r5{width:7px;height:160%;left:30%;top:-30%;transform:rotate(-8deg);background:rgba(255,255,255,.055)}
+.map .block{position:absolute;background:rgba(255,255,255,.028);border-radius:3px}
+.block.b1{width:58px;height:40px;top:24%;left:12%}
+.block.b2{width:44px;height:52px;top:52%;left:60%}
+.block.b3{width:38px;height:30px;top:76%;left:20%}
+.map .lbl-st{position:absolute;font-family:var(--mono);font-size:8px;letter-spacing:.04em;color:rgba(255,255,255,.22);white-space:nowrap;z-index:1}
+.lbl-st.l1{top:33%;left:14%;transform:rotate(-18deg)}
+.lbl-st.l2{top:63%;left:40%;transform:rotate(6deg)}
+.gpin{position:absolute;width:12px;height:12px;border-radius:50% 50% 50% 0;background:#3a4761;transform:rotate(-45deg);border:1.5px solid #4a5874;z-index:2}
 .gpin.a{top:28%;left:30%}.gpin.b{top:60%;left:72%}.gpin.c{top:74%;left:38%}
-.youpin{position:absolute;top:44%;left:50%;transform:translate(-50%,-100%);z-index:3;filter:drop-shadow(0 8px 14px rgba(247,85,31,.5))}
+.accuracy{position:absolute;top:44%;left:50%;width:150px;height:150px;transform:translate(-50%,-50%);border-radius:50%;border:1.5px solid rgba(247,85,31,.3);background:radial-gradient(circle,rgba(247,85,31,.14),rgba(247,85,31,0) 68%);z-index:1}
+.youpin{position:absolute;top:44%;left:50%;transform:translate(-50%,-100%);z-index:3;filter:drop-shadow(0 8px 14px rgba(247,85,31,.55))}
 .pulse{position:absolute;top:44%;left:50%;width:14px;height:14px;transform:translate(-50%,-6px);border-radius:50%;background:rgba(247,85,31,.5);z-index:2;animation:pulse 2.6s ease-out infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(247,85,31,.45)}70%{box-shadow:0 0 0 26px rgba(247,85,31,0)}100%{box-shadow:0 0 0 0 rgba(247,85,31,0)}}
 /* floating glass cards */
@@ -308,8 +321,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
     <div class="dash" role="img" aria-label="A map showing your business ranked #3 locally, up from #8, with 4.9 stars and 18 new reviews this month, and a verified Google Business Profile.">
       <div class="dash-bar"><i></i><i></i><i></i><span class="q">pool service near me — Hialeah, FL</span></div>
       <div class="map">
-        <span class="road r1"></span><span class="road r2"></span><span class="road r3"></span>
+        <span class="block b1"></span><span class="block b2"></span><span class="block b3"></span>
+        <span class="road r1"></span><span class="road r2"></span><span class="road r3"></span><span class="road r4"></span><span class="road r5"></span>
+        <span class="lbl-st l1">SW 8TH ST</span><span class="lbl-st l2">W 49 PL</span>
         <span class="gpin a"></span><span class="gpin b"></span><span class="gpin c"></span>
+        <span class="accuracy"></span>
         <span class="pulse"></span>
         <svg class="youpin" width="32" height="42" aria-hidden="true" style="color:var(--flame)"><use href="#pinflame"/></svg>
       </div>
