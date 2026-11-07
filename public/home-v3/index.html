@@ -17,7 +17,7 @@
 :root{
   --flame:#F7551F;--flame-2:#FF7A3D;--ember:#FFB088;--flame-soft:#FFEDE4;
   --bg:#F5F7FA;--surface:#FFFFFF;--surface-2:#FBFCFE;
-  --ink:#0E1726;--ink-2:#334155;--ink-soft:#4F5B6B;--muted:#7A8699;
+  --ink:#0E1726;--ink-2:#334155;--ink-soft:#4F5B6B;--muted:#636E7C;
   --line:#E6E9EF;--line-2:#EEF1F6;
   --panel:#0C1320;--panel-2:#111A2B;--panel-line:rgba(255,255,255,.09);
   --on-panel:#F4F7FC;--on-panel-soft:#93A0B4;
@@ -46,7 +46,7 @@ section{padding:clamp(64px,8vw,104px) 0}
 .pinflame{display:inline-block;flex:none}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;font-family:var(--sans);font-weight:700;font-size:.98rem;padding:14px 24px;border-radius:var(--radius-pill);cursor:pointer;border:none;transition:transform .25s var(--ease),box-shadow .25s,background .25s,color .25s;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;font-family:var(--sans);font-weight:700;font-size:.98rem;padding:15px 24px;border-radius:var(--radius-pill);cursor:pointer;border:none;transition:transform .25s var(--ease),box-shadow .25s,background .25s,color .25s;white-space:nowrap}
 .btn svg{width:18px;height:18px;flex:none}
 .btn-flame{background:linear-gradient(135deg,var(--flame),var(--flame-2));color:#fff;box-shadow:0 12px 28px -10px rgba(247,85,31,.55)}
 .btn-flame:hover{transform:translateY(-2px);box-shadow:0 18px 38px -12px rgba(247,85,31,.6)}
@@ -114,14 +114,14 @@ section{padding:clamp(64px,8vw,104px) 0}
 .fcard .lbl{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .fc-rank{top:13%;left:3%;width:168px}
 .fc-rank .big{font-family:var(--mono);font-weight:700;font-size:1.7rem;color:var(--ink);line-height:1;margin-top:3px;display:flex;align-items:baseline;gap:7px}
-.fc-rank .up{font-size:.72rem;font-weight:700;color:var(--verify);background:rgba(31,164,99,.12);padding:2px 7px;border-radius:20px;letter-spacing:0;font-family:var(--sans)}
+.fc-rank .up{font-size:.72rem;font-weight:700;color:#157F49;background:rgba(21,127,73,.14);padding:2px 7px;border-radius:20px;letter-spacing:0;font-family:var(--sans)}
 .spark{display:flex;align-items:flex-end;gap:3px;height:22px;margin-top:8px}
 .spark b{flex:1;background:linear-gradient(var(--flame-2),var(--flame));border-radius:2px;display:block}
 .fc-rev{bottom:7%;left:3%;width:160px}
 .fc-rev .stars{color:var(--star);font-size:.92rem;letter-spacing:1px}
 .fc-rev .r{display:flex;align-items:baseline;gap:6px;margin-top:2px}
 .fc-rev .r b{font-family:var(--mono);font-size:1.25rem;color:var(--ink)}
-.fc-rev .new{font-size:.74rem;font-weight:700;color:var(--verify);margin-top:5px}
+.fc-rev .new{font-size:.74rem;font-weight:700;color:#157F49;margin-top:5px}
 .fc-gbp{top:14%;right:3%;width:150px}
 .fc-gbp .v{display:flex;align-items:center;gap:7px;margin-top:5px;font-weight:700;font-size:.82rem;color:var(--ink)}
 .fc-gbp .v svg{width:16px;height:16px;color:var(--verify);flex:none}
@@ -269,7 +269,7 @@ footer{background:var(--panel);color:var(--on-panel-soft)}
 .foot-brand .b{display:flex;align-items:center;gap:10px}
 .foot-brand .b b{color:#fff;font-size:1.2rem;font-weight:800}
 .foot-brand p{margin:14px 0 0;max-width:34ch;font-size:.9rem}
-footer h5{text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:#6b7891;margin:0 0 14px;font-weight:700}
+footer h4{text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:#79869e;margin:0 0 14px;font-weight:700}
 footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:.9rem}
 footer a:hover{color:#fff}
 .foot-bottom{border-top:1px solid var(--panel-line);max-width:var(--maxw);margin:0 auto;padding:18px 24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.8rem;color:#5d6a82}
@@ -566,8 +566,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
       <p>Google Maps ranking, reviews and websites for local businesses. Built first — you only pay when you love it.</p>
       <p style="margin-top:12px"><a href="mailto:zayden@webblaze.io" style="color:var(--ember)">zayden@webblaze.io</a></p>
     </div>
-    <div><h5>Explore</h5><ul><li><a href="#engine">How it works</a></li><li><a href="#work">Our Work</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul></div>
-    <div><h5>Company</h5><ul><li><a href="/privacy">Privacy Policy</a></li><li><a href="/terms">Terms &amp; Conditions</a></li><li><a href="#contact">Start a project</a></li></ul></div>
+    <div><h4>Explore</h4><ul><li><a href="#engine">How it works</a></li><li><a href="#work">Our Work</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="/privacy">Privacy Policy</a></li><li><a href="/terms">Terms &amp; Conditions</a></li><li><a href="#contact">Start a project</a></li></ul></div>
   </div>
   <div class="foot-bottom"><span>© 2026 WebBlaze. All rights reserved.</span><span>Designed &amp; built in-house.</span></div>
 </footer>
