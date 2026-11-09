@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>WebBlaze — Top of Google Maps for Local Business | Maps, SEO, Websites, Ads</title>
+<meta name="description" content="WebBlaze gets local businesses into the Google Maps top 3, then builds the websites, SEO and ads that turn searches into booked work. Based in Miami.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap"></noscript>
+<style>
+:root{
+  --paper:#f7f1e6;--paper-2:#efe6d4;--ink:#17120c;--ink-2:#2a2118;--muted:#6f6454;
+  --flame:#ef4e1b;--flame-2:#ff6a2b;--line:#dccfb8;--line-ink:#17120c;
+  --maxw:1240px;
+  --sans:'Instrument Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --disp:'Bricolage Grotesque','Instrument Sans',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--disp);margin:0;font-weight:800;line-height:.98;letter-spacing:-.02em;color:var(--ink)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.rv{transition:opacity .6s ease,transform .6s ease}
+.reveal-on .rv{opacity:0;transform:translateY(16px)}
+.reveal-on .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv,.reveal-on .rv{opacity:1!important;transform:none!important;transition:none!important}*{scroll-behavior:auto!important}}
+
+.eyebrow{font-family:var(--sans);font-weight:600;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--flame)}
+.hl{background:var(--flame);color:#fff;padding:0 .1em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:600;font-size:1rem;padding:16px 28px;border:2px solid var(--ink);cursor:pointer;transition:background .18s,color .18s}
+.btn-fill{background:var(--ink);color:var(--paper)}
+.btn-fill:hover{background:var(--flame);border-color:var(--flame);color:#fff}
+.btn-flame{background:var(--flame);border-color:var(--flame);color:#fff}
+.btn-flame:hover{background:var(--ink);border-color:var(--ink)}
+.btn-line{background:transparent;color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:2px solid var(--ink)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;max-width:var(--maxw);margin:0 auto;padding:15px 28px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:800;font-size:1.3rem;letter-spacing:-.02em}
+.brand .mark{width:26px;height:33px}
+.nav-links{display:flex;gap:30px;font-size:.92rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:.78rem}
+.nav-links a{color:var(--ink)}.nav-links a:hover{color:var(--flame)}
+.nav .book{border:2px solid var(--ink);padding:11px 20px;font-weight:600;font-size:.9rem;transition:background .18s,color .18s}
+.nav .book:hover{background:var(--ink);color:var(--paper)}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* hero */
+.hero{border-bottom:2px solid var(--ink)}
+.hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:0}
+.hero-l{padding:64px 28px 60px;padding-left:max(28px,calc((100vw - var(--maxw))/2 + 28px));border-right:2px solid var(--ink)}
+.hero-r{padding:44px 28px;padding-right:max(28px,calc((100vw - var(--maxw))/2 + 28px));display:flex;flex-direction:column;justify-content:center;background:var(--paper-2)}
+.hero h1{font-size:clamp(2.9rem,2rem+4vw,5.4rem);font-weight:800;letter-spacing:-.035em;max-width:14ch}
+.hero .lead{font-size:1.18rem;color:var(--ink-2);max-width:42ch;margin:26px 0 0;line-height:1.5}
+.hero .acts{display:flex;flex-wrap:wrap;gap:0;margin-top:34px}
+.hero .acts .btn:first-child{border-right:none}
+@media(max-width:560px){.hero .acts{flex-direction:column}.hero .acts .btn{border-right:2px solid var(--ink)}.hero .acts .btn:first-child{border-bottom:none}}
+.hero .facts{display:flex;gap:0;margin-top:40px;border:2px solid var(--ink)}
+.hero .facts .f{flex:1;padding:16px 18px;border-right:2px solid var(--ink)}
+.hero .facts .f:last-child{border-right:none}
+.hero .facts .n{font-family:var(--disp);font-weight:800;font-size:1.5rem;line-height:1;color:var(--flame)}
+.hero .facts .t{font-size:.78rem;color:var(--muted);margin-top:5px;font-weight:500}
+@media(max-width:860px){.hero-in{grid-template-columns:1fr}.hero-l{border-right:none;border-bottom:2px solid var(--ink);padding:48px 28px}.hero-r{padding:40px 28px}}
+
+/* maps pack — sharp, hard shadow, no rounding */
+.pack{border:2px solid var(--ink);background:#fff;box-shadow:12px 12px 0 var(--ink)}
+.pack .bar{padding:12px 14px;border-bottom:2px solid var(--ink);background:#fff}
+.pack .search{display:flex;align-items:center;gap:9px;border:2px solid var(--ink);padding:9px 13px;font-size:.88rem;font-weight:600}
+.pack .map{height:116px;position:relative;border-bottom:2px solid var(--ink);background:
+  repeating-linear-gradient(90deg,#efe9dc 0 34px,#e7dfcd 34px 36px),
+  repeating-linear-gradient(0deg,#efe9dc 0 34px,#e7dfcd 34px 36px)}
+.pack .map .road{position:absolute;background:#fff;border:1px solid var(--line)}
+.pack .map .r1{left:0;right:0;top:46%;height:12px}
+.pack .map .r2{top:0;bottom:0;left:40%;width:12px}
+.pack .map .pin{position:absolute;left:40%;top:36%;transform:translate(-50%,-100%)}
+.pack .row{display:flex;align-items:center;gap:13px;padding:13px 15px;border-bottom:2px solid var(--line)}
+.pack .row:last-child{border-bottom:none}
+.pack .row .rank{width:28px;height:28px;display:grid;place-items:center;font-family:var(--disp);font-weight:800;font-size:.95rem;border:2px solid var(--ink);flex:none}
+.pack .row.you .rank{background:var(--flame);border-color:var(--flame);color:#fff}
+.pack .row .rank.dim{color:var(--muted);border-color:var(--line)}
+.pack .row .nm{flex:1}
+.pack .row .nm b{display:block;font-family:var(--disp);font-weight:700;font-size:1rem}
+.pack .row .nm span{font-size:.8rem;color:var(--muted)}
+.pack .row.you{background:#fff4ee}
+.pack .row .stars{color:var(--flame)}
+.pack-cap{margin-top:16px;font-size:.84rem;color:var(--muted);font-weight:500}
+.pack-cap b{color:var(--ink)}
+
+/* strip */
+.strip{background:var(--ink);color:var(--paper);overflow:hidden;border-bottom:2px solid var(--ink)}
+.strip .track{display:flex;white-space:nowrap;padding:16px 0;font-family:var(--disp);font-weight:700;font-size:1rem;letter-spacing:.01em;text-transform:uppercase;animation:scroll 30s linear infinite}
+.strip .track span{display:inline-flex}
+.strip .track em{font-style:normal;padding:0 26px;color:var(--paper)}
+.strip .track em::before{content:"/ ";color:var(--flame)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.strip .track{animation:none}}
+
+section{padding:92px 0;border-bottom:2px solid var(--ink)}
+.sec-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:54px;flex-wrap:wrap}
+.sec-top h2{font-size:clamp(2.1rem,1.4rem+3vw,3.6rem);font-weight:800;letter-spacing:-.03em;max-width:18ch}
+.sec-top .num{font-family:var(--disp);font-weight:800;font-size:clamp(2.4rem,5vw,4rem);color:var(--flame);line-height:.8}
+
+/* services — sharp bordered blocks, no rounding, no glow */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);border:2px solid var(--ink);border-bottom:none}
+.svc{padding:34px 30px;border-bottom:2px solid var(--ink);border-right:2px solid var(--ink)}
+.svc:nth-child(2n){border-right:none}
+.svc.lead{grid-column:1/-1;background:var(--ink);color:var(--paper);display:grid;grid-template-columns:1.3fr 1fr;gap:34px;align-items:start}
+.svc.lead h3,.svc.lead .price b{color:#fff}
+.svc .tagn{font-family:var(--disp);font-weight:800;font-size:1.1rem;color:var(--flame)}
+.svc h3{font-size:1.7rem;font-weight:800;margin:14px 0 10px}
+.svc.lead h3{font-size:2.3rem}
+.svc p{font-size:1rem;color:var(--muted);margin:0 0 16px}
+.svc.lead p{color:#cbbfab}
+.svc ul{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:11px}
+.svc li{display:flex;gap:11px;font-size:.96rem;color:var(--paper)}
+.svc li b{color:var(--flame);font-family:var(--disp);font-weight:800}
+.svc .price{font-family:var(--disp);font-weight:700;font-size:1.15rem}
+.svc .price b{font-weight:800}
+.svc .price small{display:block;font-family:var(--sans);font-weight:500;font-size:.82rem;color:var(--muted);margin-top:4px}
+.svc.lead .price small{color:#cbbfab}
+@media(max-width:760px){.svc-grid{grid-template-columns:1fr}.svc{border-right:none}.svc.lead{grid-template-columns:1fr;gap:20px}}
+
+/* proof */
+.proof{background:var(--flame);color:#fff;border-bottom:2px solid var(--ink)}
+.proof .sec-top h2{color:#fff}.proof .sec-top .num{color:var(--ink)}
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--ink)}
+.proof-grid>div{padding:34px 30px}
+.proof-grid .left{border-right:2px solid var(--ink);background:var(--ink)}
+.proof-grid .q{font-family:var(--disp);font-weight:700;font-size:1.35rem;line-height:1.3;color:#fff}
+.proof-grid .ranks{display:flex;flex-wrap:wrap;gap:0;margin-top:22px;border:2px solid #3a2f22}
+.proof-grid .ranks span{font-weight:600;font-size:.84rem;padding:9px 13px;border-right:2px solid #3a2f22;color:var(--paper)}
+.proof-grid .ranks span:last-child{border-right:none}
+.proof-grid .ranks span.hot{background:var(--flame);color:#fff}
+.proof-grid .keep{margin-top:18px;font-size:.86rem;color:#cbbfab}
+.proof-grid .right{background:#fff;color:var(--ink)}
+.proof-grid .right h3{font-size:1.7rem;margin-bottom:14px}
+.proof-grid .right p{color:var(--muted);margin:0 0 14px}
+.proof-grid .right p b{color:var(--ink)}
+.proof-grid .right .links{display:flex;flex-wrap:wrap;gap:0;margin-top:6px;border:2px solid var(--ink)}
+.proof-grid .right .links a{font-weight:600;font-size:.9rem;padding:11px 16px;border-right:2px solid var(--ink)}
+.proof-grid .right .links a:last-child{border-right:none}
+.proof-grid .right .links a:hover{background:var(--ink);color:#fff}
+@media(max-width:760px){.proof-grid{grid-template-columns:1fr}.proof-grid .left{border-right:none;border-bottom:2px solid var(--ink)}}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink);border-right:none}
+.step{padding:28px 24px;border-right:2px solid var(--ink)}
+.step .no{font-family:var(--disp);font-weight:800;font-size:2.4rem;color:var(--flame);line-height:.8}
+.step h3{font-size:1.2rem;margin:16px 0 8px}
+.step p{font-size:.92rem;color:var(--muted);margin:0}
+@media(max-width:760px){.steps{grid-template-columns:1fr 1fr}.step:nth-child(2n){border-right:none}}
+@media(max-width:460px){.steps{grid-template-columns:1fr}.step{border-right:none;border-bottom:2px solid var(--ink)}.step:last-child{border-bottom:none}}
+
+/* pricing */
+.pricing{background:var(--ink);color:var(--paper)}
+.pricing .sec-top h2{color:#fff}
+.price-grid{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--paper);border-right:none}
+.pcard{padding:28px 24px;border-right:2px solid var(--paper)}
+.pcard .nm{font-family:var(--disp);font-weight:700;font-size:1.1rem;color:#fff}
+.pcard .amt{font-family:var(--disp);font-weight:800;font-size:2rem;color:var(--flame);margin:14px 0 6px;line-height:1}
+.pcard .amt small{font-family:var(--sans);font-weight:500;font-size:.82rem;color:#cbbfab}
+.pcard .d{font-size:.88rem;color:#cbbfab}
+.price-note{margin-top:30px;font-family:var(--disp);font-weight:700;font-size:1.15rem;color:#fff}
+.price-note b{color:var(--flame)}
+@media(max-width:760px){.price-grid{grid-template-columns:1fr 1fr}.pcard:nth-child(2n){border-right:none}}
+@media(max-width:460px){.price-grid{grid-template-columns:1fr}.pcard{border-right:none;border-bottom:2px solid var(--paper)}.pcard:last-child{border-bottom:none}}
+
+/* final cta */
+.cta{background:var(--flame);color:#fff;border-bottom:none;text-align:left}
+.cta-in{max-width:var(--maxw);margin:0 auto;padding:84px 28px;display:grid;grid-template-columns:1.3fr auto;gap:40px;align-items:center}
+.cta h2{color:#fff;font-size:clamp(2.2rem,1.5rem+3vw,4rem);font-weight:800;letter-spacing:-.03em;max-width:16ch}
+.cta p{color:#fff;opacity:.92;margin:16px 0 0;font-size:1.1rem;max-width:40ch}
+.cta .btn-cta{background:var(--ink);border:2px solid var(--ink);color:#fff;white-space:nowrap}
+.cta .btn-cta:hover{background:#fff;color:var(--ink)}
+@media(max-width:760px){.cta-in{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:#cbbfab;font-size:.9rem}
+.foot-in{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;max-width:var(--maxw);margin:0 auto;padding:30px 28px}
+.foot-in .brand{color:#fff;font-size:1.15rem}
+footer a:hover{color:#fff}
+
+/* case study */
+.cs{border:2px solid var(--ink)}
+.cs-top{display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--ink)}
+.cs-top>div{padding:32px 30px}
+.cs-top .a{border-right:2px solid var(--ink)}
+.cs-top .b{background:var(--ink);color:var(--paper)}
+.cs-top h3{font-size:1.55rem;margin:12px 0 10px}
+.cs-top p.d{color:var(--muted);margin:0;font-size:1rem}
+.cs-top .b p.q{font-family:var(--disp);font-weight:700;font-size:1.3rem;line-height:1.3;color:#fff;margin:0 0 12px}
+.cs-top .b p.s{color:#cbbfab;margin:0;font-size:.92rem}
+.cs-stats{display:grid;grid-template-columns:repeat(4,1fr)}
+.cs-stats .st{padding:28px 24px;border-right:2px solid var(--ink)}
+.cs-stats .st:last-child{border-right:none}
+.cs-stats .big{font-family:var(--disp);font-weight:800;font-size:2.5rem;color:var(--flame);line-height:.85}
+.cs-stats .lbl{font-size:.86rem;color:var(--muted);margin-top:10px}
+@media(max-width:760px){.cs-top{grid-template-columns:1fr}.cs-top .a{border-right:none;border-bottom:2px solid var(--ink)}.cs-stats{grid-template-columns:1fr 1fr}.cs-stats .st:nth-child(2n){border-right:none}.cs-stats .st{border-bottom:2px solid var(--ink)}}
+@media(max-width:460px){.cs-stats{grid-template-columns:1fr}.cs-stats .st{border-right:none}}
+
+a:focus-visible,button:focus-visible{outline:3px solid var(--flame);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top"><img src="/logo-mark.png" alt="" style="height:30px;width:auto;display:block"> WebBlaze</a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#proof">Proof</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a class="book" href="#book">Book a call</a>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero" style="padding:0;border-bottom:none">
+  <div class="hero-in">
+    <div class="hero-l rv">
+      <span class="eyebrow">Google Maps · SEO · Websites · Ads</span>
+      <h1 style="margin-top:20px">Get found in the Google Maps <span class="hl">top&nbsp;3</span>.</h1>
+      <p class="lead">Three businesses show up when locals search. We do the work to get you into that three, then build the website, SEO and ads that turn it into booked jobs.</p>
+      <div class="acts">
+        <a class="btn btn-flame" href="#book">Book a free call</a>
+        <a class="btn btn-line" href="#proof">See how you rank</a>
+      </div>
+      <div class="facts">
+        <div class="f"><div class="n">Top 3</div><div class="t">The map pack locals pick from</div></div>
+        <div class="f"><div class="n">$0</div><div class="t">Site built before you pay</div></div>
+        <div class="f"><div class="n">Miami</div><div class="t">Local team, not a call center</div></div>
+      </div>
+    </div>
+    <div class="hero-r rv">
+      <div class="pack">
+        <div class="bar">
+          <div class="search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#17120c" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg> plumber near me</div>
+        </div>
+        <div class="map">
+          <div class="road r1"></div><div class="road r2"></div>
+          <div class="pin"><img src="/logo-mark.png" alt="" width="30" style="display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))"></div>
+        </div>
+        <div class="row you"><span class="rank" style="background:#fff;padding:3px"><img src="/logo-mark.png" alt="" style="width:100%;height:auto;display:block"></span><div class="nm"><b>Your Business</b><span><span class="stars">★★★★★</span> 5.0 · 142 reviews</span></div></div>
+        <div class="row"><span class="rank dim"></span><div class="nm"><b>Competitor Co.</b><span>★★★★ 4.3 · 54 reviews</span></div></div>
+        <div class="row"><span class="rank dim"></span><div class="nm"><b>Another Local LLC</b><span>★★★★ 4.1 · 38 reviews</span></div></div>
+      </div>
+      <div class="pack-cap"><b>The top 3 is where locals click.</b> We do the work to get you in.</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-hidden="true">
+  <div class="track"><span><em>Top-3 map pack</em><em>Built before you pay</em><em>More 5-star reviews</em><em>Websites that convert</em><em>Google &amp; Meta ads</em><em>30-day money-back</em><em>Real monthly reports</em></span><span><em>Top-3 map pack</em><em>Built before you pay</em><em>More 5-star reviews</em><em>Websites that convert</em><em>Google &amp; Meta ads</em><em>30-day money-back</em><em>Real monthly reports</em></span></div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <h2>Everything to win the local market, one team.</h2>
+      <div class="num">01</div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc lead rv">
+        <div>
+          <div class="tagn">Start here</div>
+          <h3>Google Maps &amp; Local SEO</h3>
+          <p>The Maps 3-pack is where local customers pick who to call. We get you in it and keep you there.</p>
+          <div class="price">From <b>$497</b>/mo<small>Profile, reviews and a monthly rank report.</small></div>
+        </div>
+        <ul>
+          <li><b>&rarr;</b> Google Business Profile built out and optimized</li>
+          <li><b>&rarr;</b> A review engine that grows your 5-star count</li>
+          <li><b>&rarr;</b> Citations and local pages Google trusts</li>
+          <li><b>&rarr;</b> Geo-grid rank tracking and a plain-English monthly report</li>
+        </ul>
+      </div>
+      <div class="svc rv">
+        <div class="tagn">02</div>
+        <h3>SEO</h3>
+        <p>Climb the regular Google results too. Content, local pages and backlinks that bring leads without paying per click.</p>
+        <div class="price">From <b>$747</b>/mo<small>Content, on-page SEO and backlinks.</small></div>
+      </div>
+      <div class="svc rv">
+        <div class="tagn">03</div>
+        <h3>Websites</h3>
+        <p>A fast, modern site built from your own photos and words. You only pay once you love it.</p>
+        <div class="price"><b>$629</b>/yr<small>Built before you pay. Hosting and updates included.</small></div>
+      </div>
+      <div class="svc rv">
+        <div class="tagn">04</div>
+        <h3>Advertising</h3>
+        <p>Google and Meta ads managed for you. Put your business in front of ready-to-buy customers today.</p>
+        <div class="price">From <b>$397</b>/mo<small>Management. You control the ad budget.</small></div>
+      </div>
+      <div class="svc rv">
+        <div class="tagn">&#9733;</div>
+        <h3>Bundle &amp; save</h3>
+        <p>Most local businesses start with Maps and a website, then add SEO and ads as they grow. Bundle the pieces and pay less.</p>
+        <div class="price"><a href="#book" style="color:var(--flame)"><b>Let&rsquo;s build your plan &rarr;</b></a><small>One team, one monthly report, no surprises.</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <h2>From buried in Google to page one for thousands of searches.</h2>
+      <div class="num">02</div>
+    </div>
+    <div class="cs rv">
+      <div class="cs-top">
+        <div class="a">
+          <span class="eyebrow">Real client &middot; SEO case study</span>
+          <h3>Dr. Michael K. Newman</h3>
+          <p class="d">A board-certified Beverly Hills plastic surgeon whose site barely showed up in one of the most competitive markets anywhere. We rebuilt the site, published 159 expert articles patients actually search for, and put a consultation form on every page.</p>
+        </div>
+        <div class="b">
+          <p class="q">&ldquo;This is traffic the practice owns. It doesn&rsquo;t stop when an ad budget runs out.&rdquo;</p>
+          <p class="s">Average Google position went from 18 to 9.8 in six months, and 89 visits came straight from AI assistants like ChatGPT and Gemini.</p>
+        </div>
+      </div>
+      <div class="cs-stats">
+        <div class="st"><div class="big">12&times;</div><div class="lbl">more Google visitors a month (110 &rarr; 1,401)</div></div>
+        <div class="st"><div class="big">5,625</div><div class="lbl">searches now on page one of Google (up from 202)</div></div>
+        <div class="st"><div class="big">33&times;</div><div class="lbl">more often shown in Google results</div></div>
+        <div class="st"><div class="big">22</div><div class="lbl">real patient consultation requests</div></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;margin-top:16px">
+      <p style="font-size:.8rem;color:var(--muted);margin:0;max-width:62ch">Figures from Dr. Newman&rsquo;s own Google Search Console and Analytics, through November 2026. Results depend on market, competition and starting point.</p>
+      <a class="btn btn-line" style="padding:12px 22px;font-size:.92rem" href="/new/case-study-dr-newman.pdf" target="_blank" rel="noopener">Read the full case study (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<section id="proof" class="proof">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <h2>We show you the gap, then close it.</h2>
+      <div class="num">03</div>
+    </div>
+    <div class="proof-grid">
+      <div class="left rv">
+        <div class="q">&ldquo;I searched your service on Google Maps. Here&rsquo;s exactly where you came up, and why the top three beat you.&rdquo;</div>
+        <div class="ranks">
+          <span class="hot">You &middot; #7</span>
+          <span>#1 has 142 reviews</span>
+          <span>#2 is closer</span>
+          <span>#3 has local pages</span>
+        </div>
+        <div class="keep">Yours to keep after the call, whether we work together or not.</div>
+      </div>
+      <div class="right rv">
+        <h3>No guesswork. No fake promises.</h3>
+        <p>Every call starts with a free rank report: where you sit on the map today and the specific reasons the businesses above you win. Then we do the work and send a real report every month. We promise effort and honest reporting, <b>never fake overnight rankings</b>.</p>
+        <p>And your website is <b>built before you pay a cent</b>, with a 30-day money-back guarantee.</p>
+        <div class="links">
+          <a href="https://webblaze.io/cpa-inc-demo/" target="_blank" rel="noopener">See a site we built</a>
+          <a href="#book">Get your free rank report</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <h2>Live in days, not months.</h2>
+      <div class="num">04</div>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="no">01</div><h3>Free rank audit</h3><p>We show you exactly where you land on the map and why.</p></div>
+      <div class="step rv"><div class="no">02</div><h3>Build &amp; optimize</h3><p>Profile, site and pages done right. You see it before you pay.</p></div>
+      <div class="step rv"><div class="no">03</div><h3>Rank &amp; reviews</h3><p>We climb the map and grow your 5-star reviews month over month.</p></div>
+      <div class="step rv"><div class="no">04</div><h3>Report &amp; grow</h3><p>A plain-English report every month, then we push with SEO and ads.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="pricing">
+  <div class="wrap">
+    <div class="sec-top rv">
+      <h2>Straightforward pricing. Nothing hidden.</h2>
+      <div class="num">05</div>
+    </div>
+    <div class="price-grid">
+      <div class="pcard rv"><div class="nm">Google Maps</div><div class="amt">$497<small>/mo</small></div><div class="d">Map-pack ranking, reviews and a monthly report.</div></div>
+      <div class="pcard rv"><div class="nm">SEO</div><div class="amt">$747<small>/mo</small></div><div class="d">Content, on-page SEO and backlinks for long-term traffic.</div></div>
+      <div class="pcard rv"><div class="nm">Website</div><div class="amt">$629<small>/yr</small></div><div class="d">Built before you pay. Hosting, updates and guarantee included.</div></div>
+      <div class="pcard rv"><div class="nm">Advertising</div><div class="amt">$397<small>/mo</small></div><div class="d">Google and Meta ads managed. You set the ad budget.</div></div>
+    </div>
+    <div class="price-note rv">Start with <b>Maps + Website</b>, add SEO and ads as you grow.</div>
+  </div>
+</section>
+
+<section id="book" class="cta">
+  <div class="cta-in rv">
+    <div>
+      <h2>See where you rank. Free.</h2>
+      <p>Book 30 minutes. We pull your live Google Maps rank and show you the plan to reach the top three.</p>
+    </div>
+    <a class="btn btn-cta" href="mailto:zayden@webblaze.io?subject=Book%20a%20WebBlaze%20call">Book a free 30-min call</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <div class="brand" style="display:flex;align-items:center;gap:10px"><img src="/logo-mark.png" alt="" style="height:26px;width:auto"> WebBlaze</div>
+    <div>Google Maps, SEO, websites and ads for local businesses. Miami, FL.</div>
+    <div><a href="mailto:zayden@webblaze.io">zayden@webblaze.io</a> &nbsp;·&nbsp; <a href="https://webblaze.io">webblaze.io</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  document.documentElement.classList.add('reveal-on');
+  if(rm||!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
