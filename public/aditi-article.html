@@ -52,7 +52,7 @@ h1,h2,h3{margin:0;font-family:var(--serif);font-weight:600;line-height:1.1;lette
 .ahead .standfirst{color:var(--ink-soft);font-size:1.2rem;margin-top:18px;line-height:1.55}
 
 .author{display:flex;align-items:center;gap:16px;margin:28px 0 0;padding:16px 20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)}
-.author img{width:66px;height:66px;border-radius:50%;object-fit:cover;object-position:46% 24%;flex:none;border:2px solid var(--teal-tint)}
+.author .avatar{width:66px;height:66px;border-radius:50%;background:var(--teal-tint);color:var(--teal);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:1.5rem;flex:none;border:1.5px solid var(--teal);letter-spacing:.02em}
 .author .who b{font-family:var(--serif);font-weight:600;font-size:1.14rem;color:var(--ink);display:block}
 .author .who span{color:var(--ink-soft);font-size:.92rem}
 .author .who .cred{color:var(--teal);font-weight:600}
@@ -108,7 +108,7 @@ article .inline-fig figcaption{color:var(--muted);font-size:.84rem;text-align:ce
 .sign .printed span{display:block;color:var(--muted);font-weight:500;font-size:.92rem}
 
 .bio{display:flex;gap:20px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:24px;margin-top:36px;box-shadow:var(--shadow-sm)}
-.bio img{width:84px;height:84px;border-radius:16px;object-fit:cover;object-position:46% 24%;flex:none}
+.bio .avatar{width:84px;height:84px;border-radius:16px;background:var(--teal-tint);color:var(--teal);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:1.9rem;flex:none;border:1.5px solid var(--teal);letter-spacing:.02em}
 .bio b{font-family:var(--serif);font-size:1.16rem}
 .bio p{margin:8px 0 0;color:var(--ink-soft);font-size:.98rem}
 @media(max-width:560px){.bio{flex-direction:column}}
@@ -146,7 +146,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offs
   <h1>Why is my dog throwing up? A North Miami vet's guide to when it's time to come in.</h1>
   <p class="standfirst">One of the questions I'm asked most often — here's how I help local pet parents tell a minor tummy upset from a problem that needs us today.</p>
   <div class="author">
-    <img src="aditi-img/ahuja.jpg" alt="Dr. Aditi Ahuja, DVM, of Animal Clinic of Ives Dairy Road" width="66" height="66">
+    <div class="avatar" aria-hidden="true">AA</div>
     <div class="who">
       <b>Dr. Aditi Ahuja, <span class="cred">DVM</span></b>
       <span>Animal Clinic of Ives Dairy Road · North Miami</span>
@@ -254,7 +254,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offs
   </div>
 
   <div class="bio">
-    <img src="aditi-img/ahuja.jpg" alt="Dr. Aditi Ahuja, DVM" width="84" height="84">
+    <div class="avatar" aria-hidden="true">AA</div>
     <div>
       <b>About Dr. Aditi Ahuja, DVM</b>
       <p>Dr. Ahuja earned her Doctor of Veterinary Medicine from Cornell University, where she was inducted into the Phi Zeta Veterinary Honor Society, and completed an internship in emergency and specialty care at Friendship Hospital for Animals in Washington, D.C. She is Fear Free Certified and focuses on chronic-disease management — guiding pet owners through early diagnosis, intervention, and lifelong care at Animal Clinic of Ives Dairy Road in North Miami.</p>
