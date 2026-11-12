@@ -246,3 +246,5 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--green);outline-offs
 .prose ul{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:11px}
 .prose li{position:relative;padding-left:24px;font-size:1.04rem;color:var(--ink-soft)}
 .prose li::before{content:"";position:absolute;left:2px;top:10px;width:8px;height:8px;border-radius:50%;background:var(--green)}
+.lead-vet .vetphoto{width:220px;height:220px;border-radius:50%;object-fit:cover;object-position:50% 28%;margin:0 auto;border:1.5px solid var(--green);display:block}
+@media(max-width:700px){.lead-vet .vetphoto{width:170px;height:170px}}
