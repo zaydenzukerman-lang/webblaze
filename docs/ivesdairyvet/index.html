@@ -9,7 +9,6 @@
 <link rel="icon" href="img/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="img/hero.jpg">
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Mulish:wght@400;500;600;700;800&display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Mulish:wght@400;500;600;700;800&display=swap"></noscript>
 <link rel="stylesheet" href="/ivesdairyvet/site.css">
@@ -45,7 +44,7 @@
       </div>
     </div>
     <div class="hero-media">
-      <div class="hero-frame"><img src="img/hero.jpg" srcset="img/hero-sm.jpg 900w, img/hero.jpg 1600w" sizes="(max-width:900px) 92vw, 50vw" alt="A happy, healthy dog" width="1600" height="1400"></div>
+      <div class="hero-frame"><img src="img/hero.jpg" alt="A happy, healthy dog" width="1600" height="1400" fetchpriority="high"></div>
       <div class="nd-badge">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5"/><path d="M12 13.5s-2.5-1.7-2.5-3.3A1.5 1.5 0 0 1 12 9a1.5 1.5 0 0 1 2.5 1.2c0 1.6-2.5 3.3-2.5 3.3z" fill="currentColor"/></svg>
         <div><b>2026 Fave</b><span>Voted by neighbors on Nextdoor</span></div>
@@ -66,15 +65,15 @@
 <section><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Our services</span><h2>Explore what we offer.</h2><p>Everything your dog or cat needs under one roof — from their first puppy visit to their senior years.</p></div>
   <div class="svc-grid">
-    <a class="svc" href="/ivesdairyvet/services/wellness/"><div class="ph"><img src="img/svc-wellness.jpg" alt="A veterinarian examining a small dog" loading="lazy"></div><div class="bd"><h3>Wellness Visits</h3><p>Puppy &amp; kitten exams, vaccines, microchipping, parasite control and senior wellness.</p><span class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-    <a class="svc" href="/ivesdairyvet/services/urgent-sick/"><div class="ph"><img src="img/svc-urgent.jpg" alt="A dog resting during a sick visit" loading="lazy"></div><div class="bd"><h3>Urgent &amp; Sick Visits</h3><p>Same-day help for allergies, tummy troubles, coughing, ear infections, limping and more.</p><span class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-    <a class="svc" href="/ivesdairyvet/services/surgery-dentistry/"><div class="ph"><img src="img/svc-surgery.jpg" alt="A clinical veterinary exam" loading="lazy"></div><div class="bd"><h3>Surgery &amp; Dentistry</h3><p>Spays &amp; neuters, mass removals, and full dental care — X-rays, cleaning and extractions.</p><span class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+    <a class="svc" href="/ivesdairyvet/services/wellness/"><div class="ph"><img src="img/home-wellness.jpg" alt="A veterinarian examining a small dog" loading="lazy"></div><div class="bd"><h3>Wellness Visits</h3><p>Puppy &amp; kitten exams, vaccines, microchipping, parasite control and senior wellness.</p><span class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+    <a class="svc" href="/ivesdairyvet/services/urgent-sick/"><div class="ph"><img src="img/home-urgent.jpg" alt="A dog resting during a sick visit" loading="lazy"></div><div class="bd"><h3>Urgent &amp; Sick Visits</h3><p>Same-day help for allergies, tummy troubles, coughing, ear infections, limping and more.</p><span class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+    <a class="svc" href="/ivesdairyvet/services/surgery-dentistry/"><div class="ph"><img src="img/home-surgery.jpg" alt="A clinical veterinary exam" loading="lazy"></div><div class="bd"><h3>Surgery &amp; Dentistry</h3><p>Spays &amp; neuters, mass removals, and full dental care — X-rays, cleaning and extractions.</p><span class="more">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
   </div>
   <div style="margin-top:32px"><a class="btn btn-ghost" href="/ivesdairyvet/services/">View all services</a></div>
 </div></section>
 
 <section class="care"><div class="wrap care-in">
-  <div class="care-media"><img src="img/care.jpg" alt="A pet owner sharing a happy moment with her dog" width="1200" height="1020" loading="lazy"></div>
+  <div class="care-media"><img src="img/home-care.jpg" alt="A pet owner sharing a happy moment with her dog" width="1200" height="1020" loading="lazy"></div>
   <div>
     <span class="eyebrow">Who you'll meet</span>
     <h2>Independently owned, and proud of it.</h2>
