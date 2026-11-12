@@ -188,3 +188,61 @@ footer a:hover{color:var(--green)}
 
 a:focus-visible,button:focus-visible{outline:3px solid var(--green);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ===== multi-page additions ===== */
+/* mobile hamburger menu (CSS-only) */
+.nav-toggle{position:absolute;opacity:0;pointer-events:none}
+.burger{display:none;align-items:center;justify-content:center;width:42px;height:42px;cursor:pointer;color:var(--ink);border-radius:var(--radius)}
+.burger svg{width:26px;height:26px}
+@media(max-width:980px){
+  .burger{display:inline-flex;margin-left:auto}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 26px 16px;box-shadow:var(--shadow-sm);margin-left:0;text-transform:none;letter-spacing:.02em;font-size:.98rem}
+  .nav-toggle:checked ~ .nav-links{display:flex}
+  .nav-links a{padding:13px 2px;border-bottom:1px solid var(--line-2)}
+  .nav-cta{margin-left:14px}
+}
+
+/* team page */
+.team-full{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.member{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;text-align:center}
+.member .ph{aspect-ratio:1/1;overflow:hidden;background:var(--cream)}
+.member .ph img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.member .avatar{width:100%;aspect-ratio:1/1;border-radius:0;font-size:3.2rem;border:none;background:var(--green-tint)}
+.member .bd{padding:20px}
+.member b{font-family:var(--serif);font-size:1.4rem;color:var(--ink);display:block;line-height:1.1}
+.member .role{color:var(--green);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-top:4px;display:block}
+@media(max-width:860px){.team-full{grid-template-columns:1fr 1fr}}
+.lead-vet{display:grid;grid-template-columns:300px 1fr;gap:clamp(28px,4vw,52px);align-items:center;background:var(--cream);border-radius:var(--radius-lg);padding:clamp(28px,4vw,46px);margin-bottom:46px}
+.lead-vet .avatar{width:220px;height:220px;font-size:4.5rem;margin:0 auto}
+.lead-vet h2{font-size:clamp(2rem,1.4rem+2vw,2.8rem)}
+.lead-vet .role{color:var(--green);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.82rem;margin:6px 0 14px;display:block}
+.lead-vet p{color:var(--ink-soft);margin:0 0 14px;font-size:1.02rem}
+@media(max-width:700px){.lead-vet{grid-template-columns:1fr;text-align:center}.lead-vet p{text-align:left}}
+
+/* light hours card (about/contact/new-patients) */
+.hours-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:28px}
+.hours-card h3{font-family:var(--sans);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:16px;font-weight:700}
+.hours-card ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.hours-card li{display:flex;justify-content:space-between;font-size:.98rem;color:var(--ink-soft);padding-bottom:9px;border-bottom:1px solid var(--line-2)}
+.hours-card li:last-child{border-bottom:none;padding-bottom:0}
+.hours-card li b{color:var(--ink);font-weight:600}
+.hours-card li.cl b{color:var(--muted);font-weight:500}
+
+/* new patients steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:28px}
+.step .n{font-family:var(--serif);font-weight:700;font-size:1.3rem;color:#fff;background:var(--green);width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.step h3{font-size:1.4rem;margin-bottom:8px}
+.step p{color:var(--ink-soft);font-size:.96rem;margin:0}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+
+/* related services chips */
+.related{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.related a{background:var(--surface);border:1px solid var(--line);border-radius:var(--pill);padding:9px 16px;font-size:.88rem;font-weight:600;color:var(--ink-soft)}
+.related a:hover{border-color:var(--green);color:var(--green)}
+.prose{max-width:var(--read)}
+.prose p{color:var(--ink-soft);font-size:1.08rem;margin:0 0 20px}
+.prose h2{font-size:clamp(1.7rem,1.3rem+1.4vw,2.3rem);margin:34px 0 12px}
+.prose ul{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:11px}
+.prose li{position:relative;padding-left:24px;font-size:1.04rem;color:var(--ink-soft)}
+.prose li::before{content:"";position:absolute;left:2px;top:10px;width:8px;height:8px;border-radius:50%;background:var(--green)}
