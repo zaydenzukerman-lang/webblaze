@@ -251,3 +251,26 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--green);outline-offs
 .svc .kic{width:54px;height:54px;border-radius:12px;background:var(--green-tint);color:var(--green);display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px}
 .svc .kic svg{width:27px;height:27px}
 .svc.icon .bd{padding:30px}
+/* appointments app buttons */
+.appbtns{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.appbtn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;border-radius:12px;padding:11px 18px;font-weight:600;font-size:.92rem;transition:transform .25s var(--ease),background .25s}
+.appbtn:hover{transform:translateY(-2px);background:#000}
+.appbtn svg{width:22px;height:22px;flex:none}
+.appbtn span{display:block;font-size:.66rem;opacity:.8;font-weight:500;line-height:1}
+.appbtn b{font-size:1rem;line-height:1.1}
+/* payment / cherry */
+.cherry{background:linear-gradient(135deg,#FBE9F0,#F7EEF2);border:1px solid #F0D7E2;border-radius:var(--radius-lg);padding:clamp(28px,4vw,44px)}
+.cherry .tag{display:inline-block;font-weight:800;color:#C2185B;font-size:.9rem;letter-spacing:.02em;margin-bottom:8px}
+.cherry h2{font-size:clamp(1.9rem,1.4rem+1.8vw,2.7rem)}
+.cherry p{color:var(--ink-soft);margin:12px 0 0;max-width:60ch}
+.cherry .disc{font-size:.78rem;color:var(--muted);margin-top:18px;max-width:none}
+.cherry .disc a{color:var(--ink-soft);text-decoration:underline}
+.cherry-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:26px 0}
+.cherry-step{background:rgba(255,255,255,.7);border-radius:var(--radius);padding:18px}
+.cherry-step .n{font-family:var(--serif);font-weight:700;color:#C2185B;font-size:1.2rem}
+.cherry-step b{display:block;font-family:var(--serif);font-size:1.2rem;margin:6px 0 4px}
+.cherry-step span{font-size:.9rem;color:var(--ink-soft)}
+.cherry .btn{background:#C2185B}.cherry .btn:hover{background:#A01047}
+@media(max-width:640px){.cherry-steps{grid-template-columns:1fr}}
+.pay-also{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px}
+.pay-chip{background:var(--surface);border:1px solid var(--line);border-radius:var(--pill);padding:12px 22px;font-weight:700;color:var(--ink)}
