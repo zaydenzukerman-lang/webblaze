@@ -10,18 +10,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="aditi-img/hero.jpg">
-<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700&family=Allura&display=swap">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Figtree:wght@400;500;600;700&family=Allura&display=swap"></noscript>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Mulish:wght@400;500;600;700;800&family=Allura&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Mulish:wght@400;500;600;700;800&family=Allura&display=swap"></noscript>
 <style>
 :root{
-  --teal:#0E6E63;--teal-deep:#0A4A43;--teal-tint:#E7F1EF;--teal-tint-2:#F1F7F5;
-  --amber:#E2834A;--amber-2:#EC9A63;--amber-tint:#FBEEE3;
-  --red:#C0452F;--red-tint:#FBEDE9;
-  --ink:#19302C;--ink-soft:#43554F;--muted:#788883;
-  --paper:#FBFAF7;--surface:#FFFFFF;--line:#E9E6DF;
-  --maxw:1120px;--read:720px;--radius:18px;--radius-lg:24px;--radius-pill:999px;
-  --serif:'Fraunces',Georgia,serif;--sans:'Figtree',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;--script:'Allura',cursive;
-  --shadow:0 24px 60px -30px rgba(14,74,67,.3);--shadow-sm:0 12px 30px -16px rgba(14,74,67,.2);
+  --teal:#3E6B46;--teal-deep:#1B1A17;--teal-tint:#E9F0E8;--teal-tint-2:#F3ECE0;
+  --amber:#B4632D;--amber-2:#C47a42;--amber-tint:#F5E8DA;
+  --red:#B23A26;--red-tint:#F6E7E2;
+  --ink:#1B1A17;--ink-soft:#4C473F;--muted:#8A857B;
+  --paper:#FDFBF7;--surface:#FFFFFF;--line:#E7DFD0;--cream:#F3ECE0;
+  --maxw:1120px;--read:720px;--radius:6px;--radius-lg:8px;--radius-pill:999px;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Mulish',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;--script:'Allura',cursive;
+  --shadow:0 30px 70px -40px rgba(27,26,23,.5);--shadow-sm:0 16px 40px -24px rgba(27,26,23,.3);
   --ease:cubic-bezier(.22,1,.36,1);
 }
 *{box-sizing:border-box}
@@ -40,11 +40,11 @@ h1,h2,h3{margin:0;font-family:var(--serif);font-weight:600;line-height:1.1;lette
 .nav{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.85);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
 .nav-in{max-width:var(--maxw);margin:0 auto;padding:11px 24px;display:flex;align-items:center;gap:16px}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1.02rem;color:var(--ink);line-height:1.12;max-width:260px}
-.brand .mark{width:34px;height:34px;flex:none;border-radius:10px;background:var(--teal);display:inline-flex;align-items:center;justify-content:center}
-.brand .mark svg{width:20px;height:20px;color:#fff}
-.nav .btn{margin-left:auto;background:linear-gradient(135deg,var(--amber),var(--amber-2));color:#fff;font-weight:700;font-size:.9rem;padding:10px 18px;border-radius:var(--radius-pill);white-space:nowrap;box-shadow:0 12px 26px -12px rgba(226,131,74,.6);transition:transform .25s var(--ease)}
+.brand img.mark{height:42px;width:auto;flex:none}
+.nav .btn{margin-left:auto;background:var(--ink);color:#fff;font-weight:700;font-size:.82rem;letter-spacing:.02em;padding:11px 20px;border-radius:var(--radius-pill);white-space:nowrap;transition:transform .25s var(--ease),background .25s}
+.nav .btn:hover{background:#000}
 .nav .btn:hover{transform:translateY(-2px);text-decoration:none}
-@media(max-width:560px){.brand{font-size:.9rem;max-width:200px}}
+@media(max-width:560px){.brand .nm{display:none}}
 
 .ahead{padding:clamp(34px,5vw,60px) 0 0}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
@@ -92,14 +92,14 @@ article .inline-fig figcaption{color:var(--muted);font-size:.84rem;text-align:ce
 
 .faq-q{font-family:var(--serif);font-weight:600;font-size:1.12rem;color:var(--ink);margin:26px 0 6px}
 
-.cta-box{background:linear-gradient(150deg,var(--teal),var(--teal-deep));color:#EAF4F1;border-radius:var(--radius-lg);padding:clamp(28px,4vw,40px);margin:40px 0;text-align:center}
-.cta-box h3{color:#fff;font-size:clamp(1.4rem,1.1rem+1.4vw,1.9rem)}
-.cta-box p{color:#C3DBD6;margin:12px auto 0;max-width:46ch}
+.cta-box{background:linear-gradient(155deg,#2A2824,#141310);color:#EDE7DA;border-radius:var(--radius-lg);padding:clamp(28px,4vw,40px);margin:40px 0;text-align:center}
+.cta-box h3{color:#fff;font-size:clamp(1.7rem,1.2rem+1.6vw,2.4rem)}
+.cta-box p{color:#B7AF9F;margin:12px auto 0;max-width:46ch}
 .cta-box .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
 .cta-box .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;padding:14px 24px;border-radius:var(--radius-pill);transition:transform .25s var(--ease)}
 .cta-box .btn svg{width:18px;height:18px}
-.cta-box .btn-amber{background:linear-gradient(135deg,var(--amber),var(--amber-2));color:#fff}
-.cta-box .btn-white{background:#fff;color:var(--teal-deep)}
+.cta-box .btn-amber{background:#fff;color:var(--ink)}
+.cta-box .btn-white{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
 .cta-box .btn:hover{transform:translateY(-2px);text-decoration:none}
 
 .sign{margin:44px 0 10px;padding-top:30px;border-top:1px solid var(--line)}
@@ -115,13 +115,13 @@ article .inline-fig figcaption{color:var(--muted);font-size:.84rem;text-align:ce
 
 .disclaimer{color:var(--muted);font-size:.86rem;font-style:italic;margin-top:30px}
 
-footer{background:var(--ink);color:#A9BDB8;margin-top:60px}
-.foot-in{max-width:var(--maxw);margin:0 auto;padding:40px 24px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
-.foot-in .b{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--serif);font-weight:700}
-.foot-in .b .mark{width:32px;height:32px;border-radius:9px;background:var(--teal);display:inline-flex;align-items:center;justify-content:center}
-.foot-in .b .mark svg{width:18px;height:18px;color:#fff}
-.foot-in a{color:#D4E2DF}
-.foot-note{text-align:center;font-size:.78rem;color:#6F867F;padding:0 24px 24px}
+footer{background:var(--cream);color:var(--ink-soft);margin-top:60px;border-top:1px solid var(--line)}
+.foot-in{max-width:var(--maxw);margin:0 auto;padding:36px 24px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+.foot-in .b{display:flex;align-items:center;gap:12px;color:var(--ink);font-family:var(--serif);font-weight:600;font-size:1.05rem}
+.foot-in .b img.mark{height:44px;width:auto}
+.foot-in a{color:var(--ink-soft)}
+.foot-in a:hover{color:var(--teal)}
+.foot-note{text-align:center;font-size:.78rem;color:var(--muted);padding:0 24px 26px}
 
 a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:8px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -134,8 +134,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offs
 <header class="nav">
   <div class="nav-in">
     <a class="brand" href="https://ivesdairyanimalclinic.com">
-      <span class="mark"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="14.5" r="4.6"/><circle cx="6.3" cy="7.6" r="1.9"/><circle cx="12" cy="5.6" r="1.9"/><circle cx="17.7" cy="7.6" r="1.9"/></svg></span>
-      Animal Clinic of Ives Dairy Road
+      <img class="mark" src="aditi-img/logo-mark.png" alt="Animal Clinic of Ives Dairy Road logo">
+      <span class="nm">Animal Clinic of Ives Dairy Road</span>
     </a>
     <a class="btn" href="tel:+13056533939">Book an Appointment</a>
   </div>
@@ -266,7 +266,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offs
 
 <footer>
   <div class="foot-in">
-    <span class="b"><span class="mark"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="14.5" r="4.6"/><circle cx="6.3" cy="7.6" r="1.9"/><circle cx="12" cy="5.6" r="1.9"/><circle cx="17.7" cy="7.6" r="1.9"/></svg></span>Animal Clinic of Ives Dairy Road</span>
+    <span class="b"><img class="mark" src="aditi-img/logo.png" alt="Animal Clinic of Ives Dairy Road logo">Animal Clinic of Ives Dairy Road</span>
     <span>1562 NE 205th St, Miami, FL 33179 · <a href="tel:+13056533939">(305) 653-3939</a></span>
   </div>
   <div class="foot-note">© 2026 Animal Clinic of Ives Dairy Road · Sample article &amp; website preview by WebBlaze</div>
